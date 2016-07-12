@@ -1,0 +1,674 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОсвобождениеОтНалогообложения</dataPath>
+				<field>ОсвобождениеОтНалогообложения</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Освобождение от налогообложения</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОсновноеСредство</dataPath>
+				<field>ОсновноеСредство</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РасположенВРазныхСубъектахФедерации</dataPath>
+				<field>РасположенВРазныхСубъектахФедерации</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Расположен в разных субъектах федерации</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СчетНачисленияАмортизации</dataPath>
+				<field>СчетНачисленияАмортизации</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОстаточнаяСтоимость</dataPath>
+				<field>ОстаточнаяСтоимость</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Остаточная стоимость</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВходитВСоставЕСГС</dataPath>
+				<field>ВходитВСоставЕСГС</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Входит в состав ЕСГС</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КодНалоговойЛьготыОсвобождениеОтНалогообложения</dataPath>
+				<field>КодНалоговойЛьготыОсвобождениеОтНалогообложения</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Код налоговой льготы освобождение от налогообложения</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КодПоОКАТО</dataPath>
+				<field>КодПоОКАТО</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Код по ОКАТО</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВходитВДекларацию</dataPath>
+				<field>ВходитВДекларацию</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Входит в декларацию</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Амортизация</dataPath>
+				<field>Амортизация</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Амортизация</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачСтоимость</dataPath>
+				<field>НачСтоимость</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Нач стоимость</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СчетУчетаПервоначальнойСтоимости</dataPath>
+				<field>СчетУчетаПервоначальнойСтоимости</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Счет учета первоначальной стоимости</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто3</dataPath>
+				<field>Субконто3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СнижениеНалоговойСтавки</dataPath>
+				<field>СнижениеНалоговойСтавки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Снижение налоговой ставки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НалоговаяСтавка</dataPath>
+				<field>НалоговаяСтавка</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Налоговая ставка</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НалоговыйОрган</dataPath>
+				<field>НалоговыйОрган</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Налоговый орган</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	РасчетНалогаНаИмущество.Организация,
+	РасчетНалогаНаИмущество.ОсновноеСредство,
+	РасчетНалогаНаИмущество.ИФНС КАК НалоговыйОрган,
+	РасчетНалогаНаИмущество.НалоговаяБаза
+ПОМЕСТИТЬ СписокОС
+ИЗ
+	РегистрСведений.РасчетНалогаНаИмущество КАК РасчетНалогаНаИмущество
+ГДЕ
+	РасчетНалогаНаИмущество.НалоговаяБаза &lt;&gt; 0
+	И РасчетНалогаНаИмущество.ПериодРасчета = НАЧАЛОПЕРИОДА(КОНЕЦПЕРИОДА(&amp;Период, КВАРТАЛ), ДЕНЬ)
+{ГДЕ
+	РасчетНалогаНаИмущество.Организация.*}
+
+ИНДЕКСИРОВАТЬ ПО
+	РасчетНалогаНаИмущество.Организация,
+	РасчетНалогаНаИмущество.ОсновноеСредство
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РасчетНалогаНаИмущество.Организация,
+	РасчетНалогаНаИмущество.ОсновноеСредство,
+	РасчетНалогаНаИмущество.ИФНС КАК НалоговыйОрган,
+	РасчетНалогаНаИмущество.НалоговаяБаза
+ПОМЕСТИТЬ СписокОСНеПопавшихВОтчет
+ИЗ
+	РегистрСведений.РасчетНалогаНаИмущество КАК РасчетНалогаНаИмущество
+ГДЕ
+	РасчетНалогаНаИмущество.НалоговаяБаза = 0
+	И РасчетНалогаНаИмущество.ПериодРасчета = НАЧАЛОПЕРИОДА(КОНЕЦПЕРИОДА(&amp;Период, КВАРТАЛ), ДЕНЬ)
+{ГДЕ
+	РасчетНалогаНаИмущество.Организация.*}
+
+ИНДЕКСИРОВАТЬ ПО
+	РасчетНалогаНаИмущество.Организация,
+	РасчетНалогаНаИмущество.ОсновноеСредство
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	СчетаБухгалтерскогоУчетаОССрезПоследних.СчетУчета,
+	СчетаБухгалтерскогоУчетаОССрезПоследних.СчетНачисленияАмортизации
+ПОМЕСТИТЬ СчетаУчетаОС
+ИЗ
+	РегистрСведений.СчетаБухгалтерскогоУчетаОС.СрезПоследних(
+			&amp;Период,
+			ОсновноеСредство В
+				(ВЫБРАТЬ РАЗЛИЧНЫЕ
+					СписокОС.ОсновноеСредство
+				ИЗ
+					СписокОС
+			
+				ОБЪЕДИНИТЬ
+			
+				ВЫБРАТЬ
+					СписокОСНеПопавшихВОтчет.ОсновноеСредство
+				ИЗ
+					СписокОСНеПопавшихВОтчет)) КАК СчетаБухгалтерскогоУчетаОССрезПоследних
+{ГДЕ
+	СчетаБухгалтерскогоУчетаОССрезПоследних.Организация.*}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВыбытиеОС),
+	NULL
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СписокОС.Организация КАК Организация,
+	СписокОС.ОсновноеСредство,
+	СписокОС.НалоговыйОрган,
+	ВЫБОР
+		КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПостановкаНаУчетВНалоговомОргане = ЗНАЧЕНИЕ(Перечисление.ПостановкаНаУчетВНалоговомОргане.СДругимКодомПоОКАТО)
+				ИЛИ СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПостановкаНаУчетВНалоговомОргане = ЗНАЧЕНИЕ(Перечисление.ПостановкаНаУчетВНалоговомОргане.ВДругомНалоговомОргане)
+			ТОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.КодПоОКАТО
+		ИНАЧЕ СтавкиНалогаНаИмуществоСрезПоследних.Организация.КодПоОКАТО
+	КОНЕЦ КАК КодПоОКАТО,
+	ЕСТЬNULL(ВЫБОР
+			КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПорядокНалогообложения = ЗНАЧЕНИЕ(Перечисление.ПорядокНалогообложенияИмущества.ОблагаетсяПоСниженнойСтавке)
+				ТОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.СниженнаяНалоговаяСтавка
+			КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПостановкаНаУчетВНалоговомОргане = ЗНАЧЕНИЕ(Перечисление.ПостановкаНаУчетВНалоговомОргане.ВДругомНалоговомОргане)
+				ТОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.НалоговаяСтавка
+			ИНАЧЕ ВЫБОР
+					КОГДА СтавкиНалогаНаИмуществоСрезПоследних.СнижениеНалоговойСтавки
+						ТОГДА СтавкиНалогаНаИмуществоСрезПоследних.СниженнаяНалоговаяСтавка
+					ИНАЧЕ СтавкиНалогаНаИмуществоСрезПоследних.НалоговаяСтавка
+				КОНЕЦ
+		КОНЕЦ, СтавкиНалогаНаИмуществоСрезПоследних.НалоговаяСтавка) КАК НалоговаяСтавка,
+	ВЫБОР
+		КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПорядокНалогообложения = ЗНАЧЕНИЕ(Перечисление.ПорядокНалогообложенияИмущества.ОблагаетсяПоСниженнойСтавке)
+			ТОГДА ИСТИНА
+		КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПостановкаНаУчетВНалоговомОргане = ЗНАЧЕНИЕ(Перечисление.ПостановкаНаУчетВНалоговомОргане.ВДругомНалоговомОргане)
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ЕСТЬNULL(СтавкиНалогаНаИмуществоСрезПоследних.СнижениеНалоговойСтавки, ЛОЖЬ)
+	КОНЕЦ КАК СнижениеНалоговойСтавки,
+	ВЫБОР
+		КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПорядокНалогообложения = ЗНАЧЕНИЕ(Перечисление.ПорядокНалогообложенияИмущества.ОсвобождаетсяОтНалогообложения)
+			ТОГДА ИСТИНА
+		КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПостановкаНаУчетВНалоговомОргане = ЗНАЧЕНИЕ(Перечисление.ПостановкаНаУчетВНалоговомОргане.ВДругомНалоговомОргане)
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ЕСТЬNULL(СтавкиНалогаНаИмуществоСрезПоследних.ОсвобождениеОтНалогообложения, ЛОЖЬ)
+	КОНЕЦ КАК ОсвобождениеОтНалогообложения,
+	ВЫБОР
+		КОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ПорядокНалогообложения = ЗНАЧЕНИЕ(Перечисление.ПорядокНалогообложенияИмущества.ОсвобождаетсяОтНалогообложения)
+			ТОГДА СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.КодНалоговойЛьготыОсвобождениеОтНалогообложения
+		ИНАЧЕ СтавкиНалогаНаИмуществоСрезПоследних.КодНалоговойЛьготыОсвобождениеОтНалогообложения
+	КОНЕЦ КАК КодНалоговойЛьготыОсвобождениеОтНалогообложения,
+	ЛОЖЬ КАК ВходитВСоставЕСГС,
+	ЛОЖЬ КАК РасположенВРазныхСубъектахФедерации,
+	ЕСТЬNULL(ПервоначальнаяСтоимостьОС.СуммаОстатокДт, 0) КАК НачСтоимость,
+	ЕСТЬNULL(АмортизацияОС.СуммаОстатокКт, 0) КАК Амортизация,
+	ЕСТЬNULL(ПервоначальнаяСтоимостьОС.СуммаОстатокДт, 0) - ЕСТЬNULL(АмортизацияОС.СуммаОстатокКт, 0) КАК ОстаточнаяСтоимость,
+	"Входит в декларацию" КАК ВходитВДекларацию,
+	СчетаБухгалтерскогоУчетаОССрезПоследних.СчетУчета КАК СчетУчетаПервоначальнойСтоимости,
+	СчетаБухгалтерскогоУчетаОССрезПоследних.СчетНачисленияАмортизации КАК СчетНачисленияАмортизации
+ПОМЕСТИТЬ ВТРаздел2
+ИЗ
+	СписокОС КАК СписокОС
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СчетаБухгалтерскогоУчетаОС.СрезПоследних(
+				&amp;Период,
+				ОсновноеСредство В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						СписокОС.ОсновноеСредство
+					ИЗ
+						СписокОС)) КАК СчетаБухгалтерскогоУчетаОССрезПоследних
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Хозрасчетный.Остатки(
+					&amp;Период,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СчетаУчетаОС.СчетУчета
+						ИЗ
+							СчетаУчетаОС
+						ГДЕ
+							СчетаУчетаОС.СчетУчета ЕСТЬ НЕ NULL ),
+					ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ОсновныеСредства),
+					) КАК ПервоначальнаяСтоимостьОС
+			ПО СчетаБухгалтерскогоУчетаОССрезПоследних.Организация = ПервоначальнаяСтоимостьОС.Организация
+				И СчетаБухгалтерскогоУчетаОССрезПоследних.ОсновноеСредство = ПервоначальнаяСтоимостьОС.Субконто1
+				И (СчетаБухгалтерскогоУчетаОССрезПоследних.СчетУчета = ПервоначальнаяСтоимостьОС.Счет
+					ИЛИ ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВыбытиеОС) = ПервоначальнаяСтоимостьОС.Счет)
+		ПО СписокОС.Организация = СчетаБухгалтерскогоУчетаОССрезПоследних.Организация
+			И СписокОС.ОсновноеСредство = СчетаБухгалтерскогоУчетаОССрезПоследних.ОсновноеСредство
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствам.СрезПоследних(
+				&amp;Период,
+				ОсновноеСредство В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						СписокОС.ОсновноеСредство
+					ИЗ
+						СписокОС)) КАК СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних
+		ПО СписокОС.Организация = СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.Организация
+			И СписокОС.ОсновноеСредство = СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ОсновноеСредство
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтавкиНалогаНаИмущество.СрезПоследних(&amp;Период, ) КАК СтавкиНалогаНаИмуществоСрезПоследних
+		ПО СписокОС.Организация = СтавкиНалогаНаИмуществоСрезПоследних.Организация
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Хозрасчетный.Остатки(
+				&amp;Период,
+				Счет В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						СчетаУчетаОС.СчетНачисленияАмортизации
+					ИЗ
+						СчетаУчетаОС
+					ГДЕ
+						СчетаУчетаОС.СчетНачисленияАмортизации ЕСТЬ НЕ NULL ),
+				ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ОсновныеСредства),
+				) КАК АмортизацияОС
+		ПО СписокОС.Организация = АмортизацияОС.Организация
+			И СписокОС.ОсновноеСредство = АмортизацияОС.Субконто1
+{ГДЕ
+	СписокОС.Организация.*}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	СписокОСНеПопавшихВОтчет.Организация,
+	СписокОСНеПопавшихВОтчет.ОсновноеСредство,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	ЕСТЬNULL(ПервоначальнаяСтоимостьОС.СуммаОстатокДт, 0),
+	ЕСТЬNULL(АмортизацияОС.СуммаОстатокКт, 0),
+	ЕСТЬNULL(ПервоначальнаяСтоимостьОС.СуммаОстатокДт, 0) - ЕСТЬNULL(АмортизацияОС.СуммаОстатокКт, 0),
+	"Не входит в декларацию",
+	СчетаБухгалтерскогоУчетаОССрезПоследних.СчетУчета,
+	СчетаБухгалтерскогоУчетаОССрезПоследних.СчетНачисленияАмортизации
+ИЗ
+	СписокОСНеПопавшихВОтчет КАК СписокОСНеПопавшихВОтчет
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СчетаБухгалтерскогоУчетаОС.СрезПоследних(
+				&amp;Период,
+				ОсновноеСредство В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						СписокОСНеПопавшихВОтчет.ОсновноеСредство
+					ИЗ
+						СписокОСНеПопавшихВОтчет)) КАК СчетаБухгалтерскогоУчетаОССрезПоследних
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Хозрасчетный.Остатки(
+					&amp;Период,
+					Счет В
+						(ВЫБРАТЬ РАЗЛИЧНЫЕ
+							СчетаУчетаОС.СчетУчета
+						ИЗ
+							СчетаУчетаОС
+						ГДЕ
+							СчетаУчетаОС.СчетУчета ЕСТЬ НЕ NULL ),
+					ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ОсновныеСредства),
+					) КАК ПервоначальнаяСтоимостьОС
+			ПО СчетаБухгалтерскогоУчетаОССрезПоследних.Организация = ПервоначальнаяСтоимостьОС.Организация
+				И СчетаБухгалтерскогоУчетаОССрезПоследних.ОсновноеСредство = ПервоначальнаяСтоимостьОС.Субконто1
+				И (СчетаБухгалтерскогоУчетаОССрезПоследних.СчетУчета = ПервоначальнаяСтоимостьОС.Счет
+					ИЛИ ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВыбытиеОС) = ПервоначальнаяСтоимостьОС.Счет)
+		ПО СписокОСНеПопавшихВОтчет.Организация = СчетаБухгалтерскогоУчетаОССрезПоследних.Организация
+			И СписокОСНеПопавшихВОтчет.ОсновноеСредство = СчетаБухгалтерскогоУчетаОССрезПоследних.ОсновноеСредство
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствам.СрезПоследних(
+				&amp;Период,
+				ОсновноеСредство В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						СписокОСНеПопавшихВОтчет.ОсновноеСредство
+					ИЗ
+						СписокОСНеПопавшихВОтчет)) КАК СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних
+		ПО СписокОСНеПопавшихВОтчет.Организация = СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.Организация
+			И СписокОСНеПопавшихВОтчет.ОсновноеСредство = СтавкиНалогаНаИмуществоПоОтдельнымОсновнымСредствамСрезПоследних.ОсновноеСредство
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтавкиНалогаНаИмущество.СрезПоследних(&amp;Период, ) КАК СтавкиНалогаНаИмуществоСрезПоследних
+		ПО СписокОСНеПопавшихВОтчет.Организация = СтавкиНалогаНаИмуществоСрезПоследних.Организация
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрБухгалтерии.Хозрасчетный.Остатки(
+				&amp;Период,
+				Счет В
+					(ВЫБРАТЬ РАЗЛИЧНЫЕ
+						СчетаУчетаОС.СчетНачисленияАмортизации
+					ИЗ
+						СчетаУчетаОС
+					ГДЕ
+						СчетаУчетаОС.СчетНачисленияАмортизации ЕСТЬ НЕ NULL ),
+				ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ОсновныеСредства),
+				) КАК АмортизацияОС
+		ПО СписокОСНеПопавшихВОтчет.Организация = АмортизацияОС.Организация
+			И СписокОСНеПопавшихВОтчет.ОсновноеСредство = АмортизацияОС.Субконто1
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Раздел2.Организация КАК Организация,
+	Раздел2.ОсновноеСредство КАК ОсновноеСредство,
+	Раздел2.НалоговыйОрган КАК НалоговыйОрган,
+	Раздел2.КодПоОКАТО КАК КодПоОКАТО,
+	Раздел2.НалоговаяСтавка КАК НалоговаяСтавка,
+	Раздел2.СнижениеНалоговойСтавки КАК СнижениеНалоговойСтавки,
+	Раздел2.ОсвобождениеОтНалогообложения КАК ОсвобождениеОтНалогообложения,
+	Раздел2.КодНалоговойЛьготыОсвобождениеОтНалогообложения КАК КодНалоговойЛьготыОсвобождениеОтНалогообложения,
+	Раздел2.ВходитВСоставЕСГС КАК ВходитВСоставЕСГС,
+	Раздел2.РасположенВРазныхСубъектахФедерации КАК РасположенВРазныхСубъектахФедерации,
+	Раздел2.НачСтоимость КАК НачСтоимость,
+	Раздел2.Амортизация КАК Амортизация,
+	Раздел2.ОстаточнаяСтоимость КАК ОстаточнаяСтоимость,
+	Раздел2.ВходитВДекларацию КАК ВходитВДекларацию,
+	Раздел2.СчетУчетаПервоначальнойСтоимости КАК СчетУчетаПервоначальнойСтоимости,
+	Раздел2.СчетНачисленияАмортизации КАК СчетНачисленияАмортизации
+{ВЫБРАТЬ
+	Организация.*,
+	ОсновноеСредство.*,
+	НалоговыйОрган.*,
+	КодПоОКАТО,
+	НалоговаяСтавка,
+	СнижениеНалоговойСтавки,
+	ОсвобождениеОтНалогообложения,
+	КодНалоговойЛьготыОсвобождениеОтНалогообложения,
+	ВходитВСоставЕСГС,
+	РасположенВРазныхСубъектахФедерации,
+	НачСтоимость,
+	Амортизация,
+	ОстаточнаяСтоимость,
+	ВходитВДекларацию,
+	СчетУчетаПервоначальнойСтоимости,
+	СчетНачисленияАмортизации}
+ИЗ
+	ВТРаздел2 КАК Раздел2
+{ГДЕ
+	Раздел2.Организация.*,
+	Раздел2.ОсновноеСредство.*,
+	Раздел2.НалоговыйОрган.*,
+	Раздел2.КодПоОКАТО,
+	Раздел2.НалоговаяСтавка,
+	Раздел2.СнижениеНалоговойСтавки,
+	Раздел2.ОсвобождениеОтНалогообложения,
+	Раздел2.КодНалоговойЛьготыОсвобождениеОтНалогообложения,
+	Раздел2.ВходитВСоставЕСГС,
+	Раздел2.РасположенВРазныхСубъектахФедерации,
+	Раздел2.НачСтоимость,
+	Раздел2.Амортизация,
+	Раздел2.ОстаточнаяСтоимость,
+	Раздел2.ВходитВДекларацию,
+	Раздел2.СчетУчетаПервоначальнойСтоимости,
+	Раздел2.СчетНачисленияАмортизации}</query>
+		</dataSet>
+		<totalField>
+			<dataPath>НачСтоимость</dataPath>
+			<expression>Сумма(НачСтоимость)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Амортизация</dataPath>
+			<expression>Сумма(Амортизация)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ОстаточнаяСтоимость</dataPath>
+			<expression>Сумма(ОстаточнаяСтоимость)</expression>
+		</totalField>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>Date</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>false</useRestriction>
+			<denyIncompleteValues>true</denyIncompleteValues>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Основной</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Имущество расшифровка раздела 2 налоговой декларации (Дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>НачСтоимость</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Амортизация</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ОстаточнаяСтоимость</field>
+		</item>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+			</dcscor:value>
+			<userSettingID>f4d56d5a-2438-4ae0-a170-f698f94d833c</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<conditionalAppearance>
+		<item>
+			<selection>
+				<item>
+					<field>НалоговаяСтавка</field>
+				</item>
+			</selection>
+			<filter/>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</item>
+	</conditionalAppearance>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">Auto</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Заголовок</dcscor:parameter>
+			<dcscor:value xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имущество расшифровка раздела 2 налоговой декларации</v8:content>
+				</v8:item>
+			</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">Auto</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">Auto</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Организация</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ВходитВДекларацию</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item xsi:type="StructureItemGroup">
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>НалоговаяСтавка</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item xsi:type="StructureItemGroup">
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<field>ОсновноеСредство</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
+			</item>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

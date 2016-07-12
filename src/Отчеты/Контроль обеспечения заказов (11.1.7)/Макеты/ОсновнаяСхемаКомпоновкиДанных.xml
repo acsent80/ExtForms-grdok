@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗаказКлиента</dataPath>
+				<field>ЗаказКлиента</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КодСтроки</dataPath>
+				<field>КодСтроки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+				<attributeUseRestriction>
+					<field>true</field>
+				</attributeUseRestriction>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтгрузитьРезервировать</dataPath>
+				<field>ОтгрузитьРезервировать</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Отгрузить (Резервировать на складе)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РезервироватьКДатеОтгрузки</dataPath>
+				<field>РезервироватьКДатеОтгрузки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Резервировать к дате отгрузки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗаказаноСумма</dataPath>
+				<field>ЗаказаноСумма</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Заказано сумма</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Заказано</dataPath>
+				<field>Заказано</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Заказано</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПросроченоДнейОтгрузки</dataPath>
+				<field>ПросроченоДнейОтгрузки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Просрочено дней отгрузки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаОтгрузки</dataPath>
+				<field>ДатаОтгрузки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Организация</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Партнер</dataPath>
+				<field>Партнер</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Партнер</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Менеджер</dataPath>
+				<field>Менеджер</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Менеджер</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВНаличииОстаток</dataPath>
+				<field>ВНаличииОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>В наличии</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВРезервеПодЗаказОстаток</dataPath>
+				<field>ВРезервеПодЗаказОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>В резерве под заказ</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВРезервеСоСкладаОстаток</dataPath>
+				<field>ВРезервеСоСкладаОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>В резерве со склада</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Обособленно</dataPath>
+				<field>Обособленно</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Обособленно</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ЗаказыКлиентовОстатки.ЗаказКлиента,
+	ЗаказыКлиентовОстатки.Номенклатура,
+	ЗаказыКлиентовОстатки.Характеристика,
+	ЗаказыКлиентовОстатки.Склад,
+	ЗаказыКлиентовОстатки.ЗаказаноОстаток,
+	ЗаказыКлиентовОстатки.КодСтроки,
+	ЗаказыКлиентовОстатки.СуммаОстаток
+ПОМЕСТИТЬ ВТ_ОстаткиЗаказов
+ИЗ
+	РегистрНакопления.ЗаказыКлиентов.Остатки(&amp;ДатаКонтроля, ) КАК ЗаказыКлиентовОстатки
+ГДЕ
+	ЗаказыКлиентовОстатки.ЗаказаноОстаток &gt; 0
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказКлиентаТовары.ВариантОбеспечения,
+	ЗаказКлиентаТовары.Ссылка,
+	ЗаказКлиентаТовары.Номенклатура,
+	ЗаказКлиентаТовары.Характеристика,
+	ЗаказКлиентаТовары.Склад,
+	ЗаказКлиентаТовары.КодСтроки,
+	ЗаказКлиентаТовары.ДатаОтгрузки
+ПОМЕСТИТЬ ВТ_Заказы
+ИЗ
+	Документ.ЗаказКлиента.Товары КАК ЗаказКлиентаТовары
+ГДЕ
+	ЗаказКлиентаТовары.Отменено = ЛОЖЬ
+
+СГРУППИРОВАТЬ ПО
+	ЗаказКлиентаТовары.Склад,
+	ЗаказКлиентаТовары.Номенклатура,
+	ЗаказКлиентаТовары.Ссылка,
+	ЗаказКлиентаТовары.ВариантОбеспечения,
+	ЗаказКлиентаТовары.Характеристика,
+	ЗаказКлиентаТовары.КодСтроки,
+	ЗаказКлиентаТовары.ДатаОтгрузки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ОстаткиЗаказов.Номенклатура,
+	ВТ_ОстаткиЗаказов.Характеристика,
+	ВТ_ОстаткиЗаказов.Склад,
+	СУММА(ВТ_ОстаткиЗаказов.ЗаказаноОстаток) КАК Заказано,
+	СУММА(ВТ_ОстаткиЗаказов.СуммаОстаток) КАК ЗаказаноСумма,
+	СУММА(ВЫБОР
+			КОГДА ВТ_Заказы.ВариантОбеспечения = ЗНАЧЕНИЕ(перечисление.Вариантыобеспечения.СоСклада)
+				ТОГДА ВТ_ОстаткиЗаказов.ЗаказаноОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК ОтгрузитьРезервировать,
+	СУММА(ВЫБОР
+			КОГДА ВТ_Заказы.ВариантОбеспечения = ЗНАЧЕНИЕ(перечисление.Вариантыобеспечения.ИзЗаказов)
+				ТОГДА ВТ_ОстаткиЗаказов.ЗаказаноОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК РезервироватьКДатеОтгрузки,
+	ВТ_ОстаткиЗаказов.ЗаказКлиента,
+	ВТ_Заказы.ДатаОтгрузки,
+	СУММА(ВЫБОР
+			КОГДА ВТ_Заказы.ВариантОбеспечения = ЗНАЧЕНИЕ(перечисление.Вариантыобеспечения.Обособленно)
+				ТОГДА ВТ_ОстаткиЗаказов.ЗаказаноОстаток
+			ИНАЧЕ 0
+		КОНЕЦ) КАК Обособленно
+ПОМЕСТИТЬ ВТ_ЗаказанныйТовар
+ИЗ
+	ВТ_ОстаткиЗаказов КАК ВТ_ОстаткиЗаказов
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_Заказы КАК ВТ_Заказы
+		ПО ВТ_ОстаткиЗаказов.ЗаказКлиента = ВТ_Заказы.Ссылка
+			И ВТ_ОстаткиЗаказов.Номенклатура = ВТ_Заказы.Номенклатура
+			И ВТ_ОстаткиЗаказов.Характеристика = ВТ_Заказы.Характеристика
+			И ВТ_ОстаткиЗаказов.Склад = ВТ_Заказы.Склад
+			И ВТ_ОстаткиЗаказов.КодСтроки = ВТ_Заказы.КодСтроки
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ОстаткиЗаказов.Номенклатура,
+	ВТ_ОстаткиЗаказов.Склад,
+	ВТ_ОстаткиЗаказов.Характеристика,
+	ВТ_ОстаткиЗаказов.ЗаказКлиента,
+	ВТ_Заказы.ДатаОтгрузки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СвободныеОстаткиОстатки.Номенклатура,
+	СвободныеОстаткиОстатки.Характеристика,
+	СвободныеОстаткиОстатки.Склад,
+	СвободныеОстаткиОстатки.ВНаличииОстаток,
+	СвободныеОстаткиОстатки.ВРезервеСоСкладаОстаток,
+	СвободныеОстаткиОстатки.ВРезервеПодЗаказОстаток
+ПОМЕСТИТЬ ВТ_СвободныеОстатки
+ИЗ
+	РегистрНакопления.СвободныеОстатки.Остатки(&amp;ДатаКонтроля, ) КАК СвободныеОстаткиОстатки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ЗаказанныйТовар.ЗаказКлиента,
+	ВТ_ЗаказанныйТовар.ЗаказКлиента.Партнер КАК Партнер,
+	ВТ_ЗаказанныйТовар.ЗаказКлиента.Организация КАК Организация,
+	ВТ_ЗаказанныйТовар.ЗаказКлиента.Партнер.ОсновнойМенеджер КАК Менеджер,
+	ВТ_ЗаказанныйТовар.Склад,
+	ВТ_ЗаказанныйТовар.Номенклатура,
+	ВТ_ЗаказанныйТовар.Характеристика,
+	ВТ_ЗаказанныйТовар.ДатаОтгрузки,
+	ВТ_ЗаказанныйТовар.Заказано,
+	ВТ_ЗаказанныйТовар.ЗаказаноСумма,
+	ВТ_ЗаказанныйТовар.ОтгрузитьРезервировать,
+	ВТ_ЗаказанныйТовар.РезервироватьКДатеОтгрузки,
+	РАЗНОСТЬДАТ(ВТ_ЗаказанныйТовар.ДатаОтгрузки, &amp;ДатаКонтроля, ДЕНЬ) КАК ПросроченоДнейОтгрузки,
+	ВТ_СвободныеОстатки.ВНаличииОстаток,
+	ВТ_СвободныеОстатки.ВРезервеСоСкладаОстаток,
+	ВТ_СвободныеОстатки.ВРезервеПодЗаказОстаток,
+	ВТ_ЗаказанныйТовар.Обособленно
+ИЗ
+	ВТ_ЗаказанныйТовар КАК ВТ_ЗаказанныйТовар
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_СвободныеОстатки КАК ВТ_СвободныеОстатки
+		ПО ВТ_ЗаказанныйТовар.Номенклатура = ВТ_СвободныеОстатки.Номенклатура
+			И ВТ_ЗаказанныйТовар.Характеристика = ВТ_СвободныеОстатки.Характеристика
+			И ВТ_ЗаказанныйТовар.Склад = ВТ_СвободныеОстатки.Склад</query>
+		</dataSet>
+		<calculatedField>
+			<dataPath>ДоступноДляПродажи</dataPath>
+			<expression>ВНаличииОстаток-ОтгрузитьРезервировать-РезервироватьКДатеОтгрузки</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Доступно для продажи</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
+		<totalField>
+			<dataPath>ВНаличииОстаток</dataPath>
+			<expression>Сумма(ВНаличииОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ВРезервеПодЗаказОстаток</dataPath>
+			<expression>Максимум(ВРезервеПодЗаказОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ВРезервеСоСкладаОстаток</dataPath>
+			<expression>Максимум(ВРезервеСоСкладаОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Заказано</dataPath>
+			<expression>Сумма(Заказано)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ЗаказаноСумма</dataPath>
+			<expression>Сумма(ЗаказаноСумма)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ОтгрузитьРезервировать</dataPath>
+			<expression>Сумма(ОтгрузитьРезервировать)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПросроченоДнейОтгрузки</dataPath>
+			<expression>Сумма(ПросроченоДнейОтгрузки)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>РезервироватьКДатеОтгрузки</dataPath>
+			<expression>Сумма(РезервироватьКДатеОтгрузки)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ДоступноДляПродажи</dataPath>
+			<expression>Сумма(ДоступноДляПродажи)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Обособленно</dataPath>
+			<expression>Сумма(Обособленно)</expression>
+		</totalField>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ДатаКонтроля</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата контроля</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">КонтрольОбеспеченияЗаказов</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Контроль обеспечения заказов</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Номенклатура</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ДатаОтгрузки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПросроченоДнейОтгрузки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ВНаличииОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ОтгрузитьРезервировать</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>РезервироватьКДатеОтгрузки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КОбеспечению</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>НеОбеспечивать</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Обособленно</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ОтгрузитьОбособленно</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ДоступноДляПродажи</field>
+		</item>
+		<viewMode>Normal</viewMode>
+		<userSettingID>28f6b2db-1030-475a-82fc-7bad51c2e017</userSettingID>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Номенклатура</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>faf9e009-d901-496d-86b4-795ee60f5e74</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Склад</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>a6137942-13e1-4d9f-965f-f84c8723dab1</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ПросроченоДнейОтгрузки</left>
+			<comparisonType>GreaterOrEqual</comparisonType>
+			<right xsi:type="xs:decimal">0</right>
+			<userSettingID>b4ce503d-a27d-4f98-98a5-591dc73b73d4</userSettingID>
+		</item>
+		<viewMode>Normal</viewMode>
+		<userSettingID>cb4e2248-ceb8-4028-b3a0-fdc74cd2f7df</userSettingID>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ДатаКонтроля</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+			</dcscor:value>
+			<userSettingID>2da5e920-bbdb-4b4a-b652-7fce3a7aa0e3</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<order>
+		<viewMode>Normal</viewMode>
+		<userSettingID>e0e06284-829f-4ad2-9314-5ad48ca5db18</userSettingID>
+	</order>
+	<conditionalAppearance>
+		<viewMode>Normal</viewMode>
+		<userSettingID>5101cfeb-ec75-4dd1-9be3-4b09ba8b95e2</userSettingID>
+	</conditionalAppearance>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">BeginAndEnd</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">Auto</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Заголовок</dcscor:parameter>
+			<dcscor:value xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контроль обеспечения заказов</v8:content>
+				</v8:item>
+			</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Менеджер</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ЗаказКлиента</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item xsi:type="StructureItemGroup">
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Номенклатура</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>ДатаОтгрузки</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+			</item>
+		</item>
+	</item>
+	<itemsViewMode>Normal</itemsViewMode>
+	<itemsUserSettingID>c7bd6ec6-238b-4e12-b268-6506d127ef10</itemsUserSettingID>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

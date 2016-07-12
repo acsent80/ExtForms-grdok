@@ -1,0 +1,83 @@
+﻿												
+												
+												
+		 LLC "PLPK"										
+		618270, Russian Federation, Permsky region, Gremiachinsk,										
+		 pos. Yugo-Zapadny, Str, Kommunisticheskaya 1										
+		phone: +7 (34250) 2 12 88										
+		fax: +7 (34250) 2 12 88										
+												
+												
+		Invoice  No:		Номер			Buyer:	КонтрагентНаименованиеПолное				
+		Date of invoice:		Дата								
+		Contract No:		ДоговорКонтрагентаНомер				ИностранныйАдрес				
+		Contract date:		ДоговорКонтрагентаДата								
+		Customer-No:		КонтрагентКод				Телефон				
+		Terms of payment:		as per Contract				Факс				
+		Currency:		ВалютаДокумента				Банк				
+		Terms of delivery:		as per Contract				Счет				
+								Идентификатор				
+												
+												
+			Manufacturer / Производитель:		LLC "PLPK" / Russian Federation/ Россия							
+												
+												
+		Description of Goods:					ОписаниеENG					
+		No.	BTN Code	Article*	Unit	"Quantity,
+cbm"	"Unit price, 
+[VAL]"	"Value, 
+[VAL]"	"Netto,
+kg"	"Brutto,
+kg"	Colli	
+		НомерСтроки	Артикул	Товар	ЕдИзмМ3	КоличествоМ3	Цена	Сумма	Нетто	Брутто	КоличествоМест	
+												
+												
+												
+		№	Код ТН ВЭД	Наименование	Единица измерения	Количество в куб.м	"Цена, 
+[Вал] за куб. м"	"Стоимость, 
+[Вал]"	"Нетто,
+кг"	"Брутто,
+кг"	Мест	
+					TOTAL:	ИтогоОбъем	Цена	ИтогоСумма	ИтогоНетто	ИтогоБрутто	ИтогоМест	
+					*all the goods are packed according to ISPM 15							
+												
+												
+												
+					PLPK LLC							
+												
+					Managing Director			_____________________________/D.S. Isaykin/				
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+												
+			Remittance advice									
+			INTERMEDIARY BANK	COMMERZBANK AG	Bank of benefeciarys		EUROCITYBANK, Russia, Mytischi		Beneficiary	LLC PLPK, Russia		
+				Germany		SWIFT	ECBBRUMM					
+			SWIFT	COBADEFF		ACC#	400886462100		ACC#	   40702978002001000046		
+												
+												
+												
+
+
+												
+												

@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СостояниеСотрудника</dataPath>
+				<field>СостояниеСотрудника</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Состояние сотрудника</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сотрудник</dataPath>
+				<field>Сотрудник</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗначениеПоказателя</dataPath>
+				<field>ЗначениеПоказателя</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Значение показателя</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатель</dataPath>
+				<field>Показатель</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаУстановкиЗначенияПоказателя</dataPath>
+				<field>ДатаУстановкиЗначенияПоказателя</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Дата установки значения показателя</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ЕСТЬNULL(ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудниковСрезПоследних.Сотрудник, СостоянияСотрудниковСрезПоследних.Сотрудник) КАК Сотрудник,
+	ЕСТЬNULL(ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудниковСрезПоследних.Значение, 0) КАК ЗначениеПоказателя,
+	СостоянияСотрудниковСрезПоследних.Состояние КАК СостояниеСотрудника,
+	ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудниковСрезПоследних.Период КАК ДатаУстановкиЗначенияПоказателя,
+	ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудниковСрезПоследних.Показатель КАК Показатель
+ИЗ
+	РегистрСведений.ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.СрезПоследних({(&amp;ДатаНачала)}, Показатель = &amp;Показатель) КАК ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудниковСрезПоследних
+		ПОЛНОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияСотрудников.СрезПоследних({(&amp;ДатаНачала)}, ) КАК СостоянияСотрудниковСрезПоследних
+		ПО ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудниковСрезПоследних.Сотрудник = СостоянияСотрудниковСрезПоследних.Сотрудник
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЕСТЬNULL(ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.Сотрудник, СостоянияСотрудниковСрезПоследних.Сотрудник),
+	ЕСТЬNULL(ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.Значение, 0),
+	СостоянияСотрудниковСрезПоследних.Состояние,
+	ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.Период,
+	ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.Показатель
+ИЗ
+	РегистрСведений.ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников КАК ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников
+		ПОЛНОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияСотрудников.СрезПоследних({(&amp;ДатаНачала)}, ) КАК СостоянияСотрудниковСрезПоследних
+		ПО ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.Сотрудник = СостоянияСотрудниковСрезПоследних.Сотрудник
+ГДЕ
+	ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.Период &gt; &amp;ДатаНачала
+	И ЗначенияПериодическихПоказателейРасчетаЗарплатыСотрудников.Период &lt;= &amp;ДатаОкончания</query>
+		</dataSet>
+		<totalField>
+			<dataPath>ЗначениеПоказателя</dataPath>
+			<expression>Сумма(ЗначениеПоказателя)</expression>
+		</totalField>
+		<parameter>
+			<name>Показатель</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Показатель</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПоказателиРасчетаЗарплаты</Type>
+			</valueType>
+			<value xsi:nil="true"/>
+			<useRestriction>false</useRestriction>
+			<denyIncompleteValues>true</denyIncompleteValues>
+		</parameter>
+		<parameter>
+			<name>ДатаНачала</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата начала</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+			<availableAsField>false</availableAsField>
+			<denyIncompleteValues>true</denyIncompleteValues>
+		</parameter>
+		<parameter>
+			<name>ДатаОкончания</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата окончания</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+			<availableAsField>false</availableAsField>
+			<denyIncompleteValues>true</denyIncompleteValues>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Основной</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Срез показатей расчета зарплаты (Дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Сотрудник</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ДатаУстановкиЗначенияПоказателя</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЗначениеПоказателя</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>СостояниеСотрудника</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">СостояниеСотрудника</left>
+			<comparisonType>NotEqual</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияСотрудника.Увольнение</right>
+			<viewMode>Normal</viewMode>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">СОТРУДНИК.ГоловнаяОрганизация</left>
+			<comparisonType>Equal</comparisonType>
+			<presentation xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</presentation>
+			<userSettingID>746dde07-0d99-4ee0-8992-f6c171b4e9da</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Показатель</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ДатаОкончания</dcscor:parameter>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+			<userSettingID>dd11f80c-e647-46ad-939c-ec912402b2c9</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonth</v8:variant>
+			</dcscor:value>
+			<userSettingID>1a0e602e-d10c-48cf-8887-4647ad480e7e</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<order>
+		<item xsi:type="OrderItemField">
+			<field>Сотрудник.ФизическоеЛицо.ФИО</field>
+			<orderType>Asc</orderType>
+		</item>
+		<item xsi:type="OrderItemField">
+			<field>ДатаУстановкиЗначенияПоказателя</field>
+			<orderType>Asc</orderType>
+		</item>
+	</order>
+	<item xsi:type="StructureItemGroup">
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

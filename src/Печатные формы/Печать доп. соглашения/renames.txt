@@ -1,0 +1,9 @@
+﻿0514dc13-bb92-41e9-b37b-7fa5f471cd9d-->und\0514dc13-bb92-41e9-b37b-7fa5f471cd9d
+24762b11-5671-4e84-b8f2-2a8802098371-->und\24762b11-5671-4e84-b8f2-2a8802098371
+24762b11-5671-4e84-b8f2-2a8802098371.0-->Form\ФормаСообщенияОбУправляемомРежиме
+c8750dc3-a816-406e-a39d-3c58197ceb3c.0\info-->und\c8750dc3-a816-406e-a39d-3c58197ceb3c.0\info
+c8750dc3-a816-406e-a39d-3c58197ceb3c.0\text-->ObjectModule.bsl
+copyinfo-->und\copyinfo
+root-->und\root
+version-->und\version
+versions-->und\versions

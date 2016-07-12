@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>СоставСемьи</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Родственник</dataPath>
+				<field>ФИО</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>[Дата рождения родственника]</dataPath>
+				<field>ДатаРождения</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>[Степень родства]</dataPath>
+				<field>СтепеньРодства</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сотрудник</dataPath>
+				<field>ФизическоеЛицо</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
+				<field>ДолжностьПоШтатномуРасписанию</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Должность</dataPath>
+				<field>Должность</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сотрудник</dataPath>
+				<field>Сотрудник</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидСобытия</dataPath>
+				<field>ВидСобытия</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоСтавок</dataPath>
+				<field>КоличествоСтавок</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидДоговора</dataPath>
+				<field>ВидДоговора</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Возраст</dataPath>
+				<field>Возраст</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Возраст</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	СоставыСемейФизическихЛиц.ФизическоеЛицо КАК ФизическоеЛицо,
+	СоставыСемейФизическихЛиц.НомерПоПорядку КАК НомерПоПорядку,
+	СоставыСемейФизическихЛиц.СтепеньРодства КАК СтепеньРодства,
+	СоставыСемейФизическихЛиц.ФИО КАК ФИО,
+	СоставыСемейФизическихЛиц.ДатаРождения КАК ДатаРождения,
+	ВЫБОР
+		КОГДА РАЗНОСТЬДАТ(СоставыСемейФизическихЛиц.ДатаРождения, &amp;ДО, ГОД) &gt; 200
+			ТОГДА "Проверьте заполнение"
+		ИНАЧЕ ВЫБОР
+				КОГДА ДЕНЬГОДА(СоставыСемейФизическихЛиц.ДатаРождения) &lt;= ДЕНЬГОДА(&amp;ДО)
+					ТОГДА РАЗНОСТЬДАТ(СоставыСемейФизическихЛиц.ДатаРождения, &amp;ДО, ГОД)
+				ИНАЧЕ РАЗНОСТЬДАТ(СоставыСемейФизическихЛиц.ДатаРождения, ДОБАВИТЬКДАТЕ(&amp;ДО, ГОД, -1), ГОД)
+			КОНЕЦ
+	КОНЕЦ КАК Возраст
+ПОМЕСТИТЬ врем
+{ВЫБРАТЬ
+	ФизическоеЛицо.*,
+	НомерПоПорядку,
+	СтепеньРодства.*,
+	ФИО,
+	ДатаРождения,
+	Возраст}
+ИЗ
+	РегистрСведений.СоставыСемейФизическихЛиц КАК СоставыСемейФизическихЛиц
+{ГДЕ
+	СоставыСемейФизическихЛиц.ФизическоеЛицо.*,
+	СоставыСемейФизическихЛиц.СтепеньРодства.*,
+	СоставыСемейФизическихЛиц.ДатаРождения,
+	(ВЫБОР
+			КОГДА РАЗНОСТЬДАТ(СоставыСемейФизическихЛиц.ДатаРождения, &amp;ДО, ГОД) &gt; 200
+				ТОГДА "Проверьте заполнение"
+			ИНАЧЕ ВЫБОР
+					КОГДА ДЕНЬГОДА(СоставыСемейФизическихЛиц.ДатаРождения) &lt;= ДЕНЬГОДА(&amp;ДО)
+						ТОГДА РАЗНОСТЬДАТ(СоставыСемейФизическихЛиц.ДатаРождения, &amp;ДО, ГОД)
+					ИНАЧЕ РАЗНОСТЬДАТ(СоставыСемейФизическихЛиц.ДатаРождения, ДОБАВИТЬКДАТЕ(&amp;ДО, ГОД, -1), ГОД)
+				КОНЕЦ
+		КОНЕЦ) КАК Возраст}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КадроваяИсторияСотрудниковСрезПоследних.ФизическоеЛицо КАК ФизическоеЛицо,
+	КадроваяИсторияСотрудниковСрезПоследних.Сотрудник КАК Сотрудник,
+	КадроваяИсторияСотрудниковСрезПоследних.Организация КАК Организация,
+	КадроваяИсторияСотрудниковСрезПоследних.Подразделение КАК Подразделение,
+	КадроваяИсторияСотрудниковСрезПоследних.ВидСобытия КАК ВидСобытия,
+	КадроваяИсторияСотрудниковСрезПоследних.ДолжностьПоШтатномуРасписанию КАК ДолжностьПоШтатномуРасписанию,
+	КадроваяИсторияСотрудниковСрезПоследних.КоличествоСтавок КАК КоличествоСтавок,
+	КадроваяИсторияСотрудниковСрезПоследних.Должность КАК Должность,
+	КадроваяИсторияСотрудниковСрезПоследних.ВидЗанятости КАК ВидЗанятости,
+	КадроваяИсторияСотрудниковСрезПоследних.ВидДоговора КАК ВидДоговора
+ПОМЕСТИТЬ сотр
+{ВЫБРАТЬ
+	ФизическоеЛицо.*,
+	Сотрудник.*,
+	Организация.*,
+	Подразделение.*,
+	ВидСобытия.*,
+	ДолжностьПоШтатномуРасписанию.*,
+	КоличествоСтавок,
+	Должность.*,
+	ВидЗанятости.*,
+	ВидДоговора.*}
+ИЗ
+	РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(&amp;ДО, ) КАК КадроваяИсторияСотрудниковСрезПоследних
+ГДЕ
+	НЕ КадроваяИсторияСотрудниковСрезПоследних.ВидСобытия = &amp;уволен
+{ГДЕ
+	КадроваяИсторияСотрудниковСрезПоследних.Сотрудник.*,
+	КадроваяИсторияСотрудниковСрезПоследних.Организация.*,
+	КадроваяИсторияСотрудниковСрезПоследних.Подразделение.*,
+	КадроваяИсторияСотрудниковСрезПоследних.ФизическоеЛицо.*}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	врем.ФизическоеЛицо КАК ФизическоеЛицо,
+	врем.СтепеньРодства КАК СтепеньРодства,
+	врем.ФИО КАК ФИО,
+	врем.ДатаРождения КАК ДатаРождения,
+	ВЫБОР
+		КОГДА врем.Возраст &lt; 0
+			ТОГДА "На выбранный период еще не родился"
+		ИНАЧЕ врем.Возраст
+	КОНЕЦ КАК Возраст,
+	сотр.Сотрудник КАК Сотрудник,
+	сотр.Организация КАК Организация,
+	сотр.Подразделение КАК Подразделение,
+	сотр.ВидСобытия КАК ВидСобытия,
+	сотр.ДолжностьПоШтатномуРасписанию КАК ДолжностьПоШтатномуРасписанию,
+	сотр.КоличествоСтавок КАК КоличествоСтавок,
+	сотр.Должность КАК Должность,
+	сотр.ВидДоговора КАК ВидДоговора
+{ВЫБРАТЬ
+	ФизическоеЛицо.*,
+	СтепеньРодства.*,
+	ФИО,
+	ДатаРождения,
+	Возраст,
+	Сотрудник.*,
+	Организация.*,
+	Подразделение.*,
+	ВидСобытия.*,
+	ДолжностьПоШтатномуРасписанию.*,
+	КоличествоСтавок,
+	Должность.*,
+	ВидДоговора.*}
+ИЗ
+	врем КАК врем
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ сотр КАК сотр
+		ПО врем.ФизическоеЛицо = сотр.ФизическоеЛицо
+{ГДЕ
+	сотр.Сотрудник.*,
+	сотр.Организация.*,
+	сотр.Подразделение.*,
+	врем.ФизическоеЛицо.*,
+	врем.СтепеньРодства.*,
+	врем.ДатаРождения,
+	(ВЫБОР
+			КОГДА врем.Возраст &lt; 0
+				ТОГДА "На выбранный период еще не родился"
+			ИНАЧЕ врем.Возраст
+		КОНЕЦ) КАК Возраст}
+
+УПОРЯДОЧИТЬ ПО
+	врем.ФизическоеЛицо.ФИО,
+	врем.ФИО</query>
+		</dataSet>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Раз</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<parameter>
+			<name>ДО</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>уволен</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Уволен</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.ВидыКадровыхСобытий</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыКадровыхСобытий.Увольнение</value>
+			<useRestriction>true</useRestriction>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">СоставСемьи</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Состав семьи (Дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ДетиСотрудников</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дети сотрудников  (Дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Сотрудник</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>[Степень родства]</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Родственник</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>[Дата рождения родственника]</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Возраст</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Организация</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>019e45c4-f21b-4e08-9548-321b1f58dc81</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ДО</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+			</dcscor:value>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Сотрудник</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>[Степень родства]</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Родственник</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>[Дата рождения родственника]</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Возраст</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Сотрудник</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>[Степень родства]</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Родственник</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>[Дата рождения родственника]</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Возраст</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Возраст</left>
+			<comparisonType>LessOrEqual</comparisonType>
+			<right xsi:type="xs:decimal">14</right>
+			<userSettingID>32604a07-65d2-4d83-b414-802921e29352</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">[Степень родства]</left>
+			<comparisonType>InList</comparisonType>
+			<right xsi:type="v8:ValueListType">
+				<v8:valueType/>
+				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+			</right>
+			<userSettingID>38d1d801-9ee1-49ac-8a1d-97b578199c27</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Организация</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>e465a4ad-85f2-47af-9f10-e0bfa959fe32</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ДО</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+			</dcscor:value>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Сотрудник</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>[Степень родства]</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Родственник</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>[Дата рождения родственника]</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Возраст</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

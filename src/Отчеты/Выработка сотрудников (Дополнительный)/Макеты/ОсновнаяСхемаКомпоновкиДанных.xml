@@ -1,0 +1,353 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Подразделение</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаВыработки</dataPath>
+				<field>СуммаВыработки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма выработки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сотрудник</dataPath>
+				<field>Сотрудник</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбъемВыработки</dataPath>
+				<field>ОбъемВыработки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Объем выработки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументВыработкаСотрудников</dataPath>
+				<field>ДокументВыработкаСотрудников</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Документ выработка сотрудников</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЧасыВыработки</dataPath>
+				<field>ЧасыВыработки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Часы выработки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Бригада</dataPath>
+				<field>Бригада</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Бригада</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаВыработки</dataPath>
+				<field>ДатаВыработки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Дата выработки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РольИсполнителяРабот</dataPath>
+				<field>РольИсполнителяРабот</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Роль исполнителя работ</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ВыработкаСотрудниковВидыРабот.Ссылка КАК ДокументВыработкаСотрудников,
+	СУММА(ВыработкаСотрудниковВидыРабот.Количество) КАК ОбъемВыработки
+ПОМЕСТИТЬ втОбъемВыработки
+ИЗ
+	Документ.ВыработкаСотрудников.ВидыРабот КАК ВыработкаСотрудниковВидыРабот
+ГДЕ
+	ВыработкаСотрудниковВидыРабот.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ВыработкаСотрудниковВидыРабот.Ссылка.Проведен
+
+СГРУППИРОВАТЬ ПО
+	ВыработкаСотрудниковВидыРабот.Ссылка
+
+ИНДЕКСИРОВАТЬ ПО
+	ДокументВыработкаСотрудников
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	втОбъемВыработки.ДокументВыработкаСотрудников КАК ДокументВыработкаСотрудников,
+	втОбъемВыработки.ДокументВыработкаСотрудников.Бригада КАК Бригада,
+	втОбъемВыработки.ДокументВыработкаСотрудников.Подразделение КАК Подразделение,
+	втОбъемВыработки.ОбъемВыработки КАК ОбъемВыработки,
+	ВыработкаСотрудниковСотрудники.Сотрудник КАК Сотрудник,
+	ВыработкаСотрудниковСотрудники._ДлительностьРаботСотрудника КАК ЧасыВыработки,
+	ВыработкаСотрудниковСотрудники.Сумма КАК СуммаВыработки,
+	НАЧАЛОПЕРИОДА(втОбъемВыработки.ДокументВыработкаСотрудников.Дата, ДЕНЬ) КАК ДатаВыработки,
+	ВыработкаСотрудниковСотрудники._РольИсполнителяРабот КАК РольИсполнителяРабот
+{ВЫБРАТЬ
+	ДокументВыработкаСотрудников.*,
+	Бригада.*,
+	Подразделение.*,
+	ОбъемВыработки,
+	Сотрудник.*,
+	ЧасыВыработки,
+	СуммаВыработки,
+	ДатаВыработки,
+	РольИсполнителяРабот.*}
+ИЗ
+	втОбъемВыработки КАК втОбъемВыработки
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВыработкаСотрудников.Сотрудники КАК ВыработкаСотрудниковСотрудники
+		ПО втОбъемВыработки.ДокументВыработкаСотрудников = ВыработкаСотрудниковСотрудники.Ссылка
+{ГДЕ
+	втОбъемВыработки.ДокументВыработкаСотрудников.*,
+	втОбъемВыработки.ДокументВыработкаСотрудников.Бригада.* КАК Бригада,
+	втОбъемВыработки.ДокументВыработкаСотрудников.Подразделение.* КАК Подразделение,
+	ВыработкаСотрудниковСотрудники.Сотрудник.*,
+	ВыработкаСотрудниковСотрудники._РольИсполнителяРабот.* КАК РольИсполнителяРабот}</query>
+		</dataSet>
+		<totalField>
+			<dataPath>ОбъемВыработки</dataPath>
+			<expression>Сумма(ОбъемВыработки)</expression>
+			<group>Сотрудник</group>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаВыработки</dataPath>
+			<expression>Сумма(СуммаВыработки)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ЧасыВыработки</dataPath>
+			<expression>Сумма(ЧасыВыработки)</expression>
+		</totalField>
+		<parameter>
+			<name>ДатаНачала</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата начала</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<parameter>
+			<name>ДатаОкончания</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата окончания</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ВыработкаСотрудников</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Выработка сотрудников (Дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>ОбъемВыработки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЧасыВыработки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СуммаВыработки</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Бригада</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>5b64d66c-3bf6-455d-86b6-56777985eabd</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Подразделение</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>0ac4e28a-e060-4212-b502-59f58965b021</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Сотрудник</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>ceaa025c-e9c5-466d-925f-928929a2f7f0</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+			</dcscor:value>
+			<userSettingID>8da22a09-1f37-48bf-a8eb-fcee0cbf8538</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemTable">
+		<column>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ДатаВыработки</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</column>
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Бригада</field>
+					<groupType>Hierarchy</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Подразделение</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Сотрудник</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>РольИсполнителяРабот</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item>
+					<use>false</use>
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<field>ДокументВыработкаСотрудников</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
+			</item>
+		</row>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
