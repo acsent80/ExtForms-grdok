@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоЗаказ</dataPath>
+				<field>КоличествоЗаказ</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество заказ</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Запланировано</dataPath>
+				<field>Запланировано</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Произведено</dataPath>
+				<field>Произведено</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоВыпуск</dataPath>
+				<field>КоличествоВыпуск</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество выпуск</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоОрдер</dataPath>
+				<field>КоличествоОрдер</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество ордер</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Документ</dataPath>
+				<field>Документ</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Документ</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоГрафик</dataPath>
+				<field>КоличествоГрафик</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество график</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Док.Номенклатура,
+	Док.Характеристика,
+	Док.Ссылка КАК Документ,
+	Док.Количество КАК КоличествоЗаказ,
+	0 КАК Запланировано,
+	0 КАК Произведено,
+	0 КАК КоличествоГрафик,
+	0 КАК КоличествоВыпуск,
+	0 КАК КоличествоОрдер
+ИЗ
+	Документ.ЗаказНаПроизводство.Продукция КАК Док
+ГДЕ
+	Док.Ссылка = &amp;Заказ
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Док.Номенклатура,
+	Док.Характеристика,
+	Док.Ссылка,
+	0,
+	Док.Количество,
+	Док.КоличествоФакт,
+	0,
+	0,
+	0
+ИЗ
+	Документ.МаршрутныйЛистПроизводства.ВыходныеИзделия КАК Док
+ГДЕ
+	Док.Ссылка.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Отменен)
+	И Док.Ссылка.Распоряжение = &amp;Заказ
+	И Док.Ссылка.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Рег.Номенклатура,
+	Рег.Характеристика,
+	Рег.Регистратор,
+	NULL,
+	NULL,
+	NULL,
+	Рег.КоличествоИзЗаказов,
+	NULL,
+	NULL
+ИЗ
+	РегистрНакопления.ГрафикПоступленияТоваров КАК Рег
+ГДЕ
+	Рег.Регистратор = &amp;Заказ
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Док.Номенклатура,
+	Док.Характеристика,
+	Док.Ссылка,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	Док.Количество,
+	NULL
+ИЗ
+	Документ.ВыпускПродукции.Товары КАК Док
+ГДЕ
+	Док.Ссылка.Распоряжение.Распоряжение = &amp;Заказ
+	И Док.Ссылка.Проведен
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Док.Номенклатура,
+	Док.Характеристика,
+	Док.Ссылка,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	Док.Количество
+ИЗ
+	Документ.ПриходныйОрдерНаТовары.Товары КАК Док
+ГДЕ
+	Док.Ссылка.Проведен
+	И Док.Ссылка.Распоряжение = &amp;Заказ</query>
+		</dataSet>
+		<totalField>
+			<dataPath>КоличествоЗаказ</dataPath>
+			<expression>Сумма(КоличествоЗаказ)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Запланировано</dataPath>
+			<expression>Сумма(Запланировано)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Произведено</dataPath>
+			<expression>Сумма(Произведено)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоВыпуск</dataPath>
+			<expression>Сумма(КоличествоВыпуск)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоОрдер</dataPath>
+			<expression>Сумма(КоличествоОрдер)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоГрафик</dataPath>
+			<expression>Сумма(КоличествоГрафик)</expression>
+		</totalField>
+		<parameter>
+			<name>Заказ</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Заказ</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗаказНаПроизводство</Type>
+			</valueType>
+			<value xsi:nil="true"/>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Анализ заказа на производство</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Анализ заказа на производство</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоЗаказ</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Запланировано</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Произведено</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоГрафик</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоВыпуск</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоОрдер</field>
+		</item>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Заказ</dcscor:parameter>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+			<userSettingID>5b0b7a60-d1c2-40bf-8100-13c4f3d5c824</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Номенклатура</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Характеристика</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
