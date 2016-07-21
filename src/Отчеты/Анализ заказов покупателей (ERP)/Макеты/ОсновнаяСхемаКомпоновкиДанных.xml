@@ -96,62 +96,12 @@
 				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>Оплата.КОплатеНачальныйОстаток</dataPath>
-				<field>Оплата.КОплатеНачальныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Долг на начало периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">КОплате</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Оплата.КОплатеПриход</dataPath>
-				<field>Оплата.КОплатеПриход</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Увеличение долга</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Оплата.КОплатеКонечныйОстаток</dataPath>
-				<field>Оплата.КОплатеКонечныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Долг на конец периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">КОплате</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
 				<dataPath>Оплата.Оплачено</dataPath>
 				<field>Оплата.Оплачено</field>
 				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
 					<d5p1:item>
 						<d5p1:lang>ru</d5p1:lang>
 						<d5p1:content>Оплачено</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОплатаРуб.КОплатеРубПриход</dataPath>
-				<field>ОплатаРуб.КОплатеРубПриход</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Увеличение долга</d5p1:content>
 					</d5p1:item>
 				</title>
 			</field>
@@ -164,36 +114,6 @@
 						<d5p1:content>Оплачено</d5p1:content>
 					</d5p1:item>
 				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОплатаРуб.КОплатеРубНачальныйОстаток</dataPath>
-				<field>ОплатаРуб.КОплатеРубНачальныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Долг на начало периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">КОплатеРуб</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОплатаРуб.КОплатеРубКонечныйОстаток</dataPath>
-				<field>ОплатаРуб.КОплатеРубКонечныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Долг на конец периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">КОплатеРуб</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-				</role>
 			</field>
 			<field xsi:type="DataSetFieldFolder">
 				<dataPath>Оплата</dataPath>
@@ -228,46 +148,6 @@
 				<dataPath>Склад</dataPath>
 				<field>Склад</field>
 			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоСумма.СуммаПриход</dataPath>
-				<field>ОтгруженоСумма.СуммаПриход</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Сумма приход</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоСумма.СуммаНачальныйОстаток</dataPath>
-				<field>ОтгруженоСумма.СуммаНачальныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Осталось отгрузить на начало периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоСумма.СуммаКонечныйОстаток</dataPath>
-				<field>ОтгруженоСумма.СуммаКонечныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Осталось отгрузить на конец периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-				</role>
-			</field>
 			<field xsi:type="DataSetFieldFolder">
 				<dataPath>ОтгруженоКолво</dataPath>
 				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
@@ -283,56 +163,6 @@
 					<d5p1:item>
 						<d5p1:lang>ru</d5p1:lang>
 						<d5p1:content>Отгружено сумма</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоКолво.КоличествоПриход</dataPath>
-				<field>ОтгруженоКолво.КоличествоПриход</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Приход</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоКолво.КоличествоНачальныйОстаток</dataPath>
-				<field>ОтгруженоКолво.КоличествоНачальныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Осталось отгрузить на начало периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Количество</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоКолво.КоличествоКонечныйОстаток</dataPath>
-				<field>ОтгруженоКолво.КоличествоКонечныйОстаток</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Осталось отгрузить на конец периода</d5p1:content>
-					</d5p1:item>
-				</title>
-				<role>
-					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Количество</balanceGroupName>
-					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоСумма.СуммаОтгружено</dataPath>
-				<field>ОтгруженоСумма.СуммаОтгружено</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Отгружено</d5p1:content>
 					</d5p1:item>
 				</title>
 			</field>
@@ -362,17 +192,7 @@
 				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
 					<d5p1:item>
 						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Количество заказано</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ОтгруженоКолво.КоличествоОтгружено</dataPath>
-				<field>ОтгруженоКолво.КоличествоОтгружено</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Количество отгружено</d5p1:content>
+						<d5p1:content>Заказано</d5p1:content>
 					</d5p1:item>
 				</title>
 			</field>
@@ -383,6 +203,66 @@
 					<d5p1:item>
 						<d5p1:lang>ru</d5p1:lang>
 						<d5p1:content>Сумма заказа</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Оплата.КОплатеОстаток</dataPath>
+				<field>Оплата.КОплатеОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Оплата.КОплатеРубОстаток</dataPath>
+				<field>Оплата.КОплатеРубОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтгруженоСумма.СуммаОстаток</dataPath>
+				<field>ОтгруженоСумма.СуммаОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтгруженоКолво.КоличествоОстаток</dataPath>
+				<field>ОтгруженоКолво.КоличествоОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтгруженоКолво.КоличествоОтгружено</dataPath>
+				<field>ОтгруженоКолво.КоличествоОтгружено</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Отгружено</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОтгруженоСумма.СуммаОтгружено</dataPath>
+				<field>ОтгруженоСумма.СуммаОтгружено</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Отгружено</d5p1:content>
 					</d5p1:item>
 				</title>
 			</field>
@@ -477,46 +357,6 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Оплата.КОплатеНачальныйОстаток</dataPath>
-					<field>КОплатеНачальныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Долг на начало периода</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">КОплате</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>Оплата.КОплатеПриход</dataPath>
-					<field>КОплатеПриход</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Увеличение долга</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>Оплата.КОплатеКонечныйОстаток</dataPath>
-					<field>КОплатеКонечныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Долг на конец периода</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">КОплате</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>Оплата.Оплачено</dataPath>
 					<field>Оплачено</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -537,42 +377,12 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>ОплатаРуб.КОплатеРубПриход</dataPath>
-					<field>КОплатеРубПриход</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Увеличение долга</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>ОплатаРуб.ОплаченоРуб</dataPath>
 					<field>ОплаченоРуб</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
 						<d6p1:item>
 							<d6p1:lang>ru</d6p1:lang>
 							<d6p1:content>Оплачено</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОплатаРуб.КОплатеРубНачальныйОстаток</dataPath>
-					<field>КОплатеРубНачальныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Долг на начало периода</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОплатаРуб.КОплатеРубКонечныйОстаток</dataPath>
-					<field>КОплатеРубКонечныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Долг на конец периода</d6p1:content>
 						</d6p1:item>
 					</title>
 				</field>
@@ -637,21 +447,40 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Оплата.КОплатеРубОстаток</dataPath>
+					<field>КОплатеРубОстаток</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Оплата.К оплате руб остаток</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Оплата.КОплатеОстаток</dataPath>
+					<field>КОплатеОстаток</field>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Расчеты.ЗаказКлиента
 ПОМЕСТИТЬ СписокЗаказов
 ИЗ
-	РегистрНакопления.РасчетыСКлиентами.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, , , {(АналитикаУчетаПоПартнерам.Организация).* КАК Организация, (АналитикаУчетаПоПартнерам.Партнер).* КАК Партнер, (АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам.Договор).* КАК Договор, (АналитикаУчетаПоПартнерам.НаправлениеДеятельности).* КАК НаправлениеДеятельности, (Валюта).*, (ЗаказКлиента).*}) КАК Расчеты
+	РегистрНакопления.РасчетыСКлиентами.Остатки(ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1), {(АналитикаУчетаПоПартнерам.Организация).* КАК Организация, (АналитикаУчетаПоПартнерам.Партнер).* КАК Партнер, (АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам.Договор).* КАК Договор, (АналитикаУчетаПоПартнерам.НаправлениеДеятельности).* КАК НаправлениеДеятельности, (Валюта).*, (ЗаказКлиента).*}) КАК Расчеты
+ГДЕ
+	Расчеты.КОплатеОстаток &lt;&gt; 0
 
 ОБЪЕДИНИТЬ
 
 ВЫБРАТЬ
 	Заказы.ЗаказКлиента
 ИЗ
-	РегистрНакопления.ЗаказыКлиентов.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, , , {(ЗаказКлиента).*}) КАК Заказы
+	РегистрНакопления.ЗаказыКлиентов.Остатки(ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1), {(ЗаказКлиента).*}) КАК Заказы
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказКлиента КАК ДокЗаказ
 		ПО Заказы.ЗаказКлиента = ДокЗаказ.Ссылка
+ГДЕ
+	(Заказы.ЗаказаноОстаток &lt;&gt; 0
+			ИЛИ Заказы.СуммаОстаток &lt;&gt; 0)
 {ГДЕ
 	ДокЗаказ.Организация.*,
 	ДокЗаказ.Партнер.*,
@@ -673,35 +502,23 @@
 	NULL КАК Номенклатура,
 	NULL КАК Характеристика,
 	NULL КАК Склад,
-	Расчеты.КОплатеНачальныйОстаток КАК КОплатеНачальныйОстаток,
-	Расчеты.КОплатеПриход КАК КОплатеПриход,
-	Расчеты.КОплатеРасход КАК Оплачено,
-	Расчеты.КОплатеКонечныйОстаток КАК КОплатеКонечныйОстаток,
+	Расчеты.КОплатеОстаток КАК КОплатеОстаток,
 	Обороты.КОплатеПриход КАК СуммаЗаказа,
+	Обороты.КОплатеРасход КАК Оплачено,
 	ВЫБОР
 		КОГДА Расчеты.Валюта = &amp;Руб
-			ТОГДА Расчеты.КОплатеНачальныйОстаток
-		ИНАЧЕ ВЫРАЗИТЬ(Расчеты.КОплатеНачальныйОстаток * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15,2))
-	КОНЕЦ КАК КОплатеРубНачальныйОстаток,
+			ТОГДА Расчеты.КОплатеОстаток
+		ИНАЧЕ ВЫРАЗИТЬ(Расчеты.КОплатеОстаток * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15, 2))
+	КОНЕЦ КАК КОплатеРубОстаток,
 	ВЫБОР
-		КОГДА Расчеты.Валюта = &amp;Руб
-			ТОГДА Расчеты.КОплатеПриход
-		ИНАЧЕ ВЫРАЗИТЬ(Расчеты.КОплатеПриход * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15,2))
-	КОНЕЦ КАК КОплатеРубПриход,
-	ВЫБОР
-		КОГДА Расчеты.Валюта = &amp;Руб
-			ТОГДА Расчеты.КОплатеРасход
-		ИНАЧЕ ВЫРАЗИТЬ(Расчеты.КОплатеРасход * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15,2))
+		КОГДА Обороты.Валюта = &amp;Руб
+			ТОГДА Обороты.КОплатеРасход
+		ИНАЧЕ ВЫРАЗИТЬ(Обороты.КОплатеРасход * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15, 2))
 	КОНЕЦ КАК ОплаченоРуб,
 	ВЫБОР
 		КОГДА Расчеты.Валюта = &amp;Руб
-			ТОГДА Расчеты.КОплатеКонечныйОстаток
-		ИНАЧЕ ВЫРАЗИТЬ(Расчеты.КОплатеКонечныйОстаток * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15,2))
-	КОНЕЦ КАК КОплатеРубКонечныйОстаток,
-	ВЫБОР
-		КОГДА Расчеты.Валюта = &amp;Руб
 			ТОГДА Обороты.КОплатеПриход
-		ИНАЧЕ ВЫРАЗИТЬ(Обороты.КОплатеПриход * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15,2))
+		ИНАЧЕ ВЫРАЗИТЬ(Обороты.КОплатеПриход * КурсыВалют.Курс / КурсыВалют.Кратность КАК ЧИСЛО(15, 2))
 	КОНЕЦ КАК СуммаЗаказаРуб
 {ВЫБРАТЬ
 	ЗаказКлиента.*,
@@ -711,15 +528,11 @@
 	Договор.*,
 	НаправлениеДеятельности.*,
 	Валюта.*,
-	КОплатеНачальныйОстаток,
-	КОплатеПриход,
 	Оплачено,
-	КОплатеКонечныйОстаток,
+	КОплатеОстаток,
 	СуммаЗаказа,
-	КОплатеРубНачальныйОстаток,
-	КОплатеРубПриход,
 	ОплаченоРуб,
-	КОплатеРубКонечныйОстаток,
+	КОплатеРубОстаток,
 	СуммаЗаказаРуб,
 	Номенклатура,
 	Характеристика,
@@ -727,18 +540,15 @@
 ИЗ
 	РегистрНакопления.РасчетыСКлиентами.Обороты(
 			,
-			,
+			&amp;Период,
 			,
 			ЗаказКлиента В
 				(ВЫБРАТЬ
 					СписокЗаказов.ЗаказКлиента
 				ИЗ
 					СписокЗаказов)) КАК Обороты
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РасчетыСКлиентами.ОстаткиИОбороты(
-				&amp;Дата1,
-				&amp;Дата2,
-				,
-				,
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РасчетыСКлиентами.Остатки(
+				ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1),
 				ЗаказКлиента В
 					(ВЫБРАТЬ
 						СписокЗаказов.ЗаказКлиента
@@ -746,8 +556,8 @@
 						СписокЗаказов)) КАК Расчеты
 		ПО (Расчеты.ЗаказКлиента = Обороты.ЗаказКлиента)
 			И (Расчеты.АналитикаУчетаПоПартнерам = Обороты.АналитикаУчетаПоПартнерам)
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КурсыВалют.СрезПоследних(&amp;Дата2, ) КАК КурсыВалют
-		ПО (Обороты.Валюта = КурсыВалют.Валюта)</query>
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КурсыВалют.СрезПоследних(&amp;Дата, ) КАК КурсыВалют
+		ПО Обороты.Валюта = КурсыВалют.Валюта</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -781,43 +591,6 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоСумма.СуммаПриход</dataPath>
-					<field>СуммаПриход</field>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоСумма.СуммаНачальныйОстаток</dataPath>
-					<field>СуммаНачальныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоСумма.СуммаКонечныйОстаток</dataPath>
-					<field>СуммаКонечныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоКолво.КоличествоКонечныйОстаток</dataPath>
-					<field>КоличествоКонечныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Отгружено колво.Количество конечный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Количество</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>Договор</dataPath>
 					<field>Договор</field>
 				</field>
@@ -830,28 +603,8 @@
 					<field>НаправлениеДеятельности</field>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоКолво.КоличествоОтгружено</dataPath>
-					<field>КоличествоОтгружено</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Отгружено колво.Количество отгружено</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>Организация</dataPath>
 					<field>Организация</field>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоСумма.СуммаОтгружено</dataPath>
-					<field>СуммаОтгружено</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Отгружено сумма.Сумма отгружено</d6p1:content>
-						</d6p1:item>
-					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ОтгруженоСумма.СуммаЗаказа</dataPath>
@@ -877,31 +630,6 @@
 						</d6p1:item>
 					</title>
 				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоКолво.КоличествоПриход</dataPath>
-					<field>КоличествоПриход</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Отгружено колво.Количество приход</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ОтгруженоКолво.КоличествоНачальныйОстаток</dataPath>
-					<field>КоличествоНачальныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Отгружено колво.Количество начальный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Количество</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-					</role>
-				</field>
 				<field xsi:type="DataSetFieldFolder">
 					<dataPath>ОтгруженоКолво</dataPath>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -924,21 +652,60 @@
 					<dataPath>Валюта</dataPath>
 					<field>Валюта</field>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОтгруженоСумма.СуммаОстаток</dataPath>
+					<field>СуммаОстаток</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОтгруженоКолво.КоличествоОстаток</dataPath>
+					<field>КоличествоОстаток</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Отгружено колво.Количество остаток</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОтгруженоКолво.КоличествоОтгружено</dataPath>
+					<field>КоличествоОтгружено</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Отгружено колво.Количество отгружено</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОтгруженоСумма.СуммаОтгружено</dataPath>
+					<field>СуммаОтгружено</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Отгружено сумма.Сумма отгружено</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Расчеты.ЗаказКлиента
 ПОМЕСТИТЬ СписокЗаказов
 ИЗ
-	РегистрНакопления.РасчетыСКлиентами.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, , , {(АналитикаУчетаПоПартнерам.Организация).* КАК Организация, (АналитикаУчетаПоПартнерам.Партнер).* КАК Партнер, (АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам.Договор).* КАК Договор, (АналитикаУчетаПоПартнерам.НаправлениеДеятельности).* КАК НаправлениеДеятельности, (Валюта).*, (ЗаказКлиента).*}) КАК Расчеты
+	РегистрНакопления.РасчетыСКлиентами.Остатки(ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1), {(АналитикаУчетаПоПартнерам.Организация).* КАК Организация, (АналитикаУчетаПоПартнерам.Партнер).* КАК Партнер, (АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам.Договор).* КАК Договор, (АналитикаУчетаПоПартнерам.НаправлениеДеятельности).* КАК НаправлениеДеятельности, (Валюта).*, (ЗаказКлиента).*}) КАК Расчеты
+ГДЕ
+	Расчеты.КОплатеОстаток &lt;&gt; 0
 
 ОБЪЕДИНИТЬ
 
 ВЫБРАТЬ
 	Заказы.ЗаказКлиента
 ИЗ
-	РегистрНакопления.ЗаказыКлиентов.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, , , {(ЗаказКлиента).*}) КАК Заказы
+	РегистрНакопления.ЗаказыКлиентов.Остатки(ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1), {(ЗаказКлиента).*}) КАК Заказы
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказКлиента КАК ДокЗаказ
 		ПО Заказы.ЗаказКлиента = ДокЗаказ.Ссылка
+ГДЕ
+	(Заказы.ЗаказаноОстаток &lt;&gt; 0
+			ИЛИ Заказы.СуммаОстаток &lt;&gt; 0)
 {ГДЕ
 	ДокЗаказ.Организация.*,
 	ДокЗаказ.Партнер.*,
@@ -950,20 +717,16 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	Заказы.ЗаказКлиента КАК ЗаказКлиента,
-	Заказы.Номенклатура КАК Номенклатура,
-	Заказы.Характеристика КАК Характеристика,
-	Заказы.Склад КАК Склад,
-	Заказы.ЗаказаноНачальныйОстаток КАК КоличествоНачальныйОстаток,
-	Заказы.ЗаказаноПриход КАК КоличествоПриход,
-	Заказы.ЗаказаноРасход КАК КоличествоОтгружено,
-	Заказы.ЗаказаноКонечныйОстаток КАК КоличествоКонечныйОстаток,
-	Заказы.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
-	Заказы.СуммаПриход КАК СуммаПриход,
-	Заказы.СуммаРасход КАК СуммаОтгружено,
-	Заказы.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
+	Обороты.ЗаказКлиента КАК ЗаказКлиента,
+	Обороты.Номенклатура КАК Номенклатура,
+	Обороты.Характеристика КАК Характеристика,
+	Обороты.Склад КАК Склад,
+	Заказы.ЗаказаноОстаток КАК КоличествоОстаток,
+	Заказы.СуммаОстаток КАК СуммаОстаток,
 	Обороты.ЗаказаноПриход КАК КоличествоЗаказ,
 	Обороты.СуммаПриход КАК СуммаЗаказа,
+	Обороты.ЗаказаноРасход КАК КоличествоОтгружено,
+	Обороты.СуммаРасход КАК СуммаОтгружено,
 	ДокЗаказ.Организация КАК Организация,
 	ДокЗаказ.Партнер КАК Партнер,
 	ДокЗаказ.Контрагент КАК Контрагент,
@@ -975,16 +738,12 @@
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
-	КоличествоНачальныйОстаток,
-	КоличествоПриход,
-	КоличествоОтгружено,
-	КоличествоКонечныйОстаток,
-	СуммаНачальныйОстаток,
-	СуммаПриход,
-	СуммаОтгружено,
-	СуммаКонечныйОстаток,
+	КоличествоОстаток,
+	СуммаОстаток,
 	КоличествоЗаказ,
 	СуммаЗаказа,
+	КоличествоОтгружено,
+	СуммаОтгружено,
 	Организация.*,
 	Партнер.*,
 	Контрагент.*,
@@ -994,18 +753,15 @@
 ИЗ
 	РегистрНакопления.ЗаказыКлиентов.Обороты(
 			,
-			,
+			&amp;Период,
 			,
 			ЗаказКлиента В
 				(ВЫБРАТЬ
 					СписокЗаказов.ЗаказКлиента
 				ИЗ
 					СписокЗаказов)) КАК Обороты
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ЗаказыКлиентов.ОстаткиИОбороты(
-				&amp;Дата1,
-				&amp;Дата2,
-				,
-				,
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ЗаказыКлиентов.Остатки(
+				ДОБАВИТЬКДАТЕ(&amp;Период, СЕКУНДА, 1),
 				ЗаказКлиента В
 					(ВЫБРАТЬ
 						СписокЗаказов.ЗаказКлиента
@@ -1028,40 +784,13 @@
 			</item>
 		</dataSet>
 		<totalField>
-			<dataPath>Оплата.КОплатеНачальныйОстаток</dataPath>
-			<expression>Сумма(Оплата.КОплатеНачальныйОстаток)</expression>
-			<group>Валюта</group>
-		</totalField>
-		<totalField>
 			<dataPath>Оплата.Оплачено</dataPath>
 			<expression>Сумма(Оплата.Оплачено)</expression>
 			<group>Валюта</group>
 		</totalField>
 		<totalField>
-			<dataPath>Оплата.КОплатеКонечныйОстаток</dataPath>
-			<expression>Сумма(Оплата.КОплатеКонечныйОстаток)</expression>
-			<group>Валюта</group>
-		</totalField>
-		<totalField>
-			<dataPath>Оплата.КОплатеПриход</dataPath>
-			<expression>Сумма(Оплата.КОплатеПриход)</expression>
-			<group>Валюта</group>
-		</totalField>
-		<totalField>
-			<dataPath>ОплатаРуб.КОплатеРубНачальныйОстаток</dataPath>
-			<expression>Сумма(ОплатаРуб.КОплатеРубНачальныйОстаток)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОплатаРуб.КОплатеРубПриход</dataPath>
-			<expression>Сумма(ОплатаРуб.КОплатеРубПриход)</expression>
-		</totalField>
-		<totalField>
 			<dataPath>ОплатаРуб.ОплаченоРуб</dataPath>
 			<expression>Сумма(ОплатаРуб.ОплаченоРуб)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОплатаРуб.КОплатеРубКонечныйОстаток</dataPath>
-			<expression>Сумма(ОплатаРуб.КОплатеРубКонечныйОстаток)</expression>
 		</totalField>
 		<totalField>
 			<dataPath>Оплата.СуммаЗаказа</dataPath>
@@ -1072,36 +801,12 @@
 			<expression>Сумма(ОплатаРуб.СуммаЗаказаРуб)</expression>
 		</totalField>
 		<totalField>
-			<dataPath>ОтгруженоКолво.КоличествоКонечныйОстаток</dataPath>
-			<expression>Сумма(ОтгруженоКолво.КоличествоКонечныйОстаток)</expression>
+			<dataPath>Оплата.КОплатеОстаток</dataPath>
+			<expression>Сумма(Оплата.КОплатеОстаток)</expression>
 		</totalField>
 		<totalField>
-			<dataPath>ОтгруженоКолво.КоличествоНачальныйОстаток</dataPath>
-			<expression>Сумма(ОтгруженоКолво.КоличествоНачальныйОстаток)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОтгруженоКолво.КоличествоПриход</dataPath>
-			<expression>Сумма(ОтгруженоКолво.КоличествоПриход)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОтгруженоСумма.СуммаКонечныйОстаток</dataPath>
-			<expression>Сумма(ОтгруженоСумма.СуммаКонечныйОстаток)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОтгруженоСумма.СуммаНачальныйОстаток</dataPath>
-			<expression>Сумма(ОтгруженоСумма.СуммаНачальныйОстаток)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОтгруженоСумма.СуммаОтгружено</dataPath>
-			<expression>Сумма(ОтгруженоСумма.СуммаОтгружено)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОтгруженоСумма.СуммаПриход</dataPath>
-			<expression>Сумма(ОтгруженоСумма.СуммаПриход)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>ОтгруженоКолво.КоличествоОтгружено</dataPath>
-			<expression>Сумма(ОтгруженоКолво.КоличествоОтгружено)</expression>
+			<dataPath>Оплата.КОплатеРубОстаток</dataPath>
+			<expression>Сумма(Оплата.КОплатеРубОстаток)</expression>
 		</totalField>
 		<totalField>
 			<dataPath>ОтгруженоКолво.КоличествоЗаказ</dataPath>
@@ -1111,60 +816,18 @@
 			<dataPath>ОтгруженоСумма.СуммаЗаказа</dataPath>
 			<expression>Сумма(ОтгруженоСумма.СуммаЗаказа)</expression>
 		</totalField>
-		<parameter>
-			<name>Дата1</name>
-			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Дата1</d4p1:content>
-				</d4p1:item>
-			</title>
-			<valueType>
-				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
-				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
-					<DateFractions>DateTime</DateFractions>
-				</DateQualifiers>
-			</valueType>
-			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
-			<useRestriction>true</useRestriction>
-			<expression>&amp;Период.ДатаНачала</expression>
-		</parameter>
-		<parameter>
-			<name>Дата2</name>
-			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Дата2</d4p1:content>
-				</d4p1:item>
-			</title>
-			<valueType>
-				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
-				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
-					<DateFractions>DateTime</DateFractions>
-				</DateQualifiers>
-			</valueType>
-			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
-			<useRestriction>true</useRestriction>
-			<expression>&amp;Период.ДатаОкончания</expression>
-		</parameter>
-		<parameter>
-			<name>Период</name>
-			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Период</d4p1:content>
-				</d4p1:item>
-			</title>
-			<valueType>
-				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
-			</valueType>
-			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
-				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
-				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
-				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
-			</value>
-			<useRestriction>false</useRestriction>
-		</parameter>
+		<totalField>
+			<dataPath>ОтгруженоСумма.СуммаОстаток</dataPath>
+			<expression>Сумма(ОтгруженоСумма.СуммаОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ОтгруженоКолво.КоличествоОтгружено</dataPath>
+			<expression>Сумма(ОтгруженоКолво.КоличествоОтгружено)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ОтгруженоСумма.СуммаОтгружено</dataPath>
+			<expression>Сумма(ОтгруженоСумма.СуммаОтгружено)</expression>
+		</totalField>
 		<parameter>
 			<name>Руб</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -1179,6 +842,35 @@
 			<value xsi:nil="true"/>
 			<useRestriction>true</useRestriction>
 		</parameter>
+		<parameter>
+			<name>Дата</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>Date</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<value xsi:nil="true"/>
+			<useRestriction>true</useRestriction>
+			<expression>КОНЕЦПЕРИОДА(&amp;Дата, "ДЕНЬ")</expression>
+		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Анализ заказов покупателей</name>
 			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -1192,6 +884,9 @@
 </SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
 <Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>ОтгруженоСумма.СуммаЗаказа</field>
+		</item>
 		<item xsi:type="SelectedItemFolder">
 			<lwsTitle>
 				<v8:item>
@@ -1200,37 +895,31 @@
 				</v8:item>
 			</lwsTitle>
 			<item xsi:type="SelectedItemField">
-				<field>Оплата.СуммаЗаказа</field>
-			</item>
-			<item xsi:type="SelectedItemField">
-				<field>Оплата.КОплатеНачальныйОстаток</field>
-			</item>
-			<item xsi:type="SelectedItemField">
 				<field>Оплата.Оплачено</field>
 			</item>
 			<item xsi:type="SelectedItemField">
-				<field>Оплата.КОплатеКонечныйОстаток</field>
+				<field>Оплата.КОплатеОстаток</field>
 			</item>
 			<placement>Auto</placement>
 		</item>
 		<item xsi:type="SelectedItemFolder">
 			<field>ОтгруженоСумма</field>
 			<item xsi:type="SelectedItemField">
-				<field>ОтгруженоСумма.СуммаЗаказа</field>
-			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ОтгруженоСумма.СуммаНачальныйОстаток</field>
-			</item>
-			<item xsi:type="SelectedItemField">
 				<field>ОтгруженоСумма.СуммаОтгружено</field>
 			</item>
 			<item xsi:type="SelectedItemField">
-				<field>ОтгруженоСумма.СуммаКонечныйОстаток</field>
+				<field>ОтгруженоСумма.СуммаОстаток</field>
 			</item>
 			<placement>Auto</placement>
 		</item>
 	</selection>
 	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Организация</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>fce9a8c4-7775-4a14-b77d-e9db4060dadb</userSettingID>
+		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Контрагент</left>
@@ -1247,25 +936,27 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">ЗаказКлиента</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<viewMode>Normal</viewMode>
 			<userSettingID>529ec62c-e222-462f-864a-0cfe6e687c91</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ЗаказКлиента.Статус</left>
+			<comparisonType>Equal</comparisonType>
 		</item>
 	</filter>
 	<dataParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>Период</dcscor:parameter>
-			<dcscor:value xsi:type="v8:StandardPeriod">
-				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-			</dcscor:value>
-			<userSettingID>669cfb5f-f2af-4cb3-a949-8d0eda6d5b99</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:use>false</dcscor:use>
 			<dcscor:parameter>Руб</dcscor:parameter>
 			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Дата</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+			</dcscor:value>
+			<userSettingID>669cfb5f-f2af-4cb3-a949-8d0eda6d5b99</userSettingID>
 		</dcscor:item>
 	</dataParameters>
 	<conditionalAppearance>
@@ -1345,6 +1036,12 @@
 			</appearance>
 		</item>
 	</conditionalAppearance>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
 	<item xsi:type="StructureItemGroup">
 		<groupItems>
 			<item xsi:type="GroupItemField">
@@ -1380,7 +1077,14 @@
 			<item xsi:type="StructureItemGroup">
 				<groupItems>
 					<item xsi:type="GroupItemField">
-						<field>Договор</field>
+						<field>ЗаказКлиента</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>ЗаказКлиента.Статус</field>
 						<groupType>Items</groupType>
 						<periodAdditionType>None</periodAdditionType>
 						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -1396,7 +1100,14 @@
 				<item xsi:type="StructureItemGroup">
 					<groupItems>
 						<item xsi:type="GroupItemField">
-							<field>ЗаказКлиента</field>
+							<field>Номенклатура</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+						<item xsi:type="GroupItemField">
+							<field>Характеристика</field>
 							<groupType>Items</groupType>
 							<periodAdditionType>None</periodAdditionType>
 							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -1409,23 +1120,6 @@
 					<selection>
 						<item xsi:type="SelectedItemAuto"/>
 					</selection>
-					<item xsi:type="StructureItemGroup">
-						<groupItems>
-							<item xsi:type="GroupItemField">
-								<field>Номенклатура</field>
-								<groupType>Items</groupType>
-								<periodAdditionType>None</periodAdditionType>
-								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-							</item>
-						</groupItems>
-						<order>
-							<item xsi:type="OrderItemAuto"/>
-						</order>
-						<selection>
-							<item xsi:type="SelectedItemAuto"/>
-						</selection>
-					</item>
 				</item>
 			</item>
 		</item>
