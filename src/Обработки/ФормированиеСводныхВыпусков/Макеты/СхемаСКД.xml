@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Месяц</dataPath>
+				<field>Месяц</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Месяц</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоВыпусков</dataPath>
+				<field>КоличествоВыпусков</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество выпусков</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СводныйВыпускПродукции</dataPath>
+				<field>СводныйВыпускПродукции</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сводный выпуск продукции</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НаправлениеВыпуска</dataPath>
+				<field>НаправлениеВыпуска</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Выборка.Месяц КАК Месяц,
+	Выборка.Организация КАК Организация,
+	Выборка.Подразделение КАК Подразделение,
+	Выборка.Склад КАК Склад,
+	Выборка.НаправлениеВыпуска КАК НаправлениеВыпуска,
+	Выборка.КоличествоВыпусков КАК КоличествоВыпусков,
+	ВыпускПродукции.Ссылка КАК СводныйВыпускПродукции
+{ВЫБРАТЬ
+	Месяц,
+	Организация.*,
+	Подразделение.*,
+	КоличествоВыпусков,
+	СводныйВыпускПродукции.*,
+	Склад.*,
+	НаправлениеВыпуска.*}
+ИЗ
+	(ВЫБРАТЬ
+		НАЧАЛОПЕРИОДА(ВыпускПродукцииТовары.Дата, МЕСЯЦ) КАК Месяц,
+		ВыпускПродукцииТовары.Организация КАК Организация,
+		ВыпускПродукцииТовары.Подразделение КАК Подразделение,
+		ВыпускПродукцииТовары.Склад КАК Склад,
+		ВыпускПродукцииТовары.НаправлениеВыпуска КАК НаправлениеВыпуска,
+		КОЛИЧЕСТВО(ВыпускПродукцииТовары.Ссылка) КАК КоличествоВыпусков
+	ИЗ
+		Документ.ВыпускПродукции КАК ВыпускПродукцииТовары
+	ГДЕ
+		ВыпускПродукцииТовары.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+		И ВыпускПродукцииТовары.Проведен
+		И (ВыпускПродукцииТовары.Распоряжение &lt;&gt; ЗНАЧЕНИЕ(Документ.МаршрутныйЛистПроизводства.ПустаяСсылка)
+				ИЛИ ВыпускПродукцииТовары.Комментарий ПОДОБНО "Сводный выпуск%")
+	{ГДЕ
+		ВыпускПродукцииТовары.Организация.*,
+		ВыпускПродукцииТовары.Подразделение.*}
+	
+	СГРУППИРОВАТЬ ПО
+		НАЧАЛОПЕРИОДА(ВыпускПродукцииТовары.Дата, МЕСЯЦ),
+		ВыпускПродукцииТовары.Организация,
+		ВыпускПродукцииТовары.НаправлениеВыпуска,
+		ВыпускПродукцииТовары.Склад,
+		ВыпускПродукцииТовары.Подразделение) КАК Выборка
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВыпускПродукции КАК ВыпускПродукции
+		ПО (Выборка.Месяц = НАЧАЛОПЕРИОДА(ВыпускПродукции.Дата, МЕСЯЦ))
+			И Выборка.Организация = ВыпускПродукции.Организация
+			И Выборка.Подразделение = ВыпускПродукции.Подразделение
+			И Выборка.НаправлениеВыпуска = ВыпускПродукции.НаправлениеВыпуска
+			И Выборка.Склад = ВыпускПродукции.Склад
+			И (ВыпускПродукции.Комментарий ПОДОБНО "Сводный выпуск%")</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<parameter>
+			<name>Дата1</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата1</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+		</parameter>
+		<parameter>
+			<name>Дата2</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата2</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Основной</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="xs:string">Основной</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Месяц</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Организация</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Подразделение</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоВыпусков</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СводныйВыпускПродукции</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>НаправлениеВыпуска</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Склад</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Организация</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>b18f121f-3787-426b-a9c3-abdb979a9fb7</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Подразделение</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>f7eb16a9-95ed-4272-a1a0-e8521ba30aef</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</dcscor:value>
+			<userSettingID>16bb2a8d-1ece-474c-9ea3-5456775b43e5</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<order>
+		<item xsi:type="OrderItemField">
+			<field>Месяц</field>
+			<orderType>Asc</orderType>
+		</item>
+		<item xsi:type="OrderItemField">
+			<field>Организация</field>
+			<orderType>Asc</orderType>
+		</item>
+		<item xsi:type="OrderItemField">
+			<field>Подразделение</field>
+			<orderType>Asc</orderType>
+		</item>
+	</order>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
