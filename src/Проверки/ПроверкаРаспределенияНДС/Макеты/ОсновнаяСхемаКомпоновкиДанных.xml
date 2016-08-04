@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сумма1907_1903</dataPath>
+				<field>Сумма1907_1903</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма 19.07 - 19.03</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС_ПартииРасходовНаСеб</dataPath>
+				<field>НДС_ПартииРасходовНаСеб</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>НДС партии расходов на себ</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сумма1903_6802</dataPath>
+				<field>Сумма1903_6802</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма 19.03 - 68.02</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС_ПартииЗатрат</dataPath>
+				<field>НДС_ПартииЗатрат</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>НДС партии затрат</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДСПродажи_Восстановление</dataPath>
+				<field>НДСПродажи_Восстановление</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>НДСПродажи восстановление</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:DocumentRef.РеализацияТоваровУслуг</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>АналитикаУчетаПартий</dataPath>
+				<field>АналитикаУчетаПартий</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС_ПартиеПрочие</dataPath>
+				<field>НДС_ПартиеПрочие</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>НДС партие прочие</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС_ПартииЗатратКП</dataPath>
+				<field>НДС_ПартииЗатратКП</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>НДС партии затрат КП</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НДС_ПартииРасходовНаСебКП</dataPath>
+				<field>НДС_ПартииРасходовНаСебКП</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>НДС партии расходов на себ КП</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПоступления</dataPath>
+				<field>ДокументПоступления</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Документ поступления</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Выборка.Регистратор,
+	Выборка.ДокументПоступления,
+	СУММА(Выборка.Сумма1903_6802) КАК Сумма1903_6802,
+	СУММА(Выборка.Сумма1907_1903) КАК Сумма1907_1903
+ПОМЕСТИТЬ ДокументыСОшибками
+ИЗ
+	(ВЫБРАТЬ
+		Рег.Регистратор КАК Регистратор,
+		Рег.СубконтоДт2 КАК ДокументПоступления,
+		Рег.Сумма КАК Сумма1903_6802,
+		0 КАК Сумма1907_1903
+	ИЗ
+		РегистрБухгалтерии.Хозрасчетный.ДвиженияССубконто(
+				&amp;Дата1,
+				&amp;Дата2,
+				Организация = &amp;Организация
+					И СчетДт В (&amp;Сч1903, &amp;Сч1904)
+					И СчетКт = &amp;Сч6802,
+				,
+				) КАК Рег
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Рег.Регистратор,
+		Рег.СубконтоКт2,
+		0,
+		Рег.Сумма
+	ИЗ
+		РегистрБухгалтерии.Хозрасчетный.ДвиженияССубконто(
+				&amp;Дата1,
+				&amp;Дата2,
+				Организация = &amp;Организация
+					И СчетДт = &amp;Сч1907
+					И СчетКт В (&amp;Сч1903, &amp;Сч1904),
+				,
+				) КАК Рег) КАК Выборка
+
+СГРУППИРОВАТЬ ПО
+	Выборка.Регистратор,
+	Выборка.ДокументПоступления
+
+ИМЕЮЩИЕ
+	СУММА(Выборка.Сумма1903_6802) &lt;&gt; СУММА(Выборка.Сумма1907_1903)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫРАЗИТЬ(Выборка.Регистратор КАК Документ.РеализацияТоваровУслуг) КАК Регистратор,
+	Выборка.ДокументПоступления КАК ДокументПоступления,
+	Выборка.Сумма1903_6802 КАК Сумма1903_6802,
+	Выборка.Сумма1907_1903 КАК Сумма1907_1903,
+	Выборка.НДСПродажи_Восстановление КАК НДСПродажи_Восстановление,
+	Выборка.НДС_ПартииЗатрат КАК НДС_ПартииЗатрат,
+	Выборка.НДС_ПартииРасходовНаСеб КАК НДС_ПартииРасходовНаСеб,
+	Выборка.НДС_ПартиеПрочие КАК НДС_ПартиеПрочие,
+	Выборка.НДС_ПартииЗатратКП КАК НДС_ПартииЗатратКП,
+	Выборка.НДС_ПартииРасходовНаСебКП КАК НДС_ПартииРасходовНаСебКП
+{ВЫБРАТЬ
+	Регистратор.*,
+	ДокументПоступления.*,
+	Сумма1903_6802,
+	Сумма1907_1903,
+	НДСПродажи_Восстановление,
+	НДС_ПартииЗатрат,
+	НДС_ПартииРасходовНаСеб,
+	НДС_ПартиеПрочие,
+	НДС_ПартииЗатратКП,
+	НДС_ПартииРасходовНаСебКП}
+ИЗ
+	(ВЫБРАТЬ
+		Таб.Регистратор КАК Регистратор,
+		Таб.ДокументПоступления КАК ДокументПоступления,
+		Таб.Сумма1903_6802 КАК Сумма1903_6802,
+		Таб.Сумма1907_1903 КАК Сумма1907_1903,
+		0 КАК НДСПродажи_Восстановление,
+		0 КАК НДС_ПартииЗатрат,
+		0 КАК НДС_ПартииЗатратКП,
+		0 КАК НДС_ПартииРасходовНаСеб,
+		0 КАК НДС_ПартииРасходовНаСебКП,
+		0 КАК НДС_ПартиеПрочие
+	ИЗ
+		ДокументыСОшибками КАК Таб
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Рег.Регистратор,
+		Рег.СчетФактура,
+		0,
+		0,
+		Рег.НДС,
+		0,
+		0,
+		0,
+		0,
+		0
+	ИЗ
+		РегистрНакопления.НДСЗаписиКнигиПродаж КАК Рег
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДокументыСОшибками КАК Таб
+			ПО Рег.Регистратор = Таб.Регистратор
+				И Рег.СчетФактура = Таб.ДокументПоступления
+	ГДЕ
+		Рег.Период МЕЖДУ &amp;Дата1 И &amp;Дата2
+		И Рег.Событие = ЗНАЧЕНИЕ(Перечисление.СобытияПоНДСПродажи.ВосстановлениеНДС)
+		И Рег.НДС &lt;&gt; 0
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Партии.Регистратор,
+		Партии.ДокументПоступления,
+		0,
+		0,
+		0,
+		Партии.НДСРегл,
+		ВЫБОР
+			КОГДА ЗаписиНДС.Регистратор ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ Партии.НДСРегл
+		КОНЕЦ,
+		0,
+		0,
+		0
+	ИЗ
+		РегистрНакопления.ПартииЗатратНаВыпуск КАК Партии
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДокументыСОшибками КАК Таб
+			ПО Партии.Регистратор = Таб.Регистратор
+				И Партии.ДокументПоступления = Таб.ДокументПоступления
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.НДСЗаписиКнигиПродаж КАК ЗаписиНДС
+			ПО Партии.Регистратор = ЗаписиНДС.Регистратор
+				И Партии.Организация = ЗаписиНДС.Организация
+				И Партии.ДокументПоступления = ЗаписиНДС.СчетФактура
+	ГДЕ
+		Партии.Период МЕЖДУ &amp;Дата1 И &amp;Дата2
+		И Партии.НДСРегл &lt;&gt; 0
+	{ГДЕ
+		Партии.АналитикаУчетаПартий.*}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Партии.Регистратор,
+		Партии.ДокументПоступленияРасходов,
+		0,
+		0,
+		0,
+		0,
+		0,
+		Партии.НДСРегл,
+		ВЫБОР
+			КОГДА ЗаписиНДС.Регистратор ЕСТЬ NULL 
+				ТОГДА 0
+			ИНАЧЕ Партии.НДСРегл
+		КОНЕЦ,
+		0
+	ИЗ
+		РегистрНакопления.ПартииРасходовНаСебестоимостьТоваров КАК Партии
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДокументыСОшибками КАК Таб
+			ПО Партии.Регистратор = Таб.Регистратор
+				И Партии.ДокументПоступленияРасходов = Таб.ДокументПоступления
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.НДСЗаписиКнигиПродаж КАК ЗаписиНДС
+			ПО Партии.Регистратор = ЗаписиНДС.Регистратор
+				И Партии.Организация = ЗаписиНДС.Организация
+				И Партии.ДокументПоступленияРасходов = ЗаписиНДС.СчетФактура
+	ГДЕ
+		Партии.Период МЕЖДУ &amp;Дата1 И &amp;Дата2
+		И Партии.НДСРегл &lt;&gt; 0
+	{ГДЕ
+		Партии.АналитикаУчетаПартий.*}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		Партии.Регистратор,
+		Партии.ДокументПоступленияРасходов,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		Партии.НДСРегл
+	ИЗ
+		РегистрНакопления.ПартииПрочихРасходов КАК Партии
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ ДокументыСОшибками КАК Таб
+			ПО Партии.Регистратор = Таб.Регистратор
+				И Партии.ДокументПоступленияРасходов = Таб.ДокументПоступления
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.НДСЗаписиКнигиПродаж КАК НДСЗаписи
+			ПО Партии.Регистратор = НДСЗаписи.Регистратор
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.НДСЗаписиКнигиПродаж КАК ЗаписиНДС
+			ПО Партии.Регистратор = ЗаписиНДС.Регистратор
+				И Партии.Организация = ЗаписиНДС.Организация
+				И Партии.ДокументПоступленияРасходов = ЗаписиНДС.СчетФактура
+	ГДЕ
+		Партии.Период МЕЖДУ &amp;Дата1 И &amp;Дата2
+		И Партии.НДСРегл &lt;&gt; 0
+	{ГДЕ
+		Партии.АналитикаУчетаПартий.*}) КАК Выборка</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<calculatedField>
+			<dataPath>НДСПартии</dataPath>
+			<expression>НДС_ПартииЗатрат +
+НДС_ПартииРасходовНаСеб +
+НДС_ПартиеПрочие</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>НДСПартии</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>НДСПартииКП</dataPath>
+			<expression>НДС_ПартииЗатратКП +
+НДС_ПартииРасходовНаСебКП</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>НДСПартии КП</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
+		<totalField>
+			<dataPath>НДС_ПартииЗатрат</dataPath>
+			<expression>Сумма(НДС_ПартииЗатрат)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НДС_ПартииРасходовНаСеб</dataPath>
+			<expression>Сумма(НДС_ПартииРасходовНаСеб)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НДСПродажи_Восстановление</dataPath>
+			<expression>Сумма(НДСПродажи_Восстановление)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Сумма1903_6802</dataPath>
+			<expression>Сумма(Сумма1903_6802)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Сумма1907_1903</dataPath>
+			<expression>Сумма(Сумма1907_1903)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НДСПартии</dataPath>
+			<expression>Сумма(НДСПартии)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НДС_ПартиеПрочие</dataPath>
+			<expression>Сумма(НДС_ПартиеПрочие)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НДС_ПартииЗатратКП</dataPath>
+			<expression>Сумма(НДС_ПартииЗатратКП)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НДС_ПартииРасходовНаСебКП</dataPath>
+			<expression>Сумма(НДС_ПартииРасходовНаСебКП)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НДСПартииКП</dataPath>
+			<expression>Сумма(НДСПартииКП)</expression>
+		</totalField>
+		<parameter>
+			<name>Дата1</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата1</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+		</parameter>
+		<parameter>
+			<name>Дата2</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата2</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+		</parameter>
+		<parameter>
+			<name>Сч1903</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Сч1903</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСпоПриобретеннымМПЗ</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Сч1904</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Сч1904</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСпоПриобретеннымУслугам</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Сч1907</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Сч1907</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСПоТоварамРеализованнымПоСтавке0</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Сч6802</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Сч6802</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДС</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Организация</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Организация</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ПроверкаРаспределенияНДС</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Проверка распределения НДС</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Сумма1903_6802</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Сумма1907_1903</field>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Партии</v8:content>
+				</v8:item>
+			</lwsTitle>
+			<item xsi:type="SelectedItemField">
+				<field>НДСПартии</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>НДС_ПартииЗатрат</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>НДС_ПартииРасходовНаСеб</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>НДС_ПартиеПрочие</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>НДСПродажи_Восстановление</field>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Партии в Книге продаж</v8:content>
+				</v8:item>
+			</lwsTitle>
+			<item xsi:type="SelectedItemField">
+				<field>НДСПартииКП</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>НДС_ПартииЗатратКП</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>НДС_ПартииРасходовНаСебКП</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Сч1903</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Сч1904</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Сч1907</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Сч6802</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>2016-01-01T00:00:00</v8:startDate>
+				<v8:endDate>2016-03-31T23:59:59</v8:endDate>
+			</dcscor:value>
+			<userSettingID>680df361-4456-4134-ba34-97d4677714cd</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Организация</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+			<userSettingID>93aff12e-fc97-44b0-b08d-3666318a1d93</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Регистратор</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ДокументПоступления</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
