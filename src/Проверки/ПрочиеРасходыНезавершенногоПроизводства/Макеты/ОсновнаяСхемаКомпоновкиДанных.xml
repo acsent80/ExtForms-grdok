@@ -1,0 +1,787 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьРеглКонечныйОстаток</dataPath>
+				<field>СтоимостьРеглКонечныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СтоимостьРегл</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВременнаяРазницаРасход</dataPath>
+				<field>ВременнаяРазницаРасход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВременнаяРазницаКонечныйОстаток</dataPath>
+				<field>ВременнаяРазницаКонечныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ВременнаяРазница</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьРеглОборот</dataPath>
+				<field>СтоимостьРеглОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодНеделя</dataPath>
+				<field>ПериодНеделя</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">7</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПостояннаяРазницаНачальныйОстаток</dataPath>
+				<field>ПостояннаяРазницаНачальныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ПостояннаяРазница</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьНачальныйОстаток</dataPath>
+				<field>СтоимостьНачальныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Стоимость</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодМинута</dataPath>
+				<field>ПериодМинута</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">4</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьРеглНачальныйОстаток</dataPath>
+				<field>СтоимостьРеглНачальныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СтоимостьРегл</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВременнаяРазницаОборот</dataPath>
+				<field>ВременнаяРазницаОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодПолугодие</dataPath>
+				<field>ПериодПолугодие</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">11</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьРеглПриход</dataPath>
+				<field>СтоимостьРеглПриход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьКонечныйОстаток</dataPath>
+				<field>СтоимостьКонечныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Стоимость</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НомерСтроки</dataPath>
+				<field>НомерСтроки</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПостояннаяРазницаРасход</dataPath>
+				<field>ПостояннаяРазницаРасход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодЧас</dataPath>
+				<field>ПериодЧас</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">5</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьБезНДСОборот</dataPath>
+				<field>СтоимостьБезНДСОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьБезНДСКонечныйОстаток</dataPath>
+				<field>СтоимостьБезНДСКонечныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СтоимостьБезНДС</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьОборот</dataPath>
+				<field>СтоимостьОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодДень</dataPath>
+				<field>ПериодДень</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">6</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВременнаяРазницаПриход</dataPath>
+				<field>ВременнаяРазницаПриход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодГод</dataPath>
+				<field>ПериодГод</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">12</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодМесяц</dataPath>
+				<field>ПериодМесяц</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">9</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПостояннаяРазницаКонечныйОстаток</dataPath>
+				<field>ПостояннаяРазницаКонечныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ПостояннаяРазница</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьБезНДСПриход</dataPath>
+				<field>СтоимостьБезНДСПриход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьПриход</dataPath>
+				<field>СтоимостьПриход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьБезНДСНачальныйОстаток</dataPath>
+				<field>СтоимостьБезНДСНачальныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СтоимостьБезНДС</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодСекунда</dataPath>
+				<field>ПериодСекунда</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьРеглРасход</dataPath>
+				<field>СтоимостьРеглРасход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодКвартал</dataPath>
+				<field>ПериодКвартал</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">10</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВременнаяРазницаНачальныйОстаток</dataPath>
+				<field>ВременнаяРазницаНачальныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ВременнаяРазница</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПостояннаяРазницаОборот</dataPath>
+				<field>ПостояннаяРазницаОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПостояннаяРазницаПриход</dataPath>
+				<field>ПостояннаяРазницаПриход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьБезНДСРасход</dataPath>
+				<field>СтоимостьБезНДСРасход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьРасход</dataPath>
+				<field>СтоимостьРасход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодДекада</dataPath>
+				<field>ПериодДекада</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">8</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоляСтоимостиКонечныйОстаток</dataPath>
+				<field>ДоляСтоимостиКонечныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ДоляСтоимости</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоляСтоимостиОборот</dataPath>
+				<field>ДоляСтоимостиОборот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Этап</dataPath>
+				<field>Этап</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГруппаПродукции</dataPath>
+				<field>ГруппаПродукции</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоляСтоимостиПриход</dataPath>
+				<field>ДоляСтоимостиПриход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяКалькуляции</dataPath>
+				<field>СтатьяКалькуляции</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗаказНаПроизводство</dataPath>
+				<field>ЗаказНаПроизводство</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоляСтоимостиНачальныйОстаток</dataPath>
+				<field>ДоляСтоимостиНачальныйОстаток</field>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ДоляСтоимости</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>АналитикаРасходов</dataPath>
+				<field>АналитикаРасходов</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяРасходов</dataPath>
+				<field>СтатьяРасходов</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоляСтоимостиРасход</dataPath>
+				<field>ДоляСтоимостиРасход</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КодСтрокиПродукция</dataPath>
+				<field>КодСтрокиПродукция</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Рег.Организация КАК Организация,
+	Рег.Подразделение КАК Подразделение,
+	Рег.ЗаказНаПроизводство КАК ЗаказНаПроизводство,
+	Рег.КодСтрокиПродукция КАК КодСтрокиПродукция,
+	Рег.Этап КАК Этап,
+	Рег.СтатьяКалькуляции КАК СтатьяКалькуляции,
+	Рег.СтатьяРасходов КАК СтатьяРасходов,
+	Рег.АналитикаРасходов КАК АналитикаРасходов,
+	Рег.ГруппаПродукции КАК ГруппаПродукции,
+	Рег.ПериодСекунда КАК ПериодСекунда,
+	Рег.ПериодМинута КАК ПериодМинута,
+	Рег.ПериодЧас КАК ПериодЧас,
+	Рег.ПериодДень КАК ПериодДень,
+	Рег.ПериодНеделя КАК ПериодНеделя,
+	Рег.ПериодДекада КАК ПериодДекада,
+	Рег.ПериодМесяц КАК ПериодМесяц,
+	Рег.ПериодКвартал КАК ПериодКвартал,
+	Рег.ПериодПолугодие КАК ПериодПолугодие,
+	Рег.ПериодГод КАК ПериодГод,
+	Рег.Регистратор КАК Регистратор,
+	Рег.НомерСтроки КАК НомерСтроки,
+	Рег.СтоимостьНачальныйОстаток КАК СтоимостьНачальныйОстаток,
+	Рег.СтоимостьОборот КАК СтоимостьОборот,
+	Рег.СтоимостьПриход КАК СтоимостьПриход,
+	Рег.СтоимостьРасход КАК СтоимостьРасход,
+	Рег.СтоимостьКонечныйОстаток КАК СтоимостьКонечныйОстаток,
+	Рег.СтоимостьБезНДСНачальныйОстаток КАК СтоимостьБезНДСНачальныйОстаток,
+	Рег.СтоимостьБезНДСОборот КАК СтоимостьБезНДСОборот,
+	Рег.СтоимостьБезНДСПриход КАК СтоимостьБезНДСПриход,
+	Рег.СтоимостьБезНДСРасход КАК СтоимостьБезНДСРасход,
+	Рег.СтоимостьБезНДСКонечныйОстаток КАК СтоимостьБезНДСКонечныйОстаток,
+	Рег.СтоимостьРеглНачальныйОстаток КАК СтоимостьРеглНачальныйОстаток,
+	Рег.СтоимостьРеглОборот КАК СтоимостьРеглОборот,
+	Рег.СтоимостьРеглПриход КАК СтоимостьРеглПриход,
+	Рег.СтоимостьРеглРасход КАК СтоимостьРеглРасход,
+	Рег.СтоимостьРеглКонечныйОстаток КАК СтоимостьРеглКонечныйОстаток,
+	Рег.ПостояннаяРазницаНачальныйОстаток КАК ПостояннаяРазницаНачальныйОстаток,
+	Рег.ПостояннаяРазницаОборот КАК ПостояннаяРазницаОборот,
+	Рег.ПостояннаяРазницаПриход КАК ПостояннаяРазницаПриход,
+	Рег.ПостояннаяРазницаРасход КАК ПостояннаяРазницаРасход,
+	Рег.ПостояннаяРазницаКонечныйОстаток КАК ПостояннаяРазницаКонечныйОстаток,
+	Рег.ВременнаяРазницаНачальныйОстаток КАК ВременнаяРазницаНачальныйОстаток,
+	Рег.ВременнаяРазницаОборот КАК ВременнаяРазницаОборот,
+	Рег.ВременнаяРазницаПриход КАК ВременнаяРазницаПриход,
+	Рег.ВременнаяРазницаРасход КАК ВременнаяРазницаРасход,
+	Рег.ВременнаяРазницаКонечныйОстаток КАК ВременнаяРазницаКонечныйОстаток,
+	Рег.ДоляСтоимостиНачальныйОстаток КАК ДоляСтоимостиНачальныйОстаток,
+	Рег.ДоляСтоимостиОборот КАК ДоляСтоимостиОборот,
+	Рег.ДоляСтоимостиПриход КАК ДоляСтоимостиПриход,
+	Рег.ДоляСтоимостиРасход КАК ДоляСтоимостиРасход,
+	Рег.ДоляСтоимостиКонечныйОстаток КАК ДоляСтоимостиКонечныйОстаток
+{ВЫБРАТЬ
+	Организация.*,
+	Подразделение.*,
+	ЗаказНаПроизводство.*,
+	КодСтрокиПродукция,
+	Этап.*,
+	СтатьяКалькуляции.*,
+	СтатьяРасходов.*,
+	АналитикаРасходов.*,
+	ГруппаПродукции.*,
+	ПериодСекунда,
+	ПериодМинута,
+	ПериодЧас,
+	ПериодДень,
+	ПериодНеделя,
+	ПериодДекада,
+	ПериодМесяц,
+	ПериодКвартал,
+	ПериодПолугодие,
+	ПериодГод,
+	Регистратор.*,
+	НомерСтроки,
+	СтоимостьНачальныйОстаток,
+	СтоимостьОборот,
+	СтоимостьПриход,
+	СтоимостьРасход,
+	СтоимостьКонечныйОстаток,
+	СтоимостьБезНДСНачальныйОстаток,
+	СтоимостьБезНДСОборот,
+	СтоимостьБезНДСПриход,
+	СтоимостьБезНДСРасход,
+	СтоимостьБезНДСКонечныйОстаток,
+	СтоимостьРеглНачальныйОстаток,
+	СтоимостьРеглОборот,
+	СтоимостьРеглПриход,
+	СтоимостьРеглРасход,
+	СтоимостьРеглКонечныйОстаток,
+	ПостояннаяРазницаНачальныйОстаток,
+	ПостояннаяРазницаОборот,
+	ПостояннаяРазницаПриход,
+	ПостояннаяРазницаРасход,
+	ПостояннаяРазницаКонечныйОстаток,
+	ВременнаяРазницаНачальныйОстаток,
+	ВременнаяРазницаОборот,
+	ВременнаяРазницаПриход,
+	ВременнаяРазницаРасход,
+	ВременнаяРазницаКонечныйОстаток,
+	ДоляСтоимостиНачальныйОстаток,
+	ДоляСтоимостиОборот,
+	ДоляСтоимостиПриход,
+	ДоляСтоимостиРасход,
+	ДоляСтоимостиКонечныйОстаток}
+ИЗ
+	РегистрНакопления.ПрочиеРасходыНезавершенногоПроизводства.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Организация = &amp;Организация {(АналитикаРасходов).*, (ГруппаПродукции).*, (ЗаказНаПроизводство).*, (КодСтрокиПродукция), (Подразделение).*, (СтатьяКалькуляции).*, (СтатьяРасходов).*, (Этап).*}) КАК Рег</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<totalField>
+			<dataPath>ВременнаяРазницаКонечныйОстаток</dataPath>
+			<expression>Сумма(ВременнаяРазницаКонечныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ВременнаяРазницаНачальныйОстаток</dataPath>
+			<expression>Сумма(ВременнаяРазницаНачальныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ВременнаяРазницаОборот</dataPath>
+			<expression>Сумма(ВременнаяРазницаОборот)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ВременнаяРазницаПриход</dataPath>
+			<expression>Сумма(ВременнаяРазницаПриход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ВременнаяРазницаРасход</dataPath>
+			<expression>Сумма(ВременнаяРазницаРасход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ДоляСтоимостиКонечныйОстаток</dataPath>
+			<expression>Сумма(ДоляСтоимостиКонечныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ДоляСтоимостиНачальныйОстаток</dataPath>
+			<expression>Сумма(ДоляСтоимостиНачальныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ДоляСтоимостиОборот</dataPath>
+			<expression>Сумма(ДоляСтоимостиОборот)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ДоляСтоимостиПриход</dataPath>
+			<expression>Сумма(ДоляСтоимостиПриход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ДоляСтоимостиРасход</dataPath>
+			<expression>Сумма(ДоляСтоимостиРасход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПостояннаяРазницаКонечныйОстаток</dataPath>
+			<expression>Сумма(ПостояннаяРазницаКонечныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПостояннаяРазницаНачальныйОстаток</dataPath>
+			<expression>Сумма(ПостояннаяРазницаНачальныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПостояннаяРазницаОборот</dataPath>
+			<expression>Сумма(ПостояннаяРазницаОборот)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПостояннаяРазницаПриход</dataPath>
+			<expression>Сумма(ПостояннаяРазницаПриход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПостояннаяРазницаРасход</dataPath>
+			<expression>Сумма(ПостояннаяРазницаРасход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьБезНДСКонечныйОстаток</dataPath>
+			<expression>Сумма(СтоимостьБезНДСКонечныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьБезНДСНачальныйОстаток</dataPath>
+			<expression>Сумма(СтоимостьБезНДСНачальныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьБезНДСОборот</dataPath>
+			<expression>Сумма(СтоимостьБезНДСОборот)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьБезНДСПриход</dataPath>
+			<expression>Сумма(СтоимостьБезНДСПриход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьБезНДСРасход</dataPath>
+			<expression>Сумма(СтоимостьБезНДСРасход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьКонечныйОстаток</dataPath>
+			<expression>Сумма(СтоимостьКонечныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьНачальныйОстаток</dataPath>
+			<expression>Сумма(СтоимостьНачальныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьОборот</dataPath>
+			<expression>Сумма(СтоимостьОборот)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьПриход</dataPath>
+			<expression>Сумма(СтоимостьПриход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьРасход</dataPath>
+			<expression>Сумма(СтоимостьРасход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьРеглКонечныйОстаток</dataPath>
+			<expression>Сумма(СтоимостьРеглКонечныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьРеглНачальныйОстаток</dataPath>
+			<expression>Сумма(СтоимостьРеглНачальныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьРеглОборот</dataPath>
+			<expression>Сумма(СтоимостьРеглОборот)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьРеглПриход</dataPath>
+			<expression>Сумма(СтоимостьРеглПриход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьРеглРасход</dataPath>
+			<expression>Сумма(СтоимостьРеглРасход)</expression>
+		</totalField>
+		<parameter>
+			<name>Дата1</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата1</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+		</parameter>
+		<parameter>
+			<name>Дата2</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата2</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Организация</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Организация</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</Type>
+			</valueType>
+			<value xsi:nil="true"/>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ПрочиеРасходыНезавершенногоПроизводства</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>ПрочиеРасходыНезавершенногоПроизводства</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Нач. ост</v8:content>
+				</v8:item>
+			</lwsTitle>
+			<item xsi:type="SelectedItemField">
+				<field>СтоимостьРеглНачальныйОстаток</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход</v8:content>
+				</v8:item>
+			</lwsTitle>
+			<item xsi:type="SelectedItemField">
+				<field>СтоимостьРеглПриход</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход</v8:content>
+				</v8:item>
+			</lwsTitle>
+			<item xsi:type="SelectedItemField">
+				<field>СтоимостьРеглРасход</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кон. ост</v8:content>
+				</v8:item>
+			</lwsTitle>
+			<item xsi:type="SelectedItemField">
+				<field>СтоимостьРеглКонечныйОстаток</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">АналитикаУчетаНоменклатуры</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>c29b98bb-89f1-435b-8c5a-b123d9cb3071</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>2016-01-01T00:00:00</v8:startDate>
+				<v8:endDate>2016-01-31T23:59:59</v8:endDate>
+			</dcscor:value>
+			<userSettingID>5f656de1-2c00-4806-8e2d-145752cb36b5</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Организация</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+			<userSettingID>004177b1-0b87-42bf-9104-892e6d131238</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Подразделение</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>СтатьяРасходов</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item xsi:type="StructureItemGroup">
+				<use>false</use>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Регистратор</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+			</item>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

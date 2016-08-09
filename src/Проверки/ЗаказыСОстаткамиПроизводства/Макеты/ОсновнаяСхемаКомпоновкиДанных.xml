@@ -161,7 +161,7 @@
 			<valueType>
 				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</Type>
 			</valueType>
-			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
 		</parameter>
 		<settingsVariant>
@@ -187,15 +187,20 @@
 	<filter>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
-			<left xsi:type="dcscor:Field">Номенклатура</left>
+			<left xsi:type="dcscor:Field">Заказ.Подразделение</left>
 			<comparisonType>Equal</comparisonType>
 			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>f86ea677-d9b2-4dd7-b6cc-1a54834c7501</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Номенклатура</left>
+			<comparisonType>Equal</comparisonType>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Характеристика</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 		</item>
 	</filter>
 	<dataParameters>
@@ -331,6 +336,7 @@
 			</item>
 		</item>
 	</item>
+	<itemsViewMode>Normal</itemsViewMode>
 	<itemsUserSettingID>54afd0b8-2d53-4306-90e8-2cf94979c5bc</itemsUserSettingID>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
 <SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
