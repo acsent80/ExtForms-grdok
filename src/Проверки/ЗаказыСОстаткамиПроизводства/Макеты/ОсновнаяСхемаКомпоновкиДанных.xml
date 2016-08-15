@@ -85,7 +85,7 @@
 ИЗ
 	Документ.МаршрутныйЛистПроизводства.ВыходныеИзделия КАК МЛ
 ГДЕ
-	МЛ.Ссылка.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+	МЛ.Ссылка.Распоряжение.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
 	И МЛ.Ссылка.Проведен</query>
 		</dataSet>
 		<totalField>
@@ -189,7 +189,6 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Заказ.Подразделение</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>f86ea677-d9b2-4dd7-b6cc-1a54834c7501</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
@@ -201,6 +200,12 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Характеристика</left>
 			<comparisonType>Equal</comparisonType>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Заказ</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>2845c9b2-2cc9-48cb-9936-203d62a8cd00</userSettingID>
 		</item>
 	</filter>
 	<dataParameters>
@@ -219,7 +224,6 @@
 			<userSettingID>6f46897f-cc9b-4015-86c0-993f3bcd5233</userSettingID>
 		</dcscor:item>
 	</dataParameters>
-	<order/>
 	<conditionalAppearance>
 		<item>
 			<selection>
@@ -249,6 +253,12 @@
 			</appearance>
 		</item>
 	</conditionalAppearance>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
 	<item xsi:type="StructureItemGroup">
 		<groupItems>
 			<item xsi:type="GroupItemField">
