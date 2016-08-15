@@ -30,6 +30,9 @@
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Сотрудник</dataPath>
 				<field>Сотрудник</field>
+				<role>
+					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>ОбъемВыработки</dataPath>
@@ -91,6 +94,16 @@
 					</d5p1:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбъемВыработкиПоСотруднику</dataPath>
+				<field>ОбъемВыработкиПоСотруднику</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Объем выработки по сотруднику</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	ВыработкаСотрудниковВидыРабот.Ссылка КАК ДокументВыработкаСотрудников,
@@ -98,19 +111,20 @@
 ПОМЕСТИТЬ втОбъемВыработки
 ИЗ
 	Документ.ВыработкаСотрудников.ВидыРабот КАК ВыработкаСотрудниковВидыРабот
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВыработкаСотрудников.Сотрудники КАК ВыработкаСотрудниковСотрудники
+		ПО ВыработкаСотрудниковСотрудники.Ссылка = ВыработкаСотрудниковВидыРабот.Ссылка
 ГДЕ
 	ВыработкаСотрудниковВидыРабот.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
 	И ВыработкаСотрудниковВидыРабот.Ссылка.Проведен
 {ГДЕ
 	ВыработкаСотрудниковВидыРабот.Ссылка.* КАК ДокументВыработкаСотрудников,
 	ВыработкаСотрудниковВидыРабот.Ссылка.Бригада.* КАК Бригада,
-	ВыработкаСотрудниковВидыРабот.Ссылка.Подразделение.* КАК Подразделение}
-
+	ВыработкаСотрудниковВидыРабот.Ссылка.Подразделение.* КАК Подразделение,
+	ВыработкаСотрудниковСотрудники.Сотрудник.*,
+	ВыработкаСотрудниковСотрудники._РольИсполнителяРабот.* КАК РольИсполнителяРабот}
+	
 СГРУППИРОВАТЬ ПО
 	ВыработкаСотрудниковВидыРабот.Ссылка
-
-ИНДЕКСИРОВАТЬ ПО
-	ДокументВыработкаСотрудников
 ;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -119,26 +133,50 @@
 	втОбъемВыработки.ДокументВыработкаСотрудников КАК ДокументВыработкаСотрудников,
 	втОбъемВыработки.ДокументВыработкаСотрудников.Бригада КАК Бригада,
 	втОбъемВыработки.ДокументВыработкаСотрудников.Подразделение КАК Подразделение,
+	NULL КАК Сотрудник,
+	NULL КАК РольИсполнителяРабот,
 	втОбъемВыработки.ОбъемВыработки КАК ОбъемВыработки,
-	ВыработкаСотрудниковСотрудники.Сотрудник КАК Сотрудник,
-	ВыработкаСотрудниковСотрудники._ДлительностьРаботСотрудника КАК ЧасыВыработки,
-	ВыработкаСотрудниковСотрудники.Сумма КАК СуммаВыработки,
-	ВыработкаСотрудниковСотрудники._РольИсполнителяРабот КАК РольИсполнителяРабот
+	0 КАК ОбъемВыработкиПоСотруднику,
+	0 КАК ЧасыВыработки,
+	0 КАК СуммаВыработки
 {ВЫБРАТЬ
 	ДокументВыработкаСотрудников.*,
 	Бригада.*,
 	Подразделение.*,
 	ОбъемВыработки,
-	Сотрудник.*,
+	ОбъемВыработкиПоСотруднику,
+	Сотрудник,
 	ЧасыВыработки,
 	СуммаВыработки,
 	ДатаВыработки,
-	РольИсполнителяРабот.*}
+	РольИсполнителяРабот}
 ИЗ
 	втОбъемВыработки КАК втОбъемВыработки
-		{ЛЕВОЕ СОЕДИНЕНИЕ Документ.ВыработкаСотрудников.Сотрудники КАК ВыработкаСотрудниковСотрудники
-		ПО втОбъемВыработки.ДокументВыработкаСотрудников = ВыработкаСотрудниковСотрудники.Ссылка}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	НАЧАЛОПЕРИОДА(ВыработкаСотрудниковСотрудники.Ссылка.Дата, ДЕНЬ),
+	ВыработкаСотрудниковСотрудники.Ссылка,
+	ВыработкаСотрудниковСотрудники.Ссылка.Бригада,
+	ВыработкаСотрудниковСотрудники.Ссылка.Подразделение,
+	ВыработкаСотрудниковСотрудники.Сотрудник,
+	ВыработкаСотрудниковСотрудники._РольИсполнителяРабот,
+	0,
+	ЕСТЬNULL(втОбъемВыработки.ОбъемВыработки, 0),
+	ВыработкаСотрудниковСотрудники._ДлительностьРаботСотрудника,
+	ВыработкаСотрудниковСотрудники.Сумма
+ИЗ
+	Документ.ВыработкаСотрудников.Сотрудники КАК ВыработкаСотрудниковСотрудники
+		ЛЕВОЕ СОЕДИНЕНИЕ втОбъемВыработки КАК втОбъемВыработки
+		ПО ВыработкаСотрудниковСотрудники.Ссылка = втОбъемВыработки.ДокументВыработкаСотрудников
+ГДЕ
+	ВыработкаСотрудниковСотрудники.Ссылка.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И ВыработкаСотрудниковСотрудники.Ссылка.Проведен
 {ГДЕ
+	ВыработкаСотрудниковСотрудники.Ссылка.* КАК ДокументВыработкаСотрудников,
+	ВыработкаСотрудниковСотрудники.Ссылка.Бригада.* КАК Бригада,
+	ВыработкаСотрудниковСотрудники.Ссылка.Подразделение.* КАК Подразделение,
 	ВыработкаСотрудниковСотрудники.Сотрудник.*,
 	ВыработкаСотрудниковСотрудники._РольИсполнителяРабот.* КАК РольИсполнителяРабот}</query>
 			<autoFillFields>false</autoFillFields>
@@ -153,9 +191,19 @@
 		</totalField>
 		<totalField>
 			<dataPath>ОбъемВыработки</dataPath>
-			<expression>Максимум(ОбъемВыработки)</expression>
+			<expression>Сумма(ОбъемВыработки)</expression>
 			<group>Бригада</group>
+			<group>ОбщийИтог</group>
+		</totalField>
+		<totalField>
+			<dataPath>ОбъемВыработки</dataPath>
+			<expression>Сумма(ОбъемВыработкиПоСотруднику)</expression>
 			<group>Сотрудник</group>
+		</totalField>
+		<totalField>
+			<dataPath>ОбъемВыработки</dataPath>
+			<expression>0</expression>
+			<group>Бригада Иерархия</group>
 		</totalField>
 		<parameter>
 			<name>ДатаНачала</name>
@@ -219,6 +267,15 @@
 				<d4p1:item>
 					<d4p1:lang>ru</d4p1:lang>
 					<d4p1:content>Выработка сотрудников (Дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ВыработкаСотрудниковСводный</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Выработка сотрудников (Сводный)</d4p1:content>
 				</d4p1:item>
 			</presentation>
 		</settingsVariant>
@@ -307,6 +364,134 @@
 				<item xsi:type="SelectedItemAuto"/>
 			</selection>
 			<item>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Сотрудник</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>РольИсполнителяРабот</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item>
+					<use>false</use>
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<field>ДокументВыработкаСотрудников</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
+			</item>
+		</row>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>ОбъемВыработки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЧасыВыработки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СуммаВыработки</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Бригада</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>5b64d66c-3bf6-455d-86b6-56777985eabd</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Подразделение</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>0ac4e28a-e060-4212-b502-59f58965b021</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Сотрудник</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>ceaa025c-e9c5-466d-925f-928929a2f7f0</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+			</dcscor:value>
+			<userSettingID>8da22a09-1f37-48bf-a8eb-fcee0cbf8538</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemTable">
+		<column>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ДатаВыработки</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</column>
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Бригада</field>
+					<groupType>Hierarchy</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Подразделение</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item>
+				<use>false</use>
 				<groupItems>
 					<item xsi:type="GroupItemField">
 						<field>Сотрудник</field>
