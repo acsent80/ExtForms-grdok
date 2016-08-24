@@ -74,20 +74,29 @@
 					</presentation>
 				</availableValue>
 				<availableValue>
-					<value xsi:type="xs:string">Затраты 26 счет</value>
+					<value xsi:type="xs:string">Управленческие расходы сч 25</value>
 					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
 						<d6p1:item>
 							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Затраты 26 счет</d6p1:content>
+							<d6p1:content>Управленческие расходы сч 25</d6p1:content>
 						</d6p1:item>
 					</presentation>
 				</availableValue>
 				<availableValue>
-					<value xsi:type="xs:string">Расходы на продажу 44 счет</value>
+					<value xsi:type="xs:string">Управленческие расходы сч 26</value>
 					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
 						<d6p1:item>
 							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Расходы на продажу 44 счет</d6p1:content>
+							<d6p1:content>Управленческие расходы сч 26</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Расходы на продажу сч 44</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Расходы на продажу сч 44</d6p1:content>
 						</d6p1:item>
 					</presentation>
 				</availableValue>
@@ -1077,7 +1086,7 @@
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
-				<name>РасходыЗатраты</name>
+				<name>Затраты26</name>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодНеделя</dataPath>
 					<field>ПериодНеделя</field>
@@ -1219,8 +1228,8 @@
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
-	"Затраты 26 счет" КАК Раздел,
-	-ХозрасчетныйОбороты.СуммаОборотДт КАК Сумма,
+	"Управленческие расходы сч 26" КАК Раздел,
+	-ХозрасчетныйОбороты.СуммаОборотКт КАК Сумма,
 	ХозрасчетныйОбороты.Регистратор КАК Регистратор,
 	ХозрасчетныйОбороты.ПериодСекунда КАК ПериодСекунда,
 	ХозрасчетныйОбороты.ПериодМинута КАК ПериодМинута,
@@ -1251,9 +1260,9 @@
 	Статья.*,
 	Счет.*}
 ИЗ
-	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы)), , {(Организация).*}, , ) КАК ХозрасчетныйОбороты
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы)), , {(Организация).*}, КорСчет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Продажи_УправленческиеРасходы)), ) КАК ХозрасчетныйОбороты
 {ГДЕ
-	("Затраты 26 счет") КАК Раздел,
+	("Управленческие расходы сч 26") КАК Раздел,
 	ХозрасчетныйОбороты.ПериодСекунда,
 	ХозрасчетныйОбороты.ПериодМинута,
 	ХозрасчетныйОбороты.ПериодЧас,
@@ -1792,7 +1801,7 @@
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
-	"Расходы на продажу 44 счет" КАК Раздел,
+	"Расходы на продажу сч 44" КАК Раздел,
 	-ХозрасчетныйОбороты.СуммаОборотДт КАК Сумма,
 	ХозрасчетныйОбороты.Регистратор КАК Регистратор,
 	ХозрасчетныйОбороты.ПериодСекунда КАК ПериодСекунда,
@@ -1826,7 +1835,198 @@
 ИЗ
 	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу)), , {(Организация).*}, , ) КАК ХозрасчетныйОбороты
 {ГДЕ
-	("Расходы на продажу 44 счет") КАК Раздел,
+	("Расходы на продажу сч 44") КАК Раздел,
+	ХозрасчетныйОбороты.ПериодСекунда,
+	ХозрасчетныйОбороты.ПериодМинута,
+	ХозрасчетныйОбороты.ПериодЧас,
+	ХозрасчетныйОбороты.ПериодДень,
+	ХозрасчетныйОбороты.ПериодНеделя,
+	ХозрасчетныйОбороты.ПериодДекада,
+	ХозрасчетныйОбороты.ПериодМесяц,
+	ХозрасчетныйОбороты.ПериодКвартал,
+	ХозрасчетныйОбороты.ПериодПолугодие,
+	ХозрасчетныйОбороты.ПериодГод,
+	ХозрасчетныйОбороты.Субконто1.* КАК Статья}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Затраты25</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодНеделя</dataPath>
+					<field>ПериодНеделя</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">6</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМинута</dataPath>
+					<field>ПериодМинута</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодПолугодие</dataPath>
+					<field>ПериодПолугодие</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">10</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодЧас</dataPath>
+					<field>ПериодЧас</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">4</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДень</dataPath>
+					<field>ПериодДень</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">5</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодГод</dataPath>
+					<field>ПериодГод</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">11</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">8</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодСекунда</dataPath>
+					<field>ПериодСекунда</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Раздел</dataPath>
+					<field>Раздел</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Раздел</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодКвартал</dataPath>
+					<field>ПериодКвартал</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">9</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Организация</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДекада</dataPath>
+					<field>ПериодДекада</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">7</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	"Управленческие расходы сч 25" КАК Раздел,
+	-ХозрасчетныйОбороты.СуммаОборотКт КАК Сумма,
+	ХозрасчетныйОбороты.Регистратор КАК Регистратор,
+	ХозрасчетныйОбороты.ПериодСекунда КАК ПериодСекунда,
+	ХозрасчетныйОбороты.ПериодМинута КАК ПериодМинута,
+	ХозрасчетныйОбороты.ПериодЧас КАК ПериодЧас,
+	ХозрасчетныйОбороты.ПериодДень КАК ПериодДень,
+	ХозрасчетныйОбороты.ПериодНеделя КАК ПериодНеделя,
+	ХозрасчетныйОбороты.ПериодДекада КАК ПериодДекада,
+	ХозрасчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
+	ХозрасчетныйОбороты.ПериодКвартал КАК ПериодКвартал,
+	ХозрасчетныйОбороты.ПериодПолугодие КАК ПериодПолугодие,
+	ХозрасчетныйОбороты.ПериодГод КАК ПериодГод,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья,
+	ХозрасчетныйОбороты.Счет КАК Счет
+{ВЫБРАТЬ
+	Раздел,
+	Сумма,
+	Регистратор.*,
+	ПериодСекунда,
+	ПериодМинута,
+	ПериодЧас,
+	ПериодДень,
+	ПериодНеделя,
+	ПериодДекада,
+	ПериодМесяц,
+	ПериодКвартал,
+	ПериодПолугодие,
+	ПериодГод,
+	Статья.*,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы)), , {(Организация).*}, КорСчет В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Продажи_УправленческиеРасходы)), ) КАК ХозрасчетныйОбороты
+{ГДЕ
+	("Управленческие расходы сч 25") КАК Раздел,
 	ХозрасчетныйОбороты.ПериодСекунда,
 	ХозрасчетныйОбороты.ПериодМинута,
 	ХозрасчетныйОбороты.ПериодЧас,
@@ -1883,26 +2083,32 @@
 ОБЪЕДИНИТЬ ВСЕ 
 
 ВЫБРАТЬ
-	"Расходы на продажу 44 счет" КАК Раздел,
+	"Расходы на продажу сч 44" КАК Раздел,
 	4 КАК Порядок
 
 ОБЪЕДИНИТЬ ВСЕ 
 
 ВЫБРАТЬ
-	"Затраты 26 счет" КАК Раздел,
+	"Управленческие расходы сч 25" КАК Раздел,
 	5 КАК Порядок
 
 ОБЪЕДИНИТЬ ВСЕ 
 
 ВЫБРАТЬ
-	"Доходы будущих периодов" КАК Раздел,
+	"Управленческие расходы сч 26" КАК Раздел,
 	6 КАК Порядок
 
 ОБЪЕДИНИТЬ ВСЕ 
 
 ВЫБРАТЬ
-	"Расходы будущих периодов" КАК Раздел,
+	"Доходы будущих периодов" КАК Раздел,
 	7 КАК Порядок
+
+ОБЪЕДИНИТЬ ВСЕ 
+
+ВЫБРАТЬ
+	"Расходы будущих периодов" КАК Раздел,
+	8 КАК Порядок
 </query>
 		</dataSet>
 		<dataSetLink>
@@ -1999,6 +2205,12 @@
 			</right>
 			<userSettingID>f252ecd0-95dd-4a65-88ac-2f350f22a19e</userSettingID>
 		</item>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Раздел</left>
+			<comparisonType>NotInList</comparisonType>
+			<right xsi:type="xs:string">Расходы будущих периодов</right>
+			<right xsi:type="xs:string">Доходы будущих периодов</right>
+		</item>
 		<viewMode>Normal</viewMode>
 		<userSettingID>e49026ec-7138-40fa-a0b4-f1a3dc7732fd</userSettingID>
 	</filter>
@@ -2009,11 +2221,6 @@
 				<v8:variant xsi:type="v8:StandardPeriodVariant">FromBeginningOfThisYear</v8:variant>
 			</dcscor:value>
 			<userSettingID>750b1b8c-f933-44b3-8a3b-fe38d49c215d</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:use>false</dcscor:use>
-			<dcscor:parameter>Дата2</dcscor:parameter>
-			<dcscor:value xsi:nil="true"/>
 		</dcscor:item>
 	</dataParameters>
 	<order>
