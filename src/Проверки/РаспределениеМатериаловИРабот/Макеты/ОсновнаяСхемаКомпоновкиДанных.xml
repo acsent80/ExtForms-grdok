@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Передано</dataPath>
+				<field>Передано</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Передано</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Реализовано</dataPath>
+				<field>Реализовано</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Реализовано</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отклонение</dataPath>
+				<field>Отклонение</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Отклонение</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Тип</dataPath>
+				<field>Тип</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Тип</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачальныйОстаток</dataPath>
+				<field>НачальныйОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Начальный остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поступило</dataPath>
+				<field>Поступило</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Поступило</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КонечныйОстаток</dataPath>
+				<field>КонечныйОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Конечный остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Норматив</dataPath>
+				<field>Норматив</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Норматив</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Назначение</dataPath>
+				<field>Назначение</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Серия</dataPath>
+				<field>Серия</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НеРаспределено</dataPath>
+				<field>НеРаспределено</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Не распределено</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ТаблицаДанных.Тип КАК Тип,
+	ТаблицаДанных.Организация КАК Организация,
+	ТаблицаДанных.Номенклатура КАК Номенклатура,
+	ТаблицаДанных.Характеристика КАК Характеристика,
+	ТаблицаДанных.Серия КАК Серия,
+	ТаблицаДанных.Подразделение КАК Подразделение,
+	ТаблицаДанных.НачальныйОстаток КАК НачальныйОстаток,
+	ТаблицаДанных.Поступило КАК Поступило,
+	ТаблицаДанных.Норматив КАК Норматив,
+	ТаблицаДанных.Отклонение КАК Отклонение,
+	ТаблицаДанных.КонечныйОстаток КАК КонечныйОстаток,
+	ТаблицаДанных.Реализовано КАК Реализовано,
+	ТаблицаДанных.Передано КАК Передано,
+	ТаблицаДанных.Назначение КАК Назначение,
+	ТаблицаДанных.Регистратор КАК Регистратор,
+	ЕСТЬNULL(ТаблицаДанных.Поступило + ТаблицаДанных.НачальныйОстаток - ТаблицаДанных.Норматив + ТаблицаДанных.Отклонение - ТаблицаДанных.КонечныйОстаток - ТаблицаДанных.Реализовано - ТаблицаДанных.Передано, 0) КАК НеРаспределено
+{ВЫБРАТЬ
+	Тип,
+	Организация.*,
+	Номенклатура.*,
+	Характеристика.*,
+	Серия.*,
+	Подразделение.*,
+	НачальныйОстаток,
+	Поступило,
+	Норматив,
+	Отклонение,
+	КонечныйОстаток,
+	Реализовано,
+	Передано,
+	Назначение.*,
+	Регистратор.*,
+	НеРаспределено}
+ИЗ
+	(ВЫБРАТЬ
+		1 КАК Тип,
+		НачальныйОстаток.Организация КАК Организация,
+		НачальныйОстаток.Номенклатура КАК Номенклатура,
+		НачальныйОстаток.Характеристика КАК Характеристика,
+		НачальныйОстаток.Серия КАК Серия,
+		НачальныйОстаток.Подразделение КАК Подразделение,
+		НачальныйОстаток.КоличествоОстаток КАК НачальныйОстаток,
+		0 КАК Поступило,
+		0 КАК Норматив,
+		0 КАК Отклонение,
+		0 КАК КонечныйОстаток,
+		0 КАК Реализовано,
+		0 КАК Передано,
+		НачальныйОстаток.Назначение КАК Назначение,
+		NULL КАК Регистратор
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве.Остатки(
+				&amp;НачалоПериода,
+				Организация В (&amp;Организация)
+					И (Подразделение В (&amp;Подразделение)
+						ИЛИ &amp;ВсеПодразделения)) КАК НачальныйОстаток
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		2,
+		КонечныйОстаток.Организация,
+		КонечныйОстаток.Номенклатура,
+		КонечныйОстаток.Характеристика,
+		КонечныйОстаток.Серия,
+		КонечныйОстаток.Подразделение,
+		0,
+		0,
+		0,
+		0,
+		КонечныйОстаток.КоличествоОстаток,
+		0,
+		0,
+		КонечныйОстаток.Назначение,
+		NULL
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве.Остатки(
+				ДОБАВИТЬКДАТЕ(&amp;НачалоПериода, МЕСЯЦ, 1),
+				Организация В (&amp;Организация)
+					И (Подразделение В (&amp;Подразделение)
+						ИЛИ &amp;ВсеПодразделения)) КАК КонечныйОстаток
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		3,
+		ЗатратыОбороты.Организация,
+		ЗатратыОбороты.Номенклатура,
+		ЗатратыОбороты.Характеристика,
+		ЗатратыОбороты.Серия,
+		ЗатратыОбороты.Подразделение,
+		0,
+		ЗатратыОбороты.КоличествоПриход,
+		0,
+		0,
+		0,
+		0,
+		0,
+		ЗатратыОбороты.Назначение,
+		ЗатратыОбороты.Регистратор
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве.Обороты(
+				&amp;НачалоПериода,
+				&amp;ОкончаниеПериода,
+				Регистратор,
+				Организация В (&amp;Организация)
+					И (Подразделение В (&amp;Подразделение)
+						ИЛИ &amp;ВсеПодразделения)) КАК ЗатратыОбороты
+	ГДЕ
+		(ЗатратыОбороты.КоличествоПриход &gt; 0
+				ИЛИ ЗатратыОбороты.Регистратор ССЫЛКА Документ.ВыпускПродукции
+					И ЗатратыОбороты.КоличествоПриход &lt; 0)
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		4,
+		ЗатратыОбороты.Организация,
+		ЗатратыОбороты.Номенклатура,
+		ЗатратыОбороты.Характеристика,
+		ЗатратыОбороты.Серия,
+		ЗатратыОбороты.Подразделение,
+		0,
+		0,
+		ЗатратыОбороты.КоличествоРасход,
+		0,
+		0,
+		0,
+		0,
+		ЗатратыОбороты.Назначение,
+		ЗатратыОбороты.Регистратор
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве.Обороты(
+				&amp;НачалоПериода,
+				&amp;ОкончаниеПериода,
+				Регистратор,
+				Организация В (&amp;Организация)
+					И (Подразделение В (&amp;Подразделение)
+						ИЛИ &amp;ВсеПодразделения)) КАК ЗатратыОбороты
+	ГДЕ
+		ЗатратыОбороты.КоличествоРасход &lt; 0
+		И ЗатратыОбороты.Регистратор ССЫЛКА Документ.МаршрутныйЛистПроизводства
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		5,
+		ЗатратыСписанияПоНормативам.Организация,
+		ЗатратыСписанияПоНормативам.Номенклатура,
+		ЗатратыСписанияПоНормативам.Характеристика,
+		ЗатратыСписанияПоНормативам.Серия,
+		ЗатратыСписанияПоНормативам.Подразделение,
+		0,
+		0,
+		ЗатратыСписанияПоНормативам.КоличествоРасход,
+		0,
+		0,
+		0,
+		0,
+		ЗатратыСписанияПоНормативам.Назначение,
+		ЗатратыСписанияПоНормативам.Регистратор
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве.Обороты(
+				&amp;НачалоПериода,
+				&amp;ОкончаниеПериода,
+				Регистратор,
+				Организация В (&amp;Организация)
+					И (Подразделение В (&amp;Подразделение)
+						ИЛИ &amp;ВсеПодразделения)) КАК ЗатратыСписанияПоНормативам
+	ГДЕ
+		ЗатратыСписанияПоНормативам.Регистратор ССЫЛКА Документ.СписаниеЗатратНаВыпуск
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		6,
+		МЛ.Организация,
+		ТЧ.Номенклатура,
+		ТЧ.Характеристика,
+		ТЧ.Серия,
+		МЛ.Подразделение,
+		0,
+		0,
+		ТЧ.Количество,
+		ТЧ.КоличествоОтклонение,
+		0,
+		0,
+		0,
+		ТЧ.Назначение,
+		МЛ.Ссылка
+	ИЗ
+		Документ.МаршрутныйЛистПроизводства.МатериалыИУслуги КАК ТЧ
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.МаршрутныйЛистПроизводства КАК МЛ
+			ПО ТЧ.Ссылка = МЛ.Ссылка
+				И (МЛ.Организация В (&amp;Организация))
+				И (МЛ.Подразделение В (&amp;Подразделение)
+					ИЛИ &amp;ВсеПодразделения)
+				И (МЛ.Статус В (ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполняется), ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполнен))
+					ИЛИ (МЛ.УправлениеМаршрутнымиЛистами = ЗНАЧЕНИЕ(Перечисление.УправлениеМаршрутнымиЛистами.ПооперационноеПланирование)
+						ИЛИ МЛ.УправлениеМаршрутнымиЛистами = ЗНАЧЕНИЕ(Перечисление.УправлениеМаршрутнымиЛистами.РегистрацияОпераций))
+						И МЛ.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.КВыполнению))
+				И (ТЧ.Количество + ТЧ.КоличествоОтклонение &gt; 0)
+				И (ТЧ.ДатаРасхода МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода)
+				И (МЛ.Проведен)
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		7,
+		Затраты.Организация,
+		Затраты.Номенклатура,
+		Затраты.Характеристика,
+		Затраты.Серия,
+		Затраты.Подразделение,
+		0,
+		-Затраты.Количество,
+		0,
+		0,
+		0,
+		0,
+		0,
+		Затраты.Назначение,
+		Затраты.Регистратор
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве КАК Затраты
+	ГДЕ
+		Затраты.Организация В(&amp;Организация)
+		И (Затраты.Подразделение В (&amp;Подразделение)
+				ИЛИ &amp;ВсеПодразделения)
+		И Затраты.Период МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода
+		И Затраты.Регистратор ССЫЛКА Документ.ВозвратМатериаловИзПроизводства
+		И Затраты.Количество &gt; 0
+		И Затраты.Активность
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		8,
+		Затраты.Организация,
+		Затраты.Номенклатура,
+		Затраты.Характеристика,
+		Затраты.Серия,
+		Затраты.Подразделение,
+		0,
+		0,
+		0,
+		0,
+		0,
+		Затраты.Количество,
+		0,
+		Затраты.Назначение,
+		Затраты.Регистратор
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве КАК Затраты
+	ГДЕ
+		Затраты.Организация В(&amp;Организация)
+		И (Затраты.Подразделение В (&amp;Подразделение)
+				ИЛИ &amp;ВсеПодразделения)
+		И Затраты.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+		И Затраты.ЗаказНаПроизводство = НЕОПРЕДЕЛЕНО
+		И Затраты.АналитикаУчетаПродукции = ЗНАЧЕНИЕ(Справочник.КлючиАналитикиУчетаНоменклатуры.ПустаяСсылка)
+		И Затраты.СтатьяРасходов = ЗНАЧЕНИЕ(ПланВидовХарактеристик.СтатьиРасходов.ПустаяСсылка)
+		И Затраты.Период МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода
+		И НЕ Затраты.Регистратор ССЫЛКА Документ.РаспределениеПроизводственныхЗатрат
+		И НЕ Затраты.Регистратор ССЫЛКА Документ.ВозвратМатериаловИзПроизводства
+		И НЕ Затраты.Регистратор ССЫЛКА Документ.ПеремещениеМатериаловВПроизводстве
+		И Затраты.Количество &gt; 0
+		И НЕ Затраты.Регистратор ССЫЛКА Документ.СписаниеЗатратНаВыпуск
+		И Затраты.Номенклатура.ТипНоменклатуры = ЗНАЧЕНИЕ(Перечисление.ТипыНоменклатуры.Работа)
+		И Затраты.Активность
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		9,
+		Затраты.Организация,
+		Затраты.Номенклатура,
+		Затраты.Характеристика,
+		Затраты.Серия,
+		Затраты.Подразделение,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		Затраты.Количество,
+		Затраты.Назначение,
+		Затраты.Регистратор
+	ИЗ
+		РегистрНакопления.МатериалыИРаботыВПроизводстве КАК Затраты
+	ГДЕ
+		Затраты.Организация В(&amp;Организация)
+		И (Затраты.Подразделение В (&amp;Подразделение)
+				ИЛИ &amp;ВсеПодразделения)
+		И Затраты.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+		И Затраты.Период МЕЖДУ &amp;НачалоПериода И &amp;ОкончаниеПериода
+		И Затраты.Регистратор ССЫЛКА Документ.ПеремещениеМатериаловВПроизводстве
+		И Затраты.Количество &gt; 0
+		И Затраты.Активность) КАК ТаблицаДанных
+{ГДЕ
+	ТаблицаДанных.Тип,
+	ТаблицаДанных.Организация.*,
+	ТаблицаДанных.Номенклатура.*,
+	ТаблицаДанных.Характеристика.*,
+	ТаблицаДанных.Серия.*,
+	ТаблицаДанных.Подразделение.*,
+	ТаблицаДанных.НачальныйОстаток,
+	ТаблицаДанных.Поступило,
+	ТаблицаДанных.Норматив,
+	ТаблицаДанных.Отклонение,
+	ТаблицаДанных.КонечныйОстаток,
+	ТаблицаДанных.Реализовано,
+	ТаблицаДанных.Передано,
+	ТаблицаДанных.Назначение.*,
+	ТаблицаДанных.Регистратор.*}</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<totalField>
+			<dataPath>КонечныйОстаток</dataPath>
+			<expression>Сумма(КонечныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстаток</dataPath>
+			<expression>Сумма(НачальныйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Норматив</dataPath>
+			<expression>Сумма(Норматив)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Отклонение</dataPath>
+			<expression>Сумма(Отклонение)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Передано</dataPath>
+			<expression>Сумма(Передано)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Поступило</dataPath>
+			<expression>Сумма(Поступило)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Реализовано</dataPath>
+			<expression>Сумма(Реализовано)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НеРаспределено</dataPath>
+			<expression>Сумма(НеРаспределено)</expression>
+		</totalField>
+		<parameter>
+			<name>НачалоПериода</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Начало периода</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+		</parameter>
+		<parameter>
+			<name>ОкончаниеПериода</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Окончание периода</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+		</parameter>
+		<parameter>
+			<name>ВсеПодразделения</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Все подразделения</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:boolean</Type>
+			</valueType>
+			<value xsi:type="xs:boolean">false</value>
+			<useRestriction>true</useRestriction>
+			<expression>НЕ ЗначениеЗаполнено(&amp;Подразделение)</expression>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Организация</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Организация</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Подразделение</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Подразделение</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СтруктураПредприятия</Type>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Партнеры</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Распределение материалов и работ</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Распределение материалов и работ</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>НачальныйОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Поступило</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Норматив</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Отклонение</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КонечныйОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Реализовано</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Передано</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>НеРаспределено</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Характеристика</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>6b16a10e-1fec-4a3d-8515-c36468cdff40</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>2016-03-01T00:00:00</v8:startDate>
+				<v8:endDate>2016-03-31T23:59:59</v8:endDate>
+			</dcscor:value>
+			<userSettingID>b4c13e50-33ad-41b7-9a9c-5d62f2e584da</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Организация</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+			<userSettingID>1daf4aa6-1b86-4232-9f68-81bc198fe210</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Подразделение</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+			<userSettingID>12e1ce5d-ee5b-4c72-85d6-75c04b6734a6</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Номенклатура</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Характеристика</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Тип</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Регистратор</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
