@@ -1,6 +1,40 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Характеристика</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПродукцияХарактеристика</dataPath>
+				<field>ПродукцияХарактеристика</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Продукция характеристика</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	1 КАК Поле1
+{ГДЕ
+	(ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка)) КАК Характеристика,
+	(ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка)) КАК ПродукцияХарактеристика}</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
 		<parameter>
 			<name>Регистратор</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -750,7 +784,8 @@
 	РегистрНакопления.ПартииПроизводственныхЗатрат КАК Рег
 ГДЕ
 	Рег.Регистратор = &amp;Регистратор
-	И Рег.АналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика</query>
+	И (Рег.АналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика
+			ИЛИ Рег.КорАналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика)</query>
 					<autoFillFields>false</autoFillFields>
 				</dataSet>
 				<totalField>
@@ -910,6 +945,9 @@
 							</item>
 							<item xsi:type="SelectedItemField">
 								<field>НалогообложениеНДС</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>КорАналитикаУчетаНоменклатуры</field>
 							</item>
 						</selection>
 						<outputParameters>
@@ -1169,7 +1207,8 @@
 	РегистрНакопления.ПартииНезавершенногоПроизводства КАК Рег
 ГДЕ
 	Рег.Регистратор = &amp;Регистратор
-	И Рег.АналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика</query>
+	И (Рег.АналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика
+			ИЛИ Рег.АналитикаУчетаПродукции.Характеристика = &amp;Характеристика)</query>
 					<autoFillFields>false</autoFillFields>
 				</dataSet>
 				<totalField>
@@ -1394,6 +1433,430 @@
 				</dataParameters>
 			</settings>
 		</nestedSchema>
+		<nestedSchema>
+			<name>ПартииЗатратНаВыпуск</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Партии затрат на выпуск</d4p1:content>
+				</d4p1:item>
+			</title>
+			<schema>
+				<dataSource>
+					<name>ИсточникДанных1</name>
+					<dataSourceType>Local</dataSourceType>
+				</dataSource>
+				<dataSet xsi:type="DataSetQuery">
+					<name>НаборДанных1</name>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>КорВидЗапасов</dataPath>
+						<field>КорВидЗапасов</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>КорАналитикаУчетаПродукции</dataPath>
+						<field>КорАналитикаУчетаПродукции</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ВидДвижения</dataPath>
+						<field>ВидДвижения</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>Знаменатель</dataPath>
+						<field>Знаменатель</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ДокументИсточник</dataPath>
+						<field>ДокументИсточник</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>Регистратор</dataPath>
+						<field>Регистратор</field>
+						<role>
+							<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+							<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+						</role>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ПостояннаяРазница</dataPath>
+						<field>ПостояннаяРазница</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ПодразделениеРасходов</dataPath>
+						<field>ПодразделениеРасходов</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>НДСРегл</dataPath>
+						<field>НДСРегл</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>НомерСтроки</dataPath>
+						<field>НомерСтроки</field>
+						<role>
+							<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+							<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+						</role>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ХозяйственнаяОперация</dataPath>
+						<field>ХозяйственнаяОперация</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>АналитикаУчетаПартий</dataPath>
+						<field>АналитикаУчетаПартий</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ДокументВыпуска</dataPath>
+						<field>ДокументВыпуска</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>Количество</dataPath>
+						<field>Количество</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>НалогообложениеНДС</dataPath>
+						<field>НалогообложениеНДС</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>Активность</dataPath>
+						<field>Активность</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>Стоимость</dataPath>
+						<field>Стоимость</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>СтатьяРасходовСписания</dataPath>
+						<field>СтатьяРасходовСписания</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>СтоимостьРегл</dataPath>
+						<field>СтоимостьРегл</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ВременнаяРазница</dataPath>
+						<field>ВременнаяРазница</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>АналитикаРасходов</dataPath>
+						<field>АналитикаРасходов</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>Период</dataPath>
+						<field>Период</field>
+						<role>
+							<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
+							<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+						</role>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>АналитикаУчетаНоменклатуры</dataPath>
+						<field>АналитикаУчетаНоменклатуры</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ДокументПоступления</dataPath>
+						<field>ДокументПоступления</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>СтоимостьБезНДС</dataPath>
+						<field>СтоимостьБезНДС</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>Организация</dataPath>
+						<field>Организация</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>ВидЗапасов</dataPath>
+						<field>ВидЗапасов</field>
+					</field>
+					<field xsi:type="DataSetFieldField">
+						<dataPath>АналитикаУчетаПродукции</dataPath>
+						<field>АналитикаУчетаПродукции</field>
+					</field>
+					<dataSource>ИсточникДанных1</dataSource>
+					<query>ВЫБРАТЬ
+	Рег.Период КАК Период,
+	Рег.Регистратор КАК Регистратор,
+	Рег.НомерСтроки КАК НомерСтроки,
+	Рег.Активность КАК Активность,
+	Рег.ВидДвижения КАК ВидДвижения,
+	Рег.Организация КАК Организация,
+	Рег.АналитикаУчетаПродукции КАК АналитикаУчетаПродукции,
+	Рег.АналитикаУчетаНоменклатуры КАК АналитикаУчетаНоменклатуры,
+	Рег.ВидЗапасов КАК ВидЗапасов,
+	Рег.ДокументВыпуска КАК ДокументВыпуска,
+	Рег.ДокументПоступления КАК ДокументПоступления,
+	Рег.АналитикаУчетаПартий КАК АналитикаУчетаПартий,
+	Рег.Количество КАК Количество,
+	Рег.Стоимость КАК Стоимость,
+	Рег.СтоимостьБезНДС КАК СтоимостьБезНДС,
+	Рег.СтоимостьРегл КАК СтоимостьРегл,
+	Рег.НДСРегл КАК НДСРегл,
+	Рег.ПостояннаяРазница КАК ПостояннаяРазница,
+	Рег.ВременнаяРазница КАК ВременнаяРазница,
+	Рег.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	Рег.НалогообложениеНДС КАК НалогообложениеНДС,
+	Рег.СтатьяРасходовСписания КАК СтатьяРасходовСписания,
+	Рег.АналитикаРасходов КАК АналитикаРасходов,
+	Рег.ПодразделениеРасходов КАК ПодразделениеРасходов,
+	Рег.КорАналитикаУчетаПродукции КАК КорАналитикаУчетаПродукции,
+	Рег.КорВидЗапасов КАК КорВидЗапасов,
+	Рег.Знаменатель КАК Знаменатель,
+	Рег.ДокументИсточник КАК ДокументИсточник
+{ВЫБРАТЬ
+	Период,
+	Регистратор.*,
+	НомерСтроки,
+	Активность,
+	ВидДвижения,
+	Организация.*,
+	АналитикаУчетаПродукции.*,
+	АналитикаУчетаНоменклатуры.*,
+	ВидЗапасов.*,
+	ДокументВыпуска.*,
+	ДокументПоступления.*,
+	АналитикаУчетаПартий.*,
+	Количество,
+	Стоимость,
+	СтоимостьБезНДС,
+	СтоимостьРегл,
+	НДСРегл,
+	ПостояннаяРазница,
+	ВременнаяРазница,
+	ХозяйственнаяОперация.*,
+	НалогообложениеНДС.*,
+	СтатьяРасходовСписания.*,
+	АналитикаРасходов.*,
+	ПодразделениеРасходов.*,
+	КорАналитикаУчетаПродукции.*,
+	КорВидЗапасов.*,
+	Знаменатель,
+	ДокументИсточник.*}
+ИЗ
+	РегистрНакопления.ПартииЗатратНаВыпуск КАК Рег
+ГДЕ
+	Рег.Регистратор = &amp;Регистратор
+	И (Рег.АналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика
+			ИЛИ Рег.АналитикаУчетаПродукции.Характеристика = &amp;Характеристика)</query>
+					<autoFillFields>false</autoFillFields>
+				</dataSet>
+				<totalField>
+					<dataPath>ВременнаяРазница</dataPath>
+					<expression>Сумма(ВременнаяРазница)</expression>
+				</totalField>
+				<totalField>
+					<dataPath>НДСРегл</dataPath>
+					<expression>Сумма(НДСРегл)</expression>
+				</totalField>
+				<totalField>
+					<dataPath>ПостояннаяРазница</dataPath>
+					<expression>Сумма(ПостояннаяРазница)</expression>
+				</totalField>
+				<totalField>
+					<dataPath>Стоимость</dataPath>
+					<expression>Сумма(Стоимость)</expression>
+				</totalField>
+				<totalField>
+					<dataPath>СтоимостьБезНДС</dataPath>
+					<expression>Сумма(СтоимостьБезНДС)</expression>
+				</totalField>
+				<totalField>
+					<dataPath>СтоимостьРегл</dataPath>
+					<expression>Сумма(СтоимостьРегл)</expression>
+				</totalField>
+				<totalField>
+					<dataPath>Количество</dataPath>
+					<expression>Сумма(Количество)</expression>
+				</totalField>
+				<parameter>
+					<name>Регистратор</name>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Регистратор</d6p1:content>
+						</d6p1:item>
+					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВнутреннееПотреблениеТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.РасходныйКассовыйОрдер</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПеремещениеМатериаловВПроизводстве</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВозвратТоваровОтКлиента</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПоступлениеТоваровУслуг</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ТаможеннаяДекларацияИмпорт</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетКомиссионера</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетДавальцу</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.АмортизацияНМА</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПоступлениеСырьяОтДавальца</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.НачислениеОценочныхОбязательствПоОтпускам</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВозвратТоваровПоставщику</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.РаспределениеПроизводственныхЗатрат</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.СписаниеБезналичныхДенежныхСредств</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПеремаркировкаТоваровГИСМ</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.КорректировкаОбособленногоУчетаЗапасов</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВводОстатков</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПрочиеДоходыРасходы</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.КорректировкаРегистров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.МаркировкаТоваровГИСМ</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.КорректировкаНалогообложенияНДСПартийТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетПоКомиссииМеждуОрганизациями</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.РаспределениеРасходовБудущихПериодов</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.СписаниеНедостачТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПеремещениеТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВозвратСырьяДавальцу</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ЗаявлениеОВвозеТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.КорректировкаРеализации</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.РеализацияТоваровУслуг</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.АмортизацияОС</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтражениеЗарплатыВФинансовомУчете</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПередачаСырьяПереработчику</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.КорректировкаНазначенияТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПересортицаТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.АвансовыйОтчет</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетПоКомиссииМеждуОрганизациямиОСписании</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.КорректировкаПоступления</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетКомитентуОСписании</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетПереработчика</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПоступлениеУслугПрочихАктивов</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.АктВыполненныхРабот</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетОРозничныхПродажах</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОприходованиеИзлишковТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВозвратСырьяОтПереработчика</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВыпускПродукции</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВозвратТоваровМеждуОрганизациями</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.СборкаТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ОтчетКомиссионераОСписании</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ВозвратМатериаловИзПроизводства</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПередачаТоваровМеждуОрганизациями</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.РасчетСебестоимостиТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПрочееОприходованиеТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПередачаМатериаловВПроизводство</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПорчаТоваров</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.ПоступлениеОтПереработчика</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:DocumentRef.СчетФактураНалоговыйАгент</Type>
+					</valueType>
+					<value xsi:nil="true"/>
+					<useRestriction>false</useRestriction>
+				</parameter>
+				<parameter>
+					<name>Характеристика</name>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Характеристика</d6p1:content>
+						</d6p1:item>
+					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ХарактеристикиНоменклатуры</Type>
+					</valueType>
+					<value xsi:nil="true"/>
+					<useRestriction>false</useRestriction>
+				</parameter>
+				<settingsVariant>
+					<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Основной</name>
+					<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="xs:string">Основной</presentation>
+					<settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+						<selection>
+							<item xsi:type="SelectedItemField">
+								<field>ВидДвижения</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>АналитикаУчетаПродукции</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>АналитикаУчетаНоменклатуры</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>Количество</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>Стоимость</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>СтоимостьРегл</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>СтоимостьБезНДС</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>НДСРегл</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ВременнаяРазница</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ПостояннаяРазница</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ДокументВыпуска</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ДокументПоступления</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ДокументПоступления</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ДокументИсточник</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>Знаменатель</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>НалогообложениеНДС</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ХозяйственнаяОперация</field>
+							</item>
+						</selection>
+						<filter>
+							<item xsi:type="FilterItemComparison">
+								<use>false</use>
+								<left xsi:type="dcscor:Field">ПродукцияХарактеристика</left>
+								<comparisonType>Equal</comparisonType>
+							</item>
+						</filter>
+						<outputParameters>
+							<dcscor:item xsi:type="SettingsParameterValue">
+								<dcscor:parameter>Заголовок</dcscor:parameter>
+								<dcscor:value xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Партии затрат на выпуск</v8:content>
+									</v8:item>
+								</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="SettingsParameterValue">
+								<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+								<dcscor:value xsi:type="DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+							<dcscor:item xsi:type="SettingsParameterValue">
+								<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+								<dcscor:value xsi:type="DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+							</dcscor:item>
+						</outputParameters>
+						<item xsi:type="StructureItemGroup">
+							<order>
+								<item xsi:type="OrderItemAuto"/>
+							</order>
+							<selection>
+								<item xsi:type="SelectedItemAuto"/>
+							</selection>
+						</item>
+					</settings>
+				</settingsVariant>
+			</schema>
+			<settings xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+				<dataParameters xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">
+					<dcscor:item xsi:type="SettingsParameterValue">
+						<dcscor:parameter>Регистратор</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.Регистратор</dcscor:value>
+					</dcscor:item>
+					<dcscor:item xsi:type="SettingsParameterValue">
+						<dcscor:parameter>Характеристика</dcscor:parameter>
+						<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.Характеристика</dcscor:value>
+					</dcscor:item>
+				</dataParameters>
+			</settings>
+		</nestedSchema>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Движения документа с отбором</name>
 			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -1497,6 +1960,7 @@
 				</selection>
 			</item>
 		</settings>
+		<userSettingID>db201f3e-2ba8-428c-8592-9cf9fa551f97</userSettingID>
 	</item>
 	<item xsi:type="StructureItemNestedObject">
 		<objectID>ПартииПроизводственныхЗатрат</objectID>
@@ -1544,6 +2008,9 @@
 				<item xsi:type="SelectedItemField">
 					<field>НалогообложениеНДС</field>
 				</item>
+				<item xsi:type="SelectedItemField">
+					<field>КорАналитикаУчетаНоменклатуры</field>
+				</item>
 			</selection>
 			<dataParameters>
 				<dcscor:item xsi:type="SettingsParameterValue">
@@ -1583,6 +2050,7 @@
 				</selection>
 			</item>
 		</settings>
+		<userSettingID>b5f5b738-421b-417d-87ad-d4cc3664212e</userSettingID>
 	</item>
 	<item xsi:type="StructureItemNestedObject">
 		<objectID>ПартииНезавершенногоПроизводства</objectID>
@@ -1685,6 +2153,112 @@
 				</selection>
 			</item>
 		</settings>
+		<userSettingID>31a581ad-e00d-4dc5-8add-93c8f0e2c113</userSettingID>
+	</item>
+	<item xsi:type="StructureItemNestedObject">
+		<objectID>ПартииЗатратНаВыпуск</objectID>
+		<settings>
+			<selection>
+				<item xsi:type="SelectedItemField">
+					<field>ВидДвижения</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>АналитикаУчетаПродукции</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>АналитикаУчетаНоменклатуры</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Количество</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Стоимость</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>СтоимостьРегл</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>СтоимостьБезНДС</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>НДСРегл</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ВременнаяРазница</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ПостояннаяРазница</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ДокументВыпуска</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ДокументПоступления</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ДокументПоступления</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ДокументИсточник</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Знаменатель</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>НалогообложениеНДС</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ХозяйственнаяОперация</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<use>false</use>
+					<left xsi:type="dcscor:Field">ПродукцияХарактеристика</left>
+					<comparisonType>Equal</comparisonType>
+				</item>
+			</filter>
+			<dataParameters>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Регистратор</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.Регистратор</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Характеристика</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.Характеристика</dcscor:value>
+				</dcscor:item>
+			</dataParameters>
+			<order/>
+			<conditionalAppearance/>
+			<outputParameters>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Партии затрат на выпуск</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
+					<dcscor:value xsi:type="DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+				</dcscor:item>
+			</outputParameters>
+			<item xsi:type="StructureItemGroup">
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+			</item>
+		</settings>
+		<userSettingID>ab2178c0-424a-42a0-a167-7896d354c08d</userSettingID>
 	</item>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
 <SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

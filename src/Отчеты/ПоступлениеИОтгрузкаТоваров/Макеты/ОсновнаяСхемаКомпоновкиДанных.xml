@@ -1,0 +1,2523 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>Поступление и отгрузка заказа</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Приход</dataPath>
+				<field>Приход</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Приход</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>ВыделятьОтрицательные</parameter>
+						<value xsi:type="xs:boolean">true</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>МинимальнаяШирина</parameter>
+						<value xsi:type="xs:decimal">12</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>МаксимальнаяШирина</parameter>
+						<value xsi:type="xs:decimal">12</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Расход</dataPath>
+				<field>Расход</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Расход</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>ВыделятьОтрицательные</parameter>
+						<value xsi:type="xs:boolean">true</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>МинимальнаяШирина</parameter>
+						<value xsi:type="xs:decimal">12</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>МаксимальнаяШирина</parameter>
+						<value xsi:type="xs:decimal">12</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаДокумента</dataPath>
+				<field>ДатаДокумента</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Дата документа</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументОснование</dataPath>
+				<field>ДокументОснование</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Документ-основание</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+				<presentationExpression>ВЫБОР КОГДА Не ДокументОснование = НЕОПРЕДЕЛЕНО И НЕ ТИПЗНАЧЕНИЯ(ДокументОснование) = ТИП("СТРОКА")
+И НЕ  ТИПЗНАЧЕНИЯ(ДокументОснование) = ТИП("Справочник.Назначения") ТОГДА
+ОбщегоНазначенияУТ.ПолучитьПредставлениеДокумента(ДокументОснование, ДокументОснование.Номер,ДокументОснование.Дата) ИНАЧЕ ДокументОснование КОНЕЦ</presentationExpression>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачальныйОстаток</dataPath>
+				<field>НачальныйОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Начальный остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>ВыделятьОтрицательные</parameter>
+						<value xsi:type="xs:boolean">true</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>МинимальнаяШирина</parameter>
+						<value xsi:type="xs:decimal">12</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<use>false</use>
+						<parameter>МаксимальнаяШирина</parameter>
+						<value xsi:type="xs:decimal">12</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Действие</dataPath>
+				<field>Действие</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Действие</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+				<presentationExpression>ВЫБОР КОГДА Действие = 1 ТОГДА "Отгружается" КОГДА Действие = 2 ТОГДА "Резерв (обособленный)" КОГДА Действие = 3 ТОГДА "Резерв" КОГДА Действие = 5 ТОГДА "Резерв к дате отгрузки" ИНАЧЕ "" КОНЕЦ</presentationExpression>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодРасшифровка</dataPath>
+				<field>ПериодРасшифровка</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Период расшифровка</d5p1:content>
+					</d5p1:item>
+				</title>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументОтгрузки</dataPath>
+				<field>ДокументОтгрузки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Назначение</dataPath>
+				<field>Назначение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Серия</dataPath>
+				<field>Серия</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Получатель</dataPath>
+				<field>Получатель</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументОснованиеТип</dataPath>
+				<field>ДокументОснованиеТип</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Документ основание тип</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>// 1) В наличии
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	0                                             КАК Действие,
+	Таблица.Номенклатура                          КАК Номенклатура,
+	Таблица.Характеристика                        КАК Характеристика,
+	Таблица.Склад                                 КАК Склад,
+
+	ДАТАВРЕМЯ(1, 1, 1)                            КАК ПериодРасшифровка,
+	&amp;ВНаличии                                     КАК ДокументОснование,
+	ТИПЗНАЧЕНИЯ(&amp;ВНаличии)                        КАК ДокументОснованиеТип,
+	ДАТАВРЕМЯ(1, 1, 1)                            КАК ДатаДокумента,
+
+	Таблица.ВНаличииОстаток                       КАК НачальныйОстаток,
+	0                                             КАК Приход,
+	0                                             КАК Расход
+
+ИЗ
+	РегистрНакопления.СвободныеОстатки.Остатки КАК Таблица
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	0                        КАК Действие,
+	Таблица.Номенклатура     КАК Номенклатура,
+	Таблица.Характеристика   КАК Характеристика,
+	Таблица.Склад            КАК Склад,
+
+	ДАТАВРЕМЯ(1, 1, 1)       КАК ПериодРасшифровка,
+	&amp;ВНаличии                КАК ДокументОснование,
+	ТИПЗНАЧЕНИЯ(&amp;ВНаличии)   КАК ДокументОснованиеТип,
+	ДАТАВРЕМЯ(1, 1, 1)       КАК ДатаДокумента,
+
+	Таблица.КОтгрузкеОстаток КАК НачальныйОстаток,
+	0                        КАК Приход,
+	0                        КАК Расход
+ИЗ
+	РегистрНакопления.ТоварыКОтгрузке.Остатки КАК Таблица
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+// 2) Отгружается
+ВЫБРАТЬ
+	1                                             КАК Действие,
+	Таблица.Номенклатура                          КАК Номенклатура,
+	Таблица.Характеристика                        КАК Характеристика,
+	Таблица.Склад                                 КАК Склад,
+
+	ДАТАВРЕМЯ(1, 1, 1)                            КАК ПериодРасшифровка,
+	Таблица.ДокументОтгрузки                      КАК ДокументОснование,
+	ТИПЗНАЧЕНИЯ(Таблица.ДокументОтгрузки)         КАК ДокументОснованиеТип,
+	Таблица.ДокументОтгрузки.Дата                 КАК ДатаДокумента,
+
+	0                                             КАК НачальныйОстаток,
+	0                                             КАК Приход,
+	Таблица.КОтгрузкеОстаток                      КАК Расход
+
+ИЗ
+	РегистрНакопления.ТоварыКОтгрузке.Остатки КАК Таблица
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+// 3) Резервировать под заказ
+ВЫБРАТЬ
+	2                                             КАК Действие,
+	Таблица.Номенклатура                          КАК Номенклатура,
+	Таблица.Характеристика                        КАК Характеристика,
+	Таблица.Склад                                 КАК Склад,
+
+	ДАТАВРЕМЯ(1, 1, 1)                            КАК ПериодРасшифровка,
+
+	ВЫБОР КОГДА Таблица.Назначение.Заказ = НЕОПРЕДЕЛЕНО ТОГДА
+					Таблица.Назначение
+				ИНАЧЕ
+					Таблица.Назначение.Заказ
+		КОНЕЦ                                     КАК ДокументОснование,
+	ВЫБОР КОГДА Таблица.Назначение.Заказ = НЕОПРЕДЕЛЕНО ТОГДА
+					ТИПЗНАЧЕНИЯ(Таблица.Назначение)
+				ИНАЧЕ
+					ТИПЗНАЧЕНИЯ(Таблица.Назначение.Заказ)
+		КОНЕЦ                                     КАК ДокументОснованиеТип,
+	ВЫБОР КОГДА Таблица.Назначение.Заказ = НЕОПРЕДЕЛЕНО ТОГДА
+					ДАТАВРЕМЯ(1, 1, 1)
+				ИНАЧЕ
+					Таблица.Назначение.Заказ.Дата
+		КОНЕЦ                                     КАК ДатаДокумента,
+
+	0                                             КАК НачальныйОстаток,
+	0                                             КАК Приход,
+	Таблица.НаличиеПодЗаказОстаток                КАК Расход
+
+ИЗ
+	РегистрНакопления.ОбеспечениеЗаказов.Остатки КАК Таблица
+
+ОБЪЕДИНИТЬ ВСЕ
+
+// 4) Резервировать на складе
+ВЫБРАТЬ
+	3                                             КАК Действие,
+	Таблица.Номенклатура                          КАК Номенклатура,
+	Таблица.Характеристика                        КАК Характеристика,
+	Таблица.Склад                                 КАК Склад,
+
+	ДАТАВРЕМЯ(1, 1, 1)                            КАК ПериодРасшифровка,
+	Таблица.ДокументОтгрузки                      КАК ДокументОснование,
+	ТИПЗНАЧЕНИЯ(Таблица.ДокументОтгрузки)         КАК ДокументОснованиеТип,
+	Таблица.ДокументОтгрузки.Дата                 КАК ДатаДокумента,
+
+	0                                             КАК НачальныйОстаток,
+	0                                             КАК Приход,
+	Таблица.ВРезервеОстаток                       КАК Расход
+
+ИЗ
+	РегистрНакопления.ТоварыКОтгрузке.Остатки КАК Таблица
+
+ОБЪЕДИНИТЬ ВСЕ
+
+// 5) Ожидается к поступлению
+ВЫБРАТЬ
+	4                                             КАК Действие,
+	Таблица.Номенклатура                          КАК Номенклатура,
+	Таблица.Характеристика                        КАК Характеристика,
+	Таблица.Склад                                 КАК Склад,
+
+	ВЫБОР КОГДА Таблица.ДатаСобытия &lt; &amp;НачалоТекущегоДня ТОГДА
+				&amp;НачалоТекущегоДня
+			ИНАЧЕ
+				Таблица.ДатаСобытия
+		КОНЕЦ                                     КАК ПериодРасшифровка,
+
+	Таблица.Регистратор                           КАК ДокументОснование,
+	ТИПЗНАЧЕНИЯ(Таблица.Регистратор)              КАК ДокументОснованиеТип,
+	МАКСИМУМ(Таблица.Регистратор.Дата)            КАК ДатаДокумента,
+
+	0                                             КАК НачальныйОстаток,
+	СУММА(Таблица.КоличествоИзЗаказов)            КАК Приход,
+	0                                             КАК Расход
+
+ИЗ
+	РегистрНакопления.ГрафикПоступленияТоваров КАК Таблица
+
+ГДЕ
+	Таблица.КоличествоИзЗаказов &lt;&gt; 0
+
+СГРУППИРОВАТЬ ПО
+	Таблица.Номенклатура, Таблица.Характеристика, Таблица.Склад,
+	ВЫБОР КОГДА Таблица.ДатаСобытия &lt; &amp;НачалоТекущегоДня ТОГДА
+				&amp;НачалоТекущегоДня
+			ИНАЧЕ
+				Таблица.ДатаСобытия
+		КОНЕЦ,
+	Таблица.Регистратор
+
+ОБЪЕДИНИТЬ ВСЕ
+
+// 6) Резервировать к дате
+ВЫБРАТЬ
+	5                                             КАК Действие,
+	Таблица.Номенклатура                          КАК Номенклатура,
+	Таблица.Характеристика                        КАК Характеристика,
+	Таблица.Склад                                 КАК Склад,
+
+	ВЫБОР КОГДА Таблица.ДатаОтгрузки &lt; &amp;НачалоТекущегоДня ТОГДА
+				&amp;НачалоТекущегоДня
+			ИНАЧЕ
+				Таблица.ДатаОтгрузки
+		КОНЕЦ                                     КАК ПериодРасшифровка,
+
+	Таблица.Регистратор                           КАК ДокументОснование,
+	ТИПЗНАЧЕНИЯ(Таблица.Регистратор)              КАК ДокументОснованиеТип,
+	МАКСИМУМ(Таблица.Регистратор.Дата)            КАК ДатаДокумента,
+
+	0                                             КАК НачальныйОстаток,
+	0                                             КАК Приход,
+	СУММА(Таблица.КоличествоИзЗаказов)            КАК Расход
+
+ИЗ
+	РегистрНакопления.ГрафикОтгрузкиТоваров КАК Таблица
+
+ГДЕ
+	Таблица.КоличествоИзЗаказов &lt;&gt; 0
+//++ НЕ УТКА
+	И Таблица.Распоряжение = ЗНАЧЕНИЕ(Документ.ЗаказНаПроизводство.ПустаяСсылка)
+//-- НЕ УТКА
+
+СГРУППИРОВАТЬ ПО
+	Таблица.Номенклатура, Таблица.Характеристика, Таблица.Склад,
+	ВЫБОР КОГДА Таблица.ДатаОтгрузки &lt; &amp;НачалоТекущегоДня ТОГДА
+				&amp;НачалоТекущегоДня
+			ИНАЧЕ
+				Таблица.ДатаОтгрузки
+		КОНЕЦ,
+	Таблица.Регистратор
+
+//++ НЕ УТКА
+
+ОБЪЕДИНИТЬ ВСЕ
+
+// 7) Резервировать к дате
+ВЫБРАТЬ
+	5                                             КАК Действие,
+	Таблица.Номенклатура                          КАК Номенклатура,
+	Таблица.Характеристика                        КАК Характеристика,
+	Таблица.Склад                                 КАК Склад,
+
+	ВЫБОР КОГДА Таблица.ДатаОтгрузки &lt; &amp;НачалоТекущегоДня ТОГДА
+				&amp;НачалоТекущегоДня
+			ИНАЧЕ
+				Таблица.ДатаОтгрузки
+		КОНЕЦ                                     КАК ПериодРасшифровка,
+
+	Таблица.Распоряжение                          КАК ДокументОснование,
+	ТИПЗНАЧЕНИЯ(Таблица.Распоряжение)             КАК ДокументОснованиеТип,
+	МАКСИМУМ(Таблица.Регистратор.Дата)            КАК ДатаДокумента,
+
+	0                                             КАК НачальныйОстаток,
+	0                                             КАК Приход,
+	СУММА(Таблица.КоличествоИзЗаказов)            КАК Расход
+
+ИЗ
+	РегистрНакопления.ГрафикОтгрузкиТоваров КАК Таблица
+
+ГДЕ
+	Таблица.КоличествоИзЗаказов &lt;&gt; 0
+	И НЕ Таблица.Распоряжение = ЗНАЧЕНИЕ(Документ.ЗаказНаПроизводство.ПустаяСсылка)
+
+СГРУППИРОВАТЬ ПО
+	Таблица.Номенклатура, Таблица.Характеристика, Таблица.Склад,
+	ВЫБОР КОГДА Таблица.ДатаОтгрузки &lt; &amp;НачалоТекущегоДня ТОГДА
+				&amp;НачалоТекущегоДня
+			ИНАЧЕ
+				Таблица.ДатаОтгрузки
+		КОНЕЦ,
+	Таблица.Распоряжение
+
+//-- НЕ УТКА
+</query>
+		</dataSet>
+		<dataSet xsi:type="DataSetQuery">
+			<name>РеквизитыНоменклатуры</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Вес</dataPath>
+				<field>Вес</field>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Объем</dataPath>
+				<field>Объем</field>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Номенклатура</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЕдиницаДляОтчетов</dataPath>
+				<field>ЕдиницаДляОтчетов</field>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+				<attributeUseRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</attributeUseRestriction>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЕдиницаХранения</dataPath>
+				<field>ЕдиницаХранения</field>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+				<attributeUseRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</attributeUseRestriction>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоэффициентЕдиницыДляОтчетов</dataPath>
+				<field>КоэффициентЕдиницыДляОтчетов</field>
+				<useRestriction>
+					<field>true</field>
+					<condition>true</condition>
+					<group>true</group>
+					<order>true</order>
+				</useRestriction>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СпрНоменклатура.Ссылка КАК Номенклатура,
+	&amp;ТекстЗапросаВесНоменклатуры    КАК Вес,
+	&amp;ТекстЗапросаОбъемНоменклатуры  КАК Объем,
+	СпрНоменклатура.ЕдиницаИзмерения             КАК ЕдиницаХранения,
+	СпрНоменклатура.ЕдиницаДляОтчетов            КАК ЕдиницаДляОтчетов,
+	СпрНоменклатура.КоэффициентЕдиницыДляОтчетов КАК КоэффициентЕдиницыДляОтчетов
+ИЗ
+	Справочник.Номенклатура КАК СпрНоменклатура
+</query>
+		</dataSet>
+		<dataSet xsi:type="DataSetQuery">
+			<name>Доступность</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Доступно</dataPath>
+				<field>Доступно</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Доступно</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодРасшифровка</dataPath>
+				<field>ПериодРасшифровка</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Период расшифровка</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаСобытия</dataPath>
+				<field>ДатаСобытия</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СегментНоменклатуры</dataPath>
+				<field>СегментНоменклатуры</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сегмент номенклатуры</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Назначение</dataPath>
+				<field>Назначение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаОтгрузки</dataPath>
+				<field>ДатаОтгрузки</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	Сегменты.Номенклатура КАК Номенклатура,
+	Сегменты.Характеристика КАК Характеристика,
+	ИСТИНА КАК ИспользуетсяОтборПоСегментуНоменклатуры
+ПОМЕСТИТЬ ОтборПоСегментуНоменклатуры
+ИЗ
+	РегистрСведений.НоменклатураСегмента КАК Сегменты
+{ГДЕ
+	Сегменты.Сегмент.* КАК СегментНоменклатуры,
+	Сегменты.Номенклатура.* КАК Номенклатура,
+	Сегменты.Характеристика.* КАК Характеристика}
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура,
+	Характеристика,
+	ИспользуетсяОтборПоСегментуНоменклатуры
+;
+
+//Расчет доступного количества для товаров, имеющих просроченные движения
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	Набор.Номенклатура   КАК Номенклатура,
+	Набор.Характеристика КАК Характеристика,
+	Набор.Склад          КАК Склад
+ПОМЕСТИТЬ ВтТоварыДляРасчетаДоступности
+ИЗ(
+	ВЫБРАТЬ
+		Таблица.Номенклатура   КАК Номенклатура,
+		Таблица.Характеристика КАК Характеристика,
+		Таблица.Склад          КАК Склад
+	ИЗ
+		РегистрНакопления.ГрафикПоступленияТоваров.Остатки(, {Номенклатура.*, Характеристика.*, Склад.*}) КАК Таблица
+	ГДЕ
+		Таблица.ДатаСобытия &lt; &amp;НачалоТекущегоДня
+		И Таблица.КоличествоИзЗаказовОстаток &lt;&gt; 0
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Таблица.Номенклатура   КАК Номенклатура,
+		Таблица.Характеристика КАК Характеристика,
+		Таблица.Склад          КАК Склад
+	ИЗ
+		РегистрНакопления.ГрафикОтгрузкиТоваров.Остатки(, {Номенклатура.*, Характеристика.*, Склад.*}) КАК Таблица
+	ГДЕ
+		Таблица.ДатаОтгрузки &lt; &amp;НачалоТекущегоДня
+		И Таблица.КоличествоИзЗаказовОстаток &lt;&gt; 0) КАК Набор
+
+ИНДЕКСИРОВАТЬ ПО
+	Номенклатура, Характеристика, Склад
+;
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	Набор.Номенклатура   КАК Номенклатура,
+	Набор.Характеристика КАК Характеристика,
+	Набор.Склад          КАК Склад,
+	Набор.Период         КАК Период
+ПОМЕСТИТЬ ВтПериодыДвижений
+ИЗ(
+	ВЫБРАТЬ
+		Таблица.Номенклатура   КАК Номенклатура,
+		Таблица.Характеристика КАК Характеристика,
+		Таблица.Склад          КАК Склад,
+
+		ВЫБОР КОГДА График.ДатаСобытия &lt; &amp;НачалоТекущегоДня ТОГДА
+					&amp;НачалоТекущегоДня
+				ИНАЧЕ
+					График.ДатаСобытия
+			КОНЕЦ              КАК Период
+
+	ИЗ
+		ВтТоварыДляРасчетаДоступности КАК Таблица
+
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ГрафикПоступленияТоваров.Остатки КАК График
+			ПО Таблица.Номенклатура   = График.Номенклатура
+			 И Таблица.Характеристика = График.Характеристика
+			 И Таблица.Склад          = График.Склад
+			 И График.КоличествоИзЗаказовОстаток &lt;&gt; 0
+
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Таблица.Номенклатура   КАК Номенклатура,
+		Таблица.Характеристика КАК Характеристика,
+		Таблица.Склад          КАК Склад,
+
+		ВЫБОР КОГДА График.ДатаОтгрузки &lt; &amp;НачалоТекущегоДня ТОГДА
+					&amp;НачалоТекущегоДня
+				ИНАЧЕ
+					График.ДатаОтгрузки
+			КОНЕЦ              КАК Период
+
+	ИЗ
+		ВтТоварыДляРасчетаДоступности КАК Таблица
+
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ГрафикОтгрузкиТоваров.Остатки КАК График
+			ПО Таблица.Номенклатура   = График.Номенклатура
+			 И Таблица.Характеристика = График.Характеристика
+			 И Таблица.Склад          = График.Склад
+			 И График.КоличествоИзЗаказовОстаток &lt;&gt; 0) КАК Набор
+;
+
+ВЫБРАТЬ
+	Таблица.Номенклатура             КАК Номенклатура,
+	Таблица.Характеристика           КАК Характеристика,
+	Таблица.Склад                    КАК Склад,
+	МИНИМУМ(Таблица.КонечныйОстаток) КАК МинимальныйОстаток
+ПОМЕСТИТЬ ВтМинимальныйОстаток
+ИЗ(
+	ВЫБРАТЬ
+		Таблица.Номенклатура   КАК Номенклатура,
+		Таблица.Характеристика КАК Характеристика,
+		Таблица.Склад          КАК Склад,
+
+		Таблица.Период         КАК Период,
+
+		СУММА(Таблица.КонечныйОстаток) КАК КонечныйОстаток
+	ИЗ(
+		ВЫБРАТЬ
+			Таблица.Номенклатура   КАК Номенклатура,
+			Таблица.Характеристика КАК Характеристика,
+			Таблица.Склад          КАК Склад,
+
+			Таблица.Период         КАК Период,
+
+			ЕСТЬNULL(ГрафикПоступления.КоличествоИзЗаказовОстаток, 0) КАК КонечныйОстаток
+
+		ИЗ
+			ВтПериодыДвижений КАК Таблица
+
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ГрафикПоступленияТоваров.Остатки КАК ГрафикПоступления
+				ПО Таблица.Номенклатура   = ГрафикПоступления.Номенклатура
+				 И Таблица.Характеристика = ГрафикПоступления.Характеристика
+				 И Таблица.Склад          = ГрафикПоступления.Склад
+				 И ГрафикПоступления.КоличествоИзЗаказовОстаток &lt;&gt; 0
+
+				 И Таблица.Период &gt;= ГрафикПоступления.ДатаСобытия
+
+		ОБЪЕДИНИТЬ ВСЕ
+
+		ВЫБРАТЬ
+			Таблица.Номенклатура   КАК Номенклатура,
+			Таблица.Характеристика КАК Характеристика,
+			Таблица.Склад          КАК Склад,
+
+			Таблица.Период         КАК Период,
+
+			- ЕСТЬNULL(ГрафикОтгрузки.КоличествоИзЗаказовОстаток, 0) КАК КонечныйОстаток
+
+		ИЗ
+			ВтПериодыДвижений КАК Таблица
+
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ГрафикОтгрузкиТоваров.Остатки КАК ГрафикОтгрузки
+				ПО Таблица.Номенклатура   = ГрафикОтгрузки.Номенклатура
+				 И Таблица.Характеристика = ГрафикОтгрузки.Характеристика
+				 И Таблица.Склад          = ГрафикОтгрузки.Склад
+				 И ГрафикОтгрузки.КоличествоИзЗаказовОстаток &lt;&gt; 0
+
+				 И Таблица.Период &gt;= ГрафикОтгрузки.ДатаОтгрузки) КАК Таблица
+
+		СГРУППИРОВАТЬ ПО
+			Таблица.Номенклатура, Таблица.Характеристика, Таблица.Склад, Таблица.Период
+	) КАК Таблица
+
+СГРУППИРОВАТЬ ПО
+	Таблица.Номенклатура, Таблица.Характеристика, Таблица.Склад
+ИНДЕКСИРОВАТЬ ПО
+	Таблица.Номенклатура, Таблица.Характеристика, Таблица.Склад
+;
+
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Таблица.Номенклатура             КАК Номенклатура,
+	Таблица.Характеристика           КАК Характеристика,
+	Таблица.Склад                    КАК Склад,
+
+	Таблица.ДатаДоступности          КАК ДатаДоступности,
+	Таблица.Количество               КАК Количество
+ПОМЕСТИТЬ ВтДоступноВГрафике
+ИЗ
+	РегистрСведений.ДоступныеОстаткиПланируемыхПоступлений КАК Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ ВтТоварыДляРасчетаДоступности КАК Фильтр
+		ПО Таблица.Номенклатура   = Фильтр.Номенклатура
+		 И Таблица.Характеристика = Фильтр.Характеристика
+		 И Таблица.Склад          = Фильтр.Склад
+ГДЕ
+	Фильтр.Номенклатура ЕСТЬ NULL
+	ИЛИ Таблица.ДатаДоступности &gt; &amp;НачалоТекущегоДня
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Таблица.Номенклатура             КАК Номенклатура,
+	Таблица.Характеристика           КАК Характеристика,
+	Таблица.Склад                    КАК Склад,
+
+	ДАТАВРЕМЯ(1, 1, 1)               КАК ПериодРасшифровка,
+	Таблица.МинимальныйОстаток       КАК Доступно
+
+ИЗ
+	ВтМинимальныйОстаток КАК Таблица
+ГДЕ
+	Таблица.МинимальныйОстаток &lt; 0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	Таблица.Номенклатура             КАК Номенклатура,
+	Таблица.Характеристика           КАК Характеристика,
+	Таблица.Склад                    КАК Склад,
+
+	&amp;НачалоТекущегоДня               КАК ПериодРасшифровка,
+	Таблица.МинимальныйОстаток       КАК Доступно
+
+ИЗ
+	ВтМинимальныйОстаток КАК Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ДоступныеОстаткиПланируемыхПоступлений КАК Фильтр
+		ПО Таблица.Номенклатура   = Фильтр.Номенклатура
+		 И Таблица.Характеристика = Фильтр.Характеристика
+		 И Таблица.Склад          = Фильтр.Склад
+
+		 И Фильтр.ДатаДоступности &gt; &amp;НачалоТекущегоДня
+		 И Таблица.МинимальныйОстаток = Фильтр.Количество
+
+ГДЕ
+	Таблица.МинимальныйОстаток &gt; 0
+	И Фильтр.Номенклатура ЕСТЬ NULL
+;
+
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Набор.Номенклатура             КАК Номенклатура,
+	Набор.Характеристика           КАК Характеристика,
+	Набор.Склад                    КАК Склад,
+
+	Набор.ПериодРасшифровка        КАК ПериодРасшифровка,
+	СУММА(Набор.Доступно)          КАК Доступно
+
+ИЗ(
+	ВЫБРАТЬ
+		Таблица.Номенклатура             КАК Номенклатура,
+		Таблица.Характеристика           КАК Характеристика,
+		Таблица.Склад                    КАК Склад,
+
+		Таблица.ДатаДоступности          КАК ПериодРасшифровка,
+		Таблица.Количество               КАК Доступно
+	ИЗ
+		ВтДоступноВГрафике КАК Таблица
+		
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Таблица.Номенклатура             КАК Номенклатура,
+		Таблица.Характеристика           КАК Характеристика,
+		Таблица.Склад                    КАК Склад,
+
+		Таблица.ДатаДоступности          КАК ПериодРасшифровка,
+		Остатки.ВНаличииОстаток
+			- Остатки.ВРезервеСоСкладаОстаток
+			- Остатки.ВРезервеПодЗаказОстаток   КАК Доступно
+	ИЗ
+		ВтДоступноВГрафике КАК Таблица
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.СвободныеОстатки.Остатки КАК Остатки
+			ПО Таблица.Номенклатура   = Остатки.Номенклатура
+			 И Таблица.Характеристика = Остатки.Характеристика
+			 И Таблица.Склад          = Остатки.Склад
+			 И Таблица.ДатаДоступности &gt; ДАТАВРЕМЯ(1, 1, 1)
+		
+	ОБЪЕДИНИТЬ ВСЕ
+
+	ВЫБРАТЬ
+		Таблица.Номенклатура             КАК Номенклатура,
+		Таблица.Характеристика           КАК Характеристика,
+		Таблица.Склад                    КАК Склад,
+
+		ДАТАВРЕМЯ(1, 1, 1)               КАК ПериодРасшифровка,
+		Таблица.ВНаличииОстаток
+			- Таблица.ВРезервеСоСкладаОстаток
+			- Таблица.ВРезервеПодЗаказОстаток КАК Доступно
+	ИЗ
+		РегистрНакопления.СвободныеОстатки.Остатки КАК Таблица) КАК Набор
+СГРУППИРОВАТЬ ПО
+	Набор.Номенклатура, Набор.Характеристика, Набор.Склад,
+	Набор.ПериодРасшифровка
+</query>
+		</dataSet>
+		<dataSetLink>
+			<sourceDataSet>Поступление и отгрузка заказа</sourceDataSet>
+			<destinationDataSet>РеквизитыНоменклатуры</destinationDataSet>
+			<sourceExpression>Номенклатура</sourceExpression>
+			<destinationExpression>Номенклатура</destinationExpression>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>Поступление и отгрузка заказа</sourceDataSet>
+			<destinationDataSet>Доступность</destinationDataSet>
+			<sourceExpression>Номенклатура</sourceExpression>
+			<destinationExpression>Номенклатура</destinationExpression>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>Поступление и отгрузка заказа</sourceDataSet>
+			<destinationDataSet>Доступность</destinationDataSet>
+			<sourceExpression>Характеристика</sourceExpression>
+			<destinationExpression>Характеристика</destinationExpression>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>Поступление и отгрузка заказа</sourceDataSet>
+			<destinationDataSet>Доступность</destinationDataSet>
+			<sourceExpression>Склад</sourceExpression>
+			<destinationExpression>Склад</destinationExpression>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>Поступление и отгрузка заказа</sourceDataSet>
+			<destinationDataSet>Доступность</destinationDataSet>
+			<sourceExpression>ПериодРасшифровка</sourceExpression>
+			<destinationExpression>ПериодРасшифровка</destinationExpression>
+		</dataSetLink>
+		<calculatedField>
+			<dataPath>КонечныйОстаток</dataPath>
+			<expression>0</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Конечный остаток</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ДатаДоступности</dataPath>
+			<expression>ВЫБОР КОГДА Действие = 1 ИЛИ Действие = 2   ИЛИ Действие = 3  ТОГДА ДАТАВРЕМЯ(1,1,1) ИНАЧЕ ПериодРасшифровка КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата поступления/отгрузки</d4p1:content>
+				</d4p1:item>
+			</title>
+			<presentationExpression>ВЫБОР КОГДА ПериодРасшифровка = ДАТАВРЕМЯ(1, 1, 1)  ИЛИ Действие = 1 ИЛИ Действие = 2 ИЛИ Действие = 3 ТОГДА "Cейчас" ИНАЧЕ ФОРМАТ(ПериодРасшифровка, "Л=ru_RU; ДФ='dd.MM.yyyy ""г.""'") КОНЕЦ</presentationExpression>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>Доступно</dataPath>
+			<expression>ВЫБОР КОГДА &amp;ЕдиницыКоличества = 0 ТОГДА
+   Доступно
+КОГДА &amp;ЕдиницыКоличества = 1 ТОГДА
+   Доступно / КоэффициентЕдиницыДляОтчетов
+КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Доступно</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ЕдиницаОтчета</dataPath>
+			<expression>ВЫБОР КОГДА &amp;ЕдиницыКоличества = 0 ТОГДА
+  ЕдиницаХранения
+КОГДА &amp;ЕдиницыКоличества = 1 ТОГДА
+  ЕдиницаДляОтчетов
+КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Единица отчета</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>НачальныйОстаток</dataPath>
+			<expression>ВЫБОР КОГДА &amp;ЕдиницыКоличества = 0 ТОГДА
+   НачальныйОстаток
+КОГДА &amp;ЕдиницыКоличества = 1 ТОГДА
+   НачальныйОстаток / КоэффициентЕдиницыДляОтчетов
+КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Начальный остаток</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ОтметкаНезаполненного</parameter>
+					<value xsi:type="xs:boolean">false</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>Приход</dataPath>
+			<expression>ВЫБОР КОГДА &amp;ЕдиницыКоличества = 0 ТОГДА
+   Приход
+КОГДА &amp;ЕдиницыКоличества = 1 ТОГДА
+   Приход / КоэффициентЕдиницыДляОтчетов
+КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Приход</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>Расход</dataPath>
+			<expression>ВЫБОР КОГДА &amp;ЕдиницыКоличества = 0 ТОГДА
+   Расход
+КОГДА &amp;ЕдиницыКоличества = 1 ТОГДА
+   Расход / КоэффициентЕдиницыДляОтчетов
+КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Расход</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>Номенклатура.ЕдиницаИзмерения</dataPath>
+			<expression>ВЫБОР
+	КОГДА &amp;ЕдиницыКоличества = 0 ТОГДА
+		Номенклатура.ЕдиницаИзмерения
+	КОГДА &amp;ЕдиницыКоличества = 1 ТОГДА
+		Номенклатура.ЕдиницаДляОтчетов
+КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Ед. изм.</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>КонечныйОстатокОбъем</dataPath>
+			<expression>0</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Конечный остаток объем</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>КонечныйОстатокВес</dataPath>
+			<expression>0</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Конечный остаток вес</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ДоступноОбъем</dataPath>
+			<expression>Доступно * Объем</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Доступно объем</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ДоступноВес</dataPath>
+			<expression>Доступно * Вес</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Доступно вес</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>НачальныйОстатокОбъем</dataPath>
+			<expression>НачальныйОстаток * Объем</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Начальный остаток объем</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>НачальныйОстатокВес</dataPath>
+			<expression>НачальныйОстаток * Вес</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Начальный остаток вес</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ПриходОбъем</dataPath>
+			<expression>Приход * Объем</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Приход объем</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ПриходВес</dataPath>
+			<expression>Приход * Вес</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Приход вес</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>РасходОбъем</dataPath>
+			<expression>Расход * Объем</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Расход объем</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>РасходВес</dataPath>
+			<expression>Расход * Вес</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Расход вес</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МинимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>МаксимальнаяШирина</parameter>
+					<value xsi:type="xs:decimal">12</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<totalField>
+			<dataPath>КонечныйОстаток</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
+			<group>Действие</group>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстаток</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая")</expression>
+			<group>ДатаДоступности</group>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстаток</dataPath>
+			<expression>ВЫБОР КОГДА &amp;КоличественныеИтогиПоЕдИзм И Количество(Различные ЕдиницаОтчета) &gt; 1 ТОГДА
+   0
+ИНАЧЕ
+    ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Текущая", "Текущая")
+КОНЕЦ</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Приход</dataPath>
+			<expression>ВЫБОР КОГДА &amp;КоличественныеИтогиПоЕдИзм И Количество(Различные ЕдиницаОтчета) &gt; 1 ТОГДА
+   0
+ИНАЧЕ
+    Сумма(Приход)
+КОНЕЦ</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Расход</dataPath>
+			<expression>ВЫБОР КОГДА &amp;КоличественныеИтогиПоЕдИзм И Количество(Различные ЕдиницаОтчета) &gt; 1 ТОГДА
+   0
+ИНАЧЕ
+    Сумма(Расход)
+КОНЕЦ</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстаток</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая") - ВычислитьВыражение("Сумма(Приход - Расход)","","Группировка", "Текущая", "Текущая")</expression>
+			<group>ДатаДоступности</group>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстаток</dataPath>
+			<expression>ВЫБОР КОГДА &amp;КоличественныеИтогиПоЕдИзм И Количество(Различные ЕдиницаОтчета) &gt; 1 ТОГДА
+   0
+ИНАЧЕ
+    ВычислитьВыражение("Сумма(НачальныйОстаток)","","Группировка", "Текущая", "Текущая")
+КОНЕЦ</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстатокОбъем</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокОбъем + ПриходОбъем - РасходОбъем)","","Группировка", "Первая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстатокОбъем + ПриходОбъем - РасходОбъем)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
+			<group>Действие</group>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстатокВес</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокВес + ПриходВес - РасходВес)","","Группировка", "Первая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстатокВес + ПриходВес - РасходВес)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
+			<group>Действие</group>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстатокВес</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокВес + ПриходВес - РасходВес)","","Группировка", "Первая", "Текущая")</expression>
+			<group>ДатаДоступности</group>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстатокОбъем</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокОбъем + ПриходОбъем - РасходОбъем)","","Группировка", "Первая", "Текущая")</expression>
+			<group>ДатаДоступности</group>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстатокВес</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокВес + ПриходВес - РасходВес)","","Группировка", "Текущая", "Текущая")</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КонечныйОстатокОбъем</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокОбъем + ПриходОбъем - РасходОбъем)","","Группировка", "Текущая", "Текущая")</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПриходВес</dataPath>
+			<expression>Сумма(ПриходВес)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПриходОбъем</dataPath>
+			<expression>Сумма(ПриходОбъем)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>РасходВес</dataPath>
+			<expression>Сумма(РасходВес)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>РасходОбъем</dataPath>
+			<expression>Сумма(РасходОбъем)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстатокВес</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокВес + ПриходВес - РасходВес)","","Группировка", "Первая", "Текущая") - ВычислитьВыражение("Сумма(ПриходВес - РасходВес)","","Группировка", "Текущая", "Текущая")</expression>
+			<group>ДатаДоступности</group>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстатокОбъем</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокОбъем + ПриходОбъем - РасходОбъем)","","Группировка", "Первая", "Текущая") - ВычислитьВыражение("Сумма(ПриходОбъем - РасходОбъем)","","Группировка", "Текущая", "Текущая")</expression>
+			<group>ДатаДоступности</group>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстатокВес</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокВес)","","Группировка", "Текущая", "Текущая")</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстатокОбъем</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокОбъем)","","Группировка", "Текущая", "Текущая")</expression>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстаток</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая") + ВычислитьВыражение("Сумма(Расход - Приход)","","Группировка", "Текущая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
+			<group>Действие</group>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстатокВес</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокВес + ПриходВес - РасходВес)","","Группировка", "Первая", "Текущая") + ВычислитьВыражение("Сумма(РасходВес - ПриходВес)","","Группировка", "Текущая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстатокВес + ПриходВес - РасходВес)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
+			<group>Действие</group>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>НачальныйОстатокОбъем</dataPath>
+			<expression>ВычислитьВыражение("Сумма(НачальныйОстатокОбъем + ПриходОбъем - РасходОбъем)","","Группировка", "Первая", "Текущая") + ВычислитьВыражение("Сумма(РасходОбъем - ПриходОбъем)","","Группировка", "Текущая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстатокОбъем + ПриходОбъем - РасходОбъем)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
+			<group>Действие</group>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>Доступно</dataPath>
+			<expression>Сумма(Доступно)</expression>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>ДоступноВес</dataPath>
+			<expression>Сумма(ДоступноВес)</expression>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>ДоступноОбъем</dataPath>
+			<expression>Сумма(ДоступноОбъем)</expression>
+			<group>ДокументОснование</group>
+		</totalField>
+		<totalField>
+			<dataPath>Доступно</dataPath>
+			<expression>Максимум(Доступно)</expression>
+			<group>Номенклатура</group>
+			<group>Характеристика</group>
+		</totalField>
+		<totalField>
+			<dataPath>ДоступноВес</dataPath>
+			<expression>Максимум(ДоступноВес)</expression>
+			<group>Номенклатура</group>
+			<group>Характеристика</group>
+		</totalField>
+		<totalField>
+			<dataPath>ДоступноОбъем</dataPath>
+			<expression>Максимум(ДоступноОбъем)</expression>
+			<group>Номенклатура</group>
+			<group>Характеристика</group>
+		</totalField>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<parameter>
+			<name>ВНаличии</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>В наличии</d4p1:content>
+				</d4p1:item>
+			</title>
+			<value xsi:type="xs:string">В наличии</value>
+			<useRestriction>true</useRestriction>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<parameter>
+			<name>НачалоТекущегоДня</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Начало текущего дня</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>Date</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>НачалоПериода(ТекущаяДатаСеанса(), "День")</expression>
+		</parameter>
+		<parameter>
+			<name>ЕдиницыКоличества</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Количество товаров</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+				<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<Digits>0</Digits>
+					<FractionDigits>0</FractionDigits>
+					<AllowedSign>Any</AllowedSign>
+				</NumberQualifiers>
+			</valueType>
+			<value xsi:nil="true"/>
+			<useRestriction>false</useRestriction>
+			<availableValue>
+				<value xsi:nil="true"/>
+				<presentation xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>В единицах хранения</d5p1:content>
+					</d5p1:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:decimal">1</value>
+				<presentation xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>В единицах для отчетов</d5p1:content>
+					</d5p1:item>
+				</presentation>
+			</availableValue>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>КоличественныеИтогиПоЕдИзм</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Количественные итоги</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:boolean</Type>
+			</valueType>
+			<value xsi:type="xs:boolean">true</value>
+			<useRestriction>false</useRestriction>
+			<availableValue>
+				<value xsi:type="xs:boolean">true</value>
+				<presentation xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>С учетом единиц измерения</d5p1:content>
+					</d5p1:item>
+				</presentation>
+			</availableValue>
+			<availableValue>
+				<value xsi:type="xs:boolean">false</value>
+				<presentation xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Без учета единиц измерения</d5p1:content>
+					</d5p1:item>
+				</presentation>
+			</availableValue>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>ИспользуетсяОтборПоСегментуНоменклатуры</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Используется отбор по сегменту номенклатуры</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:boolean</Type>
+			</valueType>
+			<value xsi:type="xs:boolean">false</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ТекстЗапросаВесНоменклатуры</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Текст запроса вес номенклатуры</d4p1:content>
+				</d4p1:item>
+			</title>
+			<value xsi:nil="true"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ТекстЗапросаОбъемНоменклатуры</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Текст запроса объем номенклатуры</d4p1:content>
+				</d4p1:item>
+			</title>
+			<value xsi:nil="true"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ПоступлениеИОтгрузкаТовара</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Поступление и отгрузка товара (расшифровка)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ПоступлениеИОтгрузкаТоваров</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Поступление и отгрузка товаров (расшифровка)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">ПоступлениеИОтгрузкаТовараПоЗаказамНаПроизводство</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Поступление и отгрузка товара (по заказам на производство)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>НачальныйОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>НачальныйОстатокВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>НачальныйОстатокОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Приход</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ПриходВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ПриходОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Расход</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>РасходВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>РасходОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КонечныйОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>КонечныйОстатокВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КонечныйОстаток, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>КонечныйОстатокОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КонечныйОстаток, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Доступно</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ДоступноВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступно, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ДоступноОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступно, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<viewMode>Normal</viewMode>
+		<userSettingID>20fa9195-6094-43bd-b1af-865b1fc74199</userSettingID>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ЕдиницыКоличества</dcscor:parameter>
+			<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>КоличественныеИтогиПоЕдИзм</dcscor:parameter>
+			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ИспользуетсяОтборПоСегментуНоменклатуры</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+	</dataParameters>
+	<conditionalAppearance>
+		<item>
+			<selection>
+				<item>
+					<field>Доступно</field>
+				</item>
+				<item>
+					<field>КонечныйОстатокВес</field>
+				</item>
+				<item>
+					<field>ДоступноВес</field>
+				</item>
+				<item>
+					<field>ДоступноОбъем</field>
+				</item>
+				<item>
+					<field>КонечныйОстатокОбъем</field>
+				</item>
+				<item>
+					<field>КонечныйОстаток</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">Доступно</left>
+					<comparisonType>Equal</comparisonType>
+					<right xsi:type="dcscor:Field">КонечныйОстаток</right>
+				</item>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">Действие</left>
+					<comparisonType>NotInList</comparisonType>
+					<right xsi:type="xs:decimal">0</right>
+					<right xsi:type="xs:decimal">4</right>
+				</item>
+			</filter>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Шрифт</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+				</dcscor:item>
+			</appearance>
+		</item>
+	</conditionalAppearance>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Заголовок</dcscor:parameter>
+			<dcscor:value xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление и отгрузка</v8:content>
+				</v8:item>
+			</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>ДатаДоступности</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ДокументОснование</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Действие</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemField">
+					<field>Действие</field>
+					<orderType>Asc</orderType>
+				</item>
+				<item xsi:type="OrderItemField">
+					<field>ДокументОснование</field>
+					<orderType>Asc</orderType>
+				</item>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemField">
+					<field>ДокументОснование</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Действие</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>НачальныйОстаток</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>НачальныйОстатокВес</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальный остаток, %ЕдиницаВеса%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>НачальныйОстатокОбъем</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Начальный остаток, %ЕдиницаОбъема%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Приход</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>ПриходВес</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приход, %ЕдиницаВеса%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>ПриходОбъем</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Приход, %ЕдиницаОбъема%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Расход</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>РасходВес</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расход, %ЕдиницаВеса%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>РасходОбъем</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Расход, %ЕдиницаОбъема%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>КонечныйОстаток</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>КонечныйОстатокВес</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КонечныйОстаток, %ЕдиницаВеса%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<use>false</use>
+					<field>КонечныйОстатокОбъем</field>
+					<lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>КонечныйОстаток, %ЕдиницаОбъема%</v8:content>
+						</v8:item>
+					</lwsTitle>
+				</item>
+			</selection>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Номенклатура.Артикул</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Артикул</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>НачальныйОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>НачальныйОстатокВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>НачальныйОстатокОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Приход</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ПриходВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ПриходОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Приход, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Расход</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>РасходВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>РасходОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расход, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КонечныйОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>КонечныйОстатокВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КонечныйОстаток, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>КонечныйОстатокОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>КонечныйОстаток, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Доступно</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ДоступноВес</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступно, %ЕдиницаВеса%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ДоступноОбъем</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Доступно, %ЕдиницаОбъема%</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<viewMode>Normal</viewMode>
+		<userSettingID>a0fbb7b9-b191-4807-a8de-29efb6f12436</userSettingID>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ЕдиницыКоличества</dcscor:parameter>
+			<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>КоличественныеИтогиПоЕдИзм</dcscor:parameter>
+			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+		</dcscor:item>
+	</dataParameters>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Заголовок</dcscor:parameter>
+			<dcscor:value xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поступление и отгрузка</v8:content>
+				</v8:item>
+			</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Номенклатура</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Характеристика</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+			<item xsi:type="SelectedItemFolder">
+				<item xsi:type="SelectedItemField">
+					<field>Номенклатура</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Характеристика</field>
+				</item>
+				<placement>Together</placement>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>Номенклатура.ЕдиницаИзмерения</field>
+				<lwsTitle>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Ед. изм.</v8:content>
+					</v8:item>
+				</lwsTitle>
+			</item>
+			<viewMode>Normal</viewMode>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ДатаДоступности</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item xsi:type="StructureItemGroup">
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>ДокументОснование</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>Действие</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemField">
+						<field>Действие</field>
+						<orderType>Asc</orderType>
+					</item>
+					<item xsi:type="OrderItemField">
+						<field>ДокументОснование</field>
+						<orderType>Asc</orderType>
+					</item>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemField">
+						<field>ДокументОснование</field>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<field>Действие</field>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>КонечныйОстатокОбъем</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>КонечныйОстаток, %ЕдиницаОбъема%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>КонечныйОстатокВес</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>КонечныйОстаток, %ЕдиницаВеса%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<field>КонечныйОстаток</field>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>РасходОбъем</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расход, %ЕдиницаОбъема%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>РасходВес</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Расход, %ЕдиницаВеса%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<field>Расход</field>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>ПриходОбъем</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Приход, %ЕдиницаОбъема%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>ПриходВес</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Приход, %ЕдиницаВеса%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<field>Приход</field>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>НачальныйОстатокОбъем</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начальный остаток, %ЕдиницаОбъема%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<use>false</use>
+						<field>НачальныйОстатокВес</field>
+						<lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Начальный остаток, %ЕдиницаВеса%</v8:content>
+							</v8:item>
+						</lwsTitle>
+					</item>
+					<item xsi:type="SelectedItemField">
+						<field>НачальныйОстаток</field>
+					</item>
+				</selection>
+				<viewMode>Normal</viewMode>
+			</item>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>НачальныйОстаток</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Приход</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Расход</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КонечныйОстаток</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Номенклатура</left>
+			<comparisonType>InList</comparisonType>
+			<right xsi:type="v8:ValueListType">
+				<v8:valueType/>
+				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+			</right>
+			<viewMode>Normal</viewMode>
+			<userSettingID>259e4c98-1580-4429-8fc8-082e34b56113</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">ДокументОснованиеТип</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue">Документ.ЗаказНаПроизводство</right>
+			<viewMode>Normal</viewMode>
+			<userSettingID>69f37b4c-ffce-4f25-9adf-b44fb01c3704</userSettingID>
+		</item>
+	</filter>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>ДокументОснование</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Номенклатура</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Характеристика</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
