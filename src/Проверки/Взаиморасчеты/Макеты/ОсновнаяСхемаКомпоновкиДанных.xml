@@ -1779,7 +1779,7 @@
 			<valueType>
 				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</Type>
 			</valueType>
-			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
 		</parameter>
 		<settingsVariant>
@@ -1814,6 +1814,15 @@
 			<item xsi:type="SelectedItemField">
 				<field>СуммаКонечныйОстаток</field>
 			</item>
+			<placement>Auto</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчеты к оплате</v8:content>
+				</v8:item>
+			</lwsTitle>
 			<item xsi:type="SelectedItemField">
 				<field>КОплатеНачальныйОстаток</field>
 			</item>
@@ -1835,29 +1844,65 @@
 					<v8:content>Расчеты по документам</v8:content>
 				</v8:item>
 			</lwsTitle>
-			<item xsi:type="SelectedItemField">
-				<field>ДолгНачальныйОстаток</field>
+			<item xsi:type="SelectedItemFolder">
+				<lwsTitle>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Нач. ост</v8:content>
+					</v8:item>
+				</lwsTitle>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгНачальныйОстаток</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ПредоплатаНачальныйОстаток</field>
+				</item>
+				<placement>Auto</placement>
 			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ПредоплатаНачальныйОстаток</field>
+			<item xsi:type="SelectedItemFolder">
+				<lwsTitle>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Приход</v8:content>
+					</v8:item>
+				</lwsTitle>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгПриход</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ПредоплатаПриход</field>
+				</item>
+				<placement>Auto</placement>
 			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ДолгПриход</field>
+			<item xsi:type="SelectedItemFolder">
+				<lwsTitle>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расход</v8:content>
+					</v8:item>
+				</lwsTitle>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгРасход</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ПредоплатаРасход</field>
+				</item>
+				<placement>Auto</placement>
 			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ПредоплатаПриход</field>
-			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ДолгРасход</field>
-			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ПредоплатаРасход</field>
-			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ДолгКонечныйОстаток</field>
-			</item>
-			<item xsi:type="SelectedItemField">
-				<field>ПредоплатаКонечныйОстаток</field>
+			<item xsi:type="SelectedItemFolder">
+				<lwsTitle>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Кон. ост</v8:content>
+					</v8:item>
+				</lwsTitle>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгКонечныйОстаток</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ПредоплатаКонечныйОстаток</field>
+				</item>
+				<placement>Auto</placement>
 			</item>
 			<placement>Auto</placement>
 		</item>
