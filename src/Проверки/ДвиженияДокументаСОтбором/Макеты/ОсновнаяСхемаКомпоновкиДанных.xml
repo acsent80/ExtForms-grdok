@@ -1636,7 +1636,8 @@
 ГДЕ
 	Рег.Регистратор = &amp;Регистратор
 	И (Рег.АналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика
-			ИЛИ Рег.АналитикаУчетаПродукции.Характеристика = &amp;Характеристика)</query>
+			ИЛИ Рег.АналитикаУчетаПродукции.Характеристика = &amp;Характеристика
+			ИЛИ Рег.КорАналитикаУчетаПродукции.Характеристика = &amp;Характеристика)</query>
 					<autoFillFields>false</autoFillFields>
 				</dataSet>
 				<totalField>
@@ -2228,8 +2229,6 @@
 					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.Характеристика</dcscor:value>
 				</dcscor:item>
 			</dataParameters>
-			<order/>
-			<conditionalAppearance/>
 			<outputParameters>
 				<dcscor:item xsi:type="SettingsParameterValue">
 					<dcscor:parameter>Заголовок</dcscor:parameter>
