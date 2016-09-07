@@ -2237,6 +2237,7 @@
 			<filter/>
 			<appearance>
 				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
 					<dcscor:parameter>Формат</dcscor:parameter>
 					<dcscor:value xsi:type="v8:LocalStringType">
 						<v8:item>
@@ -2244,6 +2245,10 @@
 							<v8:content>ЧО=0</v8:content>
 						</v8:item>
 					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
 				</dcscor:item>
 			</appearance>
 		</item>

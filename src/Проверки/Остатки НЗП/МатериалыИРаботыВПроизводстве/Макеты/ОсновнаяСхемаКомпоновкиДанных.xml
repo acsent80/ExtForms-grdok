@@ -228,6 +228,26 @@
 	РегистрНакопления.МатериалыИРаботыВПроизводстве.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Организация = &amp;Организация {(Назначение).*, (Номенклатура).*, (Подразделение).*, (Серия).*, (Характеристика).*}) КАК Рег</query>
 			<autoFillFields>false</autoFillFields>
 		</dataSet>
+		<calculatedField>
+			<dataPath>КоличествоРасходПлюс</dataPath>
+			<expression>ВЫБОР КОГДА КоличествоРасход &gt; 0 ТОГДА КоличествоРасход ИНАЧЕ 0 КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Количество расход плюс</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>КоличествоРасходМинус</dataPath>
+			<expression>ВЫБОР КОГДА КоличествоРасход &lt; 0 ТОГДА КоличествоРасход ИНАЧЕ 0 КОНЕЦ</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Количество расход минус</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
 		<totalField>
 			<dataPath>КоличествоКонечныйОстаток</dataPath>
 			<expression>Сумма(КоличествоКонечныйОстаток)</expression>
@@ -247,6 +267,14 @@
 		<totalField>
 			<dataPath>КоличествоРасход</dataPath>
 			<expression>Сумма(КоличествоРасход)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоРасходМинус</dataPath>
+			<expression>Сумма(КоличествоРасходМинус)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоРасходПлюс</dataPath>
+			<expression>Сумма(КоличествоРасходПлюс)</expression>
 		</totalField>
 		<parameter>
 			<name>Дата1</name>
@@ -363,6 +391,12 @@
 			<item xsi:type="SelectedItemField">
 				<field>КоличествоРасход</field>
 			</item>
+			<item xsi:type="SelectedItemField">
+				<field>КоличествоРасходПлюс</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>КоличествоРасходМинус</field>
+			</item>
 			<placement>Auto</placement>
 		</item>
 		<item xsi:type="SelectedItemFolder">
@@ -383,14 +417,12 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Подразделение</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>5ee73309-dd36-494d-8a17-c0c998d09a73</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Номенклатура</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>4390cc3e-4db3-4e26-abcc-9b918b149e1e</userSettingID>
 		</item>
 	</filter>

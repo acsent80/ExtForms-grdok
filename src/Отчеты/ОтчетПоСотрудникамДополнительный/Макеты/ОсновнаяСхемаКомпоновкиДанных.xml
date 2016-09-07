@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>Запрос</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Должность</dataPath>
+				<field>Должность</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Организация</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сотрудник</dataPath>
+				<field>Сотрудник</field>
+				<presentationExpression>Представление(ФизическоеЛицо)</presentationExpression>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидСобытия</dataPath>
+				<field>ВидСобытия</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГрафикРаботы</dataPath>
+				<field>ГрафикРаботы</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>График работы</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидДоговора</dataPath>
+				<field>ВидДоговора</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ФизическоеЛицо</dataPath>
+				<field>ФизическоеЛицо</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
+				<field>ДолжностьПоШтатномуРасписанию</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидЗанятости</dataPath>
+				<field>ВидЗанятости</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоСтавок</dataPath>
+				<field>КоличествоСтавок</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	РегКадроваяИстория.Сотрудник КАК Сотрудник,
+	РегКадроваяИстория.ФизическоеЛицо КАК ФизическоеЛицо,
+	РегКадроваяИстория.Подразделение КАК Подразделение,
+	РегКадроваяИстория.Должность КАК Должность,
+	РегГрафикРаботы.ГрафикРаботы КАК ГрафикРаботы,
+	РегКадроваяИстория.ВидДоговора КАК ВидДоговора,
+	РегКадроваяИстория.ВидСобытия КАК ВидСобытия,
+	РегКадроваяИстория.ДолжностьПоШтатномуРасписанию КАК ДолжностьПоШтатномуРасписанию,
+	РегКадроваяИстория.ВидЗанятости КАК ВидЗанятости,
+	РегКадроваяИстория.КоличествоСтавок КАК КоличествоСтавок
+{ВЫБРАТЬ
+	Сотрудник.*,
+	ФизическоеЛицо.*,
+	Подразделение.*,
+	Должность.*,
+	ДолжностьПоШтатномуРасписанию.*,
+	ВидДоговора.*,
+	ВидСобытия.*,
+	ГрафикРаботы.*,
+	ВидЗанятости.*,
+	КоличествоСтавок}
+ИЗ
+	РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(&amp;Период, {(Организация).*, (Подразделение).*, (Сотрудник).*, (Должность).*}) КАК РегКадроваяИстория
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ГрафикРаботыСотрудников.СрезПоследних(&amp;Период, {(Сотрудник).*, (ГрафикРаботы).*}) КАК РегГрафикРаботы
+		ПО РегКадроваяИстория.Сотрудник = РегГрафикРаботы.Сотрудник
+{ГДЕ
+	РегКадроваяИстория.ВидСобытия.*}</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Отчет по сотрудникам (дополнительный)</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Отчет по сотрудникам (дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>СистемныеПоля.НомерПоПорядкуВГруппировке</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Сотрудник</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Должность</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ГрафикРаботы</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Организация</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>cd403181-17af-4e70-92ce-6df71955a747</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Подразделение</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>c0075e1a-c624-4828-811a-06c0606337e4</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Должность</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<viewMode>Normal</viewMode>
+			<userSettingID>4a50e2fe-f3c3-4ed9-b953-f00df5e86e8c</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ГрафикРаботы</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<viewMode>Normal</viewMode>
+			<userSettingID>7cb07fd4-6d4d-46eb-8023-819979471841</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">ВидСобытия</left>
+			<comparisonType>NotEqual</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue">Перечисление.ВидыКадровыхСобытий.Увольнение</right>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+			</dcscor:value>
+			<userSettingID>a2632321-641e-443a-ac21-ac2e12d9de78</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<order>
+		<item xsi:type="OrderItemField">
+			<field>Подразделение</field>
+			<orderType>Asc</orderType>
+		</item>
+		<item xsi:type="OrderItemField">
+			<field>Сотрудник</field>
+			<orderType>Asc</orderType>
+		</item>
+	</order>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Подразделение</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
