@@ -45,14 +45,6 @@
 				</title>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>ВидДоговора</dataPath>
-				<field>ВидДоговора</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ФизическоеЛицо</dataPath>
-				<field>ФизическоеЛицо</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
 				<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
 				<field>ДолжностьПоШтатномуРасписанию</field>
 			</field>
@@ -61,11 +53,65 @@
 				<field>ВидЗанятости</field>
 			</field>
 			<field xsi:type="DataSetFieldField">
+				<dataPath>ФизическоеЛицо</dataPath>
+				<field>ФизическоеЛицо</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
 				<dataPath>КоличествоСтавок</dataPath>
 				<field>КоличествоСтавок</field>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидДоговора</dataPath>
+				<field>ВидДоговора</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Состояние</dataPath>
+				<field>Состояние</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Окончание</dataPath>
+				<field>Окончание</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Окончание</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
-			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+			<query>ВЫБРАТЬ
+	ДанныеСостоянийСотрудников1.Сотрудник,
+	ДанныеСостоянийСотрудников1.Начало,
+	ДанныеСостоянийСотрудников.Состояние,
+	ВЫБОР
+		КОГДА ДанныеСостоянийСотрудников.Окончание = ДАТАВРЕМЯ(1, 1, 1)
+			ТОГДА ДанныеСостоянийСотрудников.ОкончаниеПредположительно
+		ИНАЧЕ ДанныеСостоянийСотрудников.Окончание
+	КОНЕЦ КАК Окончание
+ПОМЕСТИТЬ СостоянияСотрудников
+ИЗ
+	(ВЫБРАТЬ
+		ДанныеСостоянийСотрудников.Сотрудник КАК Сотрудник,
+		МАКСИМУМ(ДанныеСостоянийСотрудников.Начало) КАК Начало
+	ИЗ
+		РегистрСведений.ДанныеСостоянийСотрудников КАК ДанныеСостоянийСотрудников
+	ГДЕ
+		ДанныеСостоянийСотрудников.Начало &lt;= &amp;Период
+		И (ДанныеСостоянийСотрудников.Окончание &gt; &amp;Период
+				ИЛИ ДанныеСостоянийСотрудников.Окончание = ДАТАВРЕМЯ(1, 1, 1))
+	
+	СГРУППИРОВАТЬ ПО
+		ДанныеСостоянийСотрудников.Сотрудник) КАК ДанныеСостоянийСотрудников1
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ДанныеСостоянийСотрудников КАК ДанныеСостоянийСотрудников
+		ПО ДанныеСостоянийСотрудников1.Сотрудник = ДанныеСостоянийСотрудников.Сотрудник
+			И ДанныеСостоянийСотрудников1.Начало = ДанныеСостоянийСотрудников.Начало
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
 	РегКадроваяИстория.Сотрудник КАК Сотрудник,
 	РегКадроваяИстория.ФизическоеЛицо КАК ФизическоеЛицо,
 	РегКадроваяИстория.Подразделение КАК Подразделение,
@@ -75,7 +121,9 @@
 	РегКадроваяИстория.ВидСобытия КАК ВидСобытия,
 	РегКадроваяИстория.ДолжностьПоШтатномуРасписанию КАК ДолжностьПоШтатномуРасписанию,
 	РегКадроваяИстория.ВидЗанятости КАК ВидЗанятости,
-	РегКадроваяИстория.КоличествоСтавок КАК КоличествоСтавок
+	РегКадроваяИстория.КоличествоСтавок КАК КоличествоСтавок,
+	ЕСТЬNULL(СостоянияСотрудников.Состояние, ЗНАЧЕНИЕ(Перечисление.СостоянияСотрудника.Работа)) КАК Состояние,
+	СостоянияСотрудников.Окончание КАК Окончание
 {ВЫБРАТЬ
 	Сотрудник.*,
 	ФизическоеЛицо.*,
@@ -86,13 +134,21 @@
 	ВидСобытия.*,
 	ГрафикРаботы.*,
 	ВидЗанятости.*,
-	КоличествоСтавок}
+	КоличествоСтавок,
+	Состояние.*,
+	Окончание}
 ИЗ
-	РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(&amp;Период, {(Организация).*, (Подразделение).*, (Сотрудник).*, (Должность).*}) КАК РегКадроваяИстория
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ГрафикРаботыСотрудников.СрезПоследних(&amp;Период, {(Сотрудник).*, (ГрафикРаботы).*}) КАК РегГрафикРаботы
+	РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(&amp;Период, {(Организация).*, (Сотрудник).*}) КАК РегКадроваяИстория
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ГрафикРаботыСотрудников.СрезПоследних(&amp;Период, {(Сотрудник).*}) КАК РегГрафикРаботы
 		ПО РегКадроваяИстория.Сотрудник = РегГрафикРаботы.Сотрудник
+		ЛЕВОЕ СОЕДИНЕНИЕ СостоянияСотрудников КАК СостоянияСотрудников
+		ПО РегКадроваяИстория.Сотрудник = СостоянияСотрудников.Сотрудник
 {ГДЕ
-	РегКадроваяИстория.ВидСобытия.*}</query>
+	РегКадроваяИстория.ВидСобытия.*,
+	РегКадроваяИстория.Подразделение.*,
+	РегКадроваяИстория.Должность.*,
+	РегГрафикРаботы.ГрафикРаботы.*,
+	(ЕСТЬNULL(СостоянияСотрудников.Состояние, ЗНАЧЕНИЕ(Перечисление.СостоянияСотрудника.Работа))) КАК Состояние}</query>
 			<autoFillFields>false</autoFillFields>
 		</dataSet>
 		<parameter>
@@ -137,27 +193,30 @@
 		<item xsi:type="SelectedItemField">
 			<field>ГрафикРаботы</field>
 		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Состояние</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Окончание</field>
+		</item>
 	</selection>
 	<filter>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Организация</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>cd403181-17af-4e70-92ce-6df71955a747</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Подразделение</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>c0075e1a-c624-4828-811a-06c0606337e4</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Должность</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<viewMode>Normal</viewMode>
 			<userSettingID>4a50e2fe-f3c3-4ed9-b953-f00df5e86e8c</userSettingID>
 		</item>
@@ -165,9 +224,15 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">ГрафикРаботы</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<viewMode>Normal</viewMode>
 			<userSettingID>7cb07fd4-6d4d-46eb-8023-819979471841</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Состояние</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue">Перечисление.СостоянияСотрудника.Работа</right>
+			<userSettingID>138f2cce-5a37-4154-8033-2890f8273e27</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<left xsi:type="dcscor:Field">ВидСобытия</left>
