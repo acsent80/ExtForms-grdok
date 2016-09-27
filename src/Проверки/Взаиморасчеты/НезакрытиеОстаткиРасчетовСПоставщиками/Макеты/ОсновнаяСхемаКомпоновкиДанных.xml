@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>АналитикаУчетаПоПартнерам</dataPath>
+				<field>АналитикаУчетаПоПартнерам</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗаказПоставщику</dataPath>
+				<field>ЗаказПоставщику</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПредоплатаРеглОстатокПлюс</dataPath>
+				<field>ПредоплатаРеглОстатокПлюс</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Предоплата регл остаток плюс</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДолгРеглОстатокМинус</dataPath>
+				<field>ДолгРеглОстатокМинус</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Долг регл остаток минус</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПредоплатаРеглОстатокМинус</dataPath>
+				<field>ПредоплатаРеглОстатокМинус</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Предоплата регл остаток минус</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДолгРеглОстатокПлюс</dataPath>
+				<field>ДолгРеглОстатокПлюс</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Долг регл остаток плюс</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Выборка.АналитикаУчетаПоПартнерам КАК АналитикаУчетаПоПартнерам,
+	Выборка.ЗаказПоставщику КАК ЗаказПоставщику,
+	Выборка.Валюта КАК Валюта,
+	СУММА(Выборка.ДолгРеглОстатокПлюс) КАК ДолгРеглОстатокПлюс,
+	СУММА(Выборка.ДолгРеглОстатокМинус) КАК ДолгРеглОстатокМинус,
+	СУММА(Выборка.ПредоплатаРеглОстатокПлюс) КАК ПредоплатаРеглОстатокПлюс,
+	СУММА(Выборка.ПредоплатаРеглОстатокМинус) КАК ПредоплатаРеглОстатокМинус
+{ВЫБРАТЬ
+	АналитикаУчетаПоПартнерам.*,
+	ЗаказПоставщику.*,
+	Валюта.*,
+	ДолгРеглОстатокПлюс,
+	ДолгРеглОстатокМинус,
+	ПредоплатаРеглОстатокПлюс,
+	ПредоплатаРеглОстатокМинус}
+ИЗ
+	(ВЫБРАТЬ
+		Рег.АналитикаУчетаПоПартнерам КАК АналитикаУчетаПоПартнерам,
+		Рег.ЗаказПоставщику КАК ЗаказПоставщику,
+		Рег.Валюта КАК Валюта,
+		Рег.РасчетныйДокумент КАК РасчетныйДокумент,
+		ВЫБОР
+			КОГДА Рег.ДолгРеглОстаток &gt; 0
+				ТОГДА Рег.ДолгРеглОстаток
+			ИНАЧЕ 0
+		КОНЕЦ КАК ДолгРеглОстатокПлюс,
+		ВЫБОР
+			КОГДА Рег.ДолгРеглОстаток &lt; 0
+				ТОГДА Рег.ДолгРеглОстаток
+			ИНАЧЕ 0
+		КОНЕЦ КАК ДолгРеглОстатокМинус,
+		ВЫБОР
+			КОГДА Рег.ПредоплатаРеглОстаток &gt; 0
+				ТОГДА Рег.ПредоплатаРеглОстаток
+			ИНАЧЕ 0
+		КОНЕЦ КАК ПредоплатаРеглОстатокПлюс,
+		ВЫБОР
+			КОГДА Рег.ПредоплатаРеглОстаток &lt; 0
+				ТОГДА Рег.ПредоплатаРеглОстаток
+			ИНАЧЕ 0
+		КОНЕЦ КАК ПредоплатаРеглОстатокМинус
+	ИЗ
+		РегистрНакопления.РасчетыСПоставщикамиПоДокументам.Остатки(&amp;Период, АналитикаУчетаПоПартнерам.Организация = &amp;Организация {(АналитикаУчетаПоПартнерам).*}) КАК Рег) КАК Выборка
+
+СГРУППИРОВАТЬ ПО
+	Выборка.АналитикаУчетаПоПартнерам,
+	Выборка.ЗаказПоставщику,
+	Выборка.Валюта
+
+ИМЕЮЩИЕ
+	(СУММА(Выборка.ДолгРеглОстатокПлюс) &lt;&gt; 0
+			И СУММА(Выборка.ДолгРеглОстатокМинус) &lt;&gt; 0
+		ИЛИ СУММА(Выборка.ПредоплатаРеглОстатокПлюс) &lt;&gt; 0
+			И СУММА(Выборка.ПредоплатаРеглОстатокМинус) &lt;&gt; 0)</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<totalField>
+			<dataPath>ДолгРеглОстатокМинус</dataPath>
+			<expression>Сумма(ДолгРеглОстатокМинус)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ДолгРеглОстатокПлюс</dataPath>
+			<expression>Сумма(ДолгРеглОстатокПлюс)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПредоплатаРеглОстатокМинус</dataPath>
+			<expression>Сумма(ПредоплатаРеглОстатокМинус)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПредоплатаРеглОстатокПлюс</dataPath>
+			<expression>Сумма(ПредоплатаРеглОстатокПлюс)</expression>
+		</totalField>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Организация</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Организация</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Незакрытие остатки расчетов с поставщиками</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Незакрытие остатки расчетов с поставщиками</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>ДолгРеглОстатокМинус</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ДолгРеглОстатокПлюс</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПредоплатаРеглОстатокМинус</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПредоплатаРеглОстатокПлюс</field>
+		</item>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+			<userSettingID>f6504d56-be96-496a-be0c-dd637c9c71a1</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Организация</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+			<userSettingID>db8a67d2-50f4-4326-a131-2117fe5af171</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>АналитикаУчетаПоПартнерам</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ЗаказПоставщику</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Валюта</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
