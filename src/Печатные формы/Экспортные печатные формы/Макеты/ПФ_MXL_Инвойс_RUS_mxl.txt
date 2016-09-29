@@ -12,11 +12,11 @@
 		дата инвойса:		Дата								
 		Контракт  №:		ДоговорКонтрагентаНомер				ИностранныйАдрес				
 		Дата Контракта:		ДоговорКонтрагентаДата								
-		Клиент №:		КонтрагентКод				Телефон				
-		Условия оплаты:		по Контракту				Факс				
-		Валюта:		ВалютаДокумента				Банк				
-		Условия поставки:		по Контракту				Счет				
-								Идентификатор				
+		Клиент №:		КонтрагентКод				Телефон: [КонтрагентТелефон]				
+		Условия оплаты:		по Контракту				Факс: [КонтрагентФакс]				
+		Валюта:		ВалютаДокумента				Банк: [КонтрагентБанк]				
+		Условия поставки:		по Контракту				Счет: [КонтрагентСчет]				
+								BLZ: [Идентификатор]				
 												
 												
 			Manufacturer / Производитель:		LLC "PLPK" / Russian Federation/ Россия							
@@ -67,16 +67,13 @@
 												
 												
 												
-												
-												
 			Remittance advice									
-			INTERMEDIARY BANK	COMMERZBANK AG	Bank of benefeciarys		EUROCITYBANK, Russia, Mytischi		Beneficiary	LLC PLPK		
-				Germany		SWIFT	ECBBRUMM			Russia		
-			SWIFT	COBADEFF		ACC#	400886462100		ACC#	   40702978002001000046		
-												
-												
-												
-
-
-												
-												
+			Beneficiary Bank:									
+			SWIFT: [СчетSWIFT]; Account with correspondent bank: [AccountWithCorrespondentBank];									
+			Name: [СчетБанкENG]; Address: [СчетБанкAddress]									
+			Correspondent Bank of beneficiary’s bank: [СчетКорБанкSWIFT] ;									
+			Name: [СчетКорБанк];									
+			Address: [СчетКорБанкАдрес]									
+			Beneficiary: Beneficiary’s name: [СчетБанкENG] Beneficiary’s account: [СчетBeneficiarysAccount]									
+			Beneficiary’s account: [СчетНомер]									
+			Beneficiary’s name: [ОрганизацияENG]									

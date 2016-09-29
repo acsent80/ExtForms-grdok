@@ -1,7 +1,7 @@
 ﻿											
 											
 											
-		LLC "PLPK"									
+		ОрганизацияENG									
 		618270, Russian Federation, Permsky region, Gremiachinsk,									
 		 pos. Yugo-Zapadny, Str, Kommunisticheskaya 1									
 		phone: +7 (34250) 2 12 88									
@@ -14,11 +14,11 @@
 											
 		Packing list date:		ДатаОтгрузки			ИностранныйАдрес				
 		Contract No:		ДоговорКонтрагентаНомер							
-		Contract date:		ДоговорКонтрагентаДата			Телефон				
-		Customer-No:		КонтрагентКод			Факс				
-		Terms of payment:		as per Contract			Банк				
-		Currency:		ВалютаДокумента			Счет				
-		Terms of delivery:		as per Contract			Идентификатор				
+		Contract date:		ДоговорКонтрагентаДата			Phone: [КонтрагентТелефон]				
+		Customer-No:		КонтрагентКод			Fax: [КонтрагентФакс]				
+		Terms of payment:		as per Contract			Bank: [КонтрагентБанк]				
+		Currency:		ВалютаДокумента			Konto Nr: [КонтрагентСчет]				
+		Terms of delivery:		as per Contract			BLZ: [Идентификатор]				
 											
 											
 			Manufacturer / Производитель:		LLC "PLPK" / Russian Federation/ Россия						
@@ -44,7 +44,7 @@ kg"
 											
 
 
-					PLPK LLC						
+					ОрганизацияENG						
 											
 					Managing Director		_____________________________/D.S. Isaykin/				
 

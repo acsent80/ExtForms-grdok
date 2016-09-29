@@ -1,7 +1,7 @@
 ﻿												
 												
 												
-		 LLC "PLPK"										
+		ОрганизацияENG										
 		618270, Russian Federation, Permsky region, Gremiachinsk,										
 		 pos. Yugo-Zapadny, Str, Kommunisticheskaya 1										
 		phone: +7 (34250) 2 12 88										
@@ -12,11 +12,11 @@
 		Date of invoice:		Дата								
 		Contract No:		ДоговорКонтрагентаНомер				ИностранныйАдрес				
 		Contract date:		ДоговорКонтрагентаДата								
-		Customer-No:		КонтрагентКод				Телефон				
-		Terms of payment:		as per Contract				Факс				
-		Currency:		ВалютаДокумента				Банк				
-		Terms of delivery:		as per Contract				Счет				
-								Идентификатор				
+		Customer-No:		КонтрагентКод				Phone: [КонтрагентТелефон]				
+		Terms of payment:		as per Contract				Fax: [КонтрагентФакс]				
+		Currency:		ВалютаДокумента				Bank: [КонтрагентБанк]				
+		Terms of delivery:		as per Contract				Konto Nr: [КонтрагентСчет]				
+								BLZ: [Идентификатор]				
 												
 												
 			Manufacturer / Производитель:		LLC "PLPK" / Russian Federation/ Россия							
@@ -43,7 +43,7 @@ kg"	Colli
 												
 												
 												
-					PLPK LLC							
+					ОрганизацияENG							
 												
 					Managing Director			_____________________________/D.S. Isaykin/				
 												
@@ -65,19 +65,13 @@ kg"	Colli
 												
 												
 												
-												
-												
-												
-												
-												
-			Remittance advice									
-			INTERMEDIARY BANK	COMMERZBANK AG	Bank of benefeciarys		EUROCITYBANK, Russia, Mytischi		Beneficiary	LLC PLPK, Russia		
-				Germany		SWIFT	ECBBRUMM					
-			SWIFT	COBADEFF		ACC#	400886462100		ACC#	   40702978002001000046		
-												
-												
-												
-
-
-												
-												
+		Remittance advice										
+		Beneficiary Bank:										
+		SWIFT: [СчетSWIFT]; Account with correspondent bank: [AccountWithCorrespondentBank];										
+		Name: [СчетБанкENG]; Address: [СчетБанкAddress]										
+		Correspondent Bank of beneficiary’s bank: [СчетКорБанкSWIFT] ;										
+		Name: [СчетКорБанк];										
+		Address: [СчетКорБанкАдрес]										
+		Beneficiary: Beneficiary’s name: [СчетБанкENG] Beneficiary’s account: [СчетBeneficiarysAccount]										
+		Beneficiary’s account: [СчетНомер]										
+		Beneficiary’s name: [ОрганизацияENG]										
