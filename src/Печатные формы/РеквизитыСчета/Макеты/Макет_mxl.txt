@@ -1,0 +1,9 @@
+﻿Beneficiary Bank:
+SWIFT: [СчетSWIFT]; Account with correspondent bank: [AccountWithCorrespondentBank];
+Name: [СчетБанкENG]; Address: [СчетБанкAddress]
+Correspondent Bank of beneficiary’s bank: [СчетКорБанкSWIFT] ;
+Name: [СчетКорБанк];
+Address: [СчетКорБанкАдрес]
+Beneficiary: Beneficiary’s name: [СчетБанкENG] Beneficiary’s account: [СчетBeneficiarysAccount]
+Beneficiary’s account: [СчетНомер]
+Beneficiary’s name: [ОрганизацияENG]
