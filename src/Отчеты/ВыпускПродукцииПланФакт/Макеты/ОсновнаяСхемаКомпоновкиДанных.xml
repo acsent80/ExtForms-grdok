@@ -79,8 +79,30 @@
 					</d5p1:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Месяц</dataPath>
+				<field>Месяц</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Месяц</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xmlns:d7p1="http://v8.1c.ru/8.1/data/core" xsi:type="d7p1:LocalStringType">
+							<d7p1:item>
+								<d7p1:lang>ru</d7p1:lang>
+								<d7p1:content>ДФ='MMMM yy'</d7p1:content>
+							</d7p1:item>
+						</value>
+					</item>
+				</appearance>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ
+	НАЧАЛОПЕРИОДА(ЗаказНаПроизводствоВыходныеИзделия.Ссылка.Дата, МЕСЯЦ) КАК Месяц,
 	ЗаказНаПроизводствоВыходныеИзделия.Ссылка.Организация КАК Организация,
 	ЗаказНаПроизводствоВыходныеИзделия.Ссылка КАК ЗаказНаПроизводство,
 	ЗаказНаПроизводствоПродукция.КодСтроки КАК КодСтроки,
@@ -90,7 +112,7 @@
 	ЗаказНаПроизводствоВыходныеИзделия.Количество КАК Количество,
 	0 КАК КоличествоФакт,
 	NULL КАК МаршрутныйЛист
-{ВЫБРАТЬ
+{ВЫБРАТЬ Месяц,
 	ЗаказНаПроизводство.*,
 	КодСтроки,
 	Подразделение.*,
@@ -120,6 +142,7 @@
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
+	НАЧАЛОПЕРИОДА(МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.Распоряжение.Дата, МЕСЯЦ) КАК Месяц,
 	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.Организация,
 	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.Распоряжение,
 	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.КодСтроки,
@@ -276,40 +299,11 @@
 			<userSettingID>b408127a-aafe-444a-902a-f206c12067ba</userSettingID>
 		</dcscor:item>
 	</dataParameters>
-	<item xsi:type="StructureItemGroup">
-		<groupItems>
-			<item xsi:type="GroupItemField">
-				<field>ЗаказНаПроизводство</field>
-				<groupType>Items</groupType>
-				<periodAdditionType>None</periodAdditionType>
-				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-			</item>
-		</groupItems>
-		<order>
-			<item xsi:type="OrderItemAuto"/>
-		</order>
-		<selection>
-			<item xsi:type="SelectedItemAuto"/>
-		</selection>
-		<item xsi:type="StructureItemGroup">
+	<item xsi:type="StructureItemTable">
+		<row>
 			<groupItems>
 				<item xsi:type="GroupItemField">
-					<field>КодСтроки</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>Номенклатура</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>Характеристика</field>
+					<field>ЗаказНаПроизводство</field>
 					<groupType>Items</groupType>
 					<periodAdditionType>None</periodAdditionType>
 					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -322,7 +316,38 @@
 			<selection>
 				<item xsi:type="SelectedItemAuto"/>
 			</selection>
-		</item>
+			<item>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>КодСтроки</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>Номенклатура</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>Характеристика</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+			</item>
+		</row>
 	</item>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
 <SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

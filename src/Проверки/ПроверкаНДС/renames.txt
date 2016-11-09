@@ -1,4 +1,6 @@
 ﻿8342b3ca-a3c3-425d-9ac0-4ed4ddea8afb-->und\8342b3ca-a3c3-425d-9ac0-4ed4ddea8afb
+86f7ae6a-7805-45ce-9545-e32f698c6d14.0\info-->und\86f7ae6a-7805-45ce-9545-e32f698c6d14.0\info
+86f7ae6a-7805-45ce-9545-e32f698c6d14.0\text-->ObjectModule.bsl
 c7003a78-9df2-4ffe-a9de-8d11e27a4aae-->und\c7003a78-9df2-4ffe-a9de-8d11e27a4aae
 c7003a78-9df2-4ffe-a9de-8d11e27a4aae.0-->und\c7003a78-9df2-4ffe-a9de-8d11e27a4aae.0
 copyinfo-->und\copyinfo

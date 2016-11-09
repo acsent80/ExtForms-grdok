@@ -50,6 +50,14 @@
 						<d5p1:content>Норматив</d5p1:content>
 					</d5p1:item>
 				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>19</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Факт</dataPath>
@@ -60,6 +68,14 @@
 						<d5p1:content>Факт</d5p1:content>
 					</d5p1:item>
 				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>19</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Отклонение</dataPath>
@@ -70,6 +86,14 @@
 						<d5p1:content>Отклонение</d5p1:content>
 					</d5p1:item>
 				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>19</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>МаршрутныйЛист</dataPath>
@@ -81,19 +105,82 @@
 					</d5p1:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Тип</dataPath>
+				<field>Тип</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Тип</d5p1:content>
+					</d5p1:item>
+				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+					<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Length>0</Length>
+						<AllowedLength>Variable</AllowedLength>
+					</StringQualifiers>
+				</valueType>
+				<availableValue>
+					<value xsi:type="xs:string">Продукция</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Продукция</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Материалы</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Материалы</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Возвратные отходы</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Возвратные отходы</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Трудозатраты</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Трудозатраты</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидРабот</dataPath>
+				<field>ВидРабот</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Бригада</dataPath>
+				<field>Бригада</field>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ
-	ДокМатериалыИУслуги.Номенклатура КАК Номенклатура,
-	ДокМатериалыИУслуги.Характеристика КАК Характеристика,
-	ДокМатериалыИУслуги.Количество КАК Норматив,
-	ДокМатериалыИУслуги.КоличествоОтклонение КАК Отклонение,
-	ДокМатериалыИУслуги.КоличествоФакт КАК Факт,
-	ДокМатериалыИУслуги.Ссылка.Подразделение КАК Подразделение,
-	ДокМатериалыИУслуги.Ссылка.Распоряжение КАК ЗаказНаПроизводство,
-	ДокМатериалыИУслуги.Ссылка.Организация КАК Организация,
-	ДокМатериалыИУслуги.Ссылка.КодСтроки КАК КодСтроки,
-	ДокМатериалыИУслуги.Ссылка КАК МаршрутныйЛист
+	"Материалы" КАК Тип,
+	ДокМатериалы.Номенклатура КАК Номенклатура,
+	ДокМатериалы.Характеристика КАК Характеристика,
+	ДокМатериалы.Количество КАК Норматив,
+	ДокМатериалы.КоличествоОтклонение КАК Отклонение,
+	ДокМатериалы.КоличествоФакт КАК Факт,
+	ДокМатериалы.Ссылка.Подразделение КАК Подразделение,
+	ДокМатериалы.Ссылка.Распоряжение КАК ЗаказНаПроизводство,
+	ДокМатериалы.Ссылка.Организация КАК Организация,
+	ДокМатериалы.Ссылка.КодСтроки КАК КодСтроки,
+	ДокМатериалы.Ссылка КАК МаршрутныйЛист
 {ВЫБРАТЬ
+	Тип,
 	Номенклатура.*,
 	Характеристика.*,
 	Норматив,
@@ -105,22 +192,122 @@
 	КодСтроки,
 	МаршрутныйЛист.*}
 ИЗ
-	Документ.МаршрутныйЛистПроизводства.МатериалыИУслуги КАК ДокМатериалыИУслуги
+	Документ.МаршрутныйЛистПроизводства.МатериалыИУслуги КАК ДокМатериалы
 ГДЕ
-	ДокМатериалыИУслуги.Ссылка.ФактическоеОкончание МЕЖДУ &amp;Дата1 И &amp;Дата2
-	И ДокМатериалыИУслуги.Ссылка.Проведен
-	И ДокМатериалыИУслуги.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполнен)
+	ДокМатериалы.Ссылка.ФактическоеОкончание МЕЖДУ &amp;Дата1 И &amp;Дата2
+	И ДокМатериалы.Ссылка.Проведен
+	И ДокМатериалы.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполнен)
 {ГДЕ
-	ДокМатериалыИУслуги.Номенклатура.*,
-	ДокМатериалыИУслуги.Характеристика.*,
-	ДокМатериалыИУслуги.Количество КАК Норматив,
-	ДокМатериалыИУслуги.КоличествоОтклонение КАК Отклонение,
-	ДокМатериалыИУслуги.КоличествоФакт КАК Факт,
-	ДокМатериалыИУслуги.Ссылка.Подразделение.*,
-	ДокМатериалыИУслуги.Ссылка.Распоряжение.*,
-	ДокМатериалыИУслуги.Ссылка.Организация.*,
-	ДокМатериалыИУслуги.Ссылка.КодСтроки,
-	ДокМатериалыИУслуги.Ссылка.* КАК МаршрутныйЛист}</query>
+	("Материалы") КАК Тип,
+	ДокМатериалы.Номенклатура.*,
+	ДокМатериалы.Характеристика.*,
+	ДокМатериалы.Количество КАК Норматив,
+	ДокМатериалы.КоличествоОтклонение КАК Отклонение,
+	ДокМатериалы.КоличествоФакт КАК Факт,
+	ДокМатериалы.Ссылка.Подразделение.*,
+	ДокМатериалы.Ссылка.Распоряжение.*,
+	ДокМатериалы.Ссылка.Организация.*,
+	ДокМатериалы.Ссылка.КодСтроки,
+	ДокМатериалы.Ссылка.* КАК МаршрутныйЛист}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Возвратные отходы",
+	ДокВозвратныеОтходы.Номенклатура,
+	ДокВозвратныеОтходы.Характеристика,
+	-ДокВозвратныеОтходы.Количество,
+	-ДокВозвратныеОтходы.КоличествоОтклонение,
+	-ДокВозвратныеОтходы.КоличествоФакт,
+	ДокВозвратныеОтходы.Ссылка.Подразделение,
+	ДокВозвратныеОтходы.Ссылка.Распоряжение,
+	ДокВозвратныеОтходы.Ссылка.Организация,
+	ДокВозвратныеОтходы.Ссылка.КодСтроки,
+	ДокВозвратныеОтходы.Ссылка
+ИЗ
+	Документ.МаршрутныйЛистПроизводства.ВозвратныеОтходы КАК ДокВозвратныеОтходы
+ГДЕ
+	ДокВозвратныеОтходы.Ссылка.ФактическоеОкончание МЕЖДУ &amp;Дата1 И &amp;Дата2
+	И ДокВозвратныеОтходы.Ссылка.Проведен
+	И ДокВозвратныеОтходы.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполнен)
+{ГДЕ
+	("Возвратные отходы") КАК Тип,
+	ДокВозвратныеОтходы.Номенклатура.*,
+	ДокВозвратныеОтходы.Характеристика.*,
+	ДокВозвратныеОтходы.Количество КАК Норматив,
+	ДокВозвратныеОтходы.КоличествоОтклонение КАК Отклонение,
+	ДокВозвратныеОтходы.КоличествоФакт КАК Факт,
+	ДокВозвратныеОтходы.Ссылка.Подразделение.*,
+	ДокВозвратныеОтходы.Ссылка.Распоряжение.*,
+	ДокВозвратныеОтходы.Ссылка.Организация.*,
+	ДокВозвратныеОтходы.Ссылка.КодСтроки,
+	ДокВозвратныеОтходы.Ссылка.* КАК МаршрутныйЛист}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Продукция",
+	ДокПродукция.Номенклатура,
+	ДокПродукция.Характеристика,
+	ДокПродукция.Количество,
+	ДокПродукция.КоличествоОтклонение,
+	ДокПродукция.КоличествоФакт,
+	ДокПродукция.Ссылка.Подразделение,
+	ДокПродукция.Ссылка.Распоряжение,
+	ДокПродукция.Ссылка.Организация,
+	ДокПродукция.Ссылка.КодСтроки,
+	ДокПродукция.Ссылка
+ИЗ
+	Документ.МаршрутныйЛистПроизводства.ВыходныеИзделия КАК ДокПродукция
+ГДЕ
+	ДокПродукция.Ссылка.ФактическоеОкончание МЕЖДУ &amp;Дата1 И &amp;Дата2
+	И ДокПродукция.Ссылка.Проведен
+	И ДокПродукция.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполнен)
+{ГДЕ
+	("Продукция") КАК Тип,
+	ДокПродукция.Номенклатура.*,
+	ДокПродукция.Характеристика.*,
+	ДокПродукция.Количество КАК Норматив,
+	ДокПродукция.КоличествоОтклонение КАК Отклонение,
+	ДокПродукция.КоличествоФакт КАК Факт,
+	ДокПродукция.Ссылка.Подразделение.*,
+	ДокПродукция.Ссылка.Распоряжение.*,
+	ДокПродукция.Ссылка.Организация.*,
+	ДокПродукция.Ссылка.КодСтроки,
+	ДокПродукция.Ссылка.* КАК МаршрутныйЛист}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	"Трудозатраты",
+	ДокТрудозатраты.ВидРабот,
+	ДокТрудозатраты.Бригада,
+	ДокТрудозатраты.Количество,
+	ДокТрудозатраты.КоличествоОтклонение,
+	ДокТрудозатраты.КоличествоФакт,
+	ДокТрудозатраты.Ссылка.Подразделение,
+	ДокТрудозатраты.Ссылка.Распоряжение,
+	ДокТрудозатраты.Ссылка.Организация,
+	ДокТрудозатраты.Ссылка.КодСтроки,
+	ДокТрудозатраты.Ссылка
+ИЗ
+	Документ.МаршрутныйЛистПроизводства.Трудозатраты КАК ДокТрудозатраты
+ГДЕ
+	ДокТрудозатраты.Ссылка.ФактическоеОкончание МЕЖДУ &amp;Дата1 И &amp;Дата2
+	И ДокТрудозатраты.Ссылка.Проведен
+	И ДокТрудозатраты.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполнен)
+{ГДЕ
+	("Трудозатраты") КАК Тип,
+	ДокТрудозатраты.ВидРабот.*,
+	ДокТрудозатраты.Бригада.*,
+	ДокТрудозатраты.Количество КАК Норматив,
+	ДокТрудозатраты.КоличествоОтклонение КАК Отклонение,
+	ДокТрудозатраты.КоличествоФакт КАК Факт,
+	ДокТрудозатраты.Ссылка.Подразделение.*,
+	ДокТрудозатраты.Ссылка.Распоряжение.*,
+	ДокТрудозатраты.Ссылка.Организация.*,
+	ДокТрудозатраты.Ссылка.КодСтроки,
+	ДокТрудозатраты.Ссылка.* КАК МаршрутныйЛист}</query>
 			<autoFillFields>false</autoFillFields>
 		</dataSet>
 		<totalField>
@@ -217,15 +404,22 @@
 		<item xsi:type="FilterItemComparison">
 			<left xsi:type="dcscor:Field">Организация</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>49346720-67e1-4500-a966-89e4ca592090</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Подразделение</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>37bb0f31-4290-4acf-923a-c8b1c236b409</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Тип</left>
+			<comparisonType>InList</comparisonType>
+			<right xsi:type="xs:string">Материалы</right>
+			<right xsi:type="xs:string">Возвратные отходы</right>
+			<right xsi:type="xs:string">Продукция</right>
+			<viewMode>Normal</viewMode>
+			<userSettingID>d59657b9-051a-4c29-97de-adaf54f2cd15</userSettingID>
 		</item>
 	</filter>
 	<dataParameters>
@@ -265,14 +459,7 @@
 		<item xsi:type="StructureItemGroup">
 			<groupItems>
 				<item xsi:type="GroupItemField">
-					<field>Номенклатура</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>Характеристика</field>
+					<field>Тип</field>
 					<groupType>Items</groupType>
 					<periodAdditionType>None</periodAdditionType>
 					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -285,6 +472,30 @@
 			<selection>
 				<item xsi:type="SelectedItemAuto"/>
 			</selection>
+			<item xsi:type="StructureItemGroup">
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Номенклатура</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>Характеристика</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+			</item>
 		</item>
 	</item>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>

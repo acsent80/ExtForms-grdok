@@ -51,6 +51,8 @@
 			</valueType>
 			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
+			<denyIncompleteValues>true</denyIncompleteValues>
+			<use>Always</use>
 		</parameter>
 		<parameter>
 			<name>Характеристика</name>
@@ -65,6 +67,7 @@
 			</valueType>
 			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<nestedSchema>
 			<name>СебестоимостьТоваров</name>
@@ -515,18 +518,6 @@
 								<field>ХозяйственнаяОперация</field>
 							</item>
 						</selection>
-						<dataParameters>
-							<dcscor:item xsi:type="SettingsParameterValue">
-								<dcscor:use>false</dcscor:use>
-								<dcscor:parameter>Регистратор</dcscor:parameter>
-								<dcscor:value xsi:nil="true"/>
-							</dcscor:item>
-							<dcscor:item xsi:type="SettingsParameterValue">
-								<dcscor:use>false</dcscor:use>
-								<dcscor:parameter>Характеристика</dcscor:parameter>
-								<dcscor:value xsi:nil="true"/>
-							</dcscor:item>
-						</dataParameters>
 						<outputParameters>
 							<dcscor:item xsi:type="SettingsParameterValue">
 								<dcscor:parameter>Заголовок</dcscor:parameter>
@@ -547,12 +538,29 @@
 							</dcscor:item>
 						</outputParameters>
 						<item xsi:type="StructureItemGroup">
+							<groupItems>
+								<item xsi:type="GroupItemField">
+									<field>ВидДвижения</field>
+									<groupType>Items</groupType>
+									<periodAdditionType>None</periodAdditionType>
+									<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+									<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+								</item>
+							</groupItems>
 							<order>
 								<item xsi:type="OrderItemAuto"/>
 							</order>
 							<selection>
 								<item xsi:type="SelectedItemAuto"/>
 							</selection>
+							<item xsi:type="StructureItemGroup">
+								<order>
+									<item xsi:type="OrderItemAuto"/>
+								</order>
+								<selection>
+									<item xsi:type="SelectedItemAuto"/>
+								</selection>
+							</item>
 						</item>
 					</settings>
 				</settingsVariant>
@@ -1637,7 +1645,36 @@
 	Рег.Регистратор = &amp;Регистратор
 	И (Рег.АналитикаУчетаНоменклатуры.Характеристика = &amp;Характеристика
 			ИЛИ Рег.АналитикаУчетаПродукции.Характеристика = &amp;Характеристика
-			ИЛИ Рег.КорАналитикаУчетаПродукции.Характеристика = &amp;Характеристика)</query>
+			ИЛИ Рег.КорАналитикаУчетаПродукции.Характеристика = &amp;Характеристика)
+{ГДЕ
+	Рег.Период,
+	Рег.Регистратор.*,
+	Рег.НомерСтроки,
+	Рег.Активность,
+	Рег.ВидДвижения,
+	Рег.Организация.*,
+	Рег.АналитикаУчетаПродукции.*,
+	Рег.АналитикаУчетаНоменклатуры.*,
+	Рег.ВидЗапасов.*,
+	Рег.ДокументВыпуска.*,
+	Рег.ДокументПоступления.*,
+	Рег.АналитикаУчетаПартий.*,
+	Рег.Количество,
+	Рег.Стоимость,
+	Рег.СтоимостьБезНДС,
+	Рег.СтоимостьРегл,
+	Рег.НДСРегл,
+	Рег.ПостояннаяРазница,
+	Рег.ВременнаяРазница,
+	Рег.ХозяйственнаяОперация.*,
+	Рег.НалогообложениеНДС.*,
+	Рег.СтатьяРасходовСписания.*,
+	Рег.АналитикаРасходов.*,
+	Рег.ПодразделениеРасходов.*,
+	Рег.КорАналитикаУчетаПродукции.*,
+	Рег.КорВидЗапасов.*,
+	Рег.Знаменатель,
+	Рег.ДокументИсточник.*}</query>
 					<autoFillFields>false</autoFillFields>
 				</dataSet>
 				<totalField>
@@ -1811,8 +1848,9 @@
 						<filter>
 							<item xsi:type="FilterItemComparison">
 								<use>false</use>
-								<left xsi:type="dcscor:Field">ПродукцияХарактеристика</left>
+								<left xsi:type="dcscor:Field">ВидДвижения</left>
 								<comparisonType>Equal</comparisonType>
+								<right xmlns:d9p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d9p1:AccumulationRecordType">Receipt</right>
 							</item>
 						</filter>
 						<outputParameters>
@@ -1835,12 +1873,29 @@
 							</dcscor:item>
 						</outputParameters>
 						<item xsi:type="StructureItemGroup">
+							<groupItems>
+								<item xsi:type="GroupItemField">
+									<field>ВидДвижения</field>
+									<groupType>Items</groupType>
+									<periodAdditionType>None</periodAdditionType>
+									<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+									<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+								</item>
+							</groupItems>
 							<order>
 								<item xsi:type="OrderItemAuto"/>
 							</order>
 							<selection>
 								<item xsi:type="SelectedItemAuto"/>
 							</selection>
+							<item xsi:type="StructureItemGroup">
+								<order>
+									<item xsi:type="OrderItemAuto"/>
+								</order>
+								<selection>
+									<item xsi:type="SelectedItemAuto"/>
+								</selection>
+							</item>
 						</item>
 					</settings>
 				</settingsVariant>
@@ -1923,6 +1978,7 @@
 					<field>ХозяйственнаяОперация</field>
 				</item>
 			</selection>
+			<filter/>
 			<dataParameters>
 				<dcscor:item xsi:type="SettingsParameterValue">
 					<dcscor:parameter>Регистратор</dcscor:parameter>
@@ -1933,6 +1989,8 @@
 					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.Характеристика</dcscor:value>
 				</dcscor:item>
 			</dataParameters>
+			<order/>
+			<conditionalAppearance/>
 			<outputParameters>
 				<dcscor:item xsi:type="SettingsParameterValue">
 					<dcscor:parameter>Заголовок</dcscor:parameter>
@@ -1953,15 +2011,32 @@
 				</dcscor:item>
 			</outputParameters>
 			<item xsi:type="StructureItemGroup">
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>ВидДвижения</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
 				<order>
 					<item xsi:type="OrderItemAuto"/>
 				</order>
 				<selection>
 					<item xsi:type="SelectedItemAuto"/>
 				</selection>
+				<item xsi:type="StructureItemGroup">
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
 			</item>
 		</settings>
-		<userSettingID>db201f3e-2ba8-428c-8592-9cf9fa551f97</userSettingID>
+		<userSettingID>b509a245-6fab-434b-8f4e-490c6227980b</userSettingID>
 	</item>
 	<item xsi:type="StructureItemNestedObject">
 		<objectID>ПартииПроизводственныхЗатрат</objectID>
@@ -2215,8 +2290,9 @@
 			<filter>
 				<item xsi:type="FilterItemComparison">
 					<use>false</use>
-					<left xsi:type="dcscor:Field">ПродукцияХарактеристика</left>
+					<left xsi:type="dcscor:Field">ВидДвижения</left>
 					<comparisonType>Equal</comparisonType>
+					<right xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d6p1:AccumulationRecordType">Receipt</right>
 				</item>
 			</filter>
 			<dataParameters>
@@ -2229,6 +2305,8 @@
 					<dcscor:value xsi:type="dcscor:Field">ОбъектНастройкиВладелец.ПараметрыДанных.Характеристика</dcscor:value>
 				</dcscor:item>
 			</dataParameters>
+			<order/>
+			<conditionalAppearance/>
 			<outputParameters>
 				<dcscor:item xsi:type="SettingsParameterValue">
 					<dcscor:parameter>Заголовок</dcscor:parameter>
@@ -2249,15 +2327,32 @@
 				</dcscor:item>
 			</outputParameters>
 			<item xsi:type="StructureItemGroup">
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>ВидДвижения</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
 				<order>
 					<item xsi:type="OrderItemAuto"/>
 				</order>
 				<selection>
 					<item xsi:type="SelectedItemAuto"/>
 				</selection>
+				<item xsi:type="StructureItemGroup">
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
 			</item>
 		</settings>
-		<userSettingID>ab2178c0-424a-42a0-a167-7896d354c08d</userSettingID>
+		<userSettingID>4e14b8c9-1d8f-4439-910c-65487573f734</userSettingID>
 	</item>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
 <SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

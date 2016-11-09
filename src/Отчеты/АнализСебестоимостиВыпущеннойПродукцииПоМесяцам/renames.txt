@@ -1,0 +1,10 @@
+﻿08426101-452a-4489-8694-684ced3ed18b.0\info-->und\08426101-452a-4489-8694-684ced3ed18b.0\info
+08426101-452a-4489-8694-684ced3ed18b.0\text-->ObjectModule.bsl
+08426101-452a-4489-8694-684ced3ed18b.1-->und\08426101-452a-4489-8694-684ced3ed18b.1
+1b255326-35dd-4d4c-baaa-6e14b6db6bb0-->und\1b255326-35dd-4d4c-baaa-6e14b6db6bb0
+1b255326-35dd-4d4c-baaa-6e14b6db6bb0.0-->und\1b255326-35dd-4d4c-baaa-6e14b6db6bb0.0
+copyinfo-->und\copyinfo
+d48e6cd2-5e74-4c86-8e22-c7dba18db05b-->und\d48e6cd2-5e74-4c86-8e22-c7dba18db05b
+root-->und\root
+version-->und\version
+versions-->und\versions

@@ -1644,6 +1644,10 @@
 			<dataPath>СуммаРасход</dataPath>
 			<expression>Сумма(СуммаРасход)</expression>
 		</totalField>
+		<totalField>
+			<dataPath>ОплачиваетсяНачальныйОстаток</dataPath>
+			<expression>Сумма(ОплачиваетсяНачальныйОстаток)</expression>
+		</totalField>
 		<parameter>
 			<name>Дата1</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -1771,6 +1775,27 @@
 			<lwsTitle>
 				<v8:item>
 					<v8:lang>ru</v8:lang>
+					<v8:content>Оплачивается</v8:content>
+				</v8:item>
+			</lwsTitle>
+			<item xsi:type="SelectedItemField">
+				<field>ОплачиваетсяНачальныйОстаток</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>ОплачиваетсяПриход</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>ОплачиваетсяРасход</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>ОплачиваетсяКонечныйОстаток</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
 					<v8:content>Расчеты по документам</v8:content>
 				</v8:item>
 			</lwsTitle>
@@ -1842,7 +1867,6 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">АналитикаУчетаПоПартнерам</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>ca5fa260-db7b-4aec-b300-21f105d59879</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">

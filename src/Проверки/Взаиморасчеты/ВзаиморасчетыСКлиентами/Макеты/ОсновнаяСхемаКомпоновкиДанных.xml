@@ -552,6 +552,16 @@
 				<dataPath>ПредоплатаУпрПриход</dataPath>
 				<field>ПредоплатаУпрПриход</field>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Контрагент</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<item xsi:type="DataSetQuery">
 				<name>РасчетыСКлиентами</name>
 				<field xsi:type="DataSetFieldField">
@@ -821,6 +831,16 @@
 						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
 					</role>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Контрагент</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	РасчетыСКлиентамиОстаткиИОбороты.НомерСтроки КАК НомерСтроки,
@@ -905,7 +925,7 @@
 	ОтгружаетсяПриход,
 	ОтгружаетсяРасход}
 ИЗ
-	РегистрНакопления.РасчетыСКлиентами.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, , АналитикаУчетаПоПартнерам.Организация = &amp;Организация {(АналитикаУчетаПоПартнерам).*, (Валюта).*, (ЗаказКлиента).*}) КАК РасчетыСКлиентамиОстаткиИОбороты</query>
+	РегистрНакопления.РасчетыСКлиентами.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, , АналитикаУчетаПоПартнерам.Организация = &amp;Организация {(АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам).*, (Валюта).*, (ЗаказКлиента).*}) КАК РасчетыСКлиентамиОстаткиИОбороты</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -1304,6 +1324,16 @@
 					<dataPath>ПредоплатаУпрПриход</dataPath>
 					<field>ПредоплатаУпрПриход</field>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Контрагент</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	РасчетыСКлиентамиПоДокументамОстаткиИОбороты.НомерСтроки КАК НомерСтроки,
@@ -1430,7 +1460,7 @@
 	ЗалогЗаТаруРеглПриход,
 	ЗалогЗаТаруРеглРасход}
 ИЗ
-	РегистрНакопления.РасчетыСКлиентамиПоДокументам.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, АналитикаУчетаПоПартнерам.Организация = &amp;Организация {(АналитикаУчетаПоПартнерам).*, (Валюта).*, (ЗаказКлиента).*, (РасчетныйДокумент).*}) КАК РасчетыСКлиентамиПоДокументамОстаткиИОбороты</query>
+	РегистрНакопления.РасчетыСКлиентамиПоДокументам.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, АналитикаУчетаПоПартнерам.Организация = &amp;Организация {(АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам).*, (Валюта).*, (ЗаказКлиента).*, (РасчетныйДокумент).*}) КАК РасчетыСКлиентамиПоДокументамОстаткиИОбороты</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 		</dataSet>
@@ -1767,6 +1797,7 @@
 				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
 			</value>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<parameter>
 			<name>Организация</name>
@@ -1781,6 +1812,7 @@
 			</valueType>
 			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Взаиморасчеты с клиентами</name>
@@ -1953,10 +1985,10 @@
 	</selection>
 	<filter>
 		<item xsi:type="FilterItemComparison">
-			<left xsi:type="dcscor:Field">АналитикаУчетаПоПартнерам.Контрагент</left>
+			<left xsi:type="dcscor:Field">Контрагент</left>
 			<comparisonType>Equal</comparisonType>
 			<right xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</right>
-			<userSettingID>38b65f5e-ba8c-4a05-a993-812d823a01af</userSettingID>
+			<userSettingID>3c5b14b8-2276-471d-b2a9-08b54d70a695</userSettingID>
 		</item>
 	</filter>
 	<dataParameters>
