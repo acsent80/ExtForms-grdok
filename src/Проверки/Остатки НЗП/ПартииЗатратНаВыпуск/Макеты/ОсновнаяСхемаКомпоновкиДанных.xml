@@ -6,7 +6,7 @@
 			<dataSourceType>Local</dataSourceType>
 		</dataSource>
 		<dataSet xsi:type="DataSetQuery">
-			<name>НаборДанных1</name>
+			<name>Запрос</name>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>АналитикаУчетаПартий</dataPath>
 				<field>АналитикаУчетаПартий</field>
@@ -362,6 +362,26 @@
 				<dataPath>КоличествоРасход</dataPath>
 				<field>КоличествоРасход</field>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РегистраторТип</dataPath>
+				<field>РегистраторТип</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Регистратор тип</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РегистраторРеализация</dataPath>
+				<field>РегистраторРеализация</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Регистратор реализация</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ
 	Рег.Организация КАК Организация,
@@ -382,6 +402,7 @@
 	Рег.ПериодПолугодие КАК ПериодПолугодие,
 	Рег.ПериодГод КАК ПериодГод,
 	Рег.Регистратор КАК Регистратор,
+	ТИПЗНАЧЕНИЯ(Рег.Регистратор) КАК РегистраторТип,
 	Рег.НомерСтроки КАК НомерСтроки,
 	Рег.КоличествоНачальныйОстаток КАК КоличествоНачальныйОстаток,
 	Рег.КоличествоОборот КАК КоличествоОборот,
@@ -474,7 +495,10 @@
 	ВременнаяРазницаРасход,
 	ВременнаяРазницаКонечныйОстаток}
 ИЗ
-	РегистрНакопления.ПартииЗатратНаВыпуск.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Организация = &amp;Организация {(АналитикаУчетаНоменклатуры).*, (АналитикаУчетаПартий).*, (АналитикаУчетаПродукции).*, (ВидЗапасов).*, (ДокументВыпуска).*, (ДокументПоступления).*}) КАК Рег</query>
+	РегистрНакопления.ПартииЗатратНаВыпуск.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Организация = &amp;Организация {(АналитикаУчетаНоменклатуры).*, (АналитикаУчетаПартий).*, (АналитикаУчетаПродукции).*, (ВидЗапасов).*, (ДокументВыпуска).*, (ДокументПоступления).*}) КАК Рег
+{ГДЕ
+	(ТИПЗНАЧЕНИЯ(Рег.Регистратор)) КАК РегистраторТип,
+	(ВЫРАЗИТЬ(Рег.Регистратор КАК Документ.РеализацияТоваровУслуг)).* КАК РегистраторРеализация}</query>
 			<autoFillFields>false</autoFillFields>
 		</dataSet>
 		<totalField>
@@ -670,6 +694,7 @@
 				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
 			</value>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<parameter>
 			<name>Организация</name>
@@ -684,6 +709,7 @@
 			</valueType>
 			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Партии затрат на выпуск</name>
@@ -691,6 +717,15 @@
 				<d4p1:item>
 					<d4p1:lang>ru</d4p1:lang>
 					<d4p1:content>Партии затрат на выпуск</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Расчет распределения НДС</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Расчет распределения НДС</d4p1:content>
 				</d4p1:item>
 			</presentation>
 		</settingsVariant>
@@ -769,7 +804,6 @@
 		<item xsi:type="FilterItemComparison">
 			<left xsi:type="dcscor:Field">АналитикаУчетаПродукции</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>c29b98bb-89f1-435b-8c5a-b123d9cb3071</userSettingID>
 		</item>
 	</filter>
@@ -838,6 +872,125 @@
 				<selection>
 					<item xsi:type="SelectedItemAuto"/>
 				</selection>
+			</item>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>СтоимостьРеглРасход</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>НДСРеглРасход</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">РегистраторТип</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue">Документ.РеализацияТоваровУслуг</right>
+			<viewMode>Normal</viewMode>
+			<userSettingID>388652dd-3b4d-4c46-810e-4da0d3d74958</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">РегистраторРеализация.НалогообложениеНДС</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue">Перечисление.ТипыНалогообложенияНДС.ПродажаНаЭкспорт</right>
+			<viewMode>Normal</viewMode>
+			<userSettingID>a164a6f1-62c5-4592-9b4d-c7a38fd49a74</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</dcscor:value>
+			<userSettingID>f27f98b1-e36a-46a8-9d54-543b524515e5</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Организация</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+			<userSettingID>a272daf8-9c78-488f-9f94-642093f4c473</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Регистратор</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>АналитикаУчетаПродукции.Номенклатура</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>АналитикаУчетаПродукции.Характеристика</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item xsi:type="StructureItemGroup">
+				<use>false</use>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>АналитикаУчетаНоменклатуры.Номенклатура</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item xsi:type="StructureItemGroup">
+					<use>false</use>
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<field>ДокументПоступления</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
 			</item>
 		</item>
 	</item>

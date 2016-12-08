@@ -427,12 +427,7 @@
 				<appearance>
 					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 						<parameter>Формат</parameter>
-						<value xmlns:d7p1="http://v8.1c.ru/8.1/data/core" xsi:type="d7p1:LocalStringType">
-							<d7p1:item>
-								<d7p1:lang>ru</d7p1:lang>
-								<d7p1:content>ДФ='MMMM yyyy'</d7p1:content>
-							</d7p1:item>
-						</value>
+						<value xsi:type="xs:string">ДФ='MMMM yyyy'</value>
 					</item>
 				</appearance>
 			</field>
@@ -1968,7 +1963,11 @@
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Продукция</left>
-			<comparisonType>Equal</comparisonType>
+			<comparisonType>InList</comparisonType>
+			<right xsi:type="v8:ValueListType">
+				<v8:valueType/>
+				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+			</right>
 			<userSettingID>69316345-7e5d-47fe-8922-77fe75a84b77</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
@@ -2026,8 +2025,7 @@
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>ДанныеПоСебестоимости</dcscor:parameter>
-			<dcscor:value xsi:type="xs:decimal">1</dcscor:value>
-			<viewMode>Normal</viewMode>
+			<dcscor:value xsi:type="xs:decimal">3</dcscor:value>
 			<userSettingID>e8eb082c-4d8f-4f15-9339-9e45690f464e</userSettingID>
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
@@ -2045,6 +2043,7 @@
 			<dcscor:use>false</dcscor:use>
 			<dcscor:parameter>ДетализироватьПоСериямВыпуска</dcscor:parameter>
 			<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+			<viewMode>Normal</viewMode>
 			<userSettingID>6baa9eee-d20d-42e4-9128-52f14753a162</userSettingID>
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
@@ -2121,7 +2120,10 @@
 				</item>
 			</groupItems>
 			<order>
-				<item xsi:type="OrderItemAuto"/>
+				<item xsi:type="OrderItemField">
+					<field>Месяц</field>
+					<orderType>Asc</orderType>
+				</item>
 			</order>
 			<selection>
 				<item xsi:type="SelectedItemAuto"/>
