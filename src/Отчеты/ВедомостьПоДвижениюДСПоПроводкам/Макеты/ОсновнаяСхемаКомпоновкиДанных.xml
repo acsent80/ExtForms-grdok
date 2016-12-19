@@ -266,6 +266,10 @@
 						<d5p1:content>Вид движения</d5p1:content>
 					</d5p1:item>
 				</title>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+				</role>
 				<valueType>
 					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
 					<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
@@ -291,6 +295,14 @@
 						</d6p1:item>
 					</presentation>
 				</availableValue>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодразделениеКор</dataPath>
+				<field>ПодразделениеКор</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+				</role>
 			</field>
 			<item xsi:type="DataSetQuery">
 				<name>Запрос51</name>
@@ -348,29 +360,11 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаКонечныйОстаток</dataPath>
-					<field>СуммаКонечныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодНеделя</dataPath>
 					<field>ПериодНеделя</field>
 					<role>
 						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаНачальныйОстаток</dataPath>
-					<field>СуммаНачальныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
@@ -475,6 +469,10 @@
 							<d6p1:content>Подразделение</d6p1:content>
 						</d6p1:item>
 					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Регистратор</dataPath>
@@ -505,21 +503,6 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаРубНачальныйОстаток</dataPath>
-					<field>СуммаРубНачальныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма руб начальный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>СуммаРуб</dataPath>
 					<field>СуммаРуб</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -530,21 +513,6 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаРубКонечныйОстаток</dataPath>
-					<field>СуммаРубКонечныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма руб конечный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>ВидДвижения</dataPath>
 					<field>ВидДвижения</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -553,6 +521,14 @@
 							<d6p1:content>Вид движения</d6p1:content>
 						</d6p1:item>
 					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПодразделениеКор</dataPath>
+					<field>ПодразделениеКор</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
@@ -566,15 +542,11 @@
 	ЕСТЬNULL(Рег.Валюта, ВалютаРегламентированногоУчета.Значение) КАК Валюта,
 	Рег.Субконто1 КАК БанковскийСчет,
 	ВЫРАЗИТЬ(Рег.Субконто2 КАК Справочник.СтатьиДвиженияДенежныхСредств) КАК СтатьяДДС,
-	Рег.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
 	Рег.СуммаОборотДт КАК СуммаДт,
 	Рег.СуммаОборотКт КАК СуммаКт,
-	Рег.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
 	Рег.СуммаОборот КАК Сумма,
-	Рег.СуммаНачальныйОстаток КАК СуммаРубНачальныйОстаток,
 	Рег.СуммаОборотДт КАК СуммаРубДт,
 	Рег.СуммаОборотКт КАК СуммаРубКт,
-	Рег.СуммаКонечныйОстаток КАК СуммаРубКонечныйОстаток,
 	Рег.СуммаОборот КАК СуммаРуб,
 	Рег.ПериодДень КАК ПериодДень,
 	Рег.ПериодНеделя КАК ПериодНеделя,
@@ -583,23 +555,21 @@
 	Рег.ПериодКвартал КАК ПериодКвартал,
 	Рег.ПериодПолугодие КАК ПериодПолугодие,
 	Рег.ПериодГод КАК ПериодГод,
-	Рег.Регистратор КАК Регистратор
-{ВЫБРАТЬ 
+	Рег.Регистратор КАК Регистратор,
+	Рег.Подразделение КАК Подразделение,
+	Рег.ПодразделениеКор КАК ПодразделениеКор
+{ВЫБРАТЬ
 	ВидДвижения,
 	Организация.*,
 	Счет.*,
 	Валюта.*,
 	БанковскийСчет.*,
 	СтатьяДДС.*,
-	СуммаНачальныйОстаток,
 	СуммаДт,
 	СуммаКт,
-	СуммаКонечныйОстаток,
 	Сумма,
-	СуммаРубНачальныйОстаток,
 	СуммаРубДт,
 	СуммаРубКт,
-	СуммаРубКонечныйОстаток,
 	СуммаРуб,
 	ПериодДень,
 	ПериодНеделя,
@@ -608,9 +578,11 @@
 	ПериодКвартал,
 	ПериодПолугодие,
 	ПериодГод,
-	Регистратор}
+	Регистратор,
+	Подразделение,
+	ПодразделениеКор}
 ИЗ
-	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Счет В ИЕРАРХИИ (&amp;Счет51) {(Счет).*}, &amp;Субконто51, {(Организация).*, (Подразделение).*, (Субконто1).* КАК БанковскийСчет, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДДС}) КАК Рег,
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (&amp;Счет51) {(Счет).*}, &amp;Субконто51, {(Организация).*, (Подразделение).*, (ПодразделениеКор).*, (Субконто1).* КАК БанковскийСчет, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДДС}, , ) КАК Рег,
 	Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
 {ГДЕ
 	ВалютаРегламентированногоУчета.Значение.* КАК Валюта,
@@ -686,6 +658,10 @@
 							<d6p1:content>Подразделение</d6p1:content>
 						</d6p1:item>
 					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодДекада</dataPath>
@@ -706,15 +682,6 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаКонечныйОстаток</dataPath>
-					<field>СуммаКонечныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодНеделя</dataPath>
 					<field>ПериодНеделя</field>
 					<role>
@@ -727,15 +694,6 @@
 					<field>Организация</field>
 					<role>
 						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаНачальныйОстаток</dataPath>
-					<field>СуммаНачальныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
@@ -824,21 +782,6 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаРубНачальныйОстаток</dataPath>
-					<field>СуммаРубНачальныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма руб начальный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СуммаРуб</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>СуммаРуб</dataPath>
 					<field>СуммаРуб</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -849,21 +792,6 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаРубКонечныйОстаток</dataPath>
-					<field>СуммаРубКонечныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма руб конечный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СуммаРуб</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>ВидДвижения</dataPath>
 					<field>ВидДвижения</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -872,6 +800,14 @@
 							<d6p1:content>Вид движения</d6p1:content>
 						</d6p1:item>
 					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПодразделениеКор</dataPath>
+					<field>ПодразделениеКор</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
@@ -885,15 +821,11 @@
 	Рег.Валюта КАК Валюта,
 	Рег.Субконто1 КАК БанковскийСчет,
 	ВЫРАЗИТЬ(Рег.Субконто2 КАК Справочник.СтатьиДвиженияДенежныхСредств) КАК СтатьяДДС,
-	Рег.ВалютнаяСуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
 	Рег.ВалютнаяСуммаОборотДт КАК СуммаДт,
 	Рег.ВалютнаяСуммаОборотКт КАК СуммаКт,
-	Рег.ВалютнаяСуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
 	Рег.ВалютнаяСуммаОборот КАК Сумма,
-	Рег.СуммаНачальныйОстаток КАК СуммаРубНачальныйОстаток,
 	Рег.СуммаОборотДт КАК СуммаРубДт,
 	Рег.СуммаОборотКт КАК СуммаРубКт,
-	Рег.СуммаКонечныйОстаток КАК СуммаРубКонечныйОстаток,
 	Рег.СуммаОборот КАК СуммаРуб,
 	Рег.ПериодДень КАК ПериодДень,
 	Рег.ПериодНеделя КАК ПериодНеделя,
@@ -902,7 +834,9 @@
 	Рег.ПериодКвартал КАК ПериодКвартал,
 	Рег.ПериодПолугодие КАК ПериодПолугодие,
 	Рег.ПериодГод КАК ПериодГод,
-	Рег.Регистратор КАК Регистратор
+	Рег.Регистратор КАК Регистратор,
+	Рег.Подразделение КАК Подразделение,
+	Рег.ПодразделениеКор КАК ПодразделениеКор
 {ВЫБРАТЬ
 	ВидДвижения,
 	Организация.*,
@@ -910,15 +844,11 @@
 	Валюта.*,
 	БанковскийСчет.*,
 	СтатьяДДС.*,
-	СуммаНачальныйОстаток,
 	СуммаДт,
 	СуммаКт,
-	СуммаКонечныйОстаток,
 	Сумма,
-	СуммаРубНачальныйОстаток,
 	СуммаРубДт,
 	СуммаРубКт,
-	СуммаРубКонечныйОстаток,
 	СуммаРуб,
 	ПериодДень,
 	ПериодНеделя,
@@ -927,9 +857,11 @@
 	ПериодКвартал,
 	ПериодПолугодие,
 	ПериодГод,
-	Регистратор}
+	Регистратор,
+	Подразделение,
+	ПодразделениеКор}
 ИЗ
-	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Счет В ИЕРАРХИИ (&amp;Счет52) {(Счет).*}, &amp;Субконто51, {(Организация).*, (Подразделение).*, (Субконто1).* КАК БанковскийСчет, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДДС}) КАК Рег
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (&amp;Счет52) {(Счет).*}, &amp;Субконто51, {(Организация).*, (Подразделение).*, (ПодразделениеКор).*, (Субконто1).* КАК БанковскийСчет, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДДС}, , ) КАК Рег
 {ГДЕ
 	Рег.ПериодДень,
 	Рег.ПериодНеделя,
@@ -1003,6 +935,10 @@
 							<d6p1:content>Подразделение</d6p1:content>
 						</d6p1:item>
 					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодДекада</dataPath>
@@ -1023,15 +959,6 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаКонечныйОстаток</dataPath>
-					<field>СуммаКонечныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодНеделя</dataPath>
 					<field>ПериодНеделя</field>
 					<role>
@@ -1044,15 +971,6 @@
 					<field>Организация</field>
 					<role>
 						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаНачальныйОстаток</dataPath>
-					<field>СуммаНачальныйОстаток</field>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
@@ -1131,36 +1049,6 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаРубНачальныйОстаток</dataPath>
-					<field>СуммаРубНачальныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма руб начальный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаРубКонечныйОстаток</dataPath>
-					<field>СуммаРубКонечныйОстаток</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма руб конечный остаток</d6p1:content>
-						</d6p1:item>
-					</title>
-					<role>
-						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
-						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
-						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>ВидДвижения</dataPath>
 					<field>ВидДвижения</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -1169,6 +1057,14 @@
 							<d6p1:content>Вид движения</d6p1:content>
 						</d6p1:item>
 					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПодразделениеКор</dataPath>
+					<field>ПодразделениеКор</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
@@ -1181,16 +1077,227 @@
 	Рег.Счет КАК Счет,
 	ЕСТЬNULL(Рег.Валюта, ВалютаРегламентированногоУчета.Значение) КАК Валюта,
 	ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств) КАК СтатьяДДС,
-	Рег.СуммаНачальныйОстаток КАК СуммаНачальныйОстаток,
 	Рег.СуммаОборотДт КАК СуммаДт,
 	Рег.СуммаОборотКт КАК СуммаКт,
-	Рег.СуммаКонечныйОстаток КАК СуммаКонечныйОстаток,
 	Рег.СуммаОборот КАК Сумма,
-	Рег.СуммаНачальныйОстаток КАК СуммаРубНачальныйОстаток,
 	Рег.СуммаОборотДт КАК СуммаРубДт,
 	Рег.СуммаОборотКт КАК СуммаРубКт,
-	Рег.СуммаКонечныйОстаток КАК СуммаРубКонечныйОстаток,
 	Рег.СуммаОборот КАК СуммаРуб,
+	Рег.ПериодДень КАК ПериодДень,
+	Рег.ПериодНеделя КАК ПериодНеделя,
+	Рег.ПериодДекада КАК ПериодДекада,
+	Рег.ПериодМесяц КАК ПериодМесяц,
+	Рег.ПериодКвартал КАК ПериодКвартал,
+	Рег.ПериодПолугодие КАК ПериодПолугодие,
+	Рег.ПериодГод КАК ПериодГод,
+	Рег.Регистратор КАК Регистратор,
+	Рег.Подразделение КАК Подразделение,
+	Рег.ПодразделениеКор КАК ПодразделениеКор
+{ВЫБРАТЬ
+	ВидДвижения,
+	Организация.*,
+	Счет.*,
+	Валюта.*,
+	СтатьяДДС.*,
+	СуммаДт,
+	СуммаКт,
+	Сумма,
+	СуммаРубДт,
+	СуммаРубКт,
+	СуммаРуб,
+	ПериодДень,
+	ПериодНеделя,
+	ПериодДекада,
+	ПериодМесяц,
+	ПериодКвартал,
+	ПериодПолугодие,
+	ПериодГод,
+	Регистратор,
+	Подразделение,
+	ПодразделениеКор}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;Дата1,
+			&amp;Дата2,
+			Авто,
+			Счет В ИЕРАРХИИ (&amp;Счет50)
+				И НЕ Счет.Валютный {(Счет).*},
+			&amp;Субконто50,
+			{(Организация).*, (Подразделение).*, (ПодразделениеКор).*, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДДС},
+			,
+			) КАК Рег,
+	Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
+{ГДЕ
+	Рег.ПериодДень,
+	Рег.ПериодНеделя,
+	Рег.ПериодДекада,
+	Рег.ПериодМесяц,
+	Рег.ПериодКвартал,
+	Рег.ПериодПолугодие,
+	Рег.ПериодГод}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Остатки</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Подразделение</dataPath>
+					<field>Подразделение</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНачальныйОстаток</dataPath>
+					<field>СуммаНачальныйОстаток</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма начальный остаток</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаРубНачальныйОстаток</dataPath>
+					<field>СуммаРубНачальныйОстаток</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма руб начальный остаток</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СуммаРуб</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКонечныйОстаток</dataPath>
+					<field>СуммаКонечныйОстаток</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма конечный остаток</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаРубКонечныйОстаток</dataPath>
+					<field>СуммаРубКонечныйОстаток</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма руб конечный остаток</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">СуммаРуб</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодПолугодие</dataPath>
+					<field>ПериодПолугодие</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">7</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодГод</dataPath>
+					<field>ПериодГод</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">8</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодКвартал</dataPath>
+					<field>ПериодКвартал</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">6</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">5</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДекада</dataPath>
+					<field>ПериодДекада</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">4</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодНеделя</dataPath>
+					<field>ПериодНеделя</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДень</dataPath>
+					<field>ПериодДень</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Рег.Счет КАК Счет,
+	Рег.Организация КАК Организация,
+	ЕСТЬNULL(Рег.Валюта, ВалютаРегламентированногоУчета.Значение) КАК Валюта,
+	NULL КАК ВидДвижения,
+	NULL КАК СтатьяДДС,
+	Рег.СуммаНачальныйОстаток КАК СуммаРубНачальныйОстаток,
+	Рег.СуммаКонечныйОстаток КАК СуммаРубКонечныйОстаток,
+	ВЫБОР
+		КОГДА Рег.Валюта ЕСТЬ NULL 
+			ТОГДА Рег.СуммаНачальныйОстаток
+		ИНАЧЕ Рег.ВалютнаяСуммаНачальныйОстаток
+	КОНЕЦ КАК СуммаНачальныйОстаток,
+	ВЫБОР
+		КОГДА Рег.Валюта ЕСТЬ NULL 
+			ТОГДА Рег.СуммаКонечныйОстаток
+		ИНАЧЕ Рег.ВалютнаяСуммаКонечныйОстаток
+	КОНЕЦ КАК СуммаКонечныйОстаток,
 	Рег.ПериодДень КАК ПериодДень,
 	Рег.ПериодНеделя КАК ПериодНеделя,
 	Рег.ПериодДекада КАК ПериодДекада,
@@ -1200,21 +1307,13 @@
 	Рег.ПериодГод КАК ПериодГод,
 	Рег.Регистратор КАК Регистратор
 {ВЫБРАТЬ
-	ВидДвижения,
-	Организация.*,
 	Счет.*,
+	Организация.*,
 	Валюта.*,
-	СтатьяДДС.*,
-	СуммаНачальныйОстаток,
-	СуммаДт,
-	СуммаКт,
-	СуммаКонечныйОстаток,
-	Сумма,
 	СуммаРубНачальныйОстаток,
-	СуммаРубДт,
-	СуммаРубКт,
 	СуммаРубКонечныйОстаток,
-	СуммаРуб,
+	СуммаНачальныйОстаток,
+	СуммаКонечныйОстаток,
 	ПериодДень,
 	ПериодНеделя,
 	ПериодДекада,
@@ -1224,17 +1323,10 @@
 	ПериодГод,
 	Регистратор}
 ИЗ
-	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(
-			&amp;Дата1,
-			&amp;Дата2,
-			Авто,
-			Движения,
-			Счет В ИЕРАРХИИ (&amp;Счет50)
-				И НЕ Счет.Валютный {(Счет).*},
-			&amp;Субконто50,
-			{(Организация).*, (Подразделение).*, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДДС}) КАК Рег,
+	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Счет В ИЕРАРХИИ (&amp;Счет50, &amp;Счет51, &amp;Счет52), , {(Организация).*, (Подразделение).*}) КАК Рег,
 	Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
 {ГДЕ
+	ВалютаРегламентированногоУчета.Значение.* КАК Валюта,
 	Рег.ПериодДень,
 	Рег.ПериодНеделя,
 	Рег.ПериодДекада,
@@ -1467,6 +1559,15 @@
 				<d4p1:item>
 					<d4p1:lang>ru</d4p1:lang>
 					<d4p1:content>Ведомость по движению ДС (по проводкам)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Ведомость по движению ДС по подразделениям</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Ведомость по движению ДС по подразделениям</d4p1:content>
 				</d4p1:item>
 			</presentation>
 		</settingsVariant>
@@ -1906,6 +2007,149 @@
 					</dcscor:item>
 				</outputParameters>
 			</item>
+		</row>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>СуммаРуб</field>
+		</item>
+	</selection>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+			</dcscor:value>
+			<userSettingID>bca7c27a-0862-48c9-a730-93cb10d9d717</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemTable">
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>НачОст</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<conditionalAppearance>
+				<item>
+					<selection/>
+					<filter/>
+					<appearance>
+						<dcscor:item xsi:type="SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+					</appearance>
+					<useInOverall>DontUse</useInOverall>
+					<useInFieldsHeader>DontUse</useInFieldsHeader>
+					<useInHeader>DontUse</useInHeader>
+					<useInParameters>DontUse</useInParameters>
+					<useInFilter>DontUse</useInFilter>
+				</item>
+			</conditionalAppearance>
+		</row>
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ВидДвижения</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>ПодразделениеКор</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item>
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<field>СтатьяДДС</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
+			</item>
+		</row>
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>КонОст</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<conditionalAppearance>
+				<item>
+					<selection/>
+					<filter/>
+					<appearance>
+						<dcscor:item xsi:type="SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+					</appearance>
+					<useInOverall>DontUse</useInOverall>
+					<useInFieldsHeader>DontUse</useInFieldsHeader>
+					<useInHeader>DontUse</useInHeader>
+					<useInParameters>DontUse</useInParameters>
+					<useInFilter>DontUse</useInFilter>
+				</item>
+			</conditionalAppearance>
 		</row>
 	</item>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
