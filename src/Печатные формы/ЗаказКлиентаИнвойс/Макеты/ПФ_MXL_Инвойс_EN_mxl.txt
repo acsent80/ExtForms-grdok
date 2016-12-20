@@ -1,0 +1,35 @@
+﻿				INVOICE		Номер		
+				DATE OF INVOICE:		Дата		
+				CONTRACT №:		No contract	DATED	
+Seller:				Buyer:				
+"LLС “PLPK”, 618270, Russian Federation, Permsky region, remiachinsk,pos. Yugo-Zapadny, Str, Kommunisticheskaya 1. Tel: +7 (34250) 2 12 88, fax: +7 (34250) 2 12 88. 
+Beneficiary Bank: Commercial Bank “OBRAZOVANIE” 119296, Leninsky prospect, 63/2, building 1, Moscow , Russia. Intermediary Bank: RAIFFEISEN  BANK INTERNATIONAL AG, 9, Am Stadtpark, VIENNA, AUSTRIA. SWIFT CODE: RZBAATWW, Commercial Bank “OBRAZOVANIE” USD correspondent account number: 070-55.078.539, Transit account: 40702840900120006177.
+Beneficiary’s account: 40702840100120000177, Beneficiary’s name: LLP “PLPK”."				Office El Massry for Import and Export. Commercial Registration No.176921. Address: 25 St.Wagih El Dakrory from St.School Omranet El Sharkiah, overnorate El Giza. Tel: 03-4839242, Fax: 03-4872383.				
+								
+								
+								
+								
+Consignee:								
+Office El Massry for Import and Export. Commercial Registration No.176921. Address: 25 St.Wagih El Dakrory from St.School Omranet El Sharkiah, overnorate El Giza.								
+Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
+Валюта	CIF LIFO Damietta		ДатаОтгрузки		50%-prepayment and 50% before shipping.			
+All the payments are to be transferred to the Seller's bank account.								
+BTN Code	Article					"Quantity,
+cbm"	Unit price	Value
+Артикул	НоменклатураEN					Количество	Цена	Сумма
+TOTAL:						Количество		Сумма
+Special conditions:								
+No special conditions								
+								
+								
+								
+								
+
+
+
+		Seller:						
+
+
+
+
+

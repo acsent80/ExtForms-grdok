@@ -33,12 +33,7 @@
 				<appearance>
 					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 						<parameter>Формат</parameter>
-						<value xmlns:d7p1="http://v8.1c.ru/8.1/data/core" xsi:type="d7p1:LocalStringType">
-							<d7p1:item>
-								<d7p1:lang>ru</d7p1:lang>
-								<d7p1:content>ЧДЦ=3</d7p1:content>
-							</d7p1:item>
-						</value>
+						<value xsi:type="xs:string">ЧДЦ=3</value>
 					</item>
 				</appearance>
 			</field>
@@ -75,12 +70,7 @@
 				<appearance>
 					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 						<parameter>Формат</parameter>
-						<value xmlns:d7p1="http://v8.1c.ru/8.1/data/core" xsi:type="d7p1:LocalStringType">
-							<d7p1:item>
-								<d7p1:lang>ru</d7p1:lang>
-								<d7p1:content>ЧДЦ=3</d7p1:content>
-							</d7p1:item>
-						</value>
+						<value xsi:type="xs:string">ЧДЦ=3</value>
 					</item>
 				</appearance>
 			</field>
@@ -161,6 +151,16 @@
 					</d5p1:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НаборДанных</dataPath>
+				<field>НаборДанных</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Набор данных</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<item xsi:type="DataSetQuery">
 				<name>СвободныеОстатки</name>
 				<field xsi:type="DataSetFieldField">
@@ -214,8 +214,19 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаборДанных</dataPath>
+					<field>НаборДанных</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Набор данных</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
+	"СвободныеОстатки" КАК НаборДанных,
 	СвободныеОстаткиОстатки.Номенклатура КАК Номенклатура,
 	СвободныеОстаткиОстатки.Характеристика КАК Характеристика,
 	СвободныеОстаткиОстатки.Склад КАК Склад,
@@ -223,6 +234,7 @@
 	СвободныеОстаткиОстатки.ВРезервеПодЗаказОстаток КАК ВРезерве,
 	СвободныеОстаткиОстатки.ВРезервеПодЗаказОстаток КАК ВРезервеПодЗаказ
 {ВЫБРАТЬ
+	НаборДанных,
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
@@ -312,8 +324,19 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаборДанных</dataPath>
+					<field>НаборДанных</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Набор данных</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
+	"ТоварыКОтгрузке" КАК НаборДанных,
 	ТоварыКОтгрузкеОстатки.Номенклатура КАК Номенклатура,
 	ТоварыКОтгрузкеОстатки.Характеристика КАК Характеристика,
 	ТоварыКОтгрузкеОстатки.Склад КАК Склад,
@@ -323,6 +346,7 @@
 	ТоварыКОтгрузкеОстатки.КОтгрузкеОстаток КАК КОтгрузке,
 	ТоварыКОтгрузкеОстатки.КОтгрузкеОстаток КАК ВНаличии
 {ВЫБРАТЬ
+	НаборДанных,
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
@@ -381,14 +405,42 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаборДанных</dataPath>
+					<field>НаборДанных</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Набор данных</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗаказКлиента</dataPath>
+					<field>ЗаказКлиента</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Заказ клиента</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
+	"ДоступныеОстаткиПланируемыхПоступлений" КАК НаборДанных,
 	Таблица.Номенклатура КАК Номенклатура,
 	Таблица.Характеристика КАК Характеристика,
 	Таблица.Склад КАК Склад,
+	ГрафикОтгрузкиТоваров.Регистратор КАК ЗаказКлиента,
 	СУММА(-Таблица.Количество) КАК ВРезервеКДате,
 	СУММА(-Таблица.Количество) КАК ВРезерве
 {ВЫБРАТЬ
+	НаборДанных,
+	ЗаказКлиента.*,
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
@@ -396,6 +448,11 @@
 	ВРезерве}
 ИЗ
 	РегистрСведений.ДоступныеОстаткиПланируемыхПоступлений КАК Таблица
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ГрафикОтгрузкиТоваров КАК ГрафикОтгрузкиТоваров
+		ПО Таблица.Номенклатура = ГрафикОтгрузкиТоваров.Номенклатура
+			И Таблица.Характеристика = ГрафикОтгрузкиТоваров.Характеристика
+			И Таблица.Склад = ГрафикОтгрузкиТоваров.Склад
+			И (-Таблица.Количество = ГрафикОтгрузкиТоваров.КоличествоИзЗаказов)
 ГДЕ
 	Таблица.Количество &lt; 0
 	И Таблица.ДатаДоступности = ДАТАВРЕМЯ(1, 1, 1)
@@ -405,6 +462,7 @@
 	Таблица.Характеристика.* КАК Характеристика}
 
 СГРУППИРОВАТЬ ПО
+	ГрафикОтгрузкиТоваров.Регистратор,
 	Таблица.Номенклатура,
 	Таблица.Характеристика,
 	Таблица.Склад</query>
@@ -463,8 +521,19 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаборДанных</dataPath>
+					<field>НаборДанных</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Набор данных</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
+	"ГрафикОтгрузкиТоваров" КАК НаборДанных,
 	Таблица.Номенклатура КАК Номенклатура,
 	Таблица.Характеристика КАК Характеристика,
 	Таблица.Склад КАК Склад,
@@ -475,6 +544,7 @@
 		ИНАЧЕ Таблица.ДатаОтгрузки
 	КОНЕЦ КАК ДатаСобытия
 {ВЫБРАТЬ
+	НаборДанных,
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
@@ -523,8 +593,19 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаборДанных</dataPath>
+					<field>НаборДанных</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Набор данных</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
+	"ГрафикПоступленияТоваров" КАК НаборДанных,
 	Таблица.Номенклатура КАК Номенклатура,
 	Таблица.Характеристика КАК Характеристика,
 	Таблица.Склад КАК Склад,
@@ -535,6 +616,7 @@
 		ИНАЧЕ Таблица.ДатаСобытия
 	КОНЕЦ КАК ДатаСобытия
 {ВЫБРАТЬ
+	НаборДанных,
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
@@ -589,12 +671,7 @@
 			<appearance>
 				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 					<parameter>Формат</parameter>
-					<value xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>ЧДЦ=3</d6p1:content>
-						</d6p1:item>
-					</value>
+					<value xsi:type="xs:string">ЧДЦ=3</value>
 				</item>
 				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 					<parameter>ВыделятьОтрицательные</parameter>
@@ -627,12 +704,7 @@
 			<appearance>
 				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 					<parameter>Формат</parameter>
-					<value xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>ЧДЦ=3</d6p1:content>
-						</d6p1:item>
-					</value>
+					<value xsi:type="xs:string">ЧДЦ=3</value>
 				</item>
 			</appearance>
 		</calculatedField>
@@ -648,12 +720,7 @@
 			<appearance>
 				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 					<parameter>Формат</parameter>
-					<value xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>ЧДЦ=3</d6p1:content>
-						</d6p1:item>
-					</value>
+					<value xsi:type="xs:string">ЧДЦ=3</value>
 				</item>
 			</appearance>
 		</calculatedField>
@@ -676,12 +743,7 @@
 			<appearance>
 				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 					<parameter>Формат</parameter>
-					<value xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>ЧДЦ=3</d6p1:content>
-						</d6p1:item>
-					</value>
+					<value xsi:type="xs:string">ЧДЦ=3</value>
 				</item>
 				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 					<parameter>ВыделятьОтрицательные</parameter>
@@ -1145,7 +1207,6 @@
 		<item xsi:type="FilterItemComparison">
 			<left xsi:type="dcscor:Field">Склад</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>a1144ca0-b0e1-4465-a528-a708cbc3eb5e</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
