@@ -6,7 +6,7 @@
 Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."				
 	[ОрганизацияБанкEN]								
 	Consignee:								
-	[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес].								
+	[Грузополучатель]. Commercial Registration No.[ГрузополучательРегНомер]. Address: [ГрузополучательАдрес].								
 	Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
 	Валюта	CIF LIFO Damietta		ДатаОтгрузки		50%-prepayment and 50% before shipping.			
 	All the payments are to be transferred to the Seller's bank account.								
