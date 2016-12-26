@@ -8,7 +8,7 @@ Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."
 	Consignee:								
 	[Грузополучатель]. Commercial Registration No.[ГрузополучательРегНомер]. Address: [ГрузополучательАдрес].								
 	Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
-	Валюта	CIF LIFO Damietta		ДатаОтгрузки		50%-prepayment and 50% before shipping.			
+	Валюта	УсловияДоставки		ДатаОтгрузки		50%-prepayment and 50% before shipping.			
 	All the payments are to be transferred to the Seller's bank account.								
 	BTN Code	Article					"Quantity,
 cbm"	Unit price	Value
@@ -24,8 +24,8 @@ cbm"	Unit price	Value
 
 
 			Seller:						
+									
 
 
-
-
+									
 
