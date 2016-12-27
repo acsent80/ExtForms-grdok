@@ -1,5 +1,5 @@
-﻿					INVOICE		Номер		
-					DATE OF INVOICE:		Дата		
+﻿					PAKING LIST		Номер		
+					DATE OF PAKING LIST:		ДатаОтгрузки		
 					CONTRACT №:		ДоговорНомер	DATED	ДоговорДата
 	Seller:				Buyer:				
 	"[ОрганизацияEN], [ОрганизацияАдресEN].
@@ -8,21 +8,18 @@ Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."
 									
 	Consignee:								
 	[Грузополучатель]. Commercial Registration No.[ГрузополучательРегНомер]. Address: [ГрузополучательАдрес].								
-	Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
-	Валюта	УсловияДоставки		ДатаОтгрузки		50%-prepayment and 50% before shipping.			
-	All the payments are to be transferred to the Seller's bank account.								
-	BTN Code	Article					"Quantity,
-cbm"	Unit price	Value
-	Артикул	НоменклатураХарактеристикаEN					Количество	Цена	Сумма
-	TOTAL:						Количество		Сумма
-	Special conditions:								
-	No special conditions								
+									
+	Description of Goods:								
+	BTN Code	Article				Colli	"Quantity,
+cbm"	Netto, kg	Brutto, kg
+	Артикул	НоменклатураХарактеристикаEN				КолвоМест	Количество	Нетто	Брутто
+	TOTAL:					КолвоМест	Количество	Нетто	Брутто
+	Additional  information:								
+	No								
 									
 									
 									
 									
-	All the payments are to be transferred to the Seller's bank account:								
-	ОрганизацияБанкEN								
 
 
 
