@@ -2,9 +2,10 @@
 					DATE OF INVOICE:		Дата		
 					CONTRACT №:		ДоговорНомер	DATED	ДоговорДата
 	Seller:				Buyer:				
-	[ОрганизацияEN], [ОрганизацияАдресEN]. Tel: [ОрганизацияТелефон], fax: [ОрганизацияФакс]				"[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес]
+	"[ОрганизацияEN], [ОрганизацияАдресEN].
+Tel: [ОрганизацияТелефон], fax: [ОрганизацияФакс]"				"[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес]
 Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."				
-	[ОрганизацияБанкEN]								
+									
 	Consignee:								
 	[Грузополучатель]. Commercial Registration No.[ГрузополучательРегНомер]. Address: [ГрузополучательАдрес].								
 	Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
@@ -20,6 +21,8 @@ cbm"	Unit price	Value
 									
 									
 									
+	All the payments are to be transferred to the Seller's bank account:								
+	ОрганизацияБанкEN								
 
 
 

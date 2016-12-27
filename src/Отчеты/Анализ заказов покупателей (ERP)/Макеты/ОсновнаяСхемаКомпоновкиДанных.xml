@@ -287,6 +287,16 @@
 				<dataPath>ВариантОбеспечения</dataPath>
 				<field>ВариантОбеспечения</field>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОстатокОплаты</dataPath>
+				<field>ОстатокОплаты</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Остаток оплаты</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<item xsi:type="DataSetQuery">
 				<name>Заказы</name>
 				<field xsi:type="DataSetFieldField">
@@ -461,6 +471,16 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОстатокОплаты</dataPath>
+					<field>ОстатокОплаты</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Остаток оплаты</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	ДокументЗаказКлиента.Ссылка КАК ЗаказКлиента,
@@ -503,7 +523,8 @@
 	ЕСТЬNULL(СостоянияЗаказовКлиентов.ДатаСобытия, ДАТАВРЕМЯ(1, 1, 1)) КАК ДатаСобытия,
 	ЕСТЬNULL(СостоянияЗаказовКлиентов.ЕстьРасхожденияОрдерНакладная, ЛОЖЬ) КАК ЕстьРасхожденияОрдерНакладная,
 	СостоянияЭД.СостояниеВерсииЭД КАК СостояниеВерсииЭД,
-	ДокументЗаказКлиента.Валюта КАК Валюта
+	ДокументЗаказКлиента.Валюта КАК Валюта,
+	ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(СостоянияЗаказовКлиентов.СуммаОплаты, 0) КАК ОстатокОплаты
 {ВЫБРАТЬ
 	ЗаказКлиента.*,
 	Организация.*,
@@ -526,7 +547,8 @@
 	ДатаСобытия,
 	ЕстьРасхожденияОрдерНакладная,
 	СостояниеВерсииЭД.*,
-	Валюта.*}
+	Валюта.*,
+	ОстатокОплаты}
 ИЗ
 	Документ.ЗаказКлиента КАК ДокументЗаказКлиента
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияЗаказовКлиентов КАК СостоянияЗаказовКлиентов
@@ -576,7 +598,8 @@
 	(ЕСТЬNULL(СостоянияЗаказовКлиентов.ДатаСобытия, ДАТАВРЕМЯ(1, 1, 1))) КАК ДатаСобытия,
 	(ЕСТЬNULL(СостоянияЗаказовКлиентов.ЕстьРасхожденияОрдерНакладная, ЛОЖЬ)) КАК ЕстьРасхожденияОрдерНакладная,
 	СостоянияЭД.СостояниеВерсииЭД КАК СостояниеВерсииЭД,
-	ДокументЗаказКлиента.Валюта.*}</query>
+	ДокументЗаказКлиента.Валюта.*,
+	(ДокументЗаказКлиента.СуммаДокумента - ЕСТЬNULL(СостоянияЗаказовКлиентов.СуммаОплаты, 0)) КАК ОстатокОплаты}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -681,6 +704,16 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОстатокОплаты</dataPath>
+					<field>ОстатокОплаты</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Остаток оплаты</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Рег.ЗаказКлиента КАК ЗаказКлиента,
@@ -692,7 +725,8 @@
 	Рег.АналитикаУчетаПоПартнерам.Договор.Статус КАК Статус,
 	Рег.Валюта КАК Валюта,
 	0 КАК СуммаЗаказа,
-	-Рег.СуммаОстаток КАК СуммаОплаты
+	-Рег.СуммаОстаток КАК СуммаОплаты,
+	Рег.СуммаОстаток КАК ОстатокОплаты
 {ВЫБРАТЬ
 	ЗаказКлиента.*,
 	Организация.*,
@@ -703,10 +737,10 @@
 	Статус.*,
 	Валюта.*,
 	СуммаЗаказа,
-	СуммаОплаты}
+	СуммаОплаты,
+	ОстатокОплаты}
 ИЗ
-	РегистрНакопления.РасчетыСКлиентами.Остатки(, ЗаказКлиента ССЫЛКА Справочник.ДоговорыКонтрагентов {(АналитикаУчетаПоПартнерам.Организация).* КАК Организация, (АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам.Партнер).* КАК Партнер, (АналитикаУчетаПоПартнерам.Договор).* КАК Договор, (АналитикаУчетаПоПартнерам.Партнер.ОсновнойМенеджер).* КАК ОсновнойМенеджер, (Валюта).*, (ЗаказКлиента).*, АналитикаУчетаПоПартнерам.Договор.Статус.* КАК Статус}) КАК Рег
-</query>
+	РегистрНакопления.РасчетыСКлиентами.Остатки(, ЗаказКлиента ССЫЛКА Справочник.ДоговорыКонтрагентов {(АналитикаУчетаПоПартнерам.Организация).* КАК Организация, (АналитикаУчетаПоПартнерам.Контрагент).* КАК Контрагент, (АналитикаУчетаПоПартнерам.Партнер).* КАК Партнер, (АналитикаУчетаПоПартнерам.Договор).* КАК Договор, (АналитикаУчетаПоПартнерам.Партнер.ОсновнойМенеджер).* КАК ОсновнойМенеджер, (Валюта).*, (ЗаказКлиента).*, (АналитикаУчетаПоПартнерам.Договор.Статус).* КАК Статус}) КАК Рег</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -785,6 +819,36 @@
 					<dataPath>ВариантОбеспечения</dataPath>
 					<field>ВариантОбеспечения</field>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаЗаказа</dataPath>
+					<field>СуммаЗаказа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма заказа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаОплаты</dataPath>
+					<field>СуммаОплаты</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма оплаты</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОстатокОплаты</dataPath>
+					<field>ОстатокОплаты</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Остаток оплаты</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	ДокументЗаказКлиента.Ссылка КАК ЗаказКлиента,
@@ -818,6 +882,8 @@
 	ВариантОбеспечения.*}
 ИЗ
 	Документ.ЗаказКлиента.Товары КАК ДокументЗаказКлиента
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияЗаказовКлиентов КАК СостоянияЗаказовКлиентов
+		ПО (СостоянияЗаказовКлиентов.Заказ = ДокументЗаказКлиента.Ссылка)
 ГДЕ
 	ДокументЗаказКлиента.Ссылка.ДатаОтгрузки МЕЖДУ &amp;Дата1 И &amp;Дата2
 {ГДЕ
@@ -832,30 +898,13 @@
 	ДокументЗаказКлиента.Ссылка.Валюта.*,
 	ДокументЗаказКлиента.ВариантОбеспечения.*,
 	ДокументЗаказКлиента.Номенклатура.*,
-	ДокументЗаказКлиента.Характеристика.*}</query>
+	ДокументЗаказКлиента.Характеристика.*,
+	ДокументЗаказКлиента.Ссылка.СуммаДокумента КАК СуммаЗаказа,
+	(ЕСТЬNULL(СостоянияЗаказовКлиентов.СуммаОплаты, 0)) КАК СуммаОплаты,
+	(ДокументЗаказКлиента.Ссылка.СуммаДокумента - ЕСТЬNULL(СостоянияЗаказовКлиентов.СуммаОплаты, 0)) КАК ОстатокОплаты}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 		</dataSet>
-		<calculatedField>
-			<dataPath>ОстатокОплаты</dataPath>
-			<expression>СуммаЗаказа - СуммаОплаты</expression>
-			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Остаток оплаты</d4p1:content>
-				</d4p1:item>
-			</title>
-			<appearance>
-				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
-					<parameter>Формат</parameter>
-					<value xsi:type="xs:string">ЧДЦ=2</value>
-				</item>
-				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
-					<parameter>ВыделятьОтрицательные</parameter>
-					<value xsi:type="xs:boolean">true</value>
-				</item>
-			</appearance>
-		</calculatedField>
 		<totalField>
 			<dataPath>НашДолг</dataPath>
 			<expression>Сумма(НашДолг)</expression>
@@ -1025,10 +1074,9 @@
 			<viewMode>Normal</viewMode>
 		</item>
 		<item xsi:type="FilterItemComparison">
-			<use>false</use>
-			<left xsi:type="dcscor:Field">СуммаЗаказа</left>
+			<left xsi:type="dcscor:Field">ОстатокОплаты</left>
 			<comparisonType>NotEqual</comparisonType>
-			<right xsi:type="dcscor:Field">СуммаОплаты</right>
+			<right xsi:type="xs:decimal">0</right>
 			<presentation xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
@@ -1042,7 +1090,6 @@
 			<left xsi:type="dcscor:Field">Статус</left>
 			<comparisonType>NotEqual</comparisonType>
 			<right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыЗаказовКлиентов.Закрыт</right>
-			<viewMode>Normal</viewMode>
 			<userSettingID>5ea42efd-f413-4834-9a53-32efe4f928eb</userSettingID>
 		</item>
 	</filter>
@@ -1137,6 +1184,13 @@
 						</item>
 						<item xsi:type="GroupItemField">
 							<field>Характеристика</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+						<item xsi:type="GroupItemField">
+							<field>ВариантОбеспечения</field>
 							<groupType>Items</groupType>
 							<periodAdditionType>None</periodAdditionType>
 							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>

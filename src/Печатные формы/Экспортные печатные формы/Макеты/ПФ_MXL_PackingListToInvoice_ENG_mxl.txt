@@ -18,7 +18,7 @@
 		Customer-No:		КонтрагентКод			Fax: [КонтрагентФакс]				
 		Terms of payment:		as per Contract			Bank: [КонтрагентБанк]				
 		Currency:		ВалютаДокумента			Konto Nr: [КонтрагентСчет]				
-		Terms of delivery:		as per Contract			BLZ: [Идентификатор]				
+		Terms of delivery:		УсловияДоставки			BLZ: [Идентификатор]				
 											
 											
 			Manufacturer / Производитель:		LLC "PLPK" / Russian Federation/ Россия						
@@ -46,5 +46,14 @@ kg"
 
 					ОрганизацияENG						
 											
-					Managing Director		_____________________________/D.S. Isaykin/				
+					Managing Director				/D.S. Isaykin/		
+
+
+
+
+
+
+
+
+
 
