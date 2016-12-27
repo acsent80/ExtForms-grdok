@@ -97,8 +97,10 @@
 				</title>
 				<role>
 					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.СтатьиДвиженияДенежныхСредств</Type>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>ПериодДень</dataPath>
@@ -145,7 +147,6 @@
 				</title>
 				<role>
 					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
@@ -301,6 +302,9 @@
 				<role>
 					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
 				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.СтруктураПредприятия</Type>
+				</valueType>
 			</field>
 			<item xsi:type="DataSetQuery">
 				<name>Запрос51</name>
@@ -374,10 +378,6 @@
 							<d6p1:content>Статья ДДС</d6p1:content>
 						</d6p1:item>
 					</title>
-					<role>
-						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
-					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодДень</dataPath>
@@ -534,7 +534,11 @@
 	Рег.Организация КАК Организация,
 	Рег.Счет КАК Счет,
 	ЕСТЬNULL(Рег.Валюта, ВалютаРегламентированногоУчета.Значение) КАК Валюта,
-	ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств) КАК СтатьяДДС,
+	ВЫБОР
+		КОГДА Рег.Субконто1 ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенежныхСредств.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)
+	КОНЕЦ КАК СтатьяДДС,
 	Рег.Субконто2 КАК БанковскийСчет,
 	Рег.СуммаОборотДт КАК СуммаДт,
 	Рег.СуммаОборотКт КАК СуммаКт,
@@ -553,7 +557,7 @@
 	Рег.Подразделение КАК Подразделение,
 	ВЫБОР
 		КОГДА СписаниеБезналичныхДенежныхСредств.ЗаявкаНаРасходованиеДенежныхСредств ЕСТЬ NULL 
-			ТОГДА Рег.ПодразделениеКор
+			ТОГДА ЕСТЬNULL(Рег.ПодразделениеКор, ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка))
 		ИНАЧЕ СписаниеБезналичныхДенежныхСредств.ЗаявкаНаРасходованиеДенежныхСредств.Подразделение
 	КОНЕЦ КАК ПодразделениеКор
 {ВЫБРАТЬ
@@ -580,7 +584,11 @@
 	Подразделение,
 	ПодразделениеКор}
 ИЗ
-	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (&amp;Счет51) {(Счет).*}, &amp;Субконто51, {(Организация).*, (Подразделение).*, (Субконто2).* КАК БанковскийСчет, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДДС}, , ) КАК Рег
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (&amp;Счет51) {(Счет).*}, &amp;Субконто51, {(Организация).*, (Подразделение).*, (Субконто2).* КАК БанковскийСчет, (ВЫБОР
+			    КОГДА Субконто1 ЕСТЬ NULL 
+			        ТОГДА ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенежныхСредств.ПустаяСсылка)
+			    ИНАЧЕ ВЫРАЗИТЬ(Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)
+			КОНЕЦ).* КАК СтатьяДДС}, , ) КАК Рег
 		ЛЕВОЕ СОЕДИНЕНИЕ Документ.СписаниеБезналичныхДенежныхСредств КАК СписаниеБезналичныхДенежныхСредств
 		ПО Рег.Регистратор = СписаниеБезналичныхДенежныхСредств.Ссылка
 		ЛЕВОЕ СОЕДИНЕНИЕ Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
@@ -596,7 +604,7 @@
 	Рег.ПериодГод,
 	(ВЫБОР
 			КОГДА СписаниеБезналичныхДенежныхСредств.ЗаявкаНаРасходованиеДенежныхСредств ЕСТЬ NULL 
-				ТОГДА Рег.ПодразделениеКор
+				ТОГДА ЕСТЬNULL(Рег.ПодразделениеКор, ЗНАЧЕНИЕ(Справочник.СтруктураПредприятия.ПустаяСсылка))
 			ИНАЧЕ СписаниеБезналичныхДенежныхСредств.ЗаявкаНаРасходованиеДенежныхСредств.Подразделение
 		КОНЕЦ) КАК ПодразделениеКор}</query>
 				<autoFillFields>false</autoFillFields>
@@ -711,10 +719,6 @@
 							<d6p1:content>Статья ДДС</d6p1:content>
 						</d6p1:item>
 					</title>
-					<role>
-						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
-					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодДень</dataPath>
@@ -822,7 +826,11 @@
 	Рег.Счет КАК Счет,
 	Рег.Валюта КАК Валюта,
 	Рег.Субконто1 КАК БанковскийСчет,
-	ВЫРАЗИТЬ(Рег.Субконто2 КАК Справочник.СтатьиДвиженияДенежныхСредств) КАК СтатьяДДС,
+	ВЫБОР
+		КОГДА Рег.Субконто1 ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенежныхСредств.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)
+	КОНЕЦ КАК СтатьяДДС,
 	Рег.ВалютнаяСуммаОборотДт КАК СуммаДт,
 	Рег.ВалютнаяСуммаОборотКт КАК СуммаКт,
 	Рег.ВалютнаяСуммаОборот КАК Сумма,
@@ -990,10 +998,6 @@
 							<d6p1:content>Статья ДДС</d6p1:content>
 						</d6p1:item>
 					</title>
-					<role>
-						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
-					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодДень</dataPath>
@@ -1084,7 +1088,11 @@
 	Рег.Организация КАК Организация,
 	Рег.Счет КАК Счет,
 	ЕСТЬNULL(Рег.Валюта, ВалютаРегламентированногоУчета.Значение) КАК Валюта,
-	ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств) КАК СтатьяДДС,
+	ВЫБОР
+		КОГДА Рег.Субконто1 ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенежныхСредств.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)
+	КОНЕЦ КАК СтатьяДДС,
 	Рег.СуммаОборотДт КАК СуммаДт,
 	Рег.СуммаОборотКт КАК СуммаКт,
 	Рег.СуммаОборот КАК Сумма,
@@ -1486,10 +1494,6 @@
 							<d6p1:content>Статья ДДС</d6p1:content>
 						</d6p1:item>
 					</title>
-					<role>
-						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
-					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ПериодНеделя</dataPath>
@@ -1542,7 +1546,11 @@
 	Рег.Организация КАК Организация,
 	Рег.Счет КАК Счет,
 	Рег.Валюта КАК Валюта,
-	ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств) КАК СтатьяДДС,
+	ВЫБОР
+		КОГДА Рег.Субконто1 ЕСТЬ NULL 
+			ТОГДА ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенежныхСредств.ПустаяСсылка)
+		ИНАЧЕ ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)
+	КОНЕЦ КАК СтатьяДДС,
 	Рег.ВалютнаяСуммаОборотДт КАК СуммаДт,
 	Рег.ВалютнаяСуммаОборотКт КАК СуммаКт,
 	Рег.ВалютнаяСуммаОборот КАК Сумма,
@@ -2303,6 +2311,66 @@
 			<userSettingID>bca7c27a-0862-48c9-a730-93cb10d9d717</userSettingID>
 		</dcscor:item>
 	</dataParameters>
+	<conditionalAppearance>
+		<item>
+			<selection>
+				<item>
+					<field>ПодразделениеКор</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">ПодразделениеКор</left>
+					<comparisonType>NotFilled</comparisonType>
+				</item>
+			</filter>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Текст</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;...&gt;</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<useInOverall>DontUse</useInOverall>
+			<useInFieldsHeader>DontUse</useInFieldsHeader>
+			<useInHeader>DontUse</useInHeader>
+			<useInParameters>DontUse</useInParameters>
+			<useInFilter>DontUse</useInFilter>
+		</item>
+		<item>
+			<selection>
+				<item>
+					<field>СтатьяДДС</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">СтатьяДДС</left>
+					<comparisonType>NotFilled</comparisonType>
+				</item>
+			</filter>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Текст</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;...&gt;</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<useInOverall>DontUse</useInOverall>
+			<useInFieldsHeader>DontUse</useInFieldsHeader>
+			<useInHeader>DontUse</useInHeader>
+			<useInParameters>DontUse</useInParameters>
+			<useInFilter>DontUse</useInFilter>
+		</item>
+	</conditionalAppearance>
 	<outputParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
