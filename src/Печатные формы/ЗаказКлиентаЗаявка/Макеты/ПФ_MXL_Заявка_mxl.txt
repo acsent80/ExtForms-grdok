@@ -1,0 +1,39 @@
+﻿					"Приложение к контракту:
+Appendix to contract:"				
+					"ЗАЯВКА
+ORDER"		Номер		
+					"ДАТА ЗАЯВКИ:
+DATE OF ORDER:"		Дата		
+	Продавец / Seller:				Покупатель / Buyer:				
+	"[ОрганизацияEN], [ОрганизацияАдресEN].
+Tel: [ОрганизацияТелефон], fax: [ОрганизацияФакс]"				"[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес]
+Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."				
+									
+	Грузополучатель / Consignee:								
+	[Грузополучатель]. Commercial Registration No.[ГрузополучательРегНомер]. Address: [ГрузополучательАдрес].								
+	Валюта / Currency:	"Условие доставки /
+Terms of delivery:"		"Дата отгрузки /
+Shipping date:"		"Условия оплаты /
+Terms of payment:"			
+	Валюта	УсловияДоставки		ДатаОтгрузки		УсловияОплатыEN			
+	All the payments are to be transferred to the Seller's bank account.								
+	Код ТНВЭД / BTN Code	Наименование / Article					"Кол-во, м3 / Quantity,
+cbm"	"Цена /
+Unit price"	"Сумма /
+Value"
+	Артикул	НоменклатураХарактеристикаEN					Количество	Цена	Сумма
+	ВСЕГО / TOTAL:						Количество		Сумма
+	Особые условия / Special conditions:								
+	Нет / No special conditions								
+									
+									
+									
+									
+
+
+
+			Продавец / Seller:						
+									
+
+
+									
