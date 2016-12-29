@@ -1,0 +1,33 @@
+﻿					INVOICE		Номер		
+					DATE OF INVOICE:		Дата		
+					CONTRACT №:		ДоговорНомер	DATED	ДоговорДата
+	Seller:				Buyer:				
+	"[ОрганизацияEN], [ОрганизацияАдресEN].
+Tel: [ОрганизацияТелефон], fax: [ОрганизацияФакс]"				"[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес]
+Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."				
+									
+	Consignee:								
+	[ГрузополучательТекстEN]								
+	Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
+	Валюта	УсловияДоставки		ДатаОтгрузки		УсловияОплатыEN			
+	All the payments are to be transferred to the Seller's bank account.								
+	BTN Code	Article					"Quantity,
+cbm"	Unit price	Value
+	Артикул	НоменклатураХарактеристикаEN					Количество	Цена	Сумма
+	TOTAL:						Количество		Сумма
+	Special conditions:								
+	No special conditions								
+									
+									
+									
+									
+	All the payments are to be transferred to the Seller's bank account:								
+	ОрганизацияБанкEN								
+
+
+
+			Seller:						
+									
+
+
+									

@@ -1,0 +1,30 @@
+﻿					PAKING LIST		Номер		
+					DATE OF PAKING LIST:		ДатаОтгрузки		
+					CONTRACT №:		ДоговорНомер	DATED	ДоговорДата
+	Seller:				Buyer:				
+	"[ОрганизацияEN], [ОрганизацияАдресEN].
+Tel: [ОрганизацияТелефон], fax: [ОрганизацияФакс]"				"[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес]
+Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."				
+									
+	Consignee:								
+	[ГрузополучательТекстEN]								
+									
+	Description of Goods:								
+	BTN Code	Article				Colli	"Quantity,
+cbm"	Netto, kg	Brutto, kg
+	Артикул	НоменклатураХарактеристикаEN				КолвоМест	Количество	Нетто	Брутто
+	TOTAL:					КолвоМест	Количество	Нетто	Брутто
+	Additional  information:								
+	No								
+									
+									
+									
+									
+
+
+
+			Seller:						
+									
+
+
+									

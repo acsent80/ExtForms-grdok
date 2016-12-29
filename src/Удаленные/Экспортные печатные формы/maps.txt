@@ -1,0 +1,7 @@
+﻿Макеты\ПФ_MXL_PackingListToInvoice_ENG.mxl-->7968ab7b-fa13-445b-b01e-d55a7c95e3dc.0
+Макеты\ПФ_MXL_PackingListToInvoice_RUS.mxl-->a8a4ba76-ffa5-4927-88b0-b2633ab3504b.0
+Макеты\ПФ_MXL_Заявка.mxl-->2a48cb1c-011a-4441-a341-b5fa1418e2bc.0
+Макеты\ПФ_MXL_Заявка1.mxl-->396f9b6d-b8b5-4650-8658-96a117f483ea.0
+Макеты\ПФ_MXL_ЗаявкаEN.mxl-->6b18b4fe-5149-43de-b8de-90770e5992a8.0
+Макеты\ПФ_MXL_Инвойс_ENG.mxl-->6eb0f795-5d5b-4a0a-a8fa-de5ffc45e7e2.0
+Макеты\ПФ_MXL_Инвойс_RUS.mxl-->a2683aeb-6a70-4a86-98c7-700528907ccf.0

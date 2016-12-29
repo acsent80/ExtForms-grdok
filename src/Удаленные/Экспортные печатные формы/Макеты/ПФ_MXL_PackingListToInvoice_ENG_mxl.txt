@@ -1,0 +1,59 @@
+﻿											
+											
+											
+		ОрганизацияENG									
+		618270, Russian Federation, Permsky region, Gremiachinsk,									
+		 pos. Yugo-Zapadny, Str, Kommunisticheskaya 1									
+		phone: +7 (34250) 2 12 88									
+		fax: +7 (34250) 2 12 88									
+											
+											
+											
+											
+		Packing list to Invoice:		Номер		Buyer:	КонтрагентНаименованиеПолное				
+											
+		Packing list date:		ДатаОтгрузки			ИностранныйАдрес				
+		Contract No:		ДоговорКонтрагентаНомер							
+		Contract date:		ДоговорКонтрагентаДата			Phone: [КонтрагентТелефон]				
+		Customer-No:		КонтрагентКод			Fax: [КонтрагентФакс]				
+		Terms of payment:		as per Contract			Bank: [КонтрагентБанк]				
+		Currency:		ВалютаДокумента			Konto Nr: [КонтрагентСчет]				
+		Terms of delivery:		УсловияДоставки			BLZ: [Идентификатор]				
+											
+											
+			Manufacturer / Производитель:		LLC "PLPK" / Russian Federation/ Россия						
+
+
+		Description of Goods:				ОписаниеENG					
+		No.	BTN Code	Article*	Colli	"Quantity,
+pcs"	"Quantity,
+cbm"	"Netto,
+kg"	"Weight 
+package, kg"	"Brutto,
+kg"	
+		НомерСтроки	Артикул	Товар	КоличествоМест	КоличествоШт	КоличествоМ3	Нетто	Упаковка	Брутто	
+											
+
+
+		№	Код ТН ВЭД	Наименование	Мест	Количество, штук	Количество, куб. м	"Нетто,
+кг"	"Вес упаковки,
+кг"	"Брутто,
+кг"	
+				TOTAL:	ИтогоМест	ИтогоКоличествоШт	ИтогоОбъем	ИтогоНетто	ИтогоУпаковка	ИтогоБрутто	
+				*all the goods are packed according to ISPM 15							
+											
+
+
+					ОрганизацияENG						
+											
+					Managing Director				/D.S. Isaykin/		
+
+
+
+
+
+
+
+
+
+
