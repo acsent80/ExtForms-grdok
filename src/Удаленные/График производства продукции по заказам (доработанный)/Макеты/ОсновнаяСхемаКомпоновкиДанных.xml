@@ -34,12 +34,6 @@
 			<field xsi:type="DataSetFieldField">
 				<dataPath>ДатаПотребности</dataPath>
 				<field>ДатаПотребности</field>
-				<appearance>
-					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
-						<parameter>Формат</parameter>
-						<value xsi:type="xs:string">ДФ=dd.MM.yyyy</value>
-					</item>
-				</appearance>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>ЗаказНаПроизводство</dataPath>
@@ -50,7 +44,6 @@
 						<d5p1:content>Заказ на производство</d5p1:content>
 					</d5p1:item>
 				</title>
-				<presentationExpression>НСтр("ru='Заказ №'") + ЗаказНаПроизводство.Номер + "; " + НСтр("ru='спецификация:'") + " " + СпецификацияПродукции.Наименование + "; " + НСтр("ru='дата потребности:'") + " " + Формат(ДатаПотребности, "ДФ='dd.MM.yy (ddd)'")</presentationExpression>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Назначение</dataPath>
@@ -81,6 +74,7 @@
 						<d5p1:content>Спецификация продукции</d5p1:content>
 					</d5p1:item>
 				</title>
+				<presentationExpression>НСтр("ru='Спецификация:'") + " " + СпецификацияПродукции.Наименование + "; " + НСтр("ru='дата потребности:'") + " " + Формат(ДатаПотребности, "ДФ='dd.MM.yy (ddd)'") + "; " + НСтр("ru='номер строки:'") + " " + Строка(НомерСтроки)</presentationExpression>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>СпецификацияЭтапов</dataPath>
@@ -575,7 +569,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 ВЫБРАТЬ
-	ГрафикПроизводстваПланФакт.Запрос,
+	ГрафикПроизводстваПланФакт.Запрос КАК Запрос,
 	ГрафикПроизводстваПланФакт.ЗаказНаПроизводство,
 	ГрафикПроизводстваПланФакт.КодСтроки,
 	ГрафикПроизводстваПланФакт.КодСтрокиЭтапыГрафик,
@@ -711,7 +705,7 @@
 	ОБЪЕДИНИТЬ ВСЕ
 	
 	ВЫБРАТЬ
-		"2" КАК Запрос,
+		"2",
 		ВыходныеИзделияГрафик.ЗаказНаПроизводство,
 		ВыходныеИзделияГрафик.КодСтроки,
 		ВыходныеИзделияГрафик.КодСтрокиЭтапыГрафик,
@@ -767,7 +761,7 @@
 	ОБЪЕДИНИТЬ ВСЕ
 	
 	ВЫБРАТЬ
-		"3" КАК Запрос,
+		"3",
 		ЭтапыГрафик.ЗаказНаПроизводство,
 		ЭтапыГрафик.КодСтроки,
 		ЭтапыГрафик.КодСтрокиЭтапыГрафик,
@@ -807,7 +801,7 @@
 	ОБЪЕДИНИТЬ ВСЕ
 	
 	ВЫБРАТЬ
-		"4" КАК Запрос,
+		"4",
 		ВыходныеИзделияГрафик.ЗаказНаПроизводство,
 		ВыходныеИзделияГрафик.КодСтроки,
 		ВыходныеИзделияГрафик.КодСтрокиЭтапыГрафик,
@@ -902,16 +896,6 @@
 				</NumberQualifiers>
 			</valueType>
 		</calculatedField>
-		<calculatedField>
-			<dataPath>КоличествоОтклонение</dataPath>
-			<expression>КоличествоПлан - КоличествоФакт</expression>
-			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Отклонение</d4p1:content>
-				</d4p1:item>
-			</title>
-		</calculatedField>
 		<totalField>
 			<dataPath>ПорядокПолуфабрикатПродукция</dataPath>
 			<expression>Максимум(ПорядокПолуфабрикатПродукция)</expression>
@@ -935,23 +919,52 @@
 		ТОГДА МИНИМУМ(ИтоговаяДатаГрафика)
 	ИНАЧЕ МАКСИМУМ(ИтоговаяДатаГрафика)
 КОНЕЦ</expression>
+			<group>ЗаказНаПроизводство</group>
 			<group>Этап</group>
 		</totalField>
 		<totalField>
 			<dataPath>КоличествоФакт</dataPath>
 			<expression>Сумма(КоличествоФакт)</expression>
+			<group>ЗаказНаПроизводство</group>
+			<group>ПодразделениеДиспетчер</group>
+			<group>ПодразделениеДиспетчер Иерархия</group>
+			<group>ПодразделениеИзготовитель</group>
+			<group>ПодразделениеИзготовитель Иерархия</group>
+			<group>Этап</group>
+			<group>ОбщийИтог</group>
 		</totalField>
 		<totalField>
 			<dataPath>КоличествоПлан</dataPath>
 			<expression>Сумма(КоличествоПлан)</expression>
+			<group>ЗаказНаПроизводство</group>
+			<group>ПодразделениеДиспетчер</group>
+			<group>ПодразделениеДиспетчер Иерархия</group>
+			<group>ПодразделениеИзготовитель</group>
+			<group>ПодразделениеИзготовитель Иерархия</group>
+			<group>Этап</group>
+			<group>ОбщийИтог</group>
 		</totalField>
 		<totalField>
 			<dataPath>ИтогоПлан</dataPath>
 			<expression>Сумма(ИтогоПлан)</expression>
+			<group>ЗаказНаПроизводство</group>
+			<group>ПодразделениеДиспетчер</group>
+			<group>ПодразделениеДиспетчер Иерархия</group>
+			<group>ПодразделениеИзготовитель</group>
+			<group>ПодразделениеИзготовитель Иерархия</group>
+			<group>Этап</group>
+			<group>ОбщийИтог</group>
 		</totalField>
 		<totalField>
 			<dataPath>ИтогоФакт</dataPath>
 			<expression>Сумма(ИтогоФакт)</expression>
+			<group>ЗаказНаПроизводство</group>
+			<group>ПодразделениеДиспетчер</group>
+			<group>ПодразделениеДиспетчер Иерархия</group>
+			<group>ПодразделениеИзготовитель</group>
+			<group>ПодразделениеИзготовитель Иерархия</group>
+			<group>Этап</group>
+			<group>ОбщийИтог</group>
 		</totalField>
 		<totalField>
 			<dataPath>ЕстьОтклонениеФактическойДатыОтПлановой</dataPath>
@@ -960,10 +973,6 @@
 		<totalField>
 			<dataPath>ИспользоватьПроизвольныйПериод</dataPath>
 			<expression>Максимум(ИспользоватьПроизвольныйПериод)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>КоличествоОтклонение</dataPath>
-			<expression>Сумма(КоличествоОтклонение)</expression>
 		</totalField>
 		<parameter>
 			<name>Период</name>
@@ -1287,7 +1296,7 @@
 			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
 				<d4p1:item>
 					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>График производства продукции по заказам</d4p1:content>
+					<d4p1:content>График производства продукции по заказам (доработанный)</d4p1:content>
 				</d4p1:item>
 			</presentation>
 		</settingsVariant>
@@ -1297,15 +1306,6 @@
 				<d4p1:item>
 					<d4p1:lang>ru</d4p1:lang>
 					<d4p1:content>График производства продукции</d4p1:content>
-				</d4p1:item>
-			</presentation>
-		</settingsVariant>
-		<settingsVariant>
-			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Выпуск ГП по заказам на производство (доп)</name>
-			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Выпуск ГП по заказам на производство (доп)</d4p1:content>
 				</d4p1:item>
 			</presentation>
 		</settingsVariant>
@@ -1408,13 +1408,11 @@
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>ВыводитьЭтапы</dcscor:parameter>
 			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
-			<viewMode>Normal</viewMode>
 			<userSettingID>d06205d3-527b-4984-91a8-4c1d86b13a00</userSettingID>
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>ВыводитьПолуфабрикаты</dcscor:parameter>
 			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
-			<viewMode>Normal</viewMode>
 			<userSettingID>7e2cb7fb-6787-4e44-9a2c-6a22a75456d5</userSettingID>
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
@@ -1565,7 +1563,7 @@
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
-			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Begin</dcscor:value>
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>Заголовок</dcscor:parameter>
@@ -1636,6 +1634,12 @@
 				<item xsi:type="SelectedItemField">
 					<field>ДатаГрафика</field>
 				</item>
+				<item xsi:type="SelectedItemField">
+					<field>КоличествоПлан</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>КоличествоФакт</field>
+				</item>
 			</selection>
 			<outputParameters>
 				<dcscor:item xsi:type="SettingsParameterValue">
@@ -1649,28 +1653,7 @@
 		<row>
 			<groupItems>
 				<item xsi:type="GroupItemField">
-					<field>ЗаказНаПроизводство</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>СпецификацияПродукции</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>ДатаПотребности</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>НомерСтроки</field>
+					<field>ПодразделениеИзготовитель</field>
 					<groupType>Items</groupType>
 					<periodAdditionType>None</periodAdditionType>
 					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -1678,59 +1661,15 @@
 				</item>
 			</groupItems>
 			<order>
-				<item xsi:type="OrderItemField">
-					<field>ЗаказНаПроизводство.Дата</field>
-					<orderType>Asc</orderType>
-				</item>
-				<item xsi:type="OrderItemField">
-					<field>НомерСтроки</field>
-					<orderType>Asc</orderType>
-				</item>
+				<item xsi:type="OrderItemAuto"/>
 			</order>
 			<selection>
-				<item xsi:type="SelectedItemField">
-					<field>ЗаказНаПроизводство</field>
-				</item>
+				<item xsi:type="SelectedItemAuto"/>
 			</selection>
-			<outputParameters>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
-					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Begin</dcscor:value>
-				</dcscor:item>
-			</outputParameters>
 			<item>
 				<groupItems>
 					<item xsi:type="GroupItemField">
-						<field>Обозначение</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-					</item>
-					<item xsi:type="GroupItemField">
-						<field>Этап</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-					</item>
-					<item xsi:type="GroupItemField">
-						<field>ЕдиницаИзмерения</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-					</item>
-					<item xsi:type="GroupItemField">
-						<field>ПодразделениеИзготовитель</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-					</item>
-					<item xsi:type="GroupItemField">
-						<field>СпецификацияЭтапов</field>
+						<field>ЗаказНаПроизводство</field>
 						<groupType>Items</groupType>
 						<periodAdditionType>None</periodAdditionType>
 						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -1738,152 +1677,277 @@
 					</item>
 				</groupItems>
 				<order>
-					<item xsi:type="OrderItemField">
-						<field>СпецификацияЭтапов</field>
-						<orderType>Asc</orderType>
-					</item>
-					<item xsi:type="OrderItemField">
-						<field>ПорядокЭтапПродукция</field>
-						<orderType>Asc</orderType>
-					</item>
-					<item xsi:type="OrderItemField">
-						<field>ПорядокПолуфабрикатПродукция</field>
-						<orderType>Asc</orderType>
-					</item>
-					<item xsi:type="OrderItemField">
-						<field>ПорядокНомерЭтапа</field>
-						<orderType>Asc</orderType>
-					</item>
+					<item xsi:type="OrderItemAuto"/>
 				</order>
 				<selection>
-					<item xsi:type="SelectedItemField">
-						<field>Обозначение</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>Этап</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>ЕдиницаИзмерения</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>ПодразделениеИзготовитель</field>
-						<lwsTitle>
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Подразделение-изготовитель</v8:content>
-							</v8:item>
-						</lwsTitle>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>КоличествоПлан</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>КоличествоФакт</field>
-					</item>
+					<item xsi:type="SelectedItemAuto"/>
 				</selection>
-				<conditionalAppearance>
+				<item>
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<use>false</use>
+							<field>ЗаказНаПроизводство</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+						<item xsi:type="GroupItemField">
+							<field>СпецификацияПродукции</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+						<item xsi:type="GroupItemField">
+							<field>ДатаПотребности</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+						<item xsi:type="GroupItemField">
+							<field>НомерСтроки</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemField">
+							<field>ЗаказНаПроизводство.Дата</field>
+							<orderType>Asc</orderType>
+						</item>
+						<item xsi:type="OrderItemField">
+							<field>НомерСтроки</field>
+							<orderType>Asc</orderType>
+						</item>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemField">
+							<field>СпецификацияПродукции</field>
+						</item>
+					</selection>
+					<outputParameters>
+						<dcscor:item xsi:type="SettingsParameterValue">
+							<dcscor:use>false</dcscor:use>
+							<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Begin</dcscor:value>
+						</dcscor:item>
+					</outputParameters>
 					<item>
-						<selection/>
-						<filter>
-							<item xsi:type="FilterItemComparison">
-								<left xsi:type="dcscor:Field">ПорядокПолуфабрикатПродукция</left>
-								<comparisonType>Equal</comparisonType>
-								<right xsi:type="xs:decimal">3</right>
+						<groupItems>
+							<item xsi:type="GroupItemField">
+								<field>Обозначение</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
 							</item>
-						</filter>
-						<appearance>
-							<dcscor:item xsi:type="SettingsParameterValue">
-								<dcscor:use>false</dcscor:use>
-								<dcscor:parameter>ЦветФона</dcscor:parameter>
-								<dcscor:value xsi:type="v8ui:Color">style:ReportGroup2BackColor</dcscor:value>
-							</dcscor:item>
-							<dcscor:item xsi:type="SettingsParameterValue">
-								<dcscor:use>false</dcscor:use>
-								<dcscor:parameter>ЦветТекста</dcscor:parameter>
-								<dcscor:value xsi:type="v8ui:Color">0:5fde7efe-d417-4149-91d8-4e8dd05c3d16</dcscor:value>
-							</dcscor:item>
-							<dcscor:item xsi:type="SettingsParameterValue">
-								<dcscor:parameter>Шрифт</dcscor:parameter>
-								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
-							</dcscor:item>
-						</appearance>
-						<presentation xsi:type="v8:LocalStringType">
-							<v8:item>
-								<v8:lang>ru</v8:lang>
-								<v8:content>Выделение продукции</v8:content>
-							</v8:item>
-						</presentation>
-						<useInFieldsHeader>DontUse</useInFieldsHeader>
-						<useInHeader>DontUse</useInHeader>
-					</item>
-					<item>
+							<item xsi:type="GroupItemField">
+								<field>Этап</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+							</item>
+							<item xsi:type="GroupItemField">
+								<field>ЕдиницаИзмерения</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+							</item>
+							<item xsi:type="GroupItemField">
+								<use>false</use>
+								<field>ПодразделениеИзготовитель</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+							</item>
+							<item xsi:type="GroupItemField">
+								<field>СпецификацияЭтапов</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+							</item>
+							<item xsi:type="GroupItemField">
+								<field>Продукция</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+							</item>
+							<item xsi:type="GroupItemField">
+								<field>ХарактеристикаПродукции</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+							</item>
+						</groupItems>
+						<order>
+							<item xsi:type="OrderItemField">
+								<field>СпецификацияЭтапов</field>
+								<orderType>Asc</orderType>
+							</item>
+							<item xsi:type="OrderItemField">
+								<field>ПорядокЭтапПродукция</field>
+								<orderType>Asc</orderType>
+							</item>
+							<item xsi:type="OrderItemField">
+								<field>ПорядокПолуфабрикатПродукция</field>
+								<orderType>Asc</orderType>
+							</item>
+							<item xsi:type="OrderItemField">
+								<field>ПорядокНомерЭтапа</field>
+								<orderType>Asc</orderType>
+							</item>
+						</order>
 						<selection>
-							<item>
+							<item xsi:type="SelectedItemField">
+								<field>Обозначение</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>Этап</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<field>ЕдиницаИзмерения</field>
+							</item>
+							<item xsi:type="SelectedItemField">
+								<use>false</use>
+								<field>ПодразделениеИзготовитель</field>
+								<lwsTitle>
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Подразделение-изготовитель</v8:content>
+									</v8:item>
+								</lwsTitle>
+							</item>
+							<item xsi:type="SelectedItemFolder">
+								<item xsi:type="SelectedItemField">
+									<field>Продукция</field>
+								</item>
+								<item xsi:type="SelectedItemField">
+									<field>ХарактеристикаПродукции</field>
+								</item>
+								<placement>Together</placement>
+							</item>
+							<item xsi:type="SelectedItemField">
 								<field>КоличествоПлан</field>
 							</item>
-							<item>
+							<item xsi:type="SelectedItemField">
 								<field>КоличествоФакт</field>
 							</item>
 						</selection>
-						<filter>
-							<item xsi:type="FilterItemComparison">
-								<left xsi:type="dcscor:Field">ЕстьОтклонениеФактическойДатыОтПлановой</left>
-								<comparisonType>Equal</comparisonType>
-								<right xsi:type="xs:boolean">true</right>
-							</item>
-							<item xsi:type="FilterItemComparison">
-								<left xsi:type="dcscor:Field">ДатаГрафика</left>
-								<comparisonType>LessOrEqual</comparisonType>
-								<right xsi:type="v8:StandardBeginningDate">
-									<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
-								</right>
-							</item>
-						</filter>
-						<appearance>
-							<dcscor:item xsi:type="SettingsParameterValue">
-								<dcscor:parameter>ЦветФона</dcscor:parameter>
-								<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
-							</dcscor:item>
-						</appearance>
-						<useInFieldsHeader>DontUse</useInFieldsHeader>
-						<useInHeader>DontUse</useInHeader>
-					</item>
-					<item>
-						<selection>
+						<conditionalAppearance>
 							<item>
-								<field>ИтогоПлан</field>
+								<selection/>
+								<filter>
+									<item xsi:type="FilterItemComparison">
+										<left xsi:type="dcscor:Field">ПорядокПолуфабрикатПродукция</left>
+										<comparisonType>Equal</comparisonType>
+										<right xsi:type="xs:decimal">3</right>
+									</item>
+								</filter>
+								<appearance>
+									<dcscor:item xsi:type="SettingsParameterValue">
+										<dcscor:use>false</dcscor:use>
+										<dcscor:parameter>ЦветФона</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Color">style:ReportGroup2BackColor</dcscor:value>
+									</dcscor:item>
+									<dcscor:item xsi:type="SettingsParameterValue">
+										<dcscor:use>false</dcscor:use>
+										<dcscor:parameter>ЦветТекста</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Color">0:5fde7efe-d417-4149-91d8-4e8dd05c3d16</dcscor:value>
+									</dcscor:item>
+									<dcscor:item xsi:type="SettingsParameterValue">
+										<dcscor:parameter>Шрифт</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+									</dcscor:item>
+								</appearance>
+								<presentation xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>Выделение продукции</v8:content>
+									</v8:item>
+								</presentation>
+								<useInFieldsHeader>DontUse</useInFieldsHeader>
+								<useInHeader>DontUse</useInHeader>
 							</item>
 							<item>
-								<field>ИтогоФакт</field>
+								<selection>
+									<item>
+										<field>КоличествоПлан</field>
+									</item>
+									<item>
+										<field>КоличествоФакт</field>
+									</item>
+								</selection>
+								<filter>
+									<item xsi:type="FilterItemComparison">
+										<left xsi:type="dcscor:Field">ЕстьОтклонениеФактическойДатыОтПлановой</left>
+										<comparisonType>Equal</comparisonType>
+										<right xsi:type="xs:boolean">true</right>
+									</item>
+									<item xsi:type="FilterItemComparison">
+										<left xsi:type="dcscor:Field">ДатаГрафика</left>
+										<comparisonType>LessOrEqual</comparisonType>
+										<right xsi:type="v8:StandardBeginningDate">
+											<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+										</right>
+									</item>
+								</filter>
+								<appearance>
+									<dcscor:item xsi:type="SettingsParameterValue">
+										<dcscor:parameter>ЦветФона</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
+									</dcscor:item>
+								</appearance>
+								<useInFieldsHeader>DontUse</useInFieldsHeader>
+								<useInHeader>DontUse</useInHeader>
 							</item>
-						</selection>
-						<filter>
-							<item xsi:type="FilterItemComparison">
-								<left xsi:type="dcscor:Field">КоличествоПлан</left>
-								<comparisonType>NotEqual</comparisonType>
-								<right xsi:type="dcscor:Field">ИтогоФакт</right>
+							<item>
+								<selection>
+									<item>
+										<field>ИтогоПлан</field>
+									</item>
+									<item>
+										<field>ИтогоФакт</field>
+									</item>
+								</selection>
+								<filter>
+									<item xsi:type="FilterItemComparison">
+										<left xsi:type="dcscor:Field">КоличествоПлан</left>
+										<comparisonType>NotEqual</comparisonType>
+										<right xsi:type="dcscor:Field">ИтогоФакт</right>
+									</item>
+									<item xsi:type="FilterItemComparison">
+										<left xsi:type="dcscor:Field">ДатаГрафика</left>
+										<comparisonType>LessOrEqual</comparisonType>
+										<right xsi:type="v8:StandardBeginningDate">
+											<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+										</right>
+									</item>
+								</filter>
+								<appearance>
+									<dcscor:item xsi:type="SettingsParameterValue">
+										<dcscor:parameter>ЦветФона</dcscor:parameter>
+										<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
+									</dcscor:item>
+								</appearance>
+								<useInFieldsHeader>DontUse</useInFieldsHeader>
+								<useInHeader>DontUse</useInHeader>
 							</item>
-							<item xsi:type="FilterItemComparison">
-								<left xsi:type="dcscor:Field">ДатаГрафика</left>
-								<comparisonType>LessOrEqual</comparisonType>
-								<right xsi:type="v8:StandardBeginningDate">
-									<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
-								</right>
-							</item>
-						</filter>
-						<appearance>
-							<dcscor:item xsi:type="SettingsParameterValue">
-								<dcscor:parameter>ЦветФона</dcscor:parameter>
-								<dcscor:value xsi:type="v8ui:Color">web:Pink</dcscor:value>
-							</dcscor:item>
-						</appearance>
-						<useInFieldsHeader>DontUse</useInFieldsHeader>
-						<useInHeader>DontUse</useInHeader>
+						</conditionalAppearance>
+						<itemsViewMode>Normal</itemsViewMode>
 					</item>
-				</conditionalAppearance>
-				<itemsViewMode>Normal</itemsViewMode>
+					<itemsViewMode>Normal</itemsViewMode>
+				</item>
 			</item>
-			<itemsViewMode>Normal</itemsViewMode>
 		</row>
 		<columnsViewMode>Normal</columnsViewMode>
 		<rowsViewMode>Normal</rowsViewMode>
@@ -2397,364 +2461,6 @@
 		</row>
 		<columnsViewMode>Normal</columnsViewMode>
 		<rowsViewMode>Normal</rowsViewMode>
-	</item>
-	<itemsViewMode>Normal</itemsViewMode>
-</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
-<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<userFields>
-		<item xsi:type="UserFieldExpression">
-			<dataPath>ПользовательскиеПоля.Поле1</dataPath>
-			<lwsTitle>
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Итого</v8:content>
-				</v8:item>
-			</lwsTitle>
-			<detailExpression>"Итого"</detailExpression>
-			<detailExpressionPresentation>"Итого"</detailExpressionPresentation>
-			<totalExpression/>
-			<totalExpressionPresentation/>
-		</item>
-	</userFields>
-	<selection>
-		<item xsi:type="SelectedItemField">
-			<field>КоличествоПлан</field>
-		</item>
-		<item xsi:type="SelectedItemField">
-			<field>КоличествоФакт</field>
-		</item>
-		<item xsi:type="SelectedItemField">
-			<field>КоличествоОтклонение</field>
-		</item>
-	</selection>
-	<filter>
-		<item xsi:type="FilterItemComparison">
-			<use>false</use>
-			<left xsi:type="dcscor:Field">ЗаказНаПроизводство</left>
-			<comparisonType>Equal</comparisonType>
-			<viewMode>Normal</viewMode>
-			<userSettingID>b34a1ec0-2480-43f1-b5ac-0f053f85f605</userSettingID>
-		</item>
-		<item xsi:type="FilterItemComparison">
-			<use>false</use>
-			<left xsi:type="dcscor:Field">ПодразделениеДиспетчер</left>
-			<comparisonType>InList</comparisonType>
-			<right xsi:type="v8:ValueListType">
-				<v8:valueType/>
-				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
-			</right>
-			<viewMode>Normal</viewMode>
-			<userSettingID>e78b7274-d2f8-48bb-b90e-e94c89b2a0a1</userSettingID>
-		</item>
-		<item xsi:type="FilterItemComparison">
-			<use>false</use>
-			<left xsi:type="dcscor:Field">ЗаказНаПроизводство.Статус</left>
-			<comparisonType>Equal</comparisonType>
-			<userSettingID>beee2ed0-bd16-4cba-b6c2-e3dc2ceba211</userSettingID>
-		</item>
-		<item xsi:type="FilterItemComparison">
-			<use>false</use>
-			<left xsi:type="dcscor:Field">Назначение.Контрагент</left>
-			<comparisonType>Equal</comparisonType>
-			<userSettingID>5a6b4ae7-5f7d-4c5c-9b51-cbf2ba121191</userSettingID>
-		</item>
-		<item xsi:type="FilterItemComparison">
-			<use>false</use>
-			<left xsi:type="dcscor:Field">Продукция</left>
-			<comparisonType>InList</comparisonType>
-			<right xsi:type="v8:ValueListType">
-				<v8:valueType/>
-				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
-			</right>
-			<userSettingID>4e20d165-5f2f-4f89-9a16-71614a7abac3</userSettingID>
-		</item>
-	</filter>
-	<dataParameters>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>Период</dcscor:parameter>
-			<dcscor:value xsi:type="v8:StandardPeriod">
-				<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
-			</dcscor:value>
-			<userSettingID>b8e46f17-239b-4384-9cbc-31091ef9b767</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ПериодичностьОтчета</dcscor:parameter>
-			<dcscor:value xsi:type="dcscor:DesignTimeValue">Перечисление.Периодичность.Месяц</dcscor:value>
-			<userSettingID>508078d3-83c5-4857-ad9e-1e2d0a5d672b</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ВариантДатыГрафика</dcscor:parameter>
-			<dcscor:value xsi:type="xs:decimal">1</dcscor:value>
-			<userSettingID>ee06735f-34b1-40da-ad16-f89ff8ced428</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ВыводитьЭтапы</dcscor:parameter>
-			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
-			<viewMode>Normal</viewMode>
-			<userSettingID>d06205d3-527b-4984-91a8-4c1d86b13a00</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ВыводитьПолуфабрикаты</dcscor:parameter>
-			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
-			<viewMode>Normal</viewMode>
-			<userSettingID>7e2cb7fb-6787-4e44-9a2c-6a22a75456d5</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ВыделятьОпаздывающийВыпускКрасным</dcscor:parameter>
-			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
-			<viewMode>Normal</viewMode>
-			<userSettingID>84904b49-0441-4c8a-801b-254c8d2468e1</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ГруппироватьПоСтрокамЗаказов</dcscor:parameter>
-			<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
-			<viewMode>Inaccessible</viewMode>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:use>false</dcscor:use>
-			<dcscor:parameter>ОбозначениеПобочнаяПродукция</dcscor:parameter>
-			<dcscor:value xsi:type="v8:StandardPeriod">
-				<v8:variant xsi:type="v8:StandardPeriodVariant">Today</v8:variant>
-			</dcscor:value>
-		</dcscor:item>
-	</dataParameters>
-	<conditionalAppearance>
-		<item>
-			<selection>
-				<item>
-					<field>КоличествоПлан</field>
-				</item>
-				<item>
-					<field>КоличествоФакт</field>
-				</item>
-			</selection>
-			<filter/>
-			<appearance>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</item>
-		<item>
-			<selection>
-				<item>
-					<field>Этап</field>
-				</item>
-				<item>
-					<field>Продукция</field>
-				</item>
-			</selection>
-			<filter/>
-			<appearance>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</item>
-		<item>
-			<selection>
-				<item>
-					<field>ПодразделениеИзготовитель.Код</field>
-				</item>
-			</selection>
-			<filter/>
-			<appearance>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">16</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">16</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</item>
-		<item>
-			<selection>
-				<item>
-					<field>КоличествоПлан</field>
-				</item>
-				<item>
-					<field>КоличествоФакт</field>
-				</item>
-				<item>
-					<field>ЗаказНаПроизводство</field>
-				</item>
-				<item>
-					<field>ИтоговаяДатаГрафика</field>
-				</item>
-			</selection>
-			<filter>
-				<item xsi:type="FilterItemComparison">
-					<left xsi:type="dcscor:Field">ДатаВыпускаПросрочена</left>
-					<comparisonType>Equal</comparisonType>
-					<right xsi:type="xs:boolean">true</right>
-				</item>
-				<item xsi:type="FilterItemComparison">
-					<left xsi:type="dcscor:Field">ПараметрыДанных.ВыделятьОпаздывающийВыпускКрасным</left>
-					<comparisonType>Equal</comparisonType>
-					<right xsi:type="xs:boolean">true</right>
-				</item>
-			</filter>
-			<appearance>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>ЦветТекста</dcscor:parameter>
-					<dcscor:value xsi:type="v8ui:Color">style:SpecialTextColor</dcscor:value>
-				</dcscor:item>
-			</appearance>
-			<useInFieldsHeader>DontUse</useInFieldsHeader>
-			<useInHeader>DontUse</useInHeader>
-		</item>
-		<item>
-			<selection>
-				<item>
-					<field>Обозначение</field>
-				</item>
-			</selection>
-			<filter/>
-			<appearance>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">13</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">14</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</item>
-		<item>
-			<selection>
-				<item>
-					<field>КоличествоОтклонение</field>
-				</item>
-			</selection>
-			<filter>
-				<item xsi:type="FilterItemComparison">
-					<left xsi:type="dcscor:Field">КоличествоОтклонение</left>
-					<comparisonType>Less</comparisonType>
-					<right xsi:type="xs:decimal">0.1</right>
-				</item>
-			</filter>
-			<appearance>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:use>false</dcscor:use>
-					<dcscor:parameter>ЦветФона</dcscor:parameter>
-					<dcscor:value xsi:type="v8ui:Color">0:f19b9ce7-47c4-4e47-b61a-a5973d91859f</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>ЦветТекста</dcscor:parameter>
-					<dcscor:value xsi:type="v8ui:Color">0:f19b9ce7-47c4-4e47-b61a-a5973d91859f</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</item>
-	</conditionalAppearance>
-	<outputParameters>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:use>false</dcscor:use>
-			<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
-			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
-			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
-			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>Заголовок</dcscor:parameter>
-			<dcscor:value xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>График производства продукции по заказам</v8:content>
-				</v8:item>
-			</dcscor:value>
-		</dcscor:item>
-	</outputParameters>
-	<item xsi:type="StructureItemGroup">
-		<groupItems>
-			<item xsi:type="GroupItemField">
-				<field>ЗаказНаПроизводство</field>
-				<groupType>Items</groupType>
-				<periodAdditionType>None</periodAdditionType>
-				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-			</item>
-		</groupItems>
-		<order>
-			<item xsi:type="OrderItemAuto"/>
-		</order>
-		<selection>
-			<item xsi:type="SelectedItemAuto"/>
-		</selection>
-		<item xsi:type="StructureItemGroup">
-			<groupItems>
-				<item xsi:type="GroupItemField">
-					<field>Назначение</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>Назначение.Контрагент</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>ДатаПотребности</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-			</groupItems>
-			<order>
-				<item xsi:type="OrderItemAuto"/>
-			</order>
-			<selection>
-				<item xsi:type="SelectedItemAuto"/>
-			</selection>
-			<item xsi:type="StructureItemGroup">
-				<groupItems>
-					<item xsi:type="GroupItemField">
-						<field>Этап</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-					</item>
-					<item xsi:type="GroupItemField">
-						<field>ХарактеристикаПродукции</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-					</item>
-				</groupItems>
-				<order>
-					<item xsi:type="OrderItemAuto"/>
-				</order>
-				<selection>
-					<item xsi:type="SelectedItemAuto"/>
-				</selection>
-			</item>
-		</item>
 	</item>
 	<itemsViewMode>Normal</itemsViewMode>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
