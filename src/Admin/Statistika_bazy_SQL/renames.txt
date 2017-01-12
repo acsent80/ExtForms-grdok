@@ -1,0 +1,12 @@
+﻿0bd64238-a8ad-4945-8370-9bd7ac78dee2-->und\0bd64238-a8ad-4945-8370-9bd7ac78dee2
+2cb83a77-cb1e-42b5-8170-c29b6a0e4063-->und\2cb83a77-cb1e-42b5-8170-c29b6a0e4063
+2cb83a77-cb1e-42b5-8170-c29b6a0e4063.0-->Form\Настройка
+2f144897-ce49-44f9-840a-a115936431cb.1-->und\2f144897-ce49-44f9-840a-a115936431cb.1
+52ed29c8-5660-412e-ad5e-31771656e13b-->und\52ed29c8-5660-412e-ad5e-31771656e13b
+52ed29c8-5660-412e-ad5e-31771656e13b.0-->und\52ed29c8-5660-412e-ad5e-31771656e13b.0
+8598a58b-66fa-4877-ba54-6fd2d4bcee60-->und\8598a58b-66fa-4877-ba54-6fd2d4bcee60
+8598a58b-66fa-4877-ba54-6fd2d4bcee60.0-->Form\Форма
+copyinfo-->und\copyinfo
+root-->und\root
+version-->und\version
+versions-->und\versions

@@ -1,0 +1,31 @@
+﻿<xs:schema xmlns:core="http://v8.1c.ru/8.1/data/core" 
+		xmlns:tns="http://v8.1c.ru/8.2/infobase/users-exchange" 
+		xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://v8.1c.ru/8.2/infobase/users-exchange" 
+		attributeFormDefault="unqualified" 
+		elementFormDefault="qualified">
+	<xs:import namespace="http://v8.1c.ru/8.1/data/core"/>
+	<xs:complexType name="Role">
+		<xs:sequence>
+			<xs:element name="Name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="User">
+		<xs:sequence>
+			<xs:element name="OSAuthentication" type="xs:boolean"/>
+			<xs:element name="StandardAuthentication" type="xs:boolean"/>
+			<xs:element name="OpenIDAuthentication" type="xs:boolean"/>
+			<xs:element name="CannotChangePassword" type="xs:boolean"/>
+			<xs:element name="Name" type="xs:string"/>
+			<xs:element name="DefaultInterface" type="xs:string" minOccurs="0"/>
+			<xs:element name="ShowInList" type="xs:boolean"/>
+			<xs:element name="FullName" type="xs:string"/>
+			<xs:element name="OSUser" type="xs:string"/>
+			<xs:element name="RunMode" type="xs:string"/>
+			<xs:element name="StoredPasswordValue" type="xs:string"/>
+			<xs:element name="UUID" type="core:UUID"/>
+			<xs:element name="Language" type="xs:string" minOccurs="0"/>
+			<xs:element name="Roles" type="tns:Role" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

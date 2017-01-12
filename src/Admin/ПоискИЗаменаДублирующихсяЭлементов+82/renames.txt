@@ -1,0 +1,16 @@
+﻿27e28c14-dc35-4efb-aaee-91b9e5d0b6dd.0\info-->und\27e28c14-dc35-4efb-aaee-91b9e5d0b6dd.0\info
+27e28c14-dc35-4efb-aaee-91b9e5d0b6dd.0\text-->ObjectModule.bsl
+27e28c14-dc35-4efb-aaee-91b9e5d0b6dd.1-->und\27e28c14-dc35-4efb-aaee-91b9e5d0b6dd.1
+7b1b729f-9bf0-4f05-89f1-390278c67d37-->und\7b1b729f-9bf0-4f05-89f1-390278c67d37
+7b1b729f-9bf0-4f05-89f1-390278c67d37.0-->Form\Форма
+86e03219-692d-4183-9de1-744f8a9717b8-->und\86e03219-692d-4183-9de1-744f8a9717b8
+9fddec13-f18b-4cdc-91a6-f4210002b067-->und\9fddec13-f18b-4cdc-91a6-f4210002b067
+9fddec13-f18b-4cdc-91a6-f4210002b067.0-->Form\ФормаЗамещенияВНезависимыхРегистрахСведений
+c531c1e3-ef85-4d1e-8394-06cd6cb764a1-->und\c531c1e3-ef85-4d1e-8394-06cd6cb764a1
+c531c1e3-ef85-4d1e-8394-06cd6cb764a1.0-->Form\ФормаНастройкиСовпадения
+copyinfo-->und\copyinfo
+f9648918-4bc1-4810-823b-44a4be1217f7-->und\f9648918-4bc1-4810-823b-44a4be1217f7
+f9648918-4bc1-4810-823b-44a4be1217f7.0-->Form\ФормаПоиска
+root-->und\root
+version-->und\version
+versions-->und\versions
