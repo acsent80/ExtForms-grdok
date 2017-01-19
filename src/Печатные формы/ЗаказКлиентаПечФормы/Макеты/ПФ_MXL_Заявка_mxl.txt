@@ -1,5 +1,5 @@
 ﻿					"Приложение к контракту:
-Appendix to contract:"				
+Appendix to contract:"			ДоговорНомер	
 					"ЗАЯВКА
 ORDER"		Номер		
 					"ДАТА ЗАЯВКИ:
@@ -32,7 +32,7 @@ Value"
 
 
 
-			Продавец / Seller:						
+	Продавец / Seller:				Покупатель / Buyer:				
 									
 
 

@@ -306,6 +306,19 @@
 					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.СтруктураПредприятия</Type>
 				</valueType>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Контрагент</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
 			<item xsi:type="DataSetQuery">
 				<name>Запрос51</name>
 				<field xsi:type="DataSetFieldField">
@@ -524,6 +537,20 @@
 					<dataPath>ПодразделениеКор</dataPath>
 					<field>ПодразделениеКор</field>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Контрагент</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	ВЫБОР
@@ -540,6 +567,7 @@
 		ИНАЧЕ ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)
 	КОНЕЦ КАК СтатьяДДС,
 	Рег.Субконто2 КАК БанковскийСчет,
+	Рег.КорСубконто1 КАК Контрагент,
 	Рег.СуммаОборотДт КАК СуммаДт,
 	Рег.СуммаОборотКт КАК СуммаКт,
 	Рег.СуммаОборот КАК Сумма,
@@ -567,6 +595,7 @@
 	Валюта.*,
 	БанковскийСчет.*,
 	СтатьяДДС.*,
+	Контрагент.*,
 	СуммаДт,
 	СуммаКт,
 	Сумма,
@@ -815,6 +844,20 @@
 					<dataPath>ПодразделениеКор</dataPath>
 					<field>ПодразделениеКор</field>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Контрагент</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	ВЫБОР
@@ -831,6 +874,7 @@
 			ТОГДА ЗНАЧЕНИЕ(Справочник.СтатьиДвиженияДенежныхСредств.ПустаяСсылка)
 		ИНАЧЕ ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.СтатьиДвиженияДенежныхСредств)
 	КОНЕЦ КАК СтатьяДДС,
+	Рег.КорСубконто1 КАК Контрагент,
 	Рег.ВалютнаяСуммаОборотДт КАК СуммаДт,
 	Рег.ВалютнаяСуммаОборотКт КАК СуммаКт,
 	Рег.ВалютнаяСуммаОборот КАК Сумма,
@@ -858,6 +902,7 @@
 	Валюта.*,
 	БанковскийСчет.*,
 	СтатьяДДС.*,
+	Контрагент.*,
 	СуммаДт,
 	СуммаКт,
 	Сумма,

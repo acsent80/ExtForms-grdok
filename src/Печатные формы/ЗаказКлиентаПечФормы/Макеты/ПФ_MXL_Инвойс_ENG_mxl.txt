@@ -10,7 +10,7 @@ Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."
 	[ГрузополучательТекстEN]								
 	Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
 	Валюта	УсловияДоставки		ДатаОтгрузки		УсловияОплатыEN			
-	All the payments are to be transferred to the Seller's bank account.								
+									
 	BTN Code	Article					"Quantity,
 cbm"	Unit price	Value
 	Артикул	НоменклатураХарактеристикаEN					Количество	Цена	Сумма

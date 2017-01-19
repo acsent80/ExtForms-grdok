@@ -24,14 +24,38 @@
 						<d5p1:content>Количество заказ</d5p1:content>
 					</d5p1:item>
 				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Запланировано</dataPath>
 				<field>Запланировано</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Произведено</dataPath>
 				<field>Произведено</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>КоличествоВыпуск</dataPath>
@@ -42,6 +66,14 @@
 						<d5p1:content>Количество выпуск</d5p1:content>
 					</d5p1:item>
 				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>КоличествоОрдер</dataPath>
@@ -52,6 +84,66 @@
 						<d5p1:content>Количество ордер</d5p1:content>
 					</d5p1:item>
 				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоГрафик</dataPath>
+				<field>КоличествоГрафик</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество график</d5p1:content>
+					</d5p1:item>
+				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Подразделение</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статус</dataPath>
+				<field>Статус</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Заказ</dataPath>
+				<field>Заказ</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Заказ</d5p1:content>
+					</d5p1:item>
+				</title>
+				<presentationExpression>Заказ.Номер
++ " от " +
+Формат(Заказ.Дата, "ДФ=dd.MM.yyyy")</presentationExpression>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:DocumentRef.ЗаказНаПроизводство</Type>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Документ</dataPath>
@@ -63,24 +155,15 @@
 					</d5p1:item>
 				</title>
 				<role>
-					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
 					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
 				</role>
 			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>КоличествоГрафик</dataPath>
-				<field>КоличествоГрафик</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Количество график</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ
-	Док.Номенклатура,
-	Док.Характеристика,
+	Док.Номенклатура КАК Номенклатура,
+	Док.Характеристика КАК Характеристика,
+	Док.Ссылка КАК Заказ,
 	Док.Ссылка КАК Документ,
 	Док.Количество КАК КоличествоЗаказ,
 	0 КАК Запланировано,
@@ -88,16 +171,37 @@
 	0 КАК КоличествоГрафик,
 	0 КАК КоличествоВыпуск,
 	0 КАК КоличествоОрдер
+{ВЫБРАТЬ
+	Номенклатура.*,
+	Характеристика.*,
+	Заказ.*,
+	Документ.*,
+	КоличествоЗаказ,
+	Запланировано,
+	Произведено,
+	КоличествоГрафик,
+	КоличествоВыпуск,
+	КоличествоОрдер}
 ИЗ
 	Документ.ЗаказНаПроизводство.Продукция КАК Док
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаПроизводство КАК ДокЗаказ
+		ПО Док.Ссылка = ДокЗаказ.Ссылка
 ГДЕ
-	Док.Ссылка = &amp;Заказ
+	ДокЗаказ.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+{ГДЕ
+	ДокЗаказ.Организация.*,
+	ДокЗаказ.Статус.*,
+	ДокЗаказ.Подразделение.*,
+	ДокЗаказ.Ссылка.* КАК Заказ,
+	Док.Номенклатура.*,
+	Док.Характеристика.*}
 
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
 	Док.Номенклатура,
 	Док.Характеристика,
+	Док.Ссылка.Распоряжение,
 	Док.Ссылка,
 	0,
 	Док.Количество,
@@ -107,10 +211,19 @@
 	0
 ИЗ
 	Документ.МаршрутныйЛистПроизводства.ВыходныеИзделия КАК Док
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаПроизводство КАК ДокЗаказ
+		ПО Док.Ссылка.Распоряжение = ДокЗаказ.Ссылка
 ГДЕ
 	Док.Ссылка.Статус &lt;&gt; ЗНАЧЕНИЕ(Перечисление.СтатусыМаршрутныхЛистовПроизводства.Отменен)
-	И Док.Ссылка.Распоряжение = &amp;Заказ
 	И Док.Ссылка.Проведен
+	И ДокЗаказ.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+{ГДЕ
+	ДокЗаказ.Организация.*,
+	ДокЗаказ.Статус.*,
+	ДокЗаказ.Подразделение.*,
+	ДокЗаказ.Ссылка.* КАК Заказ,
+	Док.Номенклатура.*,
+	Док.Характеристика.*}
 
 ОБЪЕДИНИТЬ ВСЕ
 
@@ -118,52 +231,83 @@
 	Рег.Номенклатура,
 	Рег.Характеристика,
 	Рег.Регистратор,
-	NULL,
-	NULL,
-	NULL,
+	Рег.Регистратор,
+	0,
+	0,
+	0,
 	Рег.КоличествоИзЗаказов,
-	NULL,
-	NULL
+	0,
+	0
 ИЗ
 	РегистрНакопления.ГрафикПоступленияТоваров КАК Рег
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаПроизводство КАК ДокЗаказ
+		ПО Рег.Регистратор = ДокЗаказ.Ссылка
 ГДЕ
-	Рег.Регистратор = &amp;Заказ
+	ДокЗаказ.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+{ГДЕ
+	ДокЗаказ.Организация.*,
+	ДокЗаказ.Статус.*,
+	ДокЗаказ.Подразделение.*,
+	ДокЗаказ.Ссылка.* КАК Заказ,
+	Рег.Номенклатура.*,
+	Рег.Характеристика.*}
 
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
 	Док.Номенклатура,
 	Док.Характеристика,
+	Док.Ссылка.Распоряжение.Распоряжение,
 	Док.Ссылка,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
+	0,
+	0,
+	0,
+	0,
 	Док.Количество,
-	NULL
+	0
 ИЗ
 	Документ.ВыпускПродукции.Товары КАК Док
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаПроизводство КАК ДокЗаказ
+		ПО Док.Ссылка.Распоряжение.Распоряжение = ДокЗаказ.Ссылка
 ГДЕ
-	Док.Ссылка.Распоряжение.Распоряжение = &amp;Заказ
-	И Док.Ссылка.Проведен
+	Док.Ссылка.Проведен
+	И ДокЗаказ.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+{ГДЕ
+	ДокЗаказ.Организация.*,
+	ДокЗаказ.Статус.*,
+	ДокЗаказ.Подразделение.*,
+	ДокЗаказ.Ссылка.* КАК Заказ,
+	Док.Номенклатура.*,
+	Док.Характеристика.*}
 
 ОБЪЕДИНИТЬ ВСЕ
 
 ВЫБРАТЬ
 	Док.Номенклатура,
 	Док.Характеристика,
+	Док.Ссылка.Распоряжение,
 	Док.Ссылка,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
-	NULL,
+	0,
+	0,
+	0,
+	0,
+	0,
 	Док.Количество
 ИЗ
 	Документ.ПриходныйОрдерНаТовары.Товары КАК Док
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказНаПроизводство КАК ДокЗаказ
+		ПО Док.Ссылка.Распоряжение = ДокЗаказ.Ссылка
 ГДЕ
 	Док.Ссылка.Проведен
-	И Док.Ссылка.Распоряжение = &amp;Заказ</query>
+	И ДокЗаказ.Дата МЕЖДУ &amp;Дата1 И &amp;Дата2
+{ГДЕ
+	ДокЗаказ.Организация.*,
+	ДокЗаказ.Статус.*,
+	ДокЗаказ.Подразделение.*,
+	ДокЗаказ.Ссылка.* КАК Заказ,
+	Док.Номенклатура.*,
+	Док.Характеристика.*}</query>
+			<autoFillFields>false</autoFillFields>
 		</dataSet>
 		<totalField>
 			<dataPath>КоличествоЗаказ</dataPath>
@@ -190,18 +334,59 @@
 			<expression>Сумма(КоличествоГрафик)</expression>
 		</totalField>
 		<parameter>
-			<name>Заказ</name>
+			<name>Дата1</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
 				<d4p1:item>
 					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Заказ</d4p1:content>
+					<d4p1:content>Дата1</d4p1:content>
 				</d4p1:item>
 			</title>
 			<valueType>
-				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ЗаказНаПроизводство</Type>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
 			</valueType>
-			<value xsi:nil="true"/>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+		</parameter>
+		<parameter>
+			<name>Дата2</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата2</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Анализ заказа на производство</name>
@@ -235,25 +420,95 @@
 			<field>КоличествоОрдер</field>
 		</item>
 	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Подразделение</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>09461787-34a5-4575-ae17-d7b8e4f613b4</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Номенклатура</left>
+			<comparisonType>InList</comparisonType>
+			<right xsi:type="v8:ValueListType">
+				<v8:valueType/>
+				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+			</right>
+			<userSettingID>4ce78924-ce25-4142-b813-c202903d9982</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Статус</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>b774bc04-9b80-41b6-9a1e-1248df7b3ce6</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Заказ</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<viewMode>Normal</viewMode>
+			<userSettingID>e4062285-c6fa-4291-b483-926a10d36f5d</userSettingID>
+		</item>
+	</filter>
 	<dataParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:use>false</dcscor:use>
-			<dcscor:parameter>Заказ</dcscor:parameter>
-			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
-			<userSettingID>5b0b7a60-d1c2-40bf-8100-13c4f3d5c824</userSettingID>
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</dcscor:value>
+			<userSettingID>80380527-6b7d-4fac-8c25-5b8cf85cf85c</userSettingID>
 		</dcscor:item>
 	</dataParameters>
+	<conditionalAppearance>
+		<item>
+			<selection>
+				<item>
+					<field>Характеристика</field>
+				</item>
+			</selection>
+			<filter/>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<useInOverall>DontUse</useInOverall>
+			<useInFieldsHeader>DontUse</useInFieldsHeader>
+			<useInHeader>DontUse</useInHeader>
+			<useInParameters>DontUse</useInParameters>
+			<useInFilter>DontUse</useInFilter>
+		</item>
+	</conditionalAppearance>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
 	<item xsi:type="StructureItemGroup">
 		<groupItems>
 			<item xsi:type="GroupItemField">
-				<field>Номенклатура</field>
+				<field>Заказ</field>
 				<groupType>Items</groupType>
 				<periodAdditionType>None</periodAdditionType>
 				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
 				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
 			</item>
 			<item xsi:type="GroupItemField">
-				<field>Характеристика</field>
+				<field>Заказ.Статус</field>
 				<groupType>Items</groupType>
 				<periodAdditionType>None</periodAdditionType>
 				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -266,6 +521,30 @@
 		<selection>
 			<item xsi:type="SelectedItemAuto"/>
 		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Номенклатура</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Характеристика</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</item>
 	</item>
 </Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
 <SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">

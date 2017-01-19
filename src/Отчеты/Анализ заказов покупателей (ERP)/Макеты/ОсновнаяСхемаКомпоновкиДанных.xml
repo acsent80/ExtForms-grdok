@@ -556,7 +556,9 @@
 		{ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияЭД КАК СостоянияЭД
 		ПО (СостоянияЭД.СсылкаНаОбъект = ДокументЗаказКлиента.Ссылка)}
 ГДЕ
-	ДокументЗаказКлиента.ДатаОтгрузки МЕЖДУ &amp;Дата1 И &amp;Дата2
+	ДокументЗаказКлиента.ДатаОтгрузки &gt;= &amp;Дата1
+	И (ДокументЗаказКлиента.ДатаОтгрузки &lt;= &amp;Дата2
+			ИЛИ &amp;Дата2 = ДАТАВРЕМЯ(1, 1, 1))
 {ГДЕ
 	ДокументЗаказКлиента.Ссылка.* КАК ЗаказКлиента,
 	ДокументЗаказКлиента.Организация.*,
@@ -885,7 +887,9 @@
 		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СостоянияЗаказовКлиентов КАК СостоянияЗаказовКлиентов
 		ПО (СостоянияЗаказовКлиентов.Заказ = ДокументЗаказКлиента.Ссылка)
 ГДЕ
-	ДокументЗаказКлиента.Ссылка.ДатаОтгрузки МЕЖДУ &amp;Дата1 И &amp;Дата2
+	ДокументЗаказКлиента.Ссылка.ДатаОтгрузки &gt;= &amp;Дата1
+	И (ДокументЗаказКлиента.Ссылка.ДатаОтгрузки &lt;= &amp;Дата2
+			ИЛИ &amp;Дата2 = ДАТАВРЕМЯ(1, 1, 1))
 {ГДЕ
 	ДокументЗаказКлиента.Ссылка.* КАК ЗаказКлиента,
 	ДокументЗаказКлиента.Ссылка.Организация.*,
@@ -996,7 +1000,13 @@
 					<d4p1:content>Дата1</d4p1:content>
 				</d4p1:item>
 			</title>
-			<value xsi:nil="true"/>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 			<useRestriction>true</useRestriction>
 			<expression>&amp;ПериодОтгрузки.ДатаНачала</expression>
 		</parameter>
@@ -1008,7 +1018,13 @@
 					<d4p1:content>Дата2</d4p1:content>
 				</d4p1:item>
 			</title>
-			<value xsi:nil="true"/>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>Date</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 			<useRestriction>true</useRestriction>
 			<expression>&amp;ПериодОтгрузки.ДатаОкончания</expression>
 		</parameter>
@@ -1096,12 +1112,8 @@
 	<dataParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>ПериодОтгрузки</dcscor:parameter>
-			<dcscor:value xsi:type="v8:StandardPeriod">
-				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
-				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
-				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
-			</dcscor:value>
-			<userSettingID>3bfba5e2-4be9-4286-92ec-de3674f87908</userSettingID>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+			<userSettingID>f6b54124-2b7d-40fb-b486-3cb218e9d101</userSettingID>
 		</dcscor:item>
 	</dataParameters>
 	<outputParameters>
