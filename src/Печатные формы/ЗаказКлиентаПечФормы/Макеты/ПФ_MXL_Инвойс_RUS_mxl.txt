@@ -22,7 +22,21 @@
 									
 									
 	Все платежи перечисляются на банковский счет Продавца:								
-	ОрганизацияБанк								
+	Банк-получатель:		"SWIFT: [СчетБанкSWIFT], [СчетБанк]
+[СчетБанкAddress]"						
+	Банк-посредник:		"SWIFT: [СчетКорБанкSWIFT], [СчетКорБанк]
+[СчетКорБанкАдрес]"						
+	Корреспондентский счет в Банке-посреднике:		[СчетКорСчет]						
+	Получатель средств:		[ОрганизацияEN]						
+	Расчетный счет:		[СчетНомер]						
+	57: Beneficiary Bank		"SWIFT: [СчетБанкSWIFT]; Account with correspondent bank: [СчетКорСчет]; 
+Name: [СчетБанк]; [СчетБанкAddress]"						
+	"56: Correspondent Bank
+of beneficiary’s bank:"		"SWIFT: [СчетКорБанкSWIFT]; Name: [СчетКорБанк]; 
+Address: [СчетКорБанкАдрес]"						
+	59: Beneficiary:		Beneficiary’s name: [СчетБанк] Beneficiary’s account: [СчетНомерФилиала]						
+	70: Payment details:		"Beneficiary’s account: [СчетНомер]
+Beneficiary’s name: [ОрганизацияEN]"						
 
 
 

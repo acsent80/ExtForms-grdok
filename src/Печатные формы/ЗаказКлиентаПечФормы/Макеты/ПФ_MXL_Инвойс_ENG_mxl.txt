@@ -22,7 +22,21 @@ cbm"	Unit price	Value
 									
 									
 	All the payments are to be transferred to the Seller's bank account:								
-	ОрганизацияБанкEN								
+	Beneficiary Bank:		"SWIFT: [СчетБанкSWIFT], [СчетБанк]
+[СчетБанкAddress]"						
+	Intermediary Bank:		"SWIFT: [СчетКорБанкSWIFT], [СчетКорБанк]
+[СчетКорБанкАдрес]"						
+	Correspondent account in Intermediary Bank:		[СчетКорСчет]						
+	Beneficiary Customer:		[ОрганизацияEN]						
+	Beneficiary’s account:		[СчетНомер]						
+	57: Beneficiary Bank		"SWIFT: [СчетБанкSWIFT]; Account with correspondent bank: [СчетКорСчет]; 
+Name: [СчетБанк]; [СчетБанкAddress]"						
+	"56: Correspondent Bank
+of beneficiary’s bank:"		"SWIFT: [СчетКорБанкSWIFT]; Name: [СчетКорБанк]; 
+Address: [СчетКорБанкАдрес]"						
+	59: Beneficiary:		Beneficiary’s name: [СчетБанк] Beneficiary’s account: [СчетНомерФилиала]						
+	70: Payment details:		"Beneficiary’s account: [СчетНомер]
+Beneficiary’s name: [ОрганизацияEN]"						
 
 
 
