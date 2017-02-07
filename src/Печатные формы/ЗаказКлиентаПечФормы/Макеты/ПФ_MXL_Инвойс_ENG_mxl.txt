@@ -1,6 +1,6 @@
 ﻿					INVOICE		Номер		
 					DATE OF INVOICE:		Дата		
-					CONTRACT №:		ДоговорНомер	DATED	ДоговорДата
+					CONTRACT №: [ДоговорНомер] DATED [ДоговорДатаENG]				
 	Seller:				Buyer:				
 	"[ОрганизацияEN], [ОрганизацияАдресEN].
 Tel: [ОрганизацияТелефон], fax: [ОрганизацияФакс]"				"[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес]

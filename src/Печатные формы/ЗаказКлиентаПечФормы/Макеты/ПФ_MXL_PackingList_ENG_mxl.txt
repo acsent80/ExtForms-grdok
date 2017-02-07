@@ -1,6 +1,6 @@
 ﻿					PAKING LIST		Номер		
 					DATE OF PAKING LIST:		ДатаОтгрузки		
-					CONTRACT №:		ДоговорНомер	DATED	ДоговорДата
+					CONTRACT №: [ДоговорНомер] DATED [ДоговорДатаENG]				
 	Seller:				Buyer:				
 	"[ОрганизацияEN], [ОрганизацияАдресEN].
 Tel: [ОрганизацияТелефон], fax: [ОрганизацияФакс]"				"[Контрагент]. Commercial Registration No.[КонтрагентРегНомер]. Address: [КонтрагентАдрес]
