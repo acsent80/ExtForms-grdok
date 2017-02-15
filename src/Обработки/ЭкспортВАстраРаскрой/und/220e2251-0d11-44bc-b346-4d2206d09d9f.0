@@ -1,0 +1,88 @@
+﻿<!element data (data_order*, data_assembly*, data_sheet?)>
+<!element data_order (list_materials)>
+<!element data_assembly (list_materials)>
+<!element data_sheet (list_materials)>
+<!element list_materials (material+ | edge+)>
+<!element material (list_parts | list_sheets)>
+<!element list_parts (part+)>
+<!element list_sheets (sheet+)>
+<!element part (edge+)>
+
+<!attlist data
+    lib_mat_resete CDATA #IMPLIED
+    lib_edge_resete CDATA #IMPLIED >
+
+<!attlist data_order
+    name CDATA #REQUIRED
+    note CDATA #IMPLIED >
+
+<!attlist data_assembly
+    name CDATA #REQUIRED
+    note CDATA #IMPLIED >
+
+<!attlist material
+    index ID #IMPLIED
+    type CDATA #IMPLIED
+    name CDATA #IMPLIED
+    price CDATA #IMPLIED
+    sheet_border CDATA #IMPLIED
+    rest_border CDATA #IMPLIED
+    wid_cut CDATA #IMPLIED
+    min_dif CDATA #IMPLIED
+    wid_cut_min CDATA #IMPLIED
+    cut_max CDATA #IMPLIED
+    limit CDATA #IMPLIED
+    density CDATA #IMPLIED
+    rest_size CDATA #IMPLIED
+    wid_max CDATA #IMPLIED
+    nest_direct CDATA #IMPLIED
+    corner CDATA #IMPLIED
+    ignore_border CDATA #IMPLIED
+    ignore_cut CDATA #IMPLIED>
+
+<!attlist edge
+    index ID #IMPLIED
+    type CDATA #IMPLIED
+    name CDATA #IMPLIED
+    price CDATA #IMPLIED>
+    
+<!attlist part
+    name CDATA #IMPLIED
+    number CDATA #IMPLIED
+    length CDATA #REQUIRED
+    width CDATA #REQUIRED
+    thick CDATA #REQUIRED
+    quantity CDATA #IMPLIED
+    fibre (0 | 1 | 2 | 3) “0”
+    assembly CDATA #IMPLIED>
+    
+
+Заказы
+    
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+   <data_order name="Проба1" note="Пример импорта данных в Астра Раскрой">
+      <list_materials>
+         <material name="ДСП Бук" price="350.0">
+            <list_parts> <part number="1" length="900" width="600" thick="16.0" quantity="6"></part> <part number="2" length="450" width="200" thick="16.0" quantity="3"></part>
+            </list_parts>
+            <list_sheets> <sheet length="2750" width="1830" thick="16.0" quantity="3"/>
+            </list_sheets>
+         </material>
+      </list_materials>
+   </data_order>
+</data>  
+
+Остатки
+
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+   <data_sheet>
+      <list_materials>
+         <material name="ДСП Бук" price="350.0">
+            <list_sheets> <sheet length="2750" width="1830" thick="16.0" quantity="3"/>
+            </list_sheets>
+         </material>
+      </list_materials>
+   </data_sheet>
+</data>    
