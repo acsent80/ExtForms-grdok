@@ -9,12 +9,11 @@ Tel: [КонтрагентТелефон], Fax: [КонтрагентФакс]."
 	Consignee:								
 	[ГрузополучательТекстEN]								
 	Currency:	Terms of delivery:		Shipping date:		Terms of payment:			
-	Валюта	УсловияДоставки		ДатаОтгрузки		УсловияОплатыEN			
+	ВалютаEN	УсловияДоставки		ДатаОтгрузки		УсловияОплатыEN			
 									
-	BTN Code	Article					"Quantity,
-cbm"	Unit price	Value
-	Артикул	НоменклатураХарактеристикаEN					Количество	Цена	Сумма
-	TOTAL:						Количество		Сумма
+	BTN Code	Article				Quantity	Unit	Unit price	Value
+	Артикул	НоменклатураХарактеристикаEN				Количество	ЕдИзмEN	Цена	Сумма
+	TOTAL:					Количество			Сумма
 	Special conditions:								
 	No special conditions								
 									
