@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ДенежныеСредстваКВыплате</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяРасходов</dataPath>
+			<field>СтатьяРасходов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаАктивовПассивов</dataPath>
+			<field>АналитикаАктивовПассивов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодотчетноеЛицо</dataPath>
+			<field>ПодотчетноеЛицо</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаУчетаПоПартнерам</dataPath>
+			<field>АналитикаУчетаПоПартнерам</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаявкаНаРасходованиеДенежныхСредств</dataPath>
+			<field>ЗаявкаНаРасходованиеДенежныхСредств</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
+			<field>СтатьяДвиженияДенежныхСредств</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АналитикаРасходов</dataPath>
+			<field>АналитикаРасходов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистратор</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РегистраторДляОтбора</dataPath>
+			<field>РегистраторДляОтбора</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистратор для отбора</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подразделение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ХозяйственнаяОперация</dataPath>
+			<field>ХозяйственнаяОперация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВВалюте</dataPath>
+			<field>СуммаВВалюте</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма в валюте</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Рег.ЗаявкаНаРасходованиеДенежныхСредств КАК ЗаявкаНаРасходованиеДенежныхСредств,
+	Рег.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
+	Рег.АналитикаУчетаПоПартнерам КАК АналитикаУчетаПоПартнерам,
+	Рег.ПодотчетноеЛицо КАК ПодотчетноеЛицо,
+	Рег.СтатьяРасходов КАК СтатьяРасходов,
+	Рег.АналитикаРасходов КАК АналитикаРасходов,
+	Рег.АналитикаАктивовПассивов КАК АналитикаАктивовПассивов,
+	Рег.Сумма КАК Сумма,
+	Рег.Сумма КАК СуммаВВалюте,
+	Рег.Регистратор КАК Регистратор,
+	Рег.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	Рег.Заказ КАК Заказ,
+	Рег.ЗаявкаНаРасходованиеДенежныхСредств.Подразделение КАК Подразделение,
+	ВалютаРегламентированногоУчета.Значение КАК Валюта
+{ВЫБРАТЬ
+	ЗаявкаНаРасходованиеДенежныхСредств.*,
+	СтатьяДвиженияДенежныхСредств.*,
+	АналитикаУчетаПоПартнерам.*,
+	ПодотчетноеЛицо.*,
+	СтатьяРасходов.*,
+	АналитикаРасходов.*,
+	АналитикаАктивовПассивов.*,
+	Сумма,
+	СуммаВВалюте,
+	Валюта,
+	Регистратор,
+	ХозяйственнаяОперация.*,
+	Заказ.*,
+	Подразделение.*}
+ИЗ
+	РегистрНакопления.ДенежныеСредстваКВыплате КАК Рег,
+	Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
+ГДЕ
+	Рег.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И Рег.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+{ГДЕ
+	Рег.АналитикаАктивовПассивов.*,
+	Рег.АналитикаРасходов.*,
+	Рег.АналитикаУчетаПоПартнерам.*,
+	Рег.ЗаявкаНаРасходованиеДенежныхСредств.*,
+	Рег.ПодотчетноеЛицо.*,
+	Рег.СтатьяДвиженияДенежныхСредств.*,
+	Рег.СтатьяРасходов.*,
+	(ВЫРАЗИТЬ(Рег.Регистратор КАК Документ.ЗаявкаНаРасходованиеДенежныхСредств)).* КАК Регистратор,
+	(ВЫРАЗИТЬ(Рег.Регистратор КАК Документ.ЗаявкаНаРасходованиеДенежныхСредств)).* КАК РегистраторДляОтбора,
+	Рег.ХозяйственнаяОперация.*,
+	Рег.Заказ.*,
+	Рег.ЗаявкаНаРасходованиеДенежныхСредств.Подразделение.* КАК Подразделение}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Периодичность</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Периодичность</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.Периодичность</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.Периодичность.Месяц</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+						<v8:date>0001-01-01T00:00:00</v8:date>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
