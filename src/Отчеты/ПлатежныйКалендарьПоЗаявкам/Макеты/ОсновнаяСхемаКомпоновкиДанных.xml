@@ -495,8 +495,9 @@
 			<valueType>
 				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.ХозяйственныеОперации</Type>
 			</valueType>
-			<value xsi:nil="true"/>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">Перечисление.ХозяйственныеОперации.ВыплатаЗарплаты</value>
 			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
 		</parameter>
 		<parameter>
 			<name>Период</name>

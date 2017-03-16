@@ -7,22 +7,11 @@
 	<dataSet xsi:type="DataSetQuery">
 		<name>ДанныеПоЗаявкам</name>
 		<field xsi:type="DataSetFieldField">
-			<dataPath>Сумма</dataPath>
-			<field>Сумма</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
 			<dataPath>Подразделение</dataPath>
 			<field>Подразделение</field>
-		</field>
-		<field xsi:type="DataSetFieldField">
-			<dataPath>Документ</dataPath>
-			<field>Документ</field>
-			<title xsi:type="v8:LocalStringType">
-				<v8:item>
-					<v8:lang>ru</v8:lang>
-					<v8:content>Документ</v8:content>
-				</v8:item>
-			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СтруктураПредприятия</v8:Type>
+			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Статус</dataPath>
@@ -31,6 +20,9 @@
 		<field xsi:type="DataSetFieldField">
 			<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
 			<field>СтатьяДвиженияДенежныхСредств</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СтатьиДвиженияДенежныхСредств</v8:Type>
+			</valueType>
 		</field>
 		<field xsi:type="DataSetFieldField">
 			<dataPath>Регистратор</dataPath>
@@ -46,8 +38,41 @@
 			<dataPath>ХозяйственнаяОперация</dataPath>
 			<field>ХозяйственнаяОперация</field>
 		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаВВалюте</dataPath>
+			<field>СуммаВВалюте</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма в валюте</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+		</field>
 		<dataSource>ИсточникДанных1</dataSource>
-		<query>ВЫБРАТЬ
+		<query>//В запросе по лимитам обязательно должен быть регистр
+//РегистрНакопления.ДвиженияДенежныхСредств
+ВЫБРАТЬ
 	Док.Ссылка КАК Регистратор,
 	Док.Ссылка.Подразделение КАК Подразделение,
 	Док.Ссылка.Статус КАК Статус,
@@ -55,14 +80,18 @@
 	Док.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
 	Док.Ссылка.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
 	Док.Ссылка.Валюта КАК Валюта,
-	Док.Сумма КАК СуммаВВалюте
+	Док.Сумма КАК СуммаВВалюте,
+	Док.Ссылка.Организация КАК Организация
 {ВЫБРАТЬ
 	Регистратор,
 	Подразделение.*,
 	Статус.*,
+	Валюта.*,
+	СуммаВВалюте,
 	Сумма,
 	СтатьяДвиженияДенежныхСредств.*,
-	ХозяйственнаяОперация.*}
+	ХозяйственнаяОперация.*,
+	Организация.*}
 ИЗ
 	Документ.ЗаявкаНаРасходованиеДенежныхСредств.РасшифровкаПлатежа КАК Док
 ГДЕ
@@ -70,10 +99,36 @@
 	И Док.Ссылка.Проведен
 	И НЕ Док.Ссылка.СверхЛимита
 {ГДЕ
-	Док.Ссылка.* КАК Документ,
+	Док.Ссылка.* КАК Регистратор,
 	Док.Ссылка.Подразделение.*,
 	Док.Ссылка.Статус.*,
-	Док.СтатьяДвиженияДенежныхСредств.*}</query>
+	Док.СтатьяДвиженияДенежныхСредств.*}
+
+ОБЪЕДИНИТЬ ВСЕ	
+
+ВЫБРАТЬ
+	Док.Ссылка КАК Регистратор,
+	Док.Подразделение КАК Подразделение,
+	Док.Статус КАК Статус,
+	Док.СуммаДокумента КАК Сумма,
+	Док.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
+	Док.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	Док.Валюта КАК Валюта,
+	Док.СуммаДокумента КАК СуммаВВалюте,
+	Док.Ссылка.Организация КАК Организация
+ИЗ
+	Документ.ЗаявкаНаРасходованиеДенежныхСредств КАК Док
+ГДЕ
+	Док.ДатаПлатежа МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И Док.Проведен
+	И НЕ Док.СверхЛимита
+	И Док.ХозяйственнаяОперация В (ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВыплатаЗарплаты))
+{ГДЕ
+	Док.Ссылка.* КАК Регистратор,
+	Док.Подразделение.*,
+	Док.Статус.*,
+	Док.СтатьяДвиженияДенежныхСредств.*}
+	</query>
 		<autoFillFields>false</autoFillFields>
 	</dataSet>
 	<parameter>
