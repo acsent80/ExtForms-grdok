@@ -707,6 +707,13 @@
 			<right xsi:type="dcscor:DesignTimeValue">Перечисление.ВариантыРаспределенияРасходов.НаРасходыБудущихПериодов</right>
 			<userSettingID>71a6f692-8c28-41fa-91d1-499d28fb2ca2</userSettingID>
 		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Подразделение</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>3b6fa0cd-93b7-483d-8ebf-70e27015006b</userSettingID>
+		</item>
 	</filter>
 	<dataParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">

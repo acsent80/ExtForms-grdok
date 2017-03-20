@@ -784,6 +784,13 @@
 			<comparisonType>Equal</comparisonType>
 			<userSettingID>c29b98bb-89f1-435b-8c5a-b123d9cb3071</userSettingID>
 		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">АналитикаУчетаНоменклатуры.Склад</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>3db9beac-af45-4ad2-a627-f007fba91385</userSettingID>
+		</item>
 	</filter>
 	<dataParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">

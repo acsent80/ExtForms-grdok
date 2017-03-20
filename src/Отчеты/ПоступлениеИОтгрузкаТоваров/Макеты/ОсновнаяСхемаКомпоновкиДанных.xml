@@ -1422,22 +1422,7 @@
 		</calculatedField>
 		<totalField>
 			<dataPath>КонечныйОстаток</dataPath>
-			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
-			<group>Действие</group>
-			<group>ДокументОснование</group>
-		</totalField>
-		<totalField>
-			<dataPath>КонечныйОстаток</dataPath>
-			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая")</expression>
-			<group>ДатаДоступности</group>
-		</totalField>
-		<totalField>
-			<dataPath>КонечныйОстаток</dataPath>
-			<expression>ВЫБОР КОГДА &amp;КоличественныеИтогиПоЕдИзм И Количество(Различные ЕдиницаОтчета) &gt; 1 ТОГДА
-   0
-ИНАЧЕ
-    ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Текущая", "Текущая")
-КОНЕЦ</expression>
+			<expression>Сумма(НачальныйОстаток + Приход - Расход)</expression>
 		</totalField>
 		<totalField>
 			<dataPath>Приход</dataPath>
@@ -1453,19 +1438,6 @@
    0
 ИНАЧЕ
     Сумма(Расход)
-КОНЕЦ</expression>
-		</totalField>
-		<totalField>
-			<dataPath>НачальныйОстаток</dataPath>
-			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая") - ВычислитьВыражение("Сумма(Приход - Расход)","","Группировка", "Текущая", "Текущая")</expression>
-			<group>ДатаДоступности</group>
-		</totalField>
-		<totalField>
-			<dataPath>НачальныйОстаток</dataPath>
-			<expression>ВЫБОР КОГДА &amp;КоличественныеИтогиПоЕдИзм И Количество(Различные ЕдиницаОтчета) &gt; 1 ТОГДА
-   0
-ИНАЧЕ
-    ВычислитьВыражение("Сумма(НачальныйОстаток)","","Группировка", "Текущая", "Текущая")
 КОНЕЦ</expression>
 		</totalField>
 		<totalField>
@@ -1534,9 +1506,7 @@
 		</totalField>
 		<totalField>
 			<dataPath>НачальныйОстаток</dataPath>
-			<expression>ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","","Группировка", "Первая", "Текущая") + ВычислитьВыражение("Сумма(Расход - Приход)","","Группировка", "Текущая", "Текущая") + ЕСТЬNULL( ВычислитьВыражение("Сумма(НачальныйОстаток + Приход - Расход)","ДатаДоступности","Группировка", "Первая", "Предыдущая"), 0)</expression>
-			<group>Действие</group>
-			<group>ДокументОснование</group>
+			<expression>Сумма(НачальныйОстаток)</expression>
 		</totalField>
 		<totalField>
 			<dataPath>НачальныйОстатокВес</dataPath>
@@ -1887,6 +1857,16 @@
 		<viewMode>Normal</viewMode>
 		<userSettingID>20fa9195-6094-43bd-b1af-865b1fc74199</userSettingID>
 	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ДокументОснование</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<viewMode>Normal</viewMode>
+			<userSettingID>c7cfc109-6972-4e2c-9fa1-ca10e5ad4eea</userSettingID>
+		</item>
+	</filter>
 	<dataParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>ЕдиницыКоличества</dcscor:parameter>
@@ -2474,6 +2454,14 @@
 			<right xsi:type="dcscor:DesignTimeValue">Документ.ЗаказНаПроизводство</right>
 			<viewMode>Normal</viewMode>
 			<userSettingID>69f37b4c-ffce-4f25-9adf-b44fb01c3704</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ДокументОснование</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<viewMode>Normal</viewMode>
+			<userSettingID>2a8939eb-42d5-4693-82ad-a765b897b0ca</userSettingID>
 		</item>
 	</filter>
 	<item xsi:type="StructureItemGroup">

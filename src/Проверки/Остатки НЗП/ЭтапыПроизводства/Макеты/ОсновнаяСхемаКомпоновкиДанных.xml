@@ -329,15 +329,10 @@
 	<filter>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
-			<left xsi:type="dcscor:Field">РазделУчета</left>
+			<left xsi:type="dcscor:Field">Подразделение</left>
 			<comparisonType>Equal</comparisonType>
-			<userSettingID>34f53149-a380-4dc3-85ba-8760cad63261</userSettingID>
-		</item>
-		<item xsi:type="FilterItemComparison">
-			<use>false</use>
-			<left xsi:type="dcscor:Field">Номенклатура</left>
-			<comparisonType>Equal</comparisonType>
-			<userSettingID>3539f9bf-a070-4669-887a-56508b00cbb0</userSettingID>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>c8b2aebd-02bc-49ee-aaf1-73866b8d7215</userSettingID>
 		</item>
 	</filter>
 	<dataParameters>
