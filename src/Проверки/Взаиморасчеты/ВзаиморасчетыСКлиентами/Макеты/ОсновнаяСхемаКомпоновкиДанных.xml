@@ -1980,6 +1980,27 @@
 				</item>
 				<placement>Auto</placement>
 			</item>
+			<item xsi:type="SelectedItemFolder">
+				<lwsTitle>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Регл</v8:content>
+					</v8:item>
+				</lwsTitle>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгРеглНачальныйОстаток</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгРеглПриход</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгРеглРасход</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ДолгРеглКонечныйОстаток</field>
+				</item>
+				<placement>Auto</placement>
+			</item>
 			<placement>Auto</placement>
 		</item>
 	</selection>
@@ -1989,6 +2010,20 @@
 			<comparisonType>Equal</comparisonType>
 			<right xsi:type="dcscor:DesignTimeValue">Справочник.Контрагенты.ПустаяСсылка</right>
 			<userSettingID>3c5b14b8-2276-471d-b2a9-08b54d70a695</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">АналитикаУчетаПоПартнерам</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>9d9cf7ce-5630-4ba3-be39-4eb8c1739a28</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ЗаказКлиента</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>26d990a2-5ce5-4b5b-909c-1d762a144e50</userSettingID>
 		</item>
 	</filter>
 	<dataParameters>
@@ -2011,6 +2046,13 @@
 		<groupItems>
 			<item xsi:type="GroupItemField">
 				<field>АналитикаУчетаПоПартнерам</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Валюта</field>
 				<groupType>Items</groupType>
 				<periodAdditionType>None</periodAdditionType>
 				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
