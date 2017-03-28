@@ -1,5 +1,5 @@
-﻿					PAKING LIST [Номер]				
-					DATE OF PAKING LIST:		ДатаОтгрузки		
+﻿					PACKING LIST [Номер]				
+					DATE OF PACKING LIST: [ДатаОтгрузки]				
 					CONTRACT №: [ДоговорНомер] DATED [ДоговорДатаENG]				
 	Seller:				Buyer:				
 	"[ОрганизацияEN], [ОрганизацияАдресEN].
