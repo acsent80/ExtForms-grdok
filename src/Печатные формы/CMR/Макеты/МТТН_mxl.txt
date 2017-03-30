@@ -52,7 +52,7 @@ Senders"		"Валюта
 Currency"		"Получатель
 Consignee"		
 															
-Договор							"Ставка
+							"Ставка
 Carriage charges"								
 							"Скидки
 Deductions (-)"								
@@ -74,7 +74,7 @@ Cash on delivery"
 Instructions as to payment for carriage"	УсловияОплаты					20	"Особые согласованные условия
 Special agreements"							
 "Франко
-Carriage paid"	Франко														
+Carriage paid"	Франко						т/п Пальниковский, СВХ лицензия 10411/100043 от 13.10.2009, 618719 Пермский край, Добрянский р/н, п/ст Пальники, ул. Заводская, дом 1А								
 "Не франко
 Carriage forward"															
 21	"Составлена в          
