@@ -14,6 +14,8 @@ b671d3ad-705a-4b6b-b636-777b36887f35.0-->und\b671d3ad-705a-4b6b-b636-777b36887f3
 copyinfo-->und\copyinfo
 d1f35ab7-4331-4298-9368-671bf46bb035.0\info-->und\d1f35ab7-4331-4298-9368-671bf46bb035.0\info
 d1f35ab7-4331-4298-9368-671bf46bb035.0\text-->ObjectModule.bsl
+e8101ab9-4d7e-4478-9b64-ad73b7888b37-->und\e8101ab9-4d7e-4478-9b64-ad73b7888b37
+e8101ab9-4d7e-4478-9b64-ad73b7888b37.0-->und\e8101ab9-4d7e-4478-9b64-ad73b7888b37.0
 root-->und\root
 version-->und\version
 versions-->und\versions
