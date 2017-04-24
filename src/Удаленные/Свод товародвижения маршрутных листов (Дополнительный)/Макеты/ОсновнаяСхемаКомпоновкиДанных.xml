@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>НаборДанных1</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НазваниеТаблицы</dataPath>
+				<field>НазваниеТаблицы</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Название таблицы</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоПлан</dataPath>
+				<field>КоличествоПлан</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество план</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоФакт</dataPath>
+				<field>КоличествоФакт</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество факт</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>МаршрутныйЛист</dataPath>
+				<field>МаршрутныйЛист</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Маршрутный лист</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Бригада</dataPath>
+				<field>Бригада</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Бригада</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статус</dataPath>
+				<field>Статус</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:EnumRef.СтатусыМаршрутныхЛистовПроизводства</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаВыпуска</dataPath>
+				<field>ДатаВыпуска</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Дата выпуска</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка КАК МаршрутныйЛист,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Номенклатура,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Характеристика,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.КоличествоУпаковокФакт КАК КоличествоФакт,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Склад,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.КоличествоУпаковок КАК КоличествоПлан,
+	"Выпуск продукции" КАК НазваниеТаблицы,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.Статус,
+	НАЧАЛОПЕРИОДА(МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.ДатаВыполненияРаботВЗавершающемБуфере, ДЕНЬ) КАК ДатаВыпуска
+ПОМЕСТИТЬ втДанныеМЛ
+ИЗ
+	Документ.МаршрутныйЛистПроизводства.ВыходныеИзделия КАК МаршрутныйЛистПроизводстваВыходныеИзделия
+ГДЕ
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.ДатаВыполненияРаботВЗавершающемБуфере МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.Проведен
+{ГДЕ
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.* КАК МаршрутныйЛист,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Номенклатура.*,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Характеристика.*,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Склад.*,
+	МаршрутныйЛистПроизводстваВыходныеИзделия.Ссылка.Статус.*}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Ссылка,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Номенклатура,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Характеристика,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.КоличествоУпаковокФакт,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Склад,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.КоличествоУпаковок,
+	"Возвратные отходы",
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Ссылка.Статус,
+	НАЧАЛОПЕРИОДА(МаршрутныйЛистПроизводстваВозвратныеОтходы.Ссылка.ДатаВыполненияРаботВЗавершающемБуфере, ДЕНЬ)
+ИЗ
+	Документ.МаршрутныйЛистПроизводства.ВозвратныеОтходы КАК МаршрутныйЛистПроизводстваВозвратныеОтходы
+ГДЕ
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Ссылка.ДатаВыполненияРаботВЗавершающемБуфере МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И МаршрутныйЛистПроизводстваВозвратныеОтходы.Ссылка.Проведен
+{ГДЕ
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Ссылка.* КАК МаршрутныйЛист,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Номенклатура.*,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Характеристика.*,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Склад.*,
+	МаршрутныйЛистПроизводстваВозвратныеОтходы.Ссылка.Статус.*}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Ссылка,
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Номенклатура,
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Характеристика,
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.КоличествоУпаковокФакт,
+	ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка),
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.КоличествоУпаковок,
+	"Использованные материалы",
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Ссылка.Статус,
+	НАЧАЛОПЕРИОДА(МаршрутныйЛистПроизводстваМатериалыИУслуги.Ссылка.ДатаВыполненияРаботВЗавершающемБуфере, ДЕНЬ)
+ИЗ
+	Документ.МаршрутныйЛистПроизводства.МатериалыИУслуги КАК МаршрутныйЛистПроизводстваМатериалыИУслуги
+ГДЕ
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Ссылка.ДатаВыполненияРаботВЗавершающемБуфере МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+	И МаршрутныйЛистПроизводстваМатериалыИУслуги.Ссылка.Проведен
+{ГДЕ
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Ссылка.* КАК МаршрутныйЛист,
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Номенклатура.*,
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Характеристика.*,
+	МаршрутныйЛистПроизводстваМатериалыИУслуги.Ссылка.Статус.*}
+
+ИНДЕКСИРОВАТЬ ПО
+	МаршрутныйЛист
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЕСТЬNULL(МаршрутныйЛистПроизводстваТрудозатраты.Ссылка, втДанныеМЛ.МаршрутныйЛист) КАК МаршрутныйЛист,
+	МАКСИМУМ(ЕСТЬNULL(МаршрутныйЛистПроизводстваТрудозатраты.Бригада, ЗНАЧЕНИЕ(Справочник.Бригады.ПустаяСсылка))) КАК Бригада
+ПОМЕСТИТЬ втБригадаМЛ
+ИЗ
+	втДанныеМЛ КАК втДанныеМЛ
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.МаршрутныйЛистПроизводства.Трудозатраты КАК МаршрутныйЛистПроизводстваТрудозатраты
+		ПО втДанныеМЛ.МаршрутныйЛист = МаршрутныйЛистПроизводстваТрудозатраты.Ссылка
+
+СГРУППИРОВАТЬ ПО
+	ЕСТЬNULL(МаршрутныйЛистПроизводстваТрудозатраты.Ссылка, втДанныеМЛ.МаршрутныйЛист)
+
+ИНДЕКСИРОВАТЬ ПО
+	МаршрутныйЛист
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втДанныеМЛ.МаршрутныйЛист КАК МаршрутныйЛист,
+	втДанныеМЛ.Номенклатура КАК Номенклатура,
+	втДанныеМЛ.Характеристика КАК Характеристика,
+	втДанныеМЛ.КоличествоФакт КАК КоличествоФакт,
+	втДанныеМЛ.Склад КАК Склад,
+	втДанныеМЛ.КоличествоПлан КАК КоличествоПлан,
+	втДанныеМЛ.НазваниеТаблицы КАК НазваниеТаблицы,
+	втДанныеМЛ.Статус КАК Статус,
+	втБригадаМЛ.Бригада КАК Бригада,
+	втДанныеМЛ.ДатаВыпуска КАК ДатаВыпуска
+{ВЫБРАТЬ
+	МаршрутныйЛист.*,
+	Номенклатура.*,
+	Характеристика.*,
+	КоличествоФакт,
+	Склад.*,
+	КоличествоПлан,
+	НазваниеТаблицы,
+	Статус.*,
+	Бригада.*,
+	ДатаВыпуска}
+ИЗ
+	втДанныеМЛ КАК втДанныеМЛ
+		ЛЕВОЕ СОЕДИНЕНИЕ втБригадаМЛ КАК втБригадаМЛ
+		ПО втДанныеМЛ.МаршрутныйЛист = втБригадаМЛ.МаршрутныйЛист
+{ГДЕ
+	втДанныеМЛ.МаршрутныйЛист.*,
+	втДанныеМЛ.Номенклатура.*,
+	втДанныеМЛ.Характеристика.*,
+	втДанныеМЛ.КоличествоФакт,
+	втДанныеМЛ.Склад.*,
+	втДанныеМЛ.КоличествоПлан,
+	втДанныеМЛ.НазваниеТаблицы,
+	втДанныеМЛ.Статус.*,
+	втБригадаМЛ.Бригада.*,
+	втДанныеМЛ.ДатаВыпуска}</query>
+		</dataSet>
+		<totalField>
+			<dataPath>КоличествоПлан</dataPath>
+			<expression>Сумма(КоличествоПлан)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоФакт</dataPath>
+			<expression>Сумма(КоличествоФакт)</expression>
+		</totalField>
+		<parameter>
+			<name>ДатаНачала</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата начала</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<parameter>
+			<name>ДатаОкончания</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата окончания</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+			<availableAsField>false</availableAsField>
+		</parameter>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">СводТовародвиженияМаршрутныхЛистов</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Свод товародвижения маршрутных листов (Дополнительный)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоПлан</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоФакт</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Бригада</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>f1d50dd1-9fb2-4326-b304-9ddea08eadd4</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">МаршрутныйЛист</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>f1496f50-14ca-4724-aa5d-76dff677b335</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Номенклатура</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>c9a9e350-ef71-4824-b31f-cf5e7f8190e6</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Характеристика</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>f9fd4fbd-bb77-469d-ad14-d88029fecd33</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Склад</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<userSettingID>28178c6b-98fa-4f19-9eab-b8a432004efa</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Статус</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue">Перечисление.СтатусыМаршрутныхЛистовПроизводства.Выполнен</right>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+			</dcscor:value>
+			<userSettingID>11d1207e-1e32-478e-a021-237040fcc829</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">Auto</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Заголовок</dcscor:parameter>
+			<dcscor:value xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Свод товародвижения маршрутных листов (Дополнительный)</v8:content>
+				</v8:item>
+			</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">Auto</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemTable">
+		<column>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>НазваниеТаблицы</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<outputParameters>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>РасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</outputParameters>
+			<item>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>ДатаВыпуска</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+			</item>
+		</column>
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Бригада</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Склад</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item>
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<field>Номенклатура</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+						<item xsi:type="GroupItemField">
+							<field>Характеристика</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+					<item>
+						<groupItems>
+							<item xsi:type="GroupItemField">
+								<field>МаршрутныйЛист</field>
+								<groupType>Items</groupType>
+								<periodAdditionType>None</periodAdditionType>
+								<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+								<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+							</item>
+						</groupItems>
+						<order>
+							<item xsi:type="OrderItemAuto"/>
+						</order>
+						<selection>
+							<item xsi:type="SelectedItemAuto"/>
+						</selection>
+					</item>
+				</item>
+			</item>
+		</row>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

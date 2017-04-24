@@ -327,6 +327,36 @@
 					</d5p1:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НаименьшаяФактическаяДата</dataPath>
+				<field>НаименьшаяФактическаяДата</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Наименьшая фактическая дата</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НаибольшаяФактическаяДата</dataPath>
+				<field>НаибольшаяФактическаяДата</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Наибольшая фактическая дата</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПлановаяДата</dataPath>
+				<field>ПлановаяДата</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Плановая дата</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ
 	ЗаказНаПроизводство.Ссылка КАК ЗаказНаПроизводство,
@@ -342,7 +372,7 @@
 	ЗаказНаПроизводствоЭтапы.НаименованиеЭтапа КАК ЭтапПредставление,
 	ЗаказНаПроизводствоЭтапы.Этап.Владелец КАК СпецификацияЭтапов,
 	ЗаказНаПроизводствоЭтапыГрафик.Количество КАК Количество,
-	&amp;ЕдиницаИзмеренияЭтапа КАК ЕдиницаИзмерения,
+	ВЫРАЗИТЬ(&amp;ЕдиницаИзмеренияЭтапа КАК Строка(100)) КАК ЕдиницаИзмерения,
 	ВЫБОР
 		КОГДА &amp;ВариантДатыГрафика = 0
 			ТОГДА ЗаказНаПроизводствоЭтапыГрафик.НачалоПредварительногоБуфера
@@ -2679,7 +2709,7 @@
 			<dcscor:value xsi:type="v8:LocalStringType">
 				<v8:item>
 					<v8:lang>ru</v8:lang>
-					<v8:content>График производства продукции по заказам</v8:content>
+					<v8:content>Выпуск ГП по заказам на производство (доп)</v8:content>
 				</v8:item>
 			</dcscor:value>
 		</dcscor:item>

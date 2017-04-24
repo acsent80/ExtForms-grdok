@@ -138,14 +138,23 @@
 				<appearance>
 					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
 						<parameter>Формат</parameter>
-						<value xmlns:d7p1="http://v8.1c.ru/8.1/data/core" xsi:type="d7p1:LocalStringType">
-							<d7p1:item>
-								<d7p1:lang>ru</d7p1:lang>
-								<d7p1:content>ЧДЦ=2</d7p1:content>
-							</d7p1:item>
-						</value>
+						<value xsi:type="xs:string">ЧДЦ=2</value>
 					</item>
 				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Партнер</dataPath>
+				<field>Партнер</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаВозврат</dataPath>
+				<field>СуммаВозврат</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма возврат</d5p1:content>
+					</d5p1:item>
+				</title>
 			</field>
 			<item xsi:type="DataSetQuery">
 				<name>План</name>
@@ -379,6 +388,7 @@
 	Док.ДатаПлатежа МЕЖДУ &amp;Дата1 И &amp;Дата2
 	И Док.Проведен
 	И Док.ХозяйственнаяОперация В(&amp;ХозяйственнаяОперацияШапка)
+	И Док.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаявокНаРасходованиеДенежныхСредств.КОплате)
 {ГДЕ
 	Док.Ссылка.* КАК Документ,
 	Док.Организация.*,
@@ -428,6 +438,7 @@
 	Док.Ссылка.ДатаПлатежа МЕЖДУ &amp;Дата1 И &amp;Дата2
 	И Док.Ссылка.Проведен
 	И НЕ Док.Ссылка.ХозяйственнаяОперация В (&amp;ХозяйственнаяОперацияШапка)
+	И Док.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаявокНаРасходованиеДенежныхСредств.КОплате)
 {ГДЕ
 	Док.Ссылка.* КАК Документ,
 	Док.Ссылка.Организация.*,
@@ -436,6 +447,116 @@
 	Док.Ссылка.ДатаПлатежа,
 	Док.Ссылка.Статус.*,
 	Док.Ссылка.СверхЛимита,
+	Док.СтатьяДвиженияДенежныхСредств.*}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Возвраты</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Документ</dataPath>
+					<field>Документ</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Документ</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Партнер</dataPath>
+					<field>Партнер</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
+					<field>СтатьяДвиженияДенежныхСредств</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>БанковскийСчет</dataPath>
+					<field>БанковскийСчет</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Подразделение</dataPath>
+					<field>Подразделение</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Подразделение</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаФактОбщая</dataPath>
+					<field>СуммаФактОбщая</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма факт общая</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаФакт</dataPath>
+					<field>СуммаФакт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма факт</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаВозврат</dataPath>
+					<field>СуммаВозврат</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма возврат</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Док.Ссылка КАК Документ,
+	Док.Ссылка.Организация КАК Организация,
+	Док.Ссылка.БанковскийСчет КАК БанковскийСчет,
+	-Док.Сумма КАК СуммаФакт,
+	-Док.Сумма КАК СуммаФактОбщая,
+	Док.Сумма КАК СуммаВозврат,
+	Док.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
+	Док.Партнер КАК Партнер,
+	Док.Ссылка.Валюта КАК Валюта,
+	Док.Заказ.Подразделение КАК Подразделение
+{ВЫБРАТЬ
+	Документ.*,
+	Организация.*,
+	БанковскийСчет.*,
+	СуммаФакт,
+	СуммаФактОбщая,
+	СуммаВозврат,
+	СтатьяДвиженияДенежныхСредств.*,
+	Партнер.*,
+	Валюта.*,
+	Подразделение.*}
+ИЗ
+	Документ.ПоступлениеБезналичныхДенежныхСредств.РасшифровкаПлатежа КАК Док
+ГДЕ
+	Док.Ссылка.ДатаПроведенияБанком МЕЖДУ &amp;Дата1 И &amp;Дата2
+	И Док.Ссылка.Проведен
+	И Док.Ссылка.ПроведеноБанком
+	И Док.Ссылка.ХозяйственнаяОперация В(&amp;ХозяйственнаяОперацияВозврат)
+{ГДЕ
+	Док.Ссылка.* КАК Документ,
+	Док.Ссылка.Организация.*,
+	Док.Ссылка.БанковскийСчет.*,
+	Док.Заказ.Подразделение.* КАК Подразделение,
 	Док.СтатьяДвиженияДенежныхСредств.*}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
@@ -455,6 +576,10 @@
 		<totalField>
 			<dataPath>СуммаСверхЛимита</dataPath>
 			<expression>Сумма(СуммаСверхЛимита)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаВозврат</dataPath>
+			<expression>Сумма(СуммаВозврат)</expression>
 		</totalField>
 		<parameter>
 			<name>Дата1</name>
@@ -526,6 +651,22 @@
 			<useRestriction>true</useRestriction>
 			<valueListAllowed>true</valueListAllowed>
 		</parameter>
+		<parameter>
+			<name>ХозяйственнаяОперацияВозврат</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Хозяйственная операция возврат</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.ХозяйственныеОперации</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">Перечисление.ХозяйственныеОперации.ВозвратДенежныхСредствОтПоставщика</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">Перечисление.ХозяйственныеОперации.ВозвратДенежныхСредствОтПодотчетника</value>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Отчет по лимитам (дополнительный)</name>
 			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -547,6 +688,9 @@
 		</item>
 		<item xsi:type="SelectedItemField">
 			<field>СуммаСверхЛимита</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СуммаВозврат</field>
 		</item>
 	</selection>
 	<filter>
@@ -588,6 +732,10 @@
 			<dcscor:use>false</dcscor:use>
 			<dcscor:parameter>ХозяйственнаяОперацияШапка</dcscor:parameter>
 			<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ХозяйственнаяОперацияВозврат</dcscor:parameter>
 		</dcscor:item>
 	</dataParameters>
 	<outputParameters>
