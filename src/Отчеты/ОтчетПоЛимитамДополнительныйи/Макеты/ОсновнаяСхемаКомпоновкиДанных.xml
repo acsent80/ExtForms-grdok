@@ -237,7 +237,7 @@
 			,
 			Авто,
 			ПериодПланирования МЕЖДУ &amp;Дата1 И &amp;Дата2
-				И Сценарий.Наименование = "Операционное планирование (по месяцам)" {(Организация).*, (Подразделение).*, (ВЫРАЗИТЬ(Аналитика1 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДвиженияДенежныхСредств}) КАК Рег</query>
+				И Сценарий = &amp;Сценарий {(Организация).*, (Подразделение).*, (ВЫРАЗИТЬ(Аналитика1 КАК Справочник.СтатьиДвиженияДенежныхСредств)).* КАК СтатьяДвиженияДенежныхСредств}) КАК Рег</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -667,6 +667,21 @@
 			<useRestriction>true</useRestriction>
 			<valueListAllowed>true</valueListAllowed>
 		</parameter>
+		<parameter>
+			<name>Сценарий</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Сценарий</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Сценарии</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Отчет по лимитам (дополнительный)</name>
 			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -736,6 +751,11 @@
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:use>false</dcscor:use>
 			<dcscor:parameter>ХозяйственнаяОперацияВозврат</dcscor:parameter>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Сценарий</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
 		</dcscor:item>
 	</dataParameters>
 	<outputParameters>
