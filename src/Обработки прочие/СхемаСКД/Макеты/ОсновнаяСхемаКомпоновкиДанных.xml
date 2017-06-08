@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetObject">
+			<name>ТаблицаПериодов</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачалоПериода</dataPath>
+				<field>НачалоПериода</field>
+				<title xsi:type="xs:string">НачалоПериода</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+					<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<DateFractions>DateTime</DateFractions>
+					</DateQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КонецПериода</dataPath>
+				<field>КонецПериода</field>
+				<title xsi:type="xs:string">КонецПериода</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+					<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<DateFractions>DateTime</DateFractions>
+					</DateQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПравилоФакта</dataPath>
+				<field>ПравилоФакта</field>
+				<title xsi:type="xs:string">ПравилоФакта</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ПравилаПолученияФактаПоСтатьямБюджетов</Type>
+				</valueType>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<objectName>ТаблицаПериодов</objectName>
+		</dataSet>
+		<dataSet xsi:type="DataSetUnion">
+			<name>ОбъединенныйФакт</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Валюты</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДенежныеСредства</dataPath>
+				<field>ДенежныеСредства</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.КассыККМ</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКредитовИДепозитов</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.БанковскиеСчетаОрганизаций</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Кассы</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ФизическиеЛица</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорДенежныеСредства</dataPath>
+				<field>КорДенежныеСредства</field>
+				<title xsi:type="xs:string">Кор. денежные средства</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорТипДенежныхСредств</dataPath>
+				<field>КорТипДенежныхСредств</field>
+				<title xsi:type="xs:string">Кор. тип денежных средств</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
+				<field>СтатьяДвиженияДенежныхСредств</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.СтатьиДвиженияДенежныхСредств</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ТипДенежныхСредств</dataPath>
+				<field>ТипДенежныхСредств</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:EnumRef.ТипыДенежныхСредств</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Организации</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодГод</dataPath>
+				<field>ПериодГод</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодДекада</dataPath>
+				<field>ПериодДекада</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодКвартал</dataPath>
+				<field>ПериодКвартал</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодМесяц</dataPath>
+				<field>ПериодМесяц</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодНеделя</dataPath>
+				<field>ПериодНеделя</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодПолугодие</dataPath>
+				<field>ПериодПолугодие</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подразделение</dataPath>
+				<field>Подразделение</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.СтруктураПредприятия</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сумма</dataPath>
+				<field>Сумма</field>
+				<title xsi:type="xs:string">Сумма</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаВВалюте</dataPath>
+				<field>СуммаВВалюте</field>
+				<title xsi:type="xs:string">Сумма в валюте</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаРегл</dataPath>
+				<field>СуммаРегл</field>
+				<title xsi:type="xs:string">Сумма регл</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодКурса</dataPath>
+				<field>ПериодКурса</field>
+				<title xsi:type="xs:string">Период курса</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодДень</dataPath>
+				<field>ПериодДень</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКВыплате</dataPath>
+				<field>СуммаКВыплате</field>
+				<title xsi:type="xs:string">Сумма к выплате</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКВыплатеСверхЛимита</dataPath>
+				<field>СуммаКВыплатеСверхЛимита</field>
+				<title xsi:type="xs:string">Сумма к выплате сверх лимита</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКВыплатеВРамкахЛимита</dataPath>
+				<field>СуммаКВыплатеВРамкахЛимита</field>
+				<title xsi:type="xs:string">Сумма к выплате в рамках лимита</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НаправлениеДеятельности</dataPath>
+				<field>НаправлениеДеятельности</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.НаправленияДеятельности</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорНаправлениеДеятельности</dataPath>
+				<field>КорНаправлениеДеятельности</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.НаправленияДеятельности</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ИдентификаторИсточникаДанных</dataPath>
+				<field>ИдентификаторИсточникаДанных</field>
+				<title xsi:type="xs:string">Идентификатор источника данных</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ХозяйственнаяОперация</dataPath>
+				<field>ХозяйственнаяОперация</field>
+				<title xsi:type="xs:string">Хозяйственная операция</title>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Договор</dataPath>
+				<field>Договор</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыМеждуОрганизациями</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКонтрагентов</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКредитовИДепозитов</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Организации</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбъектРасчетов</dataPath>
+				<field>ОбъектРасчетов</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Партнер</dataPath>
+				<field>Партнер</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Партнеры</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РасчетныйДокумент</dataPath>
+				<field>РасчетныйДокумент</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаОплаты</dataPath>
+				<field>СуммаОплаты</field>
+				<title xsi:type="xs:string">Сумма оплаты</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаОплатыРегл</dataPath>
+				<field>СуммаОплатыРегл</field>
+				<title xsi:type="xs:string">Сумма оплаты регл</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаПостоплаты</dataPath>
+				<field>СуммаПостоплаты</field>
+				<title xsi:type="xs:string">Сумма постоплаты</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаПостоплатыРегл</dataPath>
+				<field>СуммаПостоплатыРегл</field>
+				<title xsi:type="xs:string">Сумма постоплаты регл</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаПредоплаты</dataPath>
+				<field>СуммаПредоплаты</field>
+				<title xsi:type="xs:string">Сумма предоплаты</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаПредоплатыРегл</dataPath>
+				<field>СуммаПредоплатыРегл</field>
+				<title xsi:type="xs:string">Сумма предоплаты регл</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаОплатыВВалютеПлатежа</dataPath>
+				<field>СуммаОплатыВВалютеПлатежа</field>
+				<title xsi:type="xs:string">Сумма оплаты в валюте платежа</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаПостоплатыВВалютеПлатежа</dataPath>
+				<field>СуммаПостоплатыВВалютеПлатежа</field>
+				<title xsi:type="xs:string">Сумма постоплаты в валюте платежа</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаПредоплатыВВалютеПлатежа</dataPath>
+				<field>СуммаПредоплатыВВалютеПлатежа</field>
+				<title xsi:type="xs:string">Сумма предоплаты в валюте платежа</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаНДСВВалютеПлатежа</dataPath>
+				<field>СуммаНДСВВалютеПлатежа</field>
+				<title xsi:type="xs:string">Сумма НДСВВалюте платежа</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаНДСРегл</dataPath>
+				<field>СуммаНДСРегл</field>
+				<title xsi:type="xs:string">Сумма НДСРегл</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаНДС</dataPath>
+				<field>СуммаНДС</field>
+				<title xsi:type="xs:string">Сумма НДС</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НаправлениеДеятельностиДС</dataPath>
+				<field>НаправлениеДеятельностиДС</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.НаправленияДеятельности</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НаправлениеДеятельностиКонтрагента</dataPath>
+				<field>НаправлениеДеятельностиКонтрагента</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.НаправленияДеятельности</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статус</dataPath>
+				<field>Статус</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<title xsi:type="xs:string">Период</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачалоПериода</dataPath>
+				<field>НачалоПериода</field>
+				<title xsi:type="xs:string">НачалоПериода</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+					<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<DateFractions>DateTime</DateFractions>
+					</DateQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КонецПериода</dataPath>
+				<field>КонецПериода</field>
+				<title xsi:type="xs:string">КонецПериода</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+					<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<DateFractions>DateTime</DateFractions>
+					</DateQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПравилоФакта</dataPath>
+				<field>ПравилоФакта</field>
+				<title xsi:type="xs:string">ПравилоФакта</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ПравилаПолученияФактаПоСтатьямБюджетов</Type>
+				</valueType>
+			</field>
+			<item xsi:type="DataSetQuery">
+				<name>ДвиженияДенежныхСредств</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Валюты</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДенежныеСредства</dataPath>
+					<field>ДенежныеСредства</field>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.КассыККМ</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ДоговорыКредитовИДепозитов</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.БанковскиеСчетаОрганизаций</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Кассы</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорДенежныеСредства</dataPath>
+					<field>КорДенежныеСредства</field>
+					<title xsi:type="xs:string">Кор. денежные средства</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорТипДенежныхСредств</dataPath>
+					<field>КорТипДенежныхСредств</field>
+					<title xsi:type="xs:string">Кор. тип денежных средств</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
+					<field>СтатьяДвиженияДенежныхСредств</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиДвиженияДенежныхСредств</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТипДенежныхСредств</dataPath>
+					<field>ТипДенежныхСредств</field>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.ТипыДенежныхСредств</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Организации</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодГод</dataPath>
+					<field>ПериодГод</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДекада</dataPath>
+					<field>ПериодДекада</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодКвартал</dataPath>
+					<field>ПериодКвартал</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодНеделя</dataPath>
+					<field>ПериодНеделя</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодПолугодие</dataPath>
+					<field>ПериодПолугодие</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Подразделение</dataPath>
+					<field>Подразделение</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтруктураПредприятия</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xsi:type="xs:string">Сумма</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаВВалюте</dataPath>
+					<field>СуммаВВалюте</field>
+					<title xsi:type="xs:string">Сумма в валюте</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаРегл</dataPath>
+					<field>СуммаРегл</field>
+					<title xsi:type="xs:string">Сумма регл</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодКурса</dataPath>
+					<field>ПериодКурса</field>
+					<title xsi:type="xs:string">Период курса</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДень</dataPath>
+					<field>ПериодДень</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКВыплате</dataPath>
+					<field>СуммаКВыплате</field>
+					<title xsi:type="xs:string">Сумма к выплате</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКВыплатеСверхЛимита</dataPath>
+					<field>СуммаКВыплатеСверхЛимита</field>
+					<title xsi:type="xs:string">Сумма к выплате сверх лимита</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКВыплатеВРамкахЛимита</dataPath>
+					<field>СуммаКВыплатеВРамкахЛимита</field>
+					<title xsi:type="xs:string">Сумма к выплате в рамках лимита</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаправлениеДеятельности</dataPath>
+					<field>НаправлениеДеятельности</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.НаправленияДеятельности</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорНаправлениеДеятельности</dataPath>
+					<field>КорНаправлениеДеятельности</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.НаправленияДеятельности</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ИдентификаторИсточникаДанных</dataPath>
+					<field>ИдентификаторИсточникаДанных</field>
+					<title xsi:type="xs:string">Идентификатор источника данных</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХозяйственнаяОперация</dataPath>
+					<field>ХозяйственнаяОперация</field>
+					<title xsi:type="xs:string">Хозяйственная операция</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НачалоПериода</dataPath>
+					<field>НачалоПериода</field>
+					<title xsi:type="xs:string">НачалоПериода</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+						<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<DateFractions>DateTime</DateFractions>
+						</DateQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КонецПериода</dataPath>
+					<field>КонецПериода</field>
+					<title xsi:type="xs:string">КонецПериода</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+						<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<DateFractions>DateTime</DateFractions>
+						</DateQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПравилоФакта</dataPath>
+					<field>ПравилоФакта</field>
+					<title xsi:type="xs:string">ПравилоФакта</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПравилаПолученияФактаПоСтатьямБюджетов</Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДвиженияДенежныхСредств.Регистратор КАК Регистратор,
+	ДвиженияДенежныхСредств.ПериодДень КАК ПериодДень,
+	ДвиженияДенежныхСредств.ПериодНеделя КАК ПериодНеделя,
+	ДвиженияДенежныхСредств.ПериодДекада КАК ПериодДекада,
+	ДвиженияДенежныхСредств.ПериодМесяц КАК ПериодМесяц,
+	ДвиженияДенежныхСредств.ПериодКвартал КАК ПериодКвартал,
+	ДвиженияДенежныхСредств.ПериодПолугодие КАК ПериодПолугодие,
+	ДвиженияДенежныхСредств.ПериодГод КАК ПериодГод,
+	ДвиженияДенежныхСредств.ПериодДень КАК ПериодКурса,
+	ДвиженияДенежныхСредств.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	ДвиженияДенежныхСредств.Организация КАК Организация,
+	ДвиженияДенежныхСредств.Подразделение КАК Подразделение,
+	ВЫБОР
+		КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+			ТОГДА ДвиженияДенежныхСредств.ДенежныеСредства
+		ИНАЧЕ ДвиженияДенежныхСредств.КорДенежныеСредства
+	КОНЕЦ КАК ДенежныеСредства,
+	ВЫБОР
+		КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+			ТОГДА ДвиженияДенежныхСредств.ТипДенежныхСредств
+		ИНАЧЕ ДвиженияДенежныхСредств.КорТипДенежныхСредств
+	КОНЕЦ КАК ТипДенежныхСредств,
+	ДвиженияДенежныхСредств.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
+	ДвиженияДенежныхСредств.Валюта КАК Валюта,
+	ВЫБОР
+		КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+			ТОГДА ДвиженияДенежныхСредств.КорДенежныеСредства
+		ИНАЧЕ ДвиженияДенежныхСредств.ДенежныеСредства
+	КОНЕЦ КАК КорДенежныеСредства,
+	ВЫБОР
+		КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+			ТОГДА ДвиженияДенежныхСредств.КорТипДенежныхСредств
+		ИНАЧЕ ДвиженияДенежныхСредств.ТипДенежныхСредств
+	КОНЕЦ КАК КорТипДенежныхСредств,
+	ДвиженияДенежныхСредств.СуммаОборот КАК Сумма,
+	ДвиженияДенежныхСредств.СуммаРеглОборот КАК СуммаРегл,
+	ДвиженияДенежныхСредств.СуммаВВалютеОборот КАК СуммаВВалюте,
+	ДвиженияДенежныхСредств.СуммаКВыплатеВРамкахЛимитаОборот КАК СуммаКВыплатеВРамкахЛимита,
+	ДвиженияДенежныхСредств.СуммаКВыплатеСверхЛимитаОборот КАК СуммаКВыплатеСверхЛимита,
+	ДвиженияДенежныхСредств.СуммаКВыплатеВРамкахЛимитаОборот + ДвиженияДенежныхСредств.СуммаКВыплатеСверхЛимитаОборот КАК СуммаКВыплате,
+	ДвиженияДенежныхСредств.НаправлениеДеятельности КАК НаправлениеДеятельности,
+	ДвиженияДенежныхСредств.КорНаправлениеДеятельности КАК КорНаправлениеДеятельности,
+	"ДвиженияДенежныхСредств" КАК ИдентификаторИсточникаДанных,
+	&amp;НачалоПериода,
+	&amp;КонецПериода,
+	&amp;ПравилоФакта
+{ВЫБРАТЬ	Регистратор.*,
+	ПериодДень,
+	ПериодНеделя,
+	ПериодДекада,
+	ПериодМесяц,
+	ПериодКвартал,
+	ПериодПолугодие,
+	ПериодГод,
+	ПериодКурса,
+	ХозяйственнаяОперация.*,
+	Организация.*,
+	Подразделение.*,
+	ДенежныеСредства.*,
+	ТипДенежныхСредств.*,
+	СтатьяДвиженияДенежныхСредств.*,
+	Валюта.*,
+	КорДенежныеСредства.*,
+	КорТипДенежныхСредств.*,
+	Сумма,
+	СуммаРегл,
+	СуммаВВалюте,
+	СуммаКВыплатеВРамкахЛимита,
+	СуммаКВыплатеСверхЛимита,
+	СуммаКВыплате,
+	НаправлениеДеятельности.*,
+	КорНаправлениеДеятельности.*,
+	ИдентификаторИсточникаДанных,
+	НачалоПериода,
+	КонецПериода,
+ПравилоФакта}
+ИЗ
+	РегистрНакопления.ДвиженияДенежныхСредств.Обороты(&amp;НачалоПериода, &amp;КонецПериода, Авто, {("ДвиженияДенежныхСредств") КАК ИдентификаторИсточникаДанных, (ХозяйственнаяОперация В (&amp;ХозяйственнаяОперация)), (ХозяйственнаяОперация).*, (СтатьяДвиженияДенежныхСредств).*, (Валюта).*, (Организация).*, (Подразделение).*, (НаправлениеДеятельности).*, (КорНаправлениеДеятельности).*}) КАК ДвиженияДенежныхСредств
+		{ЛЕВОЕ СОЕДИНЕНИЕ Справочник.НастройкиХозяйственныхОпераций КАК НастройкиХозяйственныхОпераций
+		ПО ДвиженияДенежныхСредств.ХозяйственнаяОперация = НастройкиХозяйственныхОпераций.ХозяйственнаяОперация}
+{ГДЕ
+	ДвиженияДенежныхСредств.Регистратор.*,
+	(ВЫБОР
+			КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+				ТОГДА ДвиженияДенежныхСредств.ДенежныеСредства
+			ИНАЧЕ ДвиженияДенежныхСредств.КорДенежныеСредства
+		КОНЕЦ).* КАК ДенежныеСредства,
+	(ВЫБОР
+			КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+				ТОГДА ДвиженияДенежныхСредств.ТипДенежныхСредств
+			ИНАЧЕ ДвиженияДенежныхСредств.КорТипДенежныхСредств
+		КОНЕЦ).* КАК ТипДенежныхСредств,
+	(ВЫБОР
+			КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+				ТОГДА ДвиженияДенежныхСредств.КорДенежныеСредства
+			ИНАЧЕ ДвиженияДенежныхСредств.ДенежныеСредства
+		КОНЕЦ).* КАК КорДенежныеСредства,
+	(ВЫБОР
+			КОГДА НастройкиХозяйственныхОпераций.Расход = ЗНАЧЕНИЕ(Перечисление.ТипыДанныхУчета.ДенежныеСредства)
+				ТОГДА ДвиженияДенежныхСредств.КорТипДенежныхСредств
+			ИНАЧЕ ДвиженияДенежныхСредств.ТипДенежныхСредств
+		КОНЕЦ).* КАК КорТипДенежныхСредств}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ДвиженияДенежныеСредстваКонтрагент</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДенежныеСредства</dataPath>
+					<field>ДенежныеСредства</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.КассыККМ</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.БанковскиеСчетаОрганизаций</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Кассы</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Договор</dataPath>
+					<field>Договор</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ДоговорыМеждуОрганизациями</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ДоговорыКонтрагентов</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ДоговорыКредитовИДепозитов</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Организации</Type>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОбъектРасчетов</dataPath>
+					<field>ОбъектРасчетов</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Организации</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Партнер</dataPath>
+					<field>Партнер</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Партнеры</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Подразделение</dataPath>
+					<field>Подразделение</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтруктураПредприятия</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>РасчетныйДокумент</dataPath>
+					<field>РасчетныйДокумент</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
+					<field>СтатьяДвиженияДенежныхСредств</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиДвиженияДенежныхСредств</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ТипДенежныхСредств</dataPath>
+					<field>ТипДенежныхСредств</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:EnumRef.ТипыДенежныхСредств</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаОплаты</dataPath>
+					<field>СуммаОплаты</field>
+					<title xsi:type="xs:string">Сумма оплаты</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаОплатыРегл</dataPath>
+					<field>СуммаОплатыРегл</field>
+					<title xsi:type="xs:string">Сумма оплаты регл</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаПостоплаты</dataPath>
+					<field>СуммаПостоплаты</field>
+					<title xsi:type="xs:string">Сумма постоплаты</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаПостоплатыРегл</dataPath>
+					<field>СуммаПостоплатыРегл</field>
+					<title xsi:type="xs:string">Сумма постоплаты регл</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаПредоплаты</dataPath>
+					<field>СуммаПредоплаты</field>
+					<title xsi:type="xs:string">Сумма предоплаты</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаПредоплатыРегл</dataPath>
+					<field>СуммаПредоплатыРегл</field>
+					<title xsi:type="xs:string">Сумма предоплаты регл</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДекада</dataPath>
+					<field>ПериодДекада</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодКвартал</dataPath>
+					<field>ПериодКвартал</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодНеделя</dataPath>
+					<field>ПериодНеделя</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодПолугодие</dataPath>
+					<field>ПериодПолугодие</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодГод</dataPath>
+					<field>ПериодГод</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+					<title xsi:type="xs:string">Валюта</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодКурса</dataPath>
+					<field>ПериодКурса</field>
+					<title xsi:type="xs:string">Период курса</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодДень</dataPath>
+					<field>ПериодДень</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаОплатыВВалютеПлатежа</dataPath>
+					<field>СуммаОплатыВВалютеПлатежа</field>
+					<title xsi:type="xs:string">Сумма оплаты в валюте платежа</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаПостоплатыВВалютеПлатежа</dataPath>
+					<field>СуммаПостоплатыВВалютеПлатежа</field>
+					<title xsi:type="xs:string">Сумма постоплаты в валюте платежа</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаПредоплатыВВалютеПлатежа</dataPath>
+					<field>СуммаПредоплатыВВалютеПлатежа</field>
+					<title xsi:type="xs:string">Сумма предоплаты в валюте платежа</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКВыплате</dataPath>
+					<field>СуммаКВыплате</field>
+					<title xsi:type="xs:string">Сумма к выплате</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКВыплатеВРамкахЛимита</dataPath>
+					<field>СуммаКВыплатеВРамкахЛимита</field>
+					<title xsi:type="xs:string">Сумма к выплате в рамках лимита</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКВыплатеСверхЛимита</dataPath>
+					<field>СуммаКВыплатеСверхЛимита</field>
+					<title xsi:type="xs:string">Сумма к выплате сверх лимита</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНДСВВалютеПлатежа</dataPath>
+					<field>СуммаНДСВВалютеПлатежа</field>
+					<title xsi:type="xs:string">Сумма НДСВВалюте платежа</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНДСРегл</dataPath>
+					<field>СуммаНДСРегл</field>
+					<title xsi:type="xs:string">Сумма НДСРегл</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНДС</dataPath>
+					<field>СуммаНДС</field>
+					<title xsi:type="xs:string">Сумма НДС</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаправлениеДеятельностиДС</dataPath>
+					<field>НаправлениеДеятельностиДС</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.НаправленияДеятельности</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НаправлениеДеятельностиКонтрагента</dataPath>
+					<field>НаправлениеДеятельностиКонтрагента</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.НаправленияДеятельности</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ИдентификаторИсточникаДанных</dataPath>
+					<field>ИдентификаторИсточникаДанных</field>
+					<title xsi:type="xs:string">Идентификатор источника данных</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХозяйственнаяОперация</dataPath>
+					<field>ХозяйственнаяОперация</field>
+					<title xsi:type="xs:string">Хозяйственная операция</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НачалоПериода</dataPath>
+					<field>НачалоПериода</field>
+					<title xsi:type="xs:string">НачалоПериода</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+						<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<DateFractions>DateTime</DateFractions>
+						</DateQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КонецПериода</dataPath>
+					<field>КонецПериода</field>
+					<title xsi:type="xs:string">КонецПериода</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+						<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<DateFractions>DateTime</DateFractions>
+						</DateQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПравилоФакта</dataPath>
+					<field>ПравилоФакта</field>
+					<title xsi:type="xs:string">ПравилоФакта</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПравилаПолученияФактаПоСтатьямБюджетов</Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДвиженияДенежныеСредстваКонтрагент.Регистратор КАК Регистратор,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодДень КАК ПериодДень,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодНеделя КАК ПериодНеделя,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодДекада КАК ПериодДекада,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодМесяц КАК ПериодМесяц,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодКвартал КАК ПериодКвартал,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодПолугодие КАК ПериодПолугодие,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодГод КАК ПериодГод,
+	ДвиженияДенежныеСредстваКонтрагент.ПериодДень КАК ПериодКурса,
+	ДвиженияДенежныеСредстваКонтрагент.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	ДвиженияДенежныеСредстваКонтрагент.Организация КАК Организация,
+	ДвиженияДенежныеСредстваКонтрагент.Подразделение КАК Подразделение,
+	ДвиженияДенежныеСредстваКонтрагент.ДенежныеСредства КАК ДенежныеСредства,
+	ДвиженияДенежныеСредстваКонтрагент.ТипДенежныхСредств КАК ТипДенежныхСредств,
+	ДвиженияДенежныеСредстваКонтрагент.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
+	ДвиженияДенежныеСредстваКонтрагент.ВалютаПлатежа КАК Валюта,
+	ДвиженияДенежныеСредстваКонтрагент.Партнер КАК Партнер,
+	ДвиженияДенежныеСредстваКонтрагент.Контрагент КАК Контрагент,
+	ДвиженияДенежныеСредстваКонтрагент.Договор КАК Договор,
+	ДвиженияДенежныеСредстваКонтрагент.ОбъектРасчетов КАК ОбъектРасчетов,
+	ДвиженияДенежныеСредстваКонтрагент.РасчетныйДокумент КАК РасчетныйДокумент,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаОплатыОборот КАК СуммаОплаты,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаОплатыРеглОборот КАК СуммаОплатыРегл,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаПостоплатыОборот КАК СуммаПостоплаты,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаПостоплатыРеглОборот КАК СуммаПостоплатыРегл,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаПредоплатыОборот КАК СуммаПредоплаты,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаПредоплатыРеглОборот КАК СуммаПредоплатыРегл,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаОплатыВВалютеПлатежаОборот КАК СуммаОплатыВВалютеПлатежа,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаПостоплатыВВалютеПлатежаОборот КАК СуммаПостоплатыВВалютеПлатежа,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаПредоплатыВВалютеПлатежаОборот КАК СуммаПредоплатыВВалютеПлатежа,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаНДСОборот КАК СуммаНДС,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаНДСРеглОборот КАК СуммаНДСРегл,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаНДСВВалютеПлатежаОборот КАК СуммаНДСВВалютеПлатежа,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаКВыплатеВРамкахЛимитаОборот КАК СуммаКВыплатеВРамкахЛимита,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаКВыплатеСверхЛимитаОборот КАК СуммаКВыплатеСверхЛимита,
+	ДвиженияДенежныеСредстваКонтрагент.СуммаКВыплатеВРамкахЛимитаОборот + ДвиженияДенежныеСредстваКонтрагент.СуммаКВыплатеСверхЛимитаОборот КАК СуммаКВыплате,
+	ДвиженияДенежныеСредстваКонтрагент.НаправлениеДеятельностиДС КАК НаправлениеДеятельностиДС,
+	ДвиженияДенежныеСредстваКонтрагент.НаправлениеДеятельностиКонтрагента КАК НаправлениеДеятельностиКонтрагента,
+	"ДвиженияДенежныеСредстваКонтрагент" КАК ИдентификаторИсточникаДанных,
+	&amp;НачалоПериода,
+	&amp;КонецПериода,
+	&amp;ПравилоФакта
+{ВЫБРАТЬ	Регистратор.*,
+	ПериодДень,
+	ПериодНеделя,
+	ПериодДекада,
+	ПериодМесяц,
+	ПериодКвартал,
+	ПериодГод,
+	ПериодПолугодие,
+	ПериодКурса,
+	ХозяйственнаяОперация.*,
+	Организация.*,
+	Подразделение.*,
+	ДенежныеСредства.*,
+	ТипДенежныхСредств.*,
+	СтатьяДвиженияДенежныхСредств.*,
+	Валюта.*,
+	Партнер.*,
+	Контрагент.*,
+	Договор.*,
+	ОбъектРасчетов.*,
+	РасчетныйДокумент.*,
+	СуммаОплаты,
+	СуммаОплатыРегл,
+	СуммаПостоплаты,
+	СуммаПостоплатыРегл,
+	СуммаПредоплаты,
+	СуммаПредоплатыРегл,
+	СуммаОплатыВВалютеПлатежа,
+	СуммаПостоплатыВВалютеПлатежа,
+	СуммаПредоплатыВВалютеПлатежа,
+	СуммаНДС,
+	СуммаНДСРегл,
+	СуммаНДСВВалютеПлатежа,
+	СуммаКВыплатеВРамкахЛимита,
+	СуммаКВыплатеСверхЛимита,
+	СуммаКВыплате,
+	НаправлениеДеятельностиДС.*,
+	НаправлениеДеятельностиКонтрагента.*,
+	ИдентификаторИсточникаДанных,
+	НачалоПериода,
+	КонецПериода,
+ПравилоФакта}
+ИЗ
+	РегистрНакопления.ДвиженияДенежныеСредстваКонтрагент.Обороты(&amp;НачалоПериода, &amp;КонецПериода, Авто, {("ДвиженияДенежныеСредстваКонтрагент") КАК ИдентификаторИсточникаДанных, (ХозяйственнаяОперация В (&amp;ХозяйственнаяОперация)), (ХозяйственнаяОперация).*, (ДенежныеСредства).*, (ТипДенежныхСредств).*, (СтатьяДвиженияДенежныхСредств).*, (ВалютаПлатежа).* КАК Валюта, (Контрагент).*, (Договор).*, (ОбъектРасчетов).*, (РасчетныйДокумент).*, (Организация).*, (Подразделение).*, (НаправлениеДеятельностиДС).*, (НаправлениеДеятельностиКонтрагента).*}) КАК ДвиженияДенежныеСредстваКонтрагент
+{ГДЕ
+	ДвиженияДенежныеСредстваКонтрагент.Регистратор.*}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ИД_B613396C210F13C48B886B4FD5DE3430</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Подразделение</dataPath>
+					<field>Подразделение</field>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтруктураПредприятия</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статус</dataPath>
+					<field>Статус</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
+					<field>СтатьяДвиженияДенежныхСредств</field>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиДвиженияДенежныхСредств</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<title xsi:type="xs:string">Регистратор</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХозяйственнаяОперация</dataPath>
+					<field>ХозяйственнаяОперация</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Организации</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаВВалюте</dataPath>
+					<field>СуммаВВалюте</field>
+					<title xsi:type="xs:string">Сумма в валюте</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xsi:type="xs:string">Сумма</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Период</dataPath>
+					<field>Период</field>
+					<title xsi:type="xs:string">Период</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НачалоПериода</dataPath>
+					<field>НачалоПериода</field>
+					<title xsi:type="xs:string">НачалоПериода</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+						<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<DateFractions>DateTime</DateFractions>
+						</DateQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КонецПериода</dataPath>
+					<field>КонецПериода</field>
+					<title xsi:type="xs:string">КонецПериода</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+						<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<DateFractions>DateTime</DateFractions>
+						</DateQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПравилоФакта</dataPath>
+					<field>ПравилоФакта</field>
+					<title xsi:type="xs:string">ПравилоФакта</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПравилаПолученияФактаПоСтатьямБюджетов</Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ИдентификаторИсточникаДанных</dataPath>
+					<field>ИдентификаторИсточникаДанных</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Идентификатор источника данных</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Док.Ссылка.ДатаПлатежа КАК Период,
+	Док.Ссылка КАК Регистратор,
+	Док.Ссылка.Подразделение КАК Подразделение,
+	Док.Ссылка.Статус КАК Статус,
+	Док.СуммаВзаиморасчетов КАК Сумма,
+	Док.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
+	Док.Ссылка.ХозяйственнаяОперация КАК ХозяйственнаяОперация,
+	Док.Ссылка.Валюта КАК Валюта,
+	Док.Сумма КАК СуммаВВалюте,
+	Док.Ссылка.Организация КАК Организация,
+	"ИД_B613396C210F13C48B886B4FD5DE3430" КАК ИдентификаторИсточникаДанных,
+	&amp;НачалоПериода,
+	&amp;КонецПериода,
+	&amp;ПравилоФакта
+{ВЫБРАТЬ	Период,
+	Регистратор,
+	Подразделение.*,
+	Статус.*,
+	Валюта.*,
+	СуммаВВалюте,
+	Сумма,
+	СтатьяДвиженияДенежныхСредств.*,
+	ХозяйственнаяОперация.*,
+	Организация.*,
+	ИдентификаторИсточникаДанных,
+	НачалоПериода,
+	КонецПериода,
+ПравилоФакта}
+ИЗ
+	Документ.ЗаявкаНаРасходованиеДенежныхСредств.РасшифровкаПлатежа КАК Док
+ГДЕ
+	Док.Ссылка.ДатаПлатежа МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И Док.Ссылка.Проведен
+	И НЕ Док.Ссылка.СверхЛимита
+{ГДЕ
+	Док.Ссылка.ДатаПлатежа КАК Период,
+	Док.Ссылка.* КАК Регистратор,
+	Док.Ссылка.Подразделение.* КАК Подразделение,
+	Док.Ссылка.Статус.* КАК Статус,
+	Док.СтатьяДвиженияДенежныхСредств.*}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL
+ИЗ
+	РегистрНакопления.ДвиженияДенежныеСредстваДоходыРасходы КАК РегПустой
+ГДЕ
+	ЛОЖЬ
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL
+ИЗ
+	РегистрНакопления.ДенежныеСредстваКВыплате КАК РегПустой
+ГДЕ
+	ЛОЖЬ</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+		</dataSet>
+		<dataSet xsi:type="DataSetObject">
+			<name>ТаблицаДопДанных</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УникальныйИдентификатор</dataPath>
+				<field>УникальныйИдентификатор</field>
+				<title xsi:type="xs:string">УникальныйИдентификатор</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НачалоПериода</dataPath>
+				<field>НачалоПериода</field>
+				<title xsi:type="xs:string">НачалоПериода</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КонецПериода</dataPath>
+				<field>КонецПериода</field>
+				<title xsi:type="xs:string">КонецПериода</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПравилоЛимита</dataPath>
+				<field>ПравилоЛимита</field>
+				<title xsi:type="xs:string">ПравилоЛимита</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ТипЛимита</dataPath>
+				<field>ТипЛимита</field>
+				<title xsi:type="xs:string">ТипЛимита</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяБюджета</dataPath>
+				<field>СтатьяБюджета</field>
+				<title xsi:type="xs:string">СтатьяБюджета</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПравилоФакта</dataPath>
+				<field>ПравилоФакта</field>
+				<title xsi:type="xs:string">ПравилоФакта</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ИспользуемыеАналитики</dataPath>
+				<field>ИспользуемыеАналитики</field>
+				<title xsi:type="xs:string">ИспользуемыеАналитики</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПоОрганизациям</dataPath>
+				<field>ПоОрганизациям</field>
+				<title xsi:type="xs:string">ПоОрганизациям</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПоПодразделениям</dataPath>
+				<field>ПоПодразделениям</field>
+				<title xsi:type="xs:string">ПоПодразделениям</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПрочиеЗначенияАналитик</dataPath>
+				<field>ПрочиеЗначенияАналитик</field>
+				<title xsi:type="xs:string">ПрочиеЗначенияАналитик</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОрганизацияПустоеЗначение</dataPath>
+				<field>ОрганизацияПустоеЗначение</field>
+				<title xsi:type="xs:string">ОрганизацияПустоеЗначение</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодразделениеПустоеЗначение</dataPath>
+				<field>ПодразделениеПустоеЗначение</field>
+				<title xsi:type="xs:string">ПодразделениеПустоеЗначение</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВидАналитики1</dataPath>
+				<field>ВидАналитики1</field>
+				<title xsi:type="xs:string">ВидАналитики1</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Аналитика1ПустоеЗначение</dataPath>
+				<field>Аналитика1ПустоеЗначение</field>
+				<title xsi:type="xs:string">Аналитика1ПустоеЗначение</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<objectName>ТаблицаДопДанных</objectName>
+		</dataSet>
+		<dataSetLink>
+			<sourceDataSet>ТаблицаПериодов</sourceDataSet>
+			<destinationDataSet>ОбъединенныйФакт</destinationDataSet>
+			<sourceExpression>НачалоПериода</sourceExpression>
+			<destinationExpression>НачалоПериода</destinationExpression>
+			<parameter>НачалоПериода</parameter>
+			<parameterListAllowed>false</parameterListAllowed>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>ТаблицаПериодов</sourceDataSet>
+			<destinationDataSet>ОбъединенныйФакт</destinationDataSet>
+			<sourceExpression>КонецПериода</sourceExpression>
+			<destinationExpression>КонецПериода</destinationExpression>
+			<parameter>КонецПериода</parameter>
+			<parameterListAllowed>false</parameterListAllowed>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>ТаблицаПериодов</sourceDataSet>
+			<destinationDataSet>ОбъединенныйФакт</destinationDataSet>
+			<sourceExpression>ПравилоФакта</sourceExpression>
+			<destinationExpression>ПравилоФакта</destinationExpression>
+			<parameter>ПравилоФакта</parameter>
+			<parameterListAllowed>false</parameterListAllowed>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>ОбъединенныйФакт</sourceDataSet>
+			<destinationDataSet>ТаблицаДопДанных</destinationDataSet>
+			<sourceExpression>НачалоПериода</sourceExpression>
+			<destinationExpression>НачалоПериода</destinationExpression>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>ОбъединенныйФакт</sourceDataSet>
+			<destinationDataSet>ТаблицаДопДанных</destinationDataSet>
+			<sourceExpression>КонецПериода</sourceExpression>
+			<destinationExpression>КонецПериода</destinationExpression>
+		</dataSetLink>
+		<dataSetLink>
+			<sourceDataSet>ОбъединенныйФакт</sourceDataSet>
+			<destinationDataSet>ТаблицаДопДанных</destinationDataSet>
+			<sourceExpression>ПравилоФакта</sourceExpression>
+			<destinationExpression>ПравилоФакта</destinationExpression>
+		</dataSetLink>
+		<calculatedField>
+			<dataPath>СтатьиДвиженияДенежныхСредств</dataPath>
+			<expression>СтатьяДвиженияДенежныхСредств</expression>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>Аналитика1_f40d813f_89ea_11e5_9424_00221531299d</dataPath>
+			<expression>СтатьяДвиженияДенежныхСредств</expression>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>Аналитика1_11b4a77e_89eb_11e5_9424_00221531299d</dataPath>
+			<expression>СтатьяДвиженияДенежныхСредств</expression>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>Аналитика1_b33ef75a_08c9_11e7_abe8_00221531299d</dataPath>
+			<expression>СтатьяДвиженияДенежныхСредств</expression>
+		</calculatedField>
+		<totalField>
+			<dataPath>СуммаОплатыВВалютеПлатежа</dataPath>
+			<expression>(-1) * Сумма(СуммаОплатыВВалютеПлатежа)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаВВалюте</dataPath>
+			<expression>(-1) * Сумма(СуммаВВалюте)</expression>
+		</totalField>
+		<parameter>
+			<name>КонецПериода</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Конец периода</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>НачалоПериода</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Начало периода</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ПравилоФакта</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Правило факта</d4p1:content>
+				</d4p1:item>
+			</title>
+			<value xsi:nil="true"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ХозяйственнаяОперация</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Хозяйственная операция</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:EnumRef.ХозяйственныеОперации</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">Перечисление.ХозяйственныеОперации.ПустаяСсылка</value>
+			<useRestriction>false</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Основной</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="xs:string">Основной</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

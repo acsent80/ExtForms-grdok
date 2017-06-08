@@ -2,21 +2,30 @@
 //auth via NTLM
 var v8cexe     = "C:/1CData/8.3.9.2170_x64/bin/1cv8c.exe";
 var v8exe      = "C:/1CData/8.3.9.2170_x64/bin/1cv8.exe";
-var server     = "gr-rphost-01";
-var sqlServer  = "gr-sql";
-var db         = "PLPK_K3_ERP"
-var cf         = "C:/1CData/release/1Cv8_2017-05-18.cf";
-var logFile    = "N:/gr/dok/Users/AppData/sitnikov.a/1CData/update.log";
+var server     = "server1c";
+var sqlServer  = "sql";
+var db         = "DBName";
+var cf         = "1Cv8.cf";
+var logFile    = "update.log";
 var unlockCode = "123321";
 var backupFile = "E:\\temp\\" + db + ".bak";
 
 var WshShell = WScript.CreateObject('WScript.Shell');
+var fso  = new ActiveXObject("Scripting.FileSystemObject");
 
 function GetDate() {
 
     var date = new Date;
     return date;
 
+}
+
+function log(str) {
+    WScript.Echo(str);
+    
+    var logFile = fso.OpenTextFile("debug.log", 8, true); 
+    logFile.WriteLine(str);     
+    logFile.close();
 }
 
 function Connect1C() {
@@ -35,7 +44,7 @@ function Connect1C() {
     }
 
     if (!cluster) {
-        WScript.Echo("Cluster not found");
+        log("Cluster not found");
         return undefined;
     }    
 
@@ -71,7 +80,7 @@ function Connect1C() {
 
 function ChangeIBParams1C(sessionsDenied) {
 
-    WScript.Echo("ChangeIBParams1C: " + GetDate());
+    log("ChangeIBParams1C: " + GetDate());
 
     var params = Connect1C();
     if (params) {
@@ -90,7 +99,7 @@ function ChangeIBParams1C(sessionsDenied) {
 
 function KillUsers1C() {
 
-    WScript.Echo("KillUsers1C: " + GetDate());
+    log("KillUsers1C: " + GetDate());
    
     var params = Connect1C();
     if (params) {
@@ -106,7 +115,7 @@ function KillUsers1C() {
         var connections = cwp.GetInfoBaseConnections(ibDesc).toArray();
         for (var i in connections) {
             var connection = connections[i];
-            WScript.Echo("kill: " + connection.ConnID);
+            log("kill: " + connection.ConnID);
             cwp.Disconnect(connection);
         }
  
@@ -114,7 +123,7 @@ function KillUsers1C() {
         for (var i in sessions) {
             var session = sessions[i];
             if (session.InfoBase.Name === infoBase.Name) {
-                WScript.Echo("kill: " + session.SessionID + ", " + session.UserName);
+                log("kill: " + session.SessionID + ", " + session.UserName);
                 serverAgent.TerminateSession(cluster, session);
             }    
         }
@@ -124,7 +133,7 @@ function KillUsers1C() {
 
 function BackupDB() {
 
-    WScript.Echo("BackupDB: " + GetDate());
+    log("BackupDB: " + GetDate());
 
     var queryText =
     "BACKUP DATABASE " + db + 
@@ -133,53 +142,53 @@ function BackupDB() {
     " FORMAT, COPY_ONLY, STATS";
 
 	var cmdText = "sqlcmd -E -S " + sqlServer + " -Q " + '"' + queryText + '"';
-    WScript.Echo(cmdText);
+    log(cmdText);
 
     WshShell.Run(cmdText, 1, true);
 }
 
 function LoadCF() {
-    WScript.Echo("LoadCF: " + GetDate());
+    log("LoadCF: " + GetDate());
     var cmdText = '"' + v8exe + '"' + " DESIGNER /S" + server + "\\" + db + " /UC" + unlockCode + " /LoadCfg" + cf;
-    WScript.Echo(cmdText);
+    log(cmdText);
     WshShell.Run(cmdText, 1, true);
 }
 
 function UpdateDB() {
-    WScript.Echo("UpdateDB: " + GetDate());
+    log("UpdateDB: " + GetDate());
     var cmdText = '"' + v8exe + '"' + " DESIGNER /S" + server + "\\" + db + " /UC" + unlockCode + " /UpdateDBCfg -Server /Out" + logFile;
-    WScript.Echo(cmdText);
+    log(cmdText);
     WshShell.Run(cmdText, 1, true);
 }
 
 function Start1C() {
-    WScript.Echo("Start1C: " + GetDate());
+    log("Start1C: " + GetDate());
     var cmdText = '"' + v8cexe + '"' + " ENTERPRISE /S" + server + "\\" + db + " /UC" + unlockCode + " /CВыполнитьОбновлениеИЗавершитьРаботу";
-    WScript.Echo(cmdText);
+    log(cmdText);
     WshShell.Run(cmdText, 1, false);
 }
 
 function run() {
 
-    fs = new ActiveXObject("Scripting.FileSystemObject");
-    if (!fs.FileExists(cf)) {
-        WScript.Echo("File not found: " + cf);
+    log(db);
+
+    if (!fso.FileExists(cf)) {
+        log("File not found: " + cf);
         return;
     }
 
-    BackupDB();
+    if (db === "PLPK_K3_ERP") {
+        BackupDB();
+    }
+
     LoadCF();
     ChangeIBParams1C(true);
     KillUsers1C()
 
-    WScript.Sleep(1000);
+//    WScript.Sleep(1000);
 
     UpdateDB();
     Start1C();
     ChangeIBParams1C(false);
 
 }
-
-run();
-
-

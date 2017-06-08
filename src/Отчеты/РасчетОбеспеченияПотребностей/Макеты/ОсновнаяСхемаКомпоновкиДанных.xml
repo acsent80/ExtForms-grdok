@@ -149,6 +149,24 @@
 					</d5p1:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВариантОбеспечения</dataPath>
+				<field>ВариантОбеспечения</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДатаОтгрузки</dataPath>
+				<field>ДатаОтгрузки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СвободыйОстаток</dataPath>
+				<field>СвободыйОстаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Свободый остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<item xsi:type="DataSetQuery">
 				<name>ЗаказыКлиента</name>
 				<field xsi:type="DataSetFieldField">
@@ -259,6 +277,34 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ВариантОбеспечения</dataPath>
+					<field>ВариантОбеспечения</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДатаОтгрузки</dataPath>
+					<field>ДатаОтгрузки</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ВНаличии</dataPath>
+					<field>ВНаличии</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>В наличии</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоПроизводство</dataPath>
+					<field>КоличествоПроизводство</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Количество производство</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Рег.ЗаказКлиента КАК Документ,
@@ -268,6 +314,8 @@
 	Рег.Склад КАК Склад,
 	Рег.Серия КАК Серия,
 	Рег.ЗаказаноОстаток КАК Заказано,
+	ДокТовары.ВариантОбеспечения КАК ВариантОбеспечения,
+	ДокТовары.Ссылка.ДатаОтгрузки КАК ДатаОтгрузки,
 	ВЫБОР
 		КОГДА ДокТовары.ВариантОбеспечения В (ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.Требуется), ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.Обособленно))
 			ТОГДА Рег.ЗаказаноОстаток
@@ -284,10 +332,20 @@
 		ИНАЧЕ 0
 	КОНЕЦ КАК РезервироватьНаСкладе,
 	ВЫБОР
+		КОГДА ДокТовары.ВариантОбеспечения В (ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.ИзЗаказов))
+			ТОГДА -Рег.ЗаказаноОстаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоПроизводство,
+	ВЫБОР
 		КОГДА ДокТовары.ВариантОбеспечения В (ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.Отгрузить), ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.ОтгрузитьОбособленно))
 			ТОГДА Рег.ЗаказаноОстаток
 		ИНАЧЕ 0
 	КОНЕЦ КАК Отгрузить,
+	ВЫБОР
+		КОГДА ДокТовары.ВариантОбеспечения В (ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.Отгрузить), ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.ОтгрузитьОбособленно))
+			ТОГДА -Рег.ЗаказаноОстаток
+		ИНАЧЕ 0
+	КОНЕЦ КАК ВНаличии,
 	Рег.ЗаказКлиента.Назначение КАК Назначение
 {ВЫБРАТЬ
 	Документ.*,
@@ -297,16 +355,23 @@
 	КодСтроки,
 	Склад.*,
 	Серия.*,
+	ВариантОбеспечения.*,
+	ДатаОтгрузки,
 	Заказано,
 	КОбеспечению,
 	РезервироватьКДате,
 	РезервироватьНаСкладе,
-	Отгрузить}
+	Отгрузить,
+	КоличествоПроизводство,
+	ВНаличии}
 ИЗ
 	РегистрНакопления.ЗаказыКлиентов.Остатки(, {(ЗаказКлиента).* КАК Документ, (Номенклатура).*, (Характеристика).*, (Склад).*, (Серия).*, (КодСтроки), (ЗаказКлиента.Назначение).* КАК Назначение}) КАК Рег
 		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ЗаказКлиента.Товары КАК ДокТовары
 		ПО Рег.ЗаказКлиента = ДокТовары.Ссылка
-			И Рег.КодСтроки = ДокТовары.КодСтроки</query>
+			И Рег.КодСтроки = ДокТовары.КодСтроки
+{ГДЕ
+	ДокТовары.ВариантОбеспечения.* КАК ВариантОбеспечения,
+	ДокТовары.ДатаОтгрузки}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -386,23 +451,49 @@
 						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
 					</role>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДатаОтгрузки</dataPath>
+					<field>ДатаОтгрузки</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Дата отгрузки</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Документ</dataPath>
+					<field>Документ</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Документ</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
+	"Остатки" КАК Документ,
 	Рег.Номенклатура КАК Номенклатура,
 	Рег.Характеристика КАК Характеристика,
 	Рег.Склад КАК Склад,
 	Рег.Серия КАК Серия,
 	Рег.ВНаличииОстаток КАК ВНаличии,
-	Рег.Назначение КАК Назначение
+	Рег.Назначение КАК Назначение,
+	ДАТАВРЕМЯ(1, 1, 1) КАК ДатаОтгрузки
 {ВЫБРАТЬ
+	Документ,
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
 	Серия.*,
 	ВНаличии,
-	Назначение.*}
+	Назначение.*,
+	ДатаОтгрузки}
 ИЗ
-	РегистрНакопления.ТоварыНаСкладах.Остатки(, {(Номенклатура).*, (Характеристика).*, (Склад).*, (Серия).*, (Назначение).*}) КАК Рег</query>
+	РегистрНакопления.ТоварыНаСкладах.Остатки(, {(Номенклатура).*, (Характеристика).*, (Склад).*, (Серия).*, (Назначение).*}) КАК Рег
+{ГДЕ
+	(ДАТАВРЕМЯ(1, 1, 1)) КАК ДатаОтгрузки}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -447,6 +538,16 @@
 					<dataPath>Характеристика</dataPath>
 					<field>Характеристика</field>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДатаОтгрузки</dataPath>
+					<field>ДатаОтгрузки</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Дата отгрузки</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Рег.Номенклатура КАК Номенклатура,
@@ -454,14 +555,16 @@
 	Рег.Склад КАК Склад,
 	Рег.Назначение КАК Назначение,
 	Рег.Регистратор КАК Документ,
-	Рег.КоличествоИзЗаказов + Рег.КоличествоПодЗаказ КАК КоличествоПроизводство
+	Рег.КоличествоИзЗаказов + Рег.КоличествоПодЗаказ КАК КоличествоПроизводство,
+	ДАТАВРЕМЯ(1, 1, 1) КАК ДатаОтгрузки
 {ВЫБРАТЬ
 	Номенклатура.*,
 	Характеристика.*,
 	Склад.*,
 	Назначение.*,
 	Документ.*,
-	КоличествоПроизводство}
+	КоличествоПроизводство,
+	ДатаОтгрузки}
 ИЗ
 	РегистрНакопления.ГрафикПоступленияТоваров КАК Рег
 {ГДЕ
@@ -469,10 +572,95 @@
 	Рег.Характеристика.*,
 	Рег.Склад.*,
 	Рег.Назначение.*,
-	Рег.Регистратор.* КАК Документ}</query>
+	Рег.Регистратор.* КАК Документ,
+	(ДАТАВРЕМЯ(1, 1, 1)) КАК ДатаОтгрузки}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>СвободныеОстаки</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДатаОтгрузки</dataPath>
+					<field>ДатаОтгрузки</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Дата отгрузки</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Характеристика</dataPath>
+					<field>Характеристика</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Склад</dataPath>
+					<field>Склад</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Номенклатура</dataPath>
+					<field>Номенклатура</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Назначение</dataPath>
+					<field>Назначение</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Назначение</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СвободыйОстаток</dataPath>
+					<field>СвободыйОстаток</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Свободый остаток</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Рег.Номенклатура КАК Номенклатура,
+	Рег.Характеристика КАК Характеристика,
+	Рег.Склад КАК Склад,
+	Рег.ВНаличииОстаток КАК СвободыйОстаток,
+	ДАТАВРЕМЯ(1, 1, 1) КАК ДатаОтгрузки,
+	ЗНАЧЕНИЕ(Справочник.Назначения.ПустаяСсылка) КАК Назначение
+{ВЫБРАТЬ
+	Номенклатура.*,
+	Характеристика.*,
+	Склад.*,
+	СвободыйОстаток,
+	ДатаОтгрузки,
+	Назначение.*}
+ИЗ
+	РегистрНакопления.СвободныеОстатки.Остатки(, {(Номенклатура).*, (Характеристика).*, (Склад).*}) КАК Рег
+{ГДЕ
+	(ДАТАВРЕМЯ(1, 1, 1)) КАК ДатаОтгрузки}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 		</dataSet>
+		<calculatedField>
+			<dataPath>ИтогоКОбеспечению</dataPath>
+			<expression>0</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Итого к обеспечению</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
 		<totalField>
 			<dataPath>КОбеспечению</dataPath>
 			<expression>Сумма(КОбеспечению)</expression>
@@ -496,6 +684,16 @@
 		<totalField>
 			<dataPath>КоличествоПроизводство</dataPath>
 			<expression>Сумма(КоличествоПроизводство)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СвободыйОстаток</dataPath>
+			<expression>Сумма(СвободыйОстаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ИтогоКОбеспечению</dataPath>
+			<expression>Сумма(КОбеспечению) - 
+ЕСТЬNULL(Сумма(СвободыйОстаток), 0) - 
+ЕСТЬNULL(Сумма(КоличествоПроизводство), 0)</expression>
 		</totalField>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Расчет обеспечения потребностей</name>
@@ -551,13 +749,70 @@
 			<comparisonType>Equal</comparisonType>
 			<userSettingID>707550ee-f327-47a0-bc1e-40939dfb4c1f</userSettingID>
 		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ДатаОтгрузки</left>
+			<comparisonType>LessOrEqual</comparisonType>
+			<right xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+				<v8:date>0001-01-01T00:00:00</v8:date>
+			</right>
+			<userSettingID>968def38-943b-4fc8-bf64-4381dcec340b</userSettingID>
+		</item>
 	</filter>
+	<order>
+		<item xsi:type="OrderItemField">
+			<field>Документ.ДатаОтгрузки</field>
+			<orderType>Asc</orderType>
+		</item>
+		<item xsi:type="OrderItemField">
+			<field>Документ.Номер</field>
+			<orderType>Asc</orderType>
+		</item>
+	</order>
 	<outputParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
 			<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
 		</dcscor:item>
 	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Характеристика</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemField">
+				<field>Характеристика</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>КОбеспечению</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>ВНаличии</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>КоличествоПроизводство</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>ИтогоКОбеспечению</field>
+			</item>
+		</selection>
+		<outputParameters>
+			<dcscor:item xsi:type="SettingsParameterValue">
+				<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+				<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+			</dcscor:item>
+		</outputParameters>
+	</item>
 	<item xsi:type="StructureItemGroup">
 		<groupItems>
 			<item xsi:type="GroupItemField">
@@ -592,6 +847,13 @@
 			<groupItems>
 				<item xsi:type="GroupItemField">
 					<field>Документ</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>ДатаОтгрузки</field>
 					<groupType>Items</groupType>
 					<periodAdditionType>None</periodAdditionType>
 					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>

@@ -8,6 +8,36 @@
 		<dataSet xsi:type="DataSetUnion">
 			<name>Объединение</name>
 			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКт</dataPath>
+				<field>СуммаКт</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма кт</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НомерГТДЭкспортный</dataPath>
+				<field>НомерГТДЭкспортный</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Номер ГТДЭкспортный</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаДт</dataPath>
+				<field>СуммаДт</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма дт</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
 				<dataPath>Контрагент</dataPath>
 				<field>Контрагент</field>
 				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
@@ -18,39 +48,31 @@
 				</title>
 				<role>
 					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>Валюта</dataPath>
-				<field>Валюта</field>
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
 				<role>
 					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
 				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>СуммаКонОст</dataPath>
-				<field>СуммаКонОст</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Сумма кон ост</d5p1:content>
-					</d5p1:item>
-				</title>
-				<appearance>
-					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
-						<use>false</use>
-						<parameter>МинимальнаяШирина</parameter>
-						<value xsi:type="xs:decimal">13</value>
-					</item>
-				</appearance>
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>СуммаНачОст</dataPath>
-				<field>СуммаНачОст</field>
+				<dataPath>ПаспортСделки</dataPath>
+				<field>ПаспортСделки</field>
 				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
 					<d5p1:item>
 						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Сумма нач ост</d5p1:content>
+						<d5p1:content>Паспорт сделки</d5p1:content>
 					</d5p1:item>
 				</title>
 			</field>
@@ -68,58 +90,120 @@
 				</role>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>Организация</dataPath>
-				<field>Организация</field>
+				<dataPath>СуммаНачОстКт</dataPath>
+				<field>СуммаНачОстКт</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма нач ост кт</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+					<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Credit</accountingBalanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКонОстКт</dataPath>
+				<field>СуммаКонОстКт</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма кон ост кт</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+					<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Credit</accountingBalanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Период</dataPath>
+				<field>Период</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКонОстДт</dataPath>
+				<field>СуммаКонОстДт</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма кон ост дт</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+					<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Debit</accountingBalanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаНачОстДт</dataPath>
+				<field>СуммаНачОстДт</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма нач ост дт</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+					<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Debit</accountingBalanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаКонОст</dataPath>
+				<field>СуммаКонОст</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма кон ост</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуммаНачОст</dataPath>
+				<field>СуммаНачОст</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма нач ост</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+					<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
+					<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Валюта</dataPath>
+				<field>Валюта</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Валюта</d5p1:content>
+					</d5p1:item>
+				</title>
 				<role>
 					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>Регистратор</dataPath>
-				<field>Регистратор</field>
-				<role>
 					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>НомерГТДЭкспортный</dataPath>
-				<field>НомерГТДЭкспортный</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Номер ГТД экспортный</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>ПаспортСделки</dataPath>
-				<field>ПаспортСделки</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Паспорт сделки</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СуммаКт</dataPath>
-				<field>СуммаКт</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Сумма Кт</d5p1:content>
-					</d5p1:item>
-				</title>
-			</field>
-			<field xsi:type="DataSetFieldField">
-				<dataPath>СуммаДт</dataPath>
-				<field>СуммаДт</field>
-				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
-					<d5p1:item>
-						<d5p1:lang>ru</d5p1:lang>
-						<d5p1:content>Сумма Дт</d5p1:content>
-					</d5p1:item>
-				</title>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>СуммаПС</dataPath>
@@ -132,7 +216,37 @@
 				</title>
 			</field>
 			<item xsi:type="DataSetQuery">
-				<name>Остатки</name>
+				<name>ОстаткиВал</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКт</dataPath>
+					<field>СуммаКт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма кт</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>НомерГТДЭкспортный</dataPath>
+					<field>НомерГТДЭкспортный</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Номер ГТДЭкспортный</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаДт</dataPath>
+					<field>СуммаДт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма дт</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Контрагент</dataPath>
 					<field>Контрагент</field>
@@ -148,11 +262,114 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Валюта</dataPath>
-					<field>Валюта</field>
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПаспортСделки</dataPath>
+					<field>ПаспортСделки</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Паспорт сделки</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Договор</dataPath>
+					<field>Договор</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Договор</d6p1:content>
+						</d6p1:item>
+					</title>
 					<role>
 						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
 						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНачОстКт</dataPath>
+					<field>СуммаНачОстКт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма нач ост кт</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Credit</accountingBalanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКонОстКт</dataPath>
+					<field>СуммаКонОстКт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма кон ост кт</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Credit</accountingBalanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Период</dataPath>
+					<field>Период</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКонОстДт</dataPath>
+					<field>СуммаКонОстДт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма кон ост дт</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Debit</accountingBalanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНачОстДт</dataPath>
+					<field>СуммаНачОстДт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма нач ост дт</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Debit</accountingBalanceType>
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
@@ -186,85 +403,80 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Договор</dataPath>
-					<field>Договор</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Договор</d6p1:content>
-						</d6p1:item>
-					</title>
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
 					<role>
 						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
 						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>Организация</dataPath>
-					<field>Организация</field>
-					<role>
-						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ПаспортСделки</dataPath>
-					<field>ПаспортСделки</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Паспорт сделки</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаПС</dataPath>
-					<field>СуммаПС</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма ПС</d6p1:content>
-						</d6p1:item>
-					</title>
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Рег.Организация КАК Организация,
 	ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.Контрагенты) КАК Контрагент,
 	ВЫРАЗИТЬ(Рег.Субконто2 КАК Справочник.ДоговорыКонтрагентов) КАК Договор,
-	Рег.Валюта КАК Валюта,
 	Рег.ВалютнаяСуммаНачальныйОстаток КАК СуммаНачОст,
+	Рег.ВалютнаяСуммаНачальныйОстатокДт КАК СуммаНачОстДт,
+	Рег.ВалютнаяСуммаНачальныйОстатокКт КАК СуммаНачОстКт,
 	Рег.ВалютнаяСуммаКонечныйОстаток КАК СуммаКонОст,
+	Рег.ВалютнаяСуммаКонечныйОстатокДт КАК СуммаКонОстДт,
+	Рег.ВалютнаяСуммаКонечныйОстатокКт КАК СуммаКонОстКт,
+	ВЫБОР
+		КОГДА Рег.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
+			ТОГДА Рег.ВалютнаяСуммаОборотДт - Рег.ВалютнаяСуммаОборотКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаДт,
+	ВЫБОР
+		КОГДА Рег.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
+			ТОГДА 0
+		ИНАЧЕ Рег.ВалютнаяСуммаОборотКт
+	КОНЕЦ КАК СуммаКт,
 	ДоговорыКонтрагентов._ПаспортСделки КАК ПаспортСделки,
-	ДоговорыКонтрагентов._ПаспортСделки.Сумма КАК СуммаПС
+	РеализацияТоваровУслуг._НомерГТДЭкспортный КАК НомерГТДЭкспортный,
+	Рег.Регистратор КАК Регистратор,
+	Рег.Период КАК Период,
+	Рег.Валюта КАК Валюта
 {ВЫБРАТЬ
 	Организация.*,
 	Контрагент.*,
 	Договор.*,
-	Валюта.*,
+	СуммаНачОстДт,
+	СуммаНачОстКт,
+	СуммаКонОстДт,
+	СуммаКонОстКт,
+	СуммаДт,
+	СуммаКт,
+	ПаспортСделки.*,
+	НомерГТДЭкспортный.*,
+	Регистратор.*,
+	Период,
 	СуммаНачОст,
 	СуммаКонОст,
-	ПаспортСделки.*,
-	СуммаПС}
+	Валюта.*}
 ИЗ
-	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, , Движения, Счет В ИЕРАРХИИ (&amp;Счет62), , {(Организация).*, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.Контрагенты)).* КАК Контрагент, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.ДоговорыКонтрагентов)).* КАК Договор}) КАК Рег
+	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Регистратор, Движения, Счет В ИЕРАРХИИ (&amp;Счет62Вал), , {(Организация).*, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.Контрагенты)).* КАК Контрагент, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.ДоговорыКонтрагентов)).* КАК Договор}) КАК Рег
 		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ДоговорыКонтрагентов КАК ДоговорыКонтрагентов
-		ПО Рег.Субконто2 = ДоговорыКонтрагентов.Ссылка</query>
+		ПО Рег.Субконто2 = ДоговорыКонтрагентов.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг КАК РеализацияТоваровУслуг
+		ПО Рег.Регистратор = РеализацияТоваровУслуг.Ссылка
+ГДЕ
+	(Рег.ВалютнаяСуммаОборотДт &lt;&gt; 0
+			ИЛИ Рег.ВалютнаяСуммаОборотКт &lt;&gt; 0)
+{ГДЕ
+	Рег.Регистратор.*}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
-				<name>Движения</name>
+				<name>ПаспортСделки</name>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Организация</dataPath>
-					<field>Организация</field>
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
 						<d6p1:item>
 							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Организация</d6p1:content>
+							<d6p1:content>Регистратор</d6p1:content>
 						</d6p1:item>
 					</title>
-					<role>
-						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
-					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Контрагент</dataPath>
@@ -281,12 +493,112 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Регистратор</dataPath>
-					<field>Регистратор</field>
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Валюта</d6p1:content>
+						</d6p1:item>
+					</title>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
-						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаПС</dataPath>
+					<field>СуммаПС</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма ПС</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПаспортСделки</dataPath>
+					<field>ПаспортСделки</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Паспорт сделки</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Договор</dataPath>
+					<field>Договор</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Договор</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Рег.Организация КАК Организация,
+	ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.Контрагенты) КАК Контрагент,
+	ВЫРАЗИТЬ(Рег.Субконто2 КАК Справочник.ДоговорыКонтрагентов) КАК Договор,
+	ЕСТЬNULL(Рег.Валюта, ВалютаРегламентированногоУчета.Значение) КАК Валюта,
+	ДоговорыКонтрагентов._ПаспортСделки КАК ПаспортСделки,
+	ДоговорыКонтрагентов._ПаспортСделки.Сумма КАК СуммаПС,
+	NULL КАК Регистратор
+{ВЫБРАТЬ
+	Организация.*,
+	Контрагент.*,
+	Договор.*,
+	Валюта.*,
+	ПаспортСделки.*,
+	СуммаПС,
+	Регистратор}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, , Движения, Счет В ИЕРАРХИИ (&amp;Счет62), , {(Организация).*, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.Контрагенты)).* КАК Контрагент, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.ДоговорыКонтрагентов)).* КАК Договор}) КАК Рег
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ДоговорыКонтрагентов КАК ДоговорыКонтрагентов
+		ПО Рег.Субконто2 = ДоговорыКонтрагентов.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
+		ПО (ИСТИНА)</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ОстаткиРуб</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКонОстДт</dataPath>
+					<field>СуммаКонОстДт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма кон ост дт</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Debit</accountingBalanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКт</dataPath>
+					<field>СуммаКт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма кт</d6p1:content>
+						</d6p1:item>
+					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>НомерГТДЭкспортный</dataPath>
@@ -299,11 +611,126 @@
 					</title>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Валюта</dataPath>
-					<field>Валюта</field>
+					<dataPath>СуммаКонОст</dataPath>
+					<field>СуммаКонОст</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма кон ост</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаДт</dataPath>
+					<field>СуммаДт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма дт</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Контрагент</d6p1:content>
+						</d6p1:item>
+					</title>
 					<role>
 						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
 						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНачОстКт</dataPath>
+					<field>СуммаНачОстКт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма нач ост кт</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Credit</accountingBalanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаНачОст</dataPath>
+					<field>СуммаНачОст</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма нач ост</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СуммаКонОстКт</dataPath>
+					<field>СуммаКонОстКт</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма кон ост кт</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">ClosingBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Credit</accountingBalanceType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПаспортСделки</dataPath>
+					<field>ПаспортСделки</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Паспорт сделки</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Валюта</dataPath>
+					<field>Валюта</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Период</dataPath>
+					<field>Период</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
@@ -321,98 +748,80 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>ПаспортСделки</dataPath>
-					<field>ПаспортСделки</field>
+					<dataPath>СуммаНачОстДт</dataPath>
+					<field>СуммаНачОстДт</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
 						<d6p1:item>
 							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Паспорт сделки</d6p1:content>
+							<d6p1:content>Сумма нач ост дт</d6p1:content>
 						</d6p1:item>
 					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаКт</dataPath>
-					<field>СуммаКт</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма кт</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаДт</dataPath>
-					<field>СуммаДт</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма дт</d6p1:content>
-						</d6p1:item>
-					</title>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>СуммаПС</dataPath>
-					<field>СуммаПС</field>
-					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
-						<d6p1:item>
-							<d6p1:lang>ru</d6p1:lang>
-							<d6p1:content>Сумма ПС</d6p1:content>
-						</d6p1:item>
-					</title>
+					<role>
+						<balance xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</balance>
+						<balanceGroupName xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Сумма2</balanceGroupName>
+						<balanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">OpeningBalance</balanceType>
+						<accountingBalanceType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Debit</accountingBalanceType>
+					</role>
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
-	Рег.Регистратор КАК Регистратор,
 	Рег.Организация КАК Организация,
 	ВЫРАЗИТЬ(Рег.Субконто1 КАК Справочник.Контрагенты) КАК Контрагент,
 	ВЫРАЗИТЬ(Рег.Субконто2 КАК Справочник.ДоговорыКонтрагентов) КАК Договор,
-	Рег.Валюта КАК Валюта,
-	Рег.ВалютнаяСуммаОборотДт КАК СуммаДт,
-	Рег.ВалютнаяСуммаОборотКт КАК СуммаКт,
-	РеализацияТоваровУслуг._НомерГТДЭкспортный КАК НомерГТДЭкспортный,
+	Рег.СуммаНачальныйОстаток КАК СуммаНачОст,
+	Рег.СуммаНачальныйОстатокДт КАК СуммаНачОстДт,
+	Рег.СуммаНачальныйОстатокКт КАК СуммаНачОстКт,
+	Рег.СуммаКонечныйОстаток КАК СуммаКонОст,
+	Рег.СуммаКонечныйОстатокДт КАК СуммаКонОстДт,
+	Рег.СуммаКонечныйОстатокКт КАК СуммаКонОстКт,
+	ВЫБОР
+		КОГДА Рег.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
+			ТОГДА Рег.СуммаОборотДт - Рег.СуммаОборотКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК СуммаДт,
+	ВЫБОР
+		КОГДА Рег.Регистратор ССЫЛКА Документ.РеализацияТоваровУслуг
+			ТОГДА 0
+		ИНАЧЕ Рег.СуммаОборотКт
+	КОНЕЦ КАК СуммаКт,
 	ДоговорыКонтрагентов._ПаспортСделки КАК ПаспортСделки,
-	0 КАК СуммаПС
+	РеализацияТоваровУслуг._НомерГТДЭкспортный КАК НомерГТДЭкспортный,
+	Рег.Регистратор КАК Регистратор,
+	Рег.Период КАК Период,
+	ВалютаРегламентированногоУчета.Значение КАК Валюта
 {ВЫБРАТЬ
-	Регистратор.*,
-	НомерГТДЭкспортный.*,
 	Организация.*,
 	Контрагент.*,
 	Договор.*,
-	Валюта.*,
-	ПаспортСделки.*,
+	СуммаНачОстДт,
+	СуммаНачОстКт,
+	СуммаКонОстДт,
+	СуммаКонОстКт,
 	СуммаДт,
 	СуммаКт,
-	СуммаПС}
+	ПаспортСделки.*,
+	НомерГТДЭкспортный.*,
+	Регистратор.*,
+	Период,
+	СуммаНачОст,
+	СуммаКонОст,
+	Валюта.*}
 ИЗ
-	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Регистратор, Счет В ИЕРАРХИИ (&amp;Счет62), , {(Организация).*, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.Контрагенты)).* КАК Контрагент, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.ДоговорыКонтрагентов)).* КАК Договор}, НЕ КорСчет В ИЕРАРХИИ (&amp;Счет62), ) КАК Рег
-		ЛЕВОЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг КАК РеализацияТоваровУслуг
-		ПО Рег.Регистратор = РеализацияТоваровУслуг.Ссылка
+	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Регистратор, Движения, Счет В ИЕРАРХИИ (&amp;Счет62руб), , {(Организация).*, (ВЫРАЗИТЬ(Субконто1 КАК Справочник.Контрагенты)).* КАК Контрагент, (ВЫРАЗИТЬ(Субконто2 КАК Справочник.ДоговорыКонтрагентов)).* КАК Договор}) КАК Рег
 		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ДоговорыКонтрагентов КАК ДоговорыКонтрагентов
 		ПО Рег.Субконто2 = ДоговорыКонтрагентов.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.РеализацияТоваровУслуг КАК РеализацияТоваровУслуг
+		ПО Рег.Регистратор = РеализацияТоваровУслуг.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
+		ПО (ИСТИНА)
 ГДЕ
-	(Рег.ВалютнаяСуммаОборотДт &lt;&gt; 0
-			ИЛИ Рег.ВалютнаяСуммаОборотКт &lt;&gt; 0)</query>
+	(Рег.СуммаОборотДт &lt;&gt; 0
+			ИЛИ Рег.СуммаОборотКт &lt;&gt; 0)
+{ГДЕ
+	Рег.Регистратор.*}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 		</dataSet>
-		<calculatedField>
-			<dataPath>КонтрольСуммыПС</dataPath>
-			<expression>СуммаПС - СуммаКт</expression>
-			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Контроль суммы ПС</d4p1:content>
-				</d4p1:item>
-			</title>
-		</calculatedField>
-		<totalField>
-			<dataPath>СуммаНачОст</dataPath>
-			<expression>Сумма(СуммаНачОст)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>СуммаКонОст</dataPath>
-			<expression>Сумма(СуммаКонОст)</expression>
-		</totalField>
 		<totalField>
 			<dataPath>СуммаДт</dataPath>
 			<expression>Сумма(СуммаДт)</expression>
@@ -422,37 +831,33 @@
 			<expression>Сумма(СуммаКт)</expression>
 		</totalField>
 		<totalField>
+			<dataPath>СуммаКонОстКт</dataPath>
+			<expression>Сумма(СуммаКонОстКт)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаНачОстКт</dataPath>
+			<expression>Сумма(СуммаНачОстКт)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаКонОстДт</dataPath>
+			<expression>Сумма(СуммаКонОстДт)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаНачОстДт</dataPath>
+			<expression>Сумма(СуммаНачОстДт)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаНачОст</dataPath>
+			<expression>Сумма(СуммаНачОст)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СуммаКонОст</dataPath>
+			<expression>Сумма(СуммаКонОст)</expression>
+		</totalField>
+		<totalField>
 			<dataPath>СуммаПС</dataPath>
 			<expression>Сумма(СуммаПС)</expression>
 		</totalField>
-		<totalField>
-			<dataPath>КонтрольСуммыПС</dataPath>
-			<expression>Сумма(КонтрольСуммыПС)</expression>
-		</totalField>
-		<totalField>
-			<dataPath>КонтрольСуммыПС</dataPath>
-			<expression>0</expression>
-			<group>Регистратор</group>
-		</totalField>
-		<totalField>
-			<dataPath>СуммаПС</dataPath>
-			<expression>0</expression>
-			<group>Регистратор</group>
-		</totalField>
-		<parameter>
-			<name>Счет62</name>
-			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
-				<d4p1:item>
-					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Счет62</d4p1:content>
-				</d4p1:item>
-			</title>
-			<valueType>
-				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
-			</valueType>
-			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиИЗаказчиками</value>
-			<useRestriction>true</useRestriction>
-		</parameter>
 		<parameter>
 			<name>Дата1</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -490,6 +895,20 @@
 			<expression>&amp;Период.ДатаОкончания</expression>
 		</parameter>
 		<parameter>
+			<name>Счет62</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счет62</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиИЗаказчиками</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
 			<name>Период</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
 				<d4p1:item>
@@ -508,6 +927,38 @@
 			<useRestriction>false</useRestriction>
 			<use>Always</use>
 		</parameter>
+		<parameter>
+			<name>Счет62Вал</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счет62 вал</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиВал</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученнымВал</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиУЕ</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученнымУЕ</value>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
+		<parameter>
+			<name>Счет62руб</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счет62руб</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<useRestriction>true</useRestriction>
+		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Отчет по паспортам сделки</name>
 			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -523,9 +974,6 @@
 	<selection>
 		<item xsi:type="SelectedItemField">
 			<field>СуммаПС</field>
-		</item>
-		<item xsi:type="SelectedItemField">
-			<field>КонтрольСуммыПС</field>
 		</item>
 		<item xsi:type="SelectedItemField">
 			<field>СуммаНачОст</field>
@@ -545,20 +993,40 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Организация</left>
 			<comparisonType>Equal</comparisonType>
-			<userSettingID>6ae539fa-21f4-4096-b79d-484b8e3e3803</userSettingID>
+			<userSettingID>cb956d74-7ffe-443e-b30f-fe8592fe79e2</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Контрагент</left>
 			<comparisonType>Equal</comparisonType>
-			<userSettingID>8f3301fb-9a37-499e-a442-a13f07994397</userSettingID>
+			<userSettingID>fd0f06ff-62c9-4e71-8706-49dce932f9d8</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Договор</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>8e2e33ea-3e01-4fcf-b414-973f3dd597a1</userSettingID>
 		</item>
 	</filter>
 	<dataParameters>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Дата1</dcscor:parameter>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+			<userSettingID>33f27e65-c786-4fd6-b3a9-1165ef8c0195</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Дата2</dcscor:parameter>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+			<userSettingID>15058973-e5ec-410d-98a5-d8b436785929</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
 			<dcscor:parameter>Счет62</dcscor:parameter>
-			<dcscor:value xsi:nil="true"/>
+			<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиИЗаказчиками</dcscor:value>
+			<userSettingID>7752199e-47c3-40bf-a6bc-007baeaa655d</userSettingID>
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:parameter>Период</dcscor:parameter>
@@ -567,50 +1035,14 @@
 				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
 				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
 			</dcscor:value>
-			<userSettingID>a5bcc8a1-7602-4bdb-b6e1-679c72870215</userSettingID>
+			<userSettingID>3a34533b-b260-4102-8b99-fbab7677754d</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Счет62Вал</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
 		</dcscor:item>
 	</dataParameters>
-	<conditionalAppearance>
-		<item>
-			<selection>
-				<item>
-					<field>СуммаПС</field>
-				</item>
-				<item>
-					<field>КонтрольСуммыПС</field>
-				</item>
-				<item>
-					<field>СуммаНачОст</field>
-				</item>
-				<item>
-					<field>СуммаДт</field>
-				</item>
-				<item>
-					<field>СуммаКт</field>
-				</item>
-				<item>
-					<field>СуммаКонОст</field>
-				</item>
-			</selection>
-			<filter/>
-			<appearance>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">13</dcscor:value>
-				</dcscor:item>
-				<dcscor:item xsi:type="SettingsParameterValue">
-					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
-					<dcscor:value xsi:type="xs:decimal">13</dcscor:value>
-				</dcscor:item>
-			</appearance>
-		</item>
-	</conditionalAppearance>
-	<outputParameters>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
-			<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
-		</dcscor:item>
-	</outputParameters>
 	<item xsi:type="StructureItemGroup">
 		<groupItems>
 			<item xsi:type="GroupItemField">
@@ -630,35 +1062,7 @@
 		<item xsi:type="StructureItemGroup">
 			<groupItems>
 				<item xsi:type="GroupItemField">
-					<field>ПаспортСделки</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>ПаспортСделки.Банк</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>ПаспортСделки.ДатаОткрытия</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>ПаспортСделки.ДатаОкончанияДействия</field>
-					<groupType>Items</groupType>
-					<periodAdditionType>None</periodAdditionType>
-					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-				</item>
-				<item xsi:type="GroupItemField">
-					<field>Валюта</field>
+					<field>Договор</field>
 					<groupType>Items</groupType>
 					<periodAdditionType>None</periodAdditionType>
 					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
@@ -672,51 +1076,25 @@
 				<item xsi:type="SelectedItemAuto"/>
 			</selection>
 			<item xsi:type="StructureItemGroup">
-				<groupItems>
-					<item xsi:type="GroupItemField">
-						<field>Регистратор</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				<filter>
+					<item xsi:type="FilterItemComparison">
+						<left xsi:type="dcscor:Field">Регистратор</left>
+						<comparisonType>Filled</comparisonType>
 					</item>
-					<item xsi:type="GroupItemField">
-						<field>НомерГТДЭкспортный</field>
-						<groupType>Items</groupType>
-						<periodAdditionType>None</periodAdditionType>
-						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
-						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
-					</item>
-				</groupItems>
+				</filter>
 				<order>
 					<item xsi:type="OrderItemAuto"/>
 				</order>
 				<selection>
+					<item xsi:type="SelectedItemField">
+						<field>Регистратор</field>
+					</item>
 					<item xsi:type="SelectedItemAuto"/>
-					<item xsi:type="SelectedItemField">
-						<field>НомерГТДЭкспортный</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>НомерГТДЭкспортный.ДатаВыпуска</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>НомерГТДЭкспортный.КонечныйСрокСПД</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>НомерГТДЭкспортный.ДатаСдачиСПД</field>
-					</item>
-					<item xsi:type="SelectedItemField">
-						<field>НомерГТДЭкспортный.ПризнакСПД</field>
-					</item>
 				</selection>
 				<outputParameters>
 					<dcscor:item xsi:type="SettingsParameterValue">
-						<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
-						<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
-					</dcscor:item>
-					<dcscor:item xsi:type="SettingsParameterValue">
-						<dcscor:parameter>АвтоПозицияРесурсов</dcscor:parameter>
-						<dcscor:value xsi:type="DataCompositionResourcesAutoPosition">DontUse</dcscor:value>
+						<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+						<dcscor:value xsi:type="DataCompositionTextOutputType">DontOutput</dcscor:value>
 					</dcscor:item>
 				</outputParameters>
 			</item>

@@ -1,1 +1,2 @@
-cscript.exe update-db-1c.js
+cd /D "%~dp0"
+cscript.exe erp.js
