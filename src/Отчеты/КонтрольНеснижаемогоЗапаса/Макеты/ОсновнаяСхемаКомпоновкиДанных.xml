@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>Запрос</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Склад</dataPath>
+				<field>Склад</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СпособОбеспеченияПотребностей</dataPath>
+				<field>СпособОбеспеченияПотребностей</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>НеснижаемыйЗапас</dataPath>
+				<field>НеснижаемыйЗапас</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Неснижаемый запас</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СуточнаяПотребность</dataPath>
+				<field>СуточнаяПотребность</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Суточная потребность</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Остаток</dataPath>
+				<field>Остаток</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Остаток</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>МаксимальнаяШирина</parameter>
+						<value xsi:type="xs:decimal">15</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СрокОбеспечения</dataPath>
+				<field>СрокОбеспечения</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Срок обеспечения</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Характеристика</dataPath>
+				<field>Характеристика</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ТоварныеОграничения.Номенклатура КАК Номенклатура,
+	ТоварныеОграничения.Характеристика КАК Характеристика,
+	Рег.Склад КАК Склад,
+	СУММА(Рег.ВНаличииОстаток) КАК Остаток
+ПОМЕСТИТЬ Остатки
+{ВЫБРАТЬ
+	Номенклатура.*,
+	Характеристика.*,
+	Склад.*,
+	Остаток}
+ИЗ
+	РегистрСведений.ТоварныеОграничения КАК ТоварныеОграничения
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрНакопления.ТоварыНаСкладах.Остатки(, {(Склад).*, (Номенклатура).*}) КАК Рег
+		ПО (Рег.Номенклатура = ТоварныеОграничения.Номенклатура)
+			И (Рег.Характеристика = ТоварныеОграничения.Характеристика
+				ИЛИ ТоварныеОграничения.Характеристика = ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка))
+
+СГРУППИРОВАТЬ ПО
+	ТоварныеОграничения.Номенклатура,
+	ТоварныеОграничения.Характеристика,
+	Рег.Склад
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТоварныеОграничения.Номенклатура КАК Номенклатура,
+	ТоварныеОграничения.Характеристика КАК Характеристика,
+	Остатки.Склад КАК Склад,
+	Остатки.Остаток КАК Остаток,
+	ТоварныеОграничения.СтраховоеКоличествоЗапаса КАК НеснижаемыйЗапас,
+	ТоварныеОграничения.НормаПотребления КАК СуточнаяПотребность,
+	ВариантыОбеспеченияТоварами.СпособОбеспеченияПотребностей КАК СпособОбеспеченияПотребностей,
+	ВариантыОбеспеченияТоварами.СпособОбеспеченияПотребностей.СрокИсполненияЗаказа КАК СрокОбеспечения
+{ВЫБРАТЬ
+	Номенклатура.*,
+	Характеристика.*,
+	Склад.*,
+	Остаток,
+	СпособОбеспеченияПотребностей.*,
+	СуточнаяПотребность,
+	НеснижаемыйЗапас,
+	СрокОбеспечения}
+ИЗ
+	РегистрСведений.ТоварныеОграничения КАК ТоварныеОграничения
+		ЛЕВОЕ СОЕДИНЕНИЕ Остатки КАК Остатки
+		ПО (Остатки.Номенклатура = ТоварныеОграничения.Номенклатура)
+			И (Остатки.Характеристика = ТоварныеОграничения.Характеристика)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВариантыОбеспеченияТоварами КАК ВариантыОбеспеченияТоварами
+		ПО (ВариантыОбеспеченияТоварами.Номенклатура = ТоварныеОграничения.Номенклатура)
+			И (ВариантыОбеспеченияТоварами.Характеристика = ТоварныеОграничения.Характеристика)
+			И (ВариантыОбеспеченияТоварами.РеквизитДопУпорядочивания = 1)</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<calculatedField>
+			<dataPath>ДопПоля</dataPath>
+			<expression>""</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Доп поля</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ФактиескийМинусНеснижаемый</dataPath>
+			<expression>0</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Фактиеский минус неснижаемый</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<use>false</use>
+					<parameter>Шрифт</parameter>
+					<value xmlns:d6p1="http://v8.1c.ru/8.1/data/ui" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="d6p1:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+				</item>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>ВыделятьОтрицательные</parameter>
+					<value xsi:type="xs:boolean">true</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ОстатокДней</dataPath>
+			<expression>0</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Остаток дней</d4p1:content>
+				</d4p1:item>
+			</title>
+			<appearance>
+				<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+					<parameter>Формат</parameter>
+					<value xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>ЧДЦ=2</d6p1:content>
+						</d6p1:item>
+					</value>
+				</item>
+			</appearance>
+		</calculatedField>
+		<totalField>
+			<dataPath>СуточнаяПотребность</dataPath>
+			<expression>Сумма(СуточнаяПотребность)</expression>
+			<group>Номенклатура</group>
+		</totalField>
+		<totalField>
+			<dataPath>НеснижаемыйЗапас</dataPath>
+			<expression>Сумма(НеснижаемыйЗапас)</expression>
+			<group>Номенклатура</group>
+		</totalField>
+		<totalField>
+			<dataPath>Остаток</dataPath>
+			<expression>Сумма(Остаток)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СрокОбеспечения</dataPath>
+			<expression>Максимум(СрокОбеспечения)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ФактиескийМинусНеснижаемый</dataPath>
+			<expression>Сумма(Остаток) - Сумма(НеснижаемыйЗапас)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ОстатокДней</dataPath>
+			<expression>Сумма(Остаток) / Сумма(СуточнаяПотребность)</expression>
+		</totalField>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Контроль неснижаемого запаса</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Контроль неснижаемого запаса</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Остаток</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Склад</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="dcscor:DesignTimeValue"/>
+			<viewMode>Normal</viewMode>
+			<userSettingID>f738dc28-509b-4425-9e3f-9c4017560394</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Номенклатура</left>
+			<comparisonType>InList</comparisonType>
+			<right xsi:type="v8:ValueListType">
+				<v8:valueType/>
+				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+			</right>
+			<userSettingID>87e09309-422f-499b-8a9b-5df073fd2811</userSettingID>
+		</item>
+	</filter>
+	<item xsi:type="StructureItemTable">
+		<column>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Склад</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<outputParameters>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>РасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</outputParameters>
+		</column>
+		<column>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ДопПоля</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemField">
+					<field>Остаток</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>СуточнаяПотребность</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>СрокОбеспечения</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>НеснижаемыйЗапас</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ФактиескийМинусНеснижаемый</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>ОстатокДней</field>
+				</item>
+			</selection>
+			<conditionalAppearance>
+				<item>
+					<selection>
+						<item>
+							<field>Остаток</field>
+						</item>
+					</selection>
+					<filter/>
+					<appearance>
+						<dcscor:item xsi:type="SettingsParameterValue">
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+						</dcscor:item>
+					</appearance>
+					<useInOverall>DontUse</useInOverall>
+					<useInFieldsHeader>DontUse</useInFieldsHeader>
+					<useInHeader>DontUse</useInHeader>
+					<useInParameters>DontUse</useInParameters>
+					<useInFilter>DontUse</useInFilter>
+				</item>
+			</conditionalAppearance>
+		</column>
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Номенклатура</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
+					<field>Характеристика</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</row>
+		<outputParameters>
+			<dcscor:item xsi:type="SettingsParameterValue">
+				<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+				<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+			</dcscor:item>
+		</outputParameters>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
