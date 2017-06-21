@@ -58,6 +58,16 @@
 					</d5p1:item>
 				</title>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоСтавок</dataPath>
+				<field>КоличествоСтавок</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество ставок</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<dataSource>ИсточникДанных1</dataSource>
 			<query>ВЫБРАТЬ
 	Рег.Сотрудник КАК Сотрудник,
@@ -65,14 +75,16 @@
 	Рег.Подразделение КАК Подразделение,
 	Рег.Должность КАК Должность,
 	Рег.Регистратор КАК Документ,
-	ВЫРАЗИТЬ(ШтатноеРасписаниеДополнительныеРеквизиты.Значение КАК ЧИСЛО(14, 2)) КАК План
+	ВЫРАЗИТЬ(ШтатноеРасписаниеДополнительныеРеквизиты.Значение КАК ЧИСЛО(14, 2)) КАК План,
+	Рег.ДолжностьПоШтатномуРасписанию.КоличествоСтавок КАК КоличествоСтавок
 {ВЫБРАТЬ
 	Сотрудник.*,
 	ДолжностьПоШтатномуРасписанию.*,
 	Подразделение.*,
 	Должность.*,
 	Документ.*,
-	План}
+	План,
+	КоличествоСтавок}
 ИЗ
 	РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(&amp;Дата2, {(ГоловнаяОрганизация).* КАК Организация, (Сотрудник).*}) КАК Рег
 		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ШтатноеРасписание.ДополнительныеРеквизиты КАК ШтатноеРасписаниеДополнительныеРеквизиты
@@ -338,6 +350,16 @@
 			<dataPath>Количество</dataPath>
 			<expression>Количество(Различные Сотрудник)</expression>
 		</totalField>
+		<totalField>
+			<dataPath>КоличествоСтавок</dataPath>
+			<expression>Максимум(КоличествоСтавок)</expression>
+			<group>ДолжностьПоШтатномуРасписанию</group>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоСтавок</dataPath>
+			<expression>0</expression>
+			<group>Сотрудник</group>
+		</totalField>
 		<parameter>
 			<name>Дата1</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -553,14 +575,12 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Организация</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>656fc143-14c2-4358-9974-c5de2f6eac61</userSettingID>
 		</item>
 		<item xsi:type="FilterItemComparison">
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Подразделение</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<userSettingID>73cd3e2a-0af4-433f-b153-2e9572dadfbe</userSettingID>
 		</item>
 	</filter>

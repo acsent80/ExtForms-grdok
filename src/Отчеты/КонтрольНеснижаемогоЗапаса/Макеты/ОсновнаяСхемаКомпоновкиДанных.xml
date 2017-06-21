@@ -148,12 +148,12 @@
 			</title>
 		</calculatedField>
 		<calculatedField>
-			<dataPath>ФактиескийМинусНеснижаемый</dataPath>
+			<dataPath>ФактическийМинусНеснижаемый</dataPath>
 			<expression>0</expression>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
 				<d4p1:item>
 					<d4p1:lang>ru</d4p1:lang>
-					<d4p1:content>Фактиеский минус неснижаемый</d4p1:content>
+					<d4p1:content>Отклонение неснижаемого запаса</d4p1:content>
 				</d4p1:item>
 			</title>
 			<appearance>
@@ -208,12 +208,12 @@
 			<expression>Максимум(СрокОбеспечения)</expression>
 		</totalField>
 		<totalField>
-			<dataPath>ФактиескийМинусНеснижаемый</dataPath>
-			<expression>Сумма(Остаток) - Сумма(НеснижаемыйЗапас)</expression>
-		</totalField>
-		<totalField>
 			<dataPath>ОстатокДней</dataPath>
 			<expression>Сумма(Остаток) / Сумма(СуточнаяПотребность)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ФактическийМинусНеснижаемый</dataPath>
+			<expression>Сумма(ФактическийМинусНеснижаемый)</expression>
 		</totalField>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Контроль неснижаемого запаса</name>
@@ -237,7 +237,6 @@
 			<use>false</use>
 			<left xsi:type="dcscor:Field">Склад</left>
 			<comparisonType>Equal</comparisonType>
-			<right xsi:type="dcscor:DesignTimeValue"/>
 			<viewMode>Normal</viewMode>
 			<userSettingID>f738dc28-509b-4425-9e3f-9c4017560394</userSettingID>
 		</item>
@@ -251,6 +250,45 @@
 			<userSettingID>87e09309-422f-499b-8a9b-5df073fd2811</userSettingID>
 		</item>
 	</filter>
+	<conditionalAppearance>
+		<item>
+			<selection>
+				<item>
+					<field>Остаток</field>
+				</item>
+				<item>
+					<field>СуточнаяПотребность</field>
+				</item>
+				<item>
+					<field>НеснижаемыйЗапас</field>
+				</item>
+				<item>
+					<field>ФактическийМинусНеснижаемый</field>
+				</item>
+				<item>
+					<field>ОстатокДней</field>
+				</item>
+			</selection>
+			<filter/>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=1</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</item>
+	</conditionalAppearance>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionAttributesPlacement">Separately</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
 	<item xsi:type="StructureItemTable">
 		<column>
 			<groupItems>
@@ -302,7 +340,7 @@
 					<field>НеснижаемыйЗапас</field>
 				</item>
 				<item xsi:type="SelectedItemField">
-					<field>ФактиескийМинусНеснижаемый</field>
+					<field>ФактическийМинусНеснижаемый</field>
 				</item>
 				<item xsi:type="SelectedItemField">
 					<field>ОстатокДней</field>
@@ -352,6 +390,9 @@
 			</order>
 			<selection>
 				<item xsi:type="SelectedItemAuto"/>
+				<item xsi:type="SelectedItemField">
+					<field>Номенклатура.ЕдиницаИзмерения</field>
+				</item>
 			</selection>
 		</row>
 		<outputParameters>
