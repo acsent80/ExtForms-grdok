@@ -213,7 +213,7 @@
 		</totalField>
 		<totalField>
 			<dataPath>ФактическийМинусНеснижаемый</dataPath>
-			<expression>Сумма(ФактическийМинусНеснижаемый)</expression>
+			<expression>Сумма(Остаток) - Сумма(НеснижаемыйЗапас)</expression>
 		</totalField>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Контроль неснижаемого запаса</name>

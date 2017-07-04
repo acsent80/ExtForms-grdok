@@ -9,6 +9,7 @@ var cf         = "1Cv8.cf";
 var logFile    = "update.log";
 var unlockCode = "123321";
 var backupFile = "E:\\temp\\" + db + ".bak";
+var needToStart1C = true;
 
 var WshShell = WScript.CreateObject('WScript.Shell');
 var fso  = new ActiveXObject("Scripting.FileSystemObject");
@@ -163,7 +164,8 @@ function UpdateDB() {
 
 function Start1C() {
     log("Start1C: " + GetDate());
-    var cmdText = '"' + v8cexe + '"' + " ENTERPRISE /S" + server + "\\" + db + " /UC" + unlockCode + " /C¬ыполнитьќбновление»«авершить–аботу";
+    //var cmdText = '"' + v8cexe + '"' + " ENTERPRISE /S" + server + "\\" + db + " /UC" + unlockCode + " /C¬ыполнитьќбновление»«авершить–аботу";
+    var cmdText = '"' + v8cexe + '"' + " ENTERPRISE /S" + server + "\\" + db + " /UC" + unlockCode + " /C«апуститьќбновление»нформационнойЅазы";
     log(cmdText);
     WshShell.Run(cmdText, 1, false);
 }
@@ -188,7 +190,9 @@ function run() {
 //    WScript.Sleep(1000);
 
     UpdateDB();
-    Start1C();
+    if (needToStart1C) {
+    	Start1C();
+	}
     ChangeIBParams1C(false);
 
 }

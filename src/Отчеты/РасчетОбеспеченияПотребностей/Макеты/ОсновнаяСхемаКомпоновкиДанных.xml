@@ -342,7 +342,7 @@
 		ИНАЧЕ 0
 	КОНЕЦ КАК Отгрузить,
 	ВЫБОР
-		КОГДА ДокТовары.ВариантОбеспечения В (ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.Отгрузить), ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.ОтгрузитьОбособленно))
+		КОГДА ДокТовары.ВариантОбеспечения В (ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.Отгрузить), ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.ОтгрузитьОбособленно), ЗНАЧЕНИЕ(Перечисление.ВариантыОбеспечения.СоСклада))
 			ТОГДА -Рег.ЗаказаноОстаток
 		ИНАЧЕ 0
 	КОНЕЦ КАК ВНаличии,
@@ -806,6 +806,22 @@
 				<field>ИтогоКОбеспечению</field>
 			</item>
 		</selection>
+		<conditionalAppearance>
+			<item>
+				<selection>
+					<item>
+						<field>ИтогоКОбеспечению</field>
+					</item>
+				</selection>
+				<filter/>
+				<appearance>
+					<dcscor:item xsi:type="SettingsParameterValue">
+						<dcscor:parameter>Шрифт</dcscor:parameter>
+						<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+					</dcscor:item>
+				</appearance>
+			</item>
+		</conditionalAppearance>
 		<outputParameters>
 			<dcscor:item xsi:type="SettingsParameterValue">
 				<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
