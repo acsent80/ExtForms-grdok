@@ -869,6 +869,13 @@
 					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
 				</item>
 				<item xsi:type="GroupItemField">
+					<field>Документ.Менеджер</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+				<item xsi:type="GroupItemField">
 					<field>ДатаОтгрузки</field>
 					<groupType>Items</groupType>
 					<periodAdditionType>None</periodAdditionType>

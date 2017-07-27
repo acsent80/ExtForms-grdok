@@ -1384,6 +1384,26 @@
 				<autoFillFields>false</autoFillFields>
 			</item>
 		</dataSet>
+		<calculatedField>
+			<dataPath>ДатаОплаты</dataPath>
+			<expression>НАЧАЛОПЕРИОДА(ДобавитьКДате(РасчетныйДокумент.Дата, "ДЕНЬ", &amp;ДнейОтсрочки), "ДЕНЬ")</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата оплаты</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
+		<calculatedField>
+			<dataPath>ДнейОтсрочки</dataPath>
+			<expression>&amp;ДнейОтсрочки</expression>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дней отсрочки</d4p1:content>
+				</d4p1:item>
+			</title>
+		</calculatedField>
 		<totalField>
 			<dataPath>ДолгКонечныйОстаток</dataPath>
 			<expression>Сумма(ДолгКонечныйОстаток)</expression>
@@ -1701,6 +1721,7 @@
 				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
 			</value>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<parameter>
 			<name>Организация</name>
@@ -1715,6 +1736,27 @@
 			</valueType>
 			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>ДнейОтсрочки</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дней отсрочки</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+				<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<Digits>0</Digits>
+					<FractionDigits>0</FractionDigits>
+					<AllowedSign>Nonnegative</AllowedSign>
+				</NumberQualifiers>
+			</valueType>
+			<value xsi:type="xs:decimal">0</value>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Взаиморасчеты с поставщиками</name>
@@ -1861,6 +1903,7 @@
 			</item>
 			<placement>Auto</placement>
 		</item>
+		<viewMode>Normal</viewMode>
 	</selection>
 	<filter>
 		<item xsi:type="FilterItemComparison">
@@ -1890,6 +1933,11 @@
 			<dcscor:parameter>Организация</dcscor:parameter>
 			<dcscor:value xsi:nil="true"/>
 			<userSettingID>7e20123f-70dd-420f-b56e-83d347974a3d</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ДнейОтсрочки</dcscor:parameter>
+			<dcscor:value xsi:type="xs:decimal">0</dcscor:value>
+			<viewMode>Normal</viewMode>
 		</dcscor:item>
 	</dataParameters>
 	<item xsi:type="StructureItemGroup">

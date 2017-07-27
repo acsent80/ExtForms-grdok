@@ -190,14 +190,6 @@
 				</title>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>Регистратор</dataPath>
-				<field>Регистратор</field>
-				<role>
-					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
-					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
-				</role>
-			</field>
-			<field xsi:type="DataSetFieldField">
 				<dataPath>СуммаРубДт</dataPath>
 				<field>СуммаРубДт</field>
 				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
@@ -317,6 +309,14 @@
 				</title>
 				<role>
 					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
 				</role>
 			</field>
 			<item xsi:type="DataSetQuery">
@@ -486,14 +486,6 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Регистратор</dataPath>
-					<field>Регистратор</field>
-					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
-						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>СуммаРубДт</dataPath>
 					<field>СуммаРубДт</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -549,6 +541,14 @@
 					<role>
 						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
 						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
 					</role>
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
@@ -609,7 +609,7 @@
 	ПериодКвартал,
 	ПериодПолугодие,
 	ПериодГод,
-	Регистратор,
+	Регистратор.*,
 	Подразделение,
 	ПодразделениеКор}
 ИЗ
@@ -765,14 +765,6 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Регистратор</dataPath>
-					<field>Регистратор</field>
-					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
-						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>БанковскийСчет</dataPath>
 					<field>БанковскийСчет</field>
 					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
@@ -858,6 +850,14 @@
 						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 					</role>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	ВЫБОР
@@ -916,7 +916,7 @@
 	ПериодКвартал,
 	ПериодПолугодие,
 	ПериодГод,
-	Регистратор,
+	Регистратор.*,
 	Подразделение,
 	ПодразделениеКор}
 ИЗ
@@ -1066,14 +1066,6 @@
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
-					<dataPath>Регистратор</dataPath>
-					<field>Регистратор</field>
-					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
-						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
 					<dataPath>Валюта</dataPath>
 					<field>Валюта</field>
 					<role>
@@ -1129,6 +1121,14 @@
 						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 					</role>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	ВЫБОР
@@ -1179,7 +1179,7 @@
 	ПериодКвартал,
 	ПериодПолугодие,
 	ПериодГод,
-	Регистратор,
+	Регистратор.*,
 	Подразделение,
 	ПодразделениеКор}
 ИЗ
@@ -1286,7 +1286,7 @@
 					<dataPath>ПериодПолугодие</dataPath>
 					<field>ПериодПолугодие</field>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">7</periodNumber>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">6</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
 					</role>
 				</field>
@@ -1294,7 +1294,7 @@
 					<dataPath>ПериодГод</dataPath>
 					<field>ПериодГод</field>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">8</periodNumber>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">7</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
 					</role>
 				</field>
@@ -1302,7 +1302,7 @@
 					<dataPath>ПериодКвартал</dataPath>
 					<field>ПериодКвартал</field>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">6</periodNumber>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">5</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
 					</role>
 				</field>
@@ -1310,7 +1310,7 @@
 					<dataPath>ПериодМесяц</dataPath>
 					<field>ПериодМесяц</field>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">5</periodNumber>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">4</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
 					</role>
 				</field>
@@ -1318,7 +1318,7 @@
 					<dataPath>ПериодДекада</dataPath>
 					<field>ПериодДекада</field>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">4</periodNumber>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
 					</role>
 				</field>
@@ -1326,7 +1326,7 @@
 					<dataPath>ПериодНеделя</dataPath>
 					<field>ПериодНеделя</field>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">3</periodNumber>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
 					</role>
 				</field>
@@ -1334,16 +1334,8 @@
 					<dataPath>ПериодДень</dataPath>
 					<field>ПериодДень</field>
 					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
-						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>Регистратор</dataPath>
-					<field>Регистратор</field>
-					<role>
 						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
-						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
 					</role>
 				</field>
 				<dataSource>ИсточникДанных1</dataSource>
@@ -1371,8 +1363,7 @@
 	Рег.ПериодМесяц КАК ПериодМесяц,
 	Рег.ПериодКвартал КАК ПериодКвартал,
 	Рег.ПериодПолугодие КАК ПериодПолугодие,
-	Рег.ПериодГод КАК ПериодГод,
-	Рег.Регистратор КАК Регистратор
+	Рег.ПериодГод КАК ПериодГод
 {ВЫБРАТЬ
 	Счет.*,
 	Организация.*,
@@ -1387,8 +1378,7 @@
 	ПериодМесяц,
 	ПериодКвартал,
 	ПериодПолугодие,
-	ПериодГод,
-	Регистратор}
+	ПериодГод}
 ИЗ
 	РегистрБухгалтерии.Хозрасчетный.ОстаткиИОбороты(&amp;Дата1, &amp;Дата2, Авто, Движения, Счет В ИЕРАРХИИ (&amp;Счет50, &amp;Счет51, &amp;Счет52), , {(Организация).*, (Подразделение).*}) КАК Рег,
 	Константа.ВалютаРегламентированногоУчета КАК ВалютаРегламентированногоУчета
@@ -1464,14 +1454,6 @@
 					<role>
 						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">5</periodNumber>
 						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
-					</role>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>Регистратор</dataPath>
-					<field>Регистратор</field>
-					<role>
-						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
-						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
 					</role>
 				</field>
 				<field xsi:type="DataSetFieldField">
@@ -1587,6 +1569,14 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	ВЫБОР
@@ -1637,7 +1627,7 @@
 	ПериодКвартал,
 	ПериодПолугодие,
 	ПериодГод,
-	Регистратор,
+	Регистратор.*,
 	Подразделение,
 	ПодразделениеКор}
 ИЗ

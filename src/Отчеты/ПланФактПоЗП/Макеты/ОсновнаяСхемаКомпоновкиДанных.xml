@@ -133,10 +133,6 @@
 				</title>
 			</field>
 			<field xsi:type="DataSetFieldField">
-				<dataPath>ГоловнаяОрганизация</dataPath>
-				<field>ГоловнаяОрганизация</field>
-			</field>
-			<field xsi:type="DataSetFieldField">
 				<dataPath>КоличествоТекущее</dataPath>
 				<field>КоличествоТекущее</field>
 				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
@@ -155,6 +151,41 @@
 						<d5p1:content>Количество чусовой текущее</d5p1:content>
 					</d5p1:item>
 				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ГруппаНачислений</dataPath>
+				<field>ГруппаНачислений</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Группа начислений</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Депремирование</dataPath>
+				<field>Депремирование</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Депремирование</d5p1:content>
+					</d5p1:item>
+				</title>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xmlns:d7p1="http://v8.1c.ru/8.1/data/core" xsi:type="d7p1:LocalStringType">
+							<d7p1:item>
+								<d7p1:lang>ru</d7p1:lang>
+								<d7p1:content>ЧДЦ=2</d7p1:content>
+							</d7p1:item>
+						</value>
+					</item>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>ВыделятьОтрицательные</parameter>
+						<value xsi:type="xs:boolean">true</value>
+					</item>
+				</appearance>
 			</field>
 			<item xsi:type="DataSetQuery">
 				<name>ПланНаЕдиницу</name>
@@ -254,6 +285,9 @@
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ВидРасчета</dataPath>
 					<field>ВидРасчета</field>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:ChartOfCalculationTypesRef.Начисления</Type>
+					</valueType>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Документ</dataPath>
@@ -303,6 +337,16 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ГруппаНачислений</dataPath>
+					<field>ГруппаНачислений</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Группа начислений</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Начисления.Организация КАК Организация,
@@ -313,7 +357,8 @@
 	Начисления.НачислениеУдержание КАК ВидРасчета,
 	Начисления.Регистратор КАК Документ,
 	Начисления.Сумма КАК Факт,
-	0 КАК Количество
+	0 КАК Количество,
+	ЕСТЬNULL(НачисленияДополнительныеРеквизиты.Значение, &amp;ПустаяГруппаНачислений) КАК ГруппаНачислений
 {ВЫБРАТЬ
 	Сотрудник.*,
 	ФизическоеЛицо.*,
@@ -324,11 +369,18 @@
 	Факт,
 	Количество,
 	Документ.*,
-	ДолжностьПоШтатномуРасписанию.*}
+	ДолжностьПоШтатномуРасписанию.*,
+	ГруппаНачислений.*}
 ИЗ
 	РегистрНакопления.НачисленияУдержанияПоСотрудникам КАК Начисления
-		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(&amp;Дата2, {(ГоловнаяОрганизация).* КАК Организация, (Сотрудник).*}) КАК КадроваяИстория
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(
+				&amp;Дата2,
+				(ДействуетДо = ДАТАВРЕМЯ(1, 1, 1)
+					ИЛИ ДействуетДо &gt;= &amp;Дата2) {(ГоловнаяОрганизация).* КАК Организация, (Сотрудник).*}) КАК КадроваяИстория
 		ПО Начисления.Сотрудник = КадроваяИстория.Сотрудник
+		ЛЕВОЕ СОЕДИНЕНИЕ ПланВидовРасчета.Начисления.ДополнительныеРеквизиты КАК НачисленияДополнительныеРеквизиты
+		ПО Начисления.НачислениеУдержание = НачисленияДополнительныеРеквизиты.Ссылка
+			И (НачисленияДополнительныеРеквизиты.Свойство.Заголовок = "Группа")
 ГДЕ
 	Начисления.Период МЕЖДУ &amp;Дата1 И &amp;Дата2
 	И Начисления.ГруппаНачисленияУдержанияВыплаты = ЗНАЧЕНИЕ(Перечисление.ГруппыНачисленияУдержанияВыплаты.Начислено)
@@ -338,7 +390,8 @@
 	Начисления.НачислениеУдержание.* КАК ВидРасчета,
 	Начисления.Сумма КАК Факт,
 	КадроваяИстория.ДолжностьПоШтатномуРасписанию.*,
-	(ЕСТЬNULL(КадроваяИстория.ДолжностьПоШтатномуРасписанию.Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК Подразделение}</query>
+	(ЕСТЬNULL(КадроваяИстория.ДолжностьПоШтатномуРасписанию.Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК Подразделение,
+	(ЕСТЬNULL(НачисленияДополнительныеРеквизиты.Значение, &amp;ПустаяГруппаНачислений)).* КАК ГруппаНачислений}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -394,7 +447,10 @@
 		КОЛИЧЕСТВО(РАЗЛИЧНЫЕ Начисления.Сотрудник) КАК Количество
 	ИЗ
 		РегистрНакопления.НачисленияУдержанияПоСотрудникам КАК Начисления
-			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(&amp;Дата2, {(ГоловнаяОрганизация).* КАК Организация, (Сотрудник).*}) КАК КадроваяИстория
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(
+					&amp;Дата2,
+					ДействуетДо = ДАТАВРЕМЯ(1, 1, 1)
+						ИЛИ ДействуетДо &gt;= &amp;Дата2 {(ГоловнаяОрганизация).* КАК Организация, (Сотрудник).*}) КАК КадроваяИстория
 			ПО Начисления.Сотрудник = КадроваяИстория.Сотрудник
 	ГДЕ
 		Начисления.Период МЕЖДУ &amp;Дата1 И &amp;Дата2
@@ -433,10 +489,6 @@
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Сотрудник</dataPath>
 					<field>Сотрудник</field>
-				</field>
-				<field xsi:type="DataSetFieldField">
-					<dataPath>ГоловнаяОрганизация</dataPath>
-					<field>ГоловнаяОрганизация</field>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Организация</dataPath>
@@ -488,7 +540,10 @@
 	КоличествоЧусовойТекущее,
 	Организация.*}
 ИЗ
-	РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних КАК Рег
+	РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(
+			,
+			ДействуетДо = ДАТАВРЕМЯ(1, 1, 1)
+				ИЛИ ДействуетДо &gt;= &amp;Дата2 {(ГоловнаяОрганизация).* КАК Организация, (Сотрудник).*}) КАК Рег
 		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ФизическиеЛица.КонтактнаяИнформация КАК ФизическиеЛицаКИ
 		ПО Рег.ФизическоеЛицо = ФизическиеЛицаКИ.Ссылка
 			И (ФизическиеЛицаКИ.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресМестаПроживанияФизическиеЛица))
@@ -497,10 +552,101 @@
 	Рег.ВидСобытия &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ВидыКадровыхСобытий.Увольнение)
 	И НЕ Рег.Сотрудник.ВАрхиве
 {ГДЕ
-	Рег.Сотрудник.*,
-	Рег.ГоловнаяОрганизация.*,
 	Рег.ДолжностьПоШтатномуРасписанию.Подразделение.* КАК Подразделение,
 	Рег.ДолжностьПоШтатномуРасписанию.*}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Депремирование</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сотрудник</dataPath>
+					<field>Сотрудник</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сотрудник</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Депремирование</dataPath>
+					<field>Депремирование</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Депремирование</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Организация</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Подразделение</dataPath>
+					<field>Подразделение</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Подразделение</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
+					<field>ДолжностьПоШтатномуРасписанию</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Документ</dataPath>
+					<field>Документ</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Документ</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ПремияНачисления.Ссылка.Организация КАК Организация,
+	ПремияНачисления.Сотрудник КАК Сотрудник,
+	ПремияНачисления.Результат - ЕСТЬNULL(ПремияПоказатели.Значение, 0) КАК Депремирование,
+	ЕСТЬNULL(КадроваяИстория.ДолжностьПоШтатномуРасписанию.Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка)) КАК Подразделение,
+	КадроваяИстория.ДолжностьПоШтатномуРасписанию КАК ДолжностьПоШтатномуРасписанию,
+	ПремияНачисления.Ссылка КАК Документ
+{ВЫБРАТЬ
+	Организация.*,
+	Сотрудник.*,
+	Депремирование,
+	Подразделение.*,
+	ДолжностьПоШтатномуРасписанию.*,
+	Документ.*}
+ИЗ
+	Документ.Премия.Начисления КАК ПремияНачисления
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Премия.Показатели КАК ПремияПоказатели
+		ПО ПремияНачисления.Ссылка = ПремияПоказатели.Ссылка
+			И ПремияНачисления.ИдентификаторСтрокиВидаРасчета = ПремияПоказатели.ИдентификаторСтрокиВидаРасчета
+			И (ПремияПоказатели.Показатель = &amp;ПоказательСуммаПремии)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.КадроваяИсторияСотрудников.СрезПоследних(
+				&amp;Дата2,
+				ДействуетДо = ДАТАВРЕМЯ(1, 1, 1)
+					ИЛИ ДействуетДо &gt;= &amp;Дата2 {(ГоловнаяОрганизация).* КАК Организация, (Сотрудник).*}) КАК КадроваяИстория
+		ПО ПремияНачисления.Сотрудник = КадроваяИстория.Сотрудник
+ГДЕ
+	ПремияНачисления.Ссылка.Проведен
+	И ПремияНачисления.Ссылка.ПериодРегистрации МЕЖДУ &amp;Дата1 И &amp;Дата2
+	И ПремияНачисления.Результат - ЕСТЬNULL(ПремияПоказатели.Значение, 0) &lt;&gt; 0
+{ГДЕ
+	ПремияНачисления.Ссылка.Организация.*,
+	ПремияНачисления.Сотрудник.*,
+	КадроваяИстория.ДолжностьПоШтатномуРасписанию.*,
+	(ЕСТЬNULL(КадроваяИстория.ДолжностьПоШтатномуРасписанию.Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК Подразделение}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 		</dataSet>
@@ -567,6 +713,10 @@
 			<dataPath>КоличествоТекущее</dataPath>
 			<expression>Сумма(КоличествоТекущее)</expression>
 		</totalField>
+		<totalField>
+			<dataPath>Депремирование</dataPath>
+			<expression>Сумма(Депремирование)</expression>
+		</totalField>
 		<parameter>
 			<name>Дата1</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -619,6 +769,36 @@
 				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
 				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
 			</value>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>ПустаяГруппаНачислений</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Пустая группа начислений</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<TypeSet xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:Characteristic.ДополнительныеРеквизитыИСведения</TypeSet>
+			</valueType>
+			<value xsi:nil="true"/>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>ПоказательСуммаПремии</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Показатель сумма премии</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПоказателиРасчетаЗарплаты</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
 			<useRestriction>false</useRestriction>
 			<use>Always</use>
 		</parameter>
@@ -681,6 +861,11 @@
 				<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonth</v8:variant>
 			</dcscor:value>
 			<userSettingID>34d70105-4a78-4b1f-ab53-a6d1b901b870</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ПоказательСуммаПремии</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
 		</dcscor:item>
 	</dataParameters>
 	<outputParameters>
