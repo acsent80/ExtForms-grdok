@@ -1909,6 +1909,7 @@
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:use>false</dcscor:use>
 			<dcscor:parameter>Субконто51</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
 		</dcscor:item>
 		<dcscor:item xsi:type="SettingsParameterValue">
 			<dcscor:use>false</dcscor:use>
