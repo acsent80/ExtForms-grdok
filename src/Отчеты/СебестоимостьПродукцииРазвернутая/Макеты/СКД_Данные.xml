@@ -1,0 +1,998 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetUnion">
+			<name>Затраты</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Продукция</dataPath>
+				<field>Продукция</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяКалькуляции</dataPath>
+				<field>СтатьяКалькуляции</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ХарактеристикаПродукции</dataPath>
+				<field>ХарактеристикаПродукции</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Затрата</dataPath>
+				<field>Затрата</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ХарактеристикаЗатраты</dataPath>
+				<field>ХарактеристикаЗатраты</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоЗатрат</dataPath>
+				<field>КоличествоЗатрат</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>20</Digits>
+						<FractionDigits>6</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьЗатрат</dataPath>
+				<field>СтоимостьЗатрат</field>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Месяц</dataPath>
+				<field>Месяц</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Месяц</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<item xsi:type="DataSetQuery">
+				<name>Материальные</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Продукция</dataPath>
+					<field>Продукция</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяКалькуляции</dataPath>
+					<field>СтатьяКалькуляции</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаПродукции</dataPath>
+					<field>ХарактеристикаПродукции</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Затрата</dataPath>
+					<field>Затрата</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаЗатраты</dataPath>
+					<field>ХарактеристикаЗатраты</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоЗатрат</dataPath>
+					<field>КоличествоЗатрат</field>
+					<appearance>
+						<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+							<parameter>Формат</parameter>
+							<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=3</value>
+						</item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтоимостьЗатрат</dataPath>
+					<field>СтоимостьЗатрат</field>
+					<appearance>
+						<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+							<parameter>Формат</parameter>
+							<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</value>
+						</item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Месяц</dataPath>
+					<field>Месяц</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Месяц</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Партии.Период,
+	Партии.Регистратор,
+	Партии.АналитикаУчетаНоменклатуры,
+	Партии.ВидЗапасов,
+	Партии.ДокументПоступления,
+	Партии.КорАналитикаУчетаНоменклатуры,
+	СУММА(Партии.СтоимостьРегл) КАК Стоимость
+ПОМЕСТИТЬ ПартииРасходов
+ИЗ
+	РегистрНакопления.ПартииРасходовНаСебестоимостьТоваров КАК Партии
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.РасчетСебестоимостиТоваров.Организации КАК РасчетСебестоимости
+		ПО (НАЧАЛОПЕРИОДА(Партии.Период, МЕСЯЦ) = НАЧАЛОПЕРИОДА(РасчетСебестоимости.Ссылка.Дата, МЕСЯЦ))
+			И Партии.Организация = РасчетСебестоимости.Организация
+			И (РасчетСебестоимости.Ссылка.Проведен)
+			И (РасчетСебестоимости.Ссылка.МетодОценки = ЗНАЧЕНИЕ(Перечисление.МетодыОценкиСтоимостиТоваров.ФИФОСкользящаяОценка))
+ГДЕ
+	(Партии.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			ИЛИ &amp;КонецПериода = ДАТАВРЕМЯ(1, 1, 1))
+	И Партии.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И (Партии.Регистратор ССЫЛКА Документ.ВыпускПродукции
+			ИЛИ Партии.Регистратор ССЫЛКА Документ.ОтчетДавальцу
+			ИЛИ Партии.Регистратор ССЫЛКА Документ.ПоступлениеОтПереработчика)
+
+СГРУППИРОВАТЬ ПО
+	Партии.Период,
+	Партии.Регистратор,
+	Партии.АналитикаУчетаНоменклатуры,
+	Партии.ВидЗапасов,
+	Партии.ДокументПоступления,
+	Партии.КорАналитикаУчетаНоменклатуры
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Партии.Период,
+	Партии.Регистратор,
+	Партии.АналитикаУчетаПродукции,
+	Партии.ДокументВыпуска,
+	Партии.КорАналитикаУчетаПродукции,
+	СУММА(Партии.СтоимостьРегл) КАК Стоимость
+ПОМЕСТИТЬ ПартииЗатрат
+ИЗ
+	РегистрНакопления.ПартииЗатратНаВыпуск КАК Партии
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.РасчетСебестоимостиТоваров.Организации КАК РасчетСебестоимости
+		ПО (НАЧАЛОПЕРИОДА(Партии.Период, МЕСЯЦ) = НАЧАЛОПЕРИОДА(РасчетСебестоимости.Ссылка.Дата, МЕСЯЦ))
+			И Партии.Организация = РасчетСебестоимости.Организация
+			И (РасчетСебестоимости.Ссылка.Проведен)
+			И (РасчетСебестоимости.Ссылка.МетодОценки = ЗНАЧЕНИЕ(Перечисление.МетодыОценкиСтоимостиТоваров.ФИФОСкользящаяОценка))
+ГДЕ
+	(Партии.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			ИЛИ &amp;КонецПериода = ДАТАВРЕМЯ(1, 1, 1))
+	И Партии.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И (Партии.Регистратор ССЫЛКА Документ.ВыпускПродукции
+			ИЛИ Партии.Регистратор ССЫЛКА Документ.ОтчетДавальцу
+			ИЛИ Партии.Регистратор ССЫЛКА Документ.ПоступлениеОтПереработчика)
+
+СГРУППИРОВАТЬ ПО
+	Партии.Период,
+	Партии.Регистратор,
+	Партии.АналитикаУчетаПродукции,
+	Партии.ДокументВыпуска,
+	Партии.КорАналитикаУчетаПродукции
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Партии.Период,
+	Партии.Регистратор,
+	Партии.Организация,
+	Партии.АналитикаУчетаНоменклатуры,
+	Партии.ВидЗапасов,
+	Партии.ДокументПоступления,
+	Партии.ЗаказНаПроизводство,
+	Партии.СтатьяКалькуляции,
+	Партии.АналитикаУчетаПродукции,
+	Партии.КорВидЗапасов,
+	Партии.Продукция,
+	Партии.ХарактеристикаПродукции,
+	СУММА(Партии.Количество) КАК Количество,
+	СУММА(Партии.СтоимостьРегл) КАК Стоимость
+ПОМЕСТИТЬ ПартииНЗП
+ИЗ
+	РегистрНакопления.ПартииНезавершенногоПроизводства КАК Партии
+		ЛЕВОЕ СОЕДИНЕНИЕ Константы КАК Константы
+		ПО (ИСТИНА)
+ГДЕ
+	(Партии.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			ИЛИ &amp;КонецПериода = ДАТАВРЕМЯ(1, 1, 1))
+	И Партии.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И Партии.ВидЗапасов.ТипЗапасов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыЗапасов.МатериалДавальца)
+	И Партии.ВидЗапасов.ТипЗапасов &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ТипыЗапасов.ПродукцияДавальца)
+	И (Партии.Регистратор ССЫЛКА Документ.ВыпускПродукции
+			ИЛИ Партии.Регистратор ССЫЛКА Документ.ОтчетДавальцу
+			ИЛИ Партии.Регистратор ССЫЛКА Документ.ПоступлениеОтПереработчика)
+	И (НЕ Константы.ПартионныйУчетВерсии22
+			ИЛИ Партии.Период &lt; Константы.ДатаПереходаНаПартионныйУчетВерсии22)
+
+СГРУППИРОВАТЬ ПО
+	Партии.Период,
+	Партии.Регистратор,
+	Партии.Организация,
+	Партии.АналитикаУчетаНоменклатуры,
+	Партии.ВидЗапасов,
+	Партии.ДокументПоступления,
+	Партии.ЗаказНаПроизводство,
+	Партии.СтатьяКалькуляции,
+	Партии.АналитикаУчетаПродукции,
+	Партии.КорВидЗапасов,
+	Партии.Продукция,
+	Партии.ХарактеристикаПродукции
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗатратыНЗП.Организация КАК Организация,
+	АналитикаВыпуска.Номенклатура КАК Продукция,
+	АналитикаВыпуска.Характеристика КАК ХарактеристикаПродукции,
+	ЗатратыНЗП.СтатьяКалькуляции КАК СтатьяКалькуляции,
+	Аналитика.Номенклатура КАК Затрата,
+	Аналитика.Характеристика КАК ХарактеристикаЗатраты,
+	ЗатратыНЗП.Количество КАК КоличествоЗатрат,
+	ВЫБОР
+		КОГДА ЗатратыНЗП.Регистратор ССЫЛКА Документ.ПоступлениеОтПереработчика
+				И ЗатратыНЗП.ВидЗапасов.ТипЗапасов = ЗНАЧЕНИЕ(Перечисление.ТипыЗапасов.Услуга)
+			ТОГДА ЗатратыНЗП.Стоимость
+		КОГДА РасчетСебестоимости.Ссылка ЕСТЬ NULL
+			ТОГДА ЗатратыНЗП.Количество * СтоимостьЗатрат.СтоимостьРегл
+		ИНАЧЕ ЗатратыНЗП.Стоимость + ЕСТЬNULL(ПартииРасходов.Стоимость, 0) + ЕСТЬNULL(ПартииЗатрат.Стоимость, 0)
+	КОНЕЦ КАК СтоимостьЗатрат,
+	НАЧАЛОПЕРИОДА(ЗатратыНЗП.Период, МЕСЯЦ) КАК Месяц
+ИЗ
+	ПартииНЗП КАК ЗатратыНЗП
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК Аналитика
+		ПО ЗатратыНЗП.АналитикаУчетаНоменклатуры = Аналитика.КлючАналитики
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК АналитикаВыпуска
+		ПО ЗатратыНЗП.АналитикаУчетаПродукции = АналитикаВыпуска.КлючАналитики
+		ЛЕВОЕ СОЕДИНЕНИЕ Константы КАК Константы
+		ПО (ИСТИНА)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтоимостьТоваров КАК СтоимостьЗатрат
+		ПО (ВЫБОР
+				КОГДА Константы.УчитыватьСебестоимостьТоваровПоВидамЗапасов
+					ТОГДА ЗатратыНЗП.АналитикаУчетаНоменклатуры = СтоимостьЗатрат.АналитикаУчетаНоменклатуры
+				ИНАЧЕ ЗатратыНЗП.АналитикаУчетаНоменклатуры.Номенклатура = СтоимостьЗатрат.АналитикаУчетаНоменклатуры.Номенклатура
+						И ЗатратыНЗП.АналитикаУчетаНоменклатуры.Характеристика = СтоимостьЗатрат.АналитикаУчетаНоменклатуры.Характеристика
+						И ЗатратыНЗП.АналитикаУчетаНоменклатуры.Серия = СтоимостьЗатрат.АналитикаУчетаНоменклатуры.Серия
+						И ЗатратыНЗП.АналитикаУчетаНоменклатуры.Склад = СтоимостьЗатрат.АналитикаУчетаНоменклатуры.Склад
+						И ЗатратыНЗП.АналитикаУчетаНоменклатуры.СтатьяКалькуляции = СтоимостьЗатрат.АналитикаУчетаНоменклатуры.СтатьяКалькуляции
+			КОНЕЦ)
+			И ЗатратыНЗП.Организация = СтоимостьЗатрат.Организация
+			И (СтоимостьЗатрат.Период = НАЧАЛОПЕРИОДА(ЗатратыНЗП.Период, МЕСЯЦ))
+			И (ЗатратыНЗП.ВидЗапасов = СтоимостьЗатрат.ВидЗапасов
+				ИЛИ НЕ Константы.УчитыватьСебестоимостьТоваровПоВидамЗапасов)
+			И (ВЫБОР
+				КОГДА ЗатратыНЗП.Количество &lt; 0
+						И СтоимостьЗатрат.РазделУчета = ЗНАЧЕНИЕ(Перечисление.РазделыУчетаСебестоимостиТоваров.ПустаяСсылка)
+					ТОГДА ИСТИНА
+				КОГДА ЗатратыНЗП.Количество &gt; 0
+						И СтоимостьЗатрат.РазделУчета &lt;&gt; ЗНАЧЕНИЕ(Перечисление.РазделыУчетаСебестоимостиТоваров.ТоварыПереданныеПереработчику)
+					ТОГДА ИСТИНА
+				ИНАЧЕ ЛОЖЬ
+			КОНЕЦ)
+		ЛЕВОЕ СОЕДИНЕНИЕ ПартииРасходов КАК ПартииРасходов
+		ПО (ПартииРасходов.Период = ЗатратыНЗП.Период)
+			И (ПартииРасходов.Регистратор = ЗатратыНЗП.Регистратор)
+			И (ПартииРасходов.АналитикаУчетаНоменклатуры = ЗатратыНЗП.АналитикаУчетаНоменклатуры)
+			И (ПартииРасходов.ВидЗапасов = ЗатратыНЗП.ВидЗапасов)
+			И (ПартииРасходов.ДокументПоступления = ЗатратыНЗП.ДокументПоступления)
+			И (ПартииРасходов.КорАналитикаУчетаНоменклатуры = ЗатратыНЗП.АналитикаУчетаПродукции)
+		ЛЕВОЕ СОЕДИНЕНИЕ ПартииЗатрат КАК ПартииЗатрат
+		ПО (ПартииЗатрат.Период = ЗатратыНЗП.Период)
+			И (ПартииЗатрат.Регистратор = ЗатратыНЗП.Регистратор)
+			И (ПартииЗатрат.АналитикаУчетаПродукции = ЗатратыНЗП.АналитикаУчетаНоменклатуры)
+			И (ПартииЗатрат.ДокументВыпуска = ЗатратыНЗП.ДокументПоступления)
+			И (ПартииЗатрат.КорАналитикаУчетаПродукции = ЗатратыНЗП.АналитикаУчетаПродукции)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.РасчетСебестоимостиТоваров.Организации КАК РасчетСебестоимости
+		ПО (НАЧАЛОПЕРИОДА(ЗатратыНЗП.Период, МЕСЯЦ) = НАЧАЛОПЕРИОДА(РасчетСебестоимости.Ссылка.Дата, МЕСЯЦ))
+			И ЗатратыНЗП.Организация = РасчетСебестоимости.Организация
+			И (РасчетСебестоимости.Ссылка.Проведен)
+			И (РасчетСебестоимости.Ссылка.МетодОценки = ЗНАЧЕНИЕ(Перечисление.МетодыОценкиСтоимостиТоваров.ФИФОСкользящаяОценка))</query>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Трудозатраты</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяКалькуляции</dataPath>
+					<field>СтатьяКалькуляции</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтоимостьЗатрат</dataPath>
+					<field>СтоимостьЗатрат</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Стоимость затрат</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоЗатрат</dataPath>
+					<field>КоличествоЗатрат</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Количество затрат</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаЗатраты</dataPath>
+					<field>ХарактеристикаЗатраты</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Характеристика затраты</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Затрата</dataPath>
+					<field>Затрата</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Затрата</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаПродукции</dataPath>
+					<field>ХарактеристикаПродукции</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Характеристика продукции</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Продукция</dataPath>
+					<field>Продукция</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Продукция</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Месяц</dataPath>
+					<field>Месяц</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Месяц</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗатратыНЗП.Организация КАК Организация,
+	Аналитика.Номенклатура КАК Продукция,
+	Аналитика.Характеристика КАК ХарактеристикаПродукции,
+	ВЫБОР
+		КОГДА ЗатратыНЗП.СтатьяКалькуляцииБезЗаказа &lt;&gt; ЗНАЧЕНИЕ(Справочник.СтатьиКалькуляции.ПустаяСсылка)
+			ТОГДА ЗатратыНЗП.СтатьяКалькуляцииБезЗаказа
+		ИНАЧЕ ЗатратыНЗП.СтатьяКалькуляции
+	КОНЕЦ КАК СтатьяКалькуляции,
+	ЗатратыНЗП.ВидРабот КАК Затрата,
+	ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка) КАК ХарактеристикаЗатраты,
+	ЗатратыНЗП.Количество КАК КоличествоЗатрат,
+	ЗатратыНЗП.СтоимостьРегл КАК СтоимостьЗатрат,
+	НАЧАЛОПЕРИОДА(ЗатратыНЗП.Период, МЕСЯЦ) КАК Месяц
+ИЗ
+	РегистрНакопления.ТрудозатратыНезавершенногоПроизводства КАК ЗатратыНЗП
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК Аналитика
+		ПО (Аналитика.КлючАналитики = ЗатратыНЗП.КорАналитикаУчетаПродукции)
+		ЛЕВОЕ СОЕДИНЕНИЕ Константы КАК Константы
+		ПО (ИСТИНА)
+ГДЕ
+	ЗатратыНЗП.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И (ЗатратыНЗП.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			ИЛИ &amp;КонецПериода = ДАТАВРЕМЯ(1, 1, 1))
+	И ЗатратыНЗП.КодСтрокиПродукция = 0
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ЗатратыНЗП.Организация,
+	АналитикаВыпуска.Номенклатура,
+	АналитикаВыпуска.Характеристика,
+	ЗатратыНЗП.СтатьяКалькуляции,
+	ЗатратыНЗП.ВидРабот,
+	ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка),
+	ЗатратыНЗП.Количество,
+	ЗатратыНЗП.СтоимостьРегл,
+	НАЧАЛОПЕРИОДА(ЗатратыНЗП.Период, МЕСЯЦ)
+ИЗ
+	РегистрНакопления.ТрудозатратыНезавершенногоПроизводства КАК ЗатратыНЗП
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК АналитикаВыпуска
+		ПО ЗатратыНЗП.КорАналитикаУчетаПродукции = АналитикаВыпуска.КлючАналитики
+		ЛЕВОЕ СОЕДИНЕНИЕ Константы КАК Константы
+		ПО (ИСТИНА)
+ГДЕ
+	ЗатратыНЗП.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И (ЗатратыНЗП.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			ИЛИ &amp;КонецПериода = ДАТАВРЕМЯ(1, 1, 1))
+	И ЗатратыНЗП.КодСтрокиПродукция &gt; 0</query>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ПрочиеРасходы</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяКалькуляции</dataPath>
+					<field>СтатьяКалькуляции</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтоимостьЗатрат</dataPath>
+					<field>СтоимостьЗатрат</field>
+					<appearance>
+						<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+							<parameter>Формат</parameter>
+							<value xsi:type="xs:string">ЧЦ=15; ЧДЦ=2</value>
+						</item>
+					</appearance>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоЗатрат</dataPath>
+					<field>КоличествоЗатрат</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Количество затрат</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаЗатраты</dataPath>
+					<field>ХарактеристикаЗатраты</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Характеристика затраты</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Затрата</dataPath>
+					<field>Затрата</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Затрата</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаПродукции</dataPath>
+					<field>ХарактеристикаПродукции</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Характеристика продукции</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Продукция</dataPath>
+					<field>Продукция</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Продукция</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Месяц</dataPath>
+					<field>Месяц</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Месяц</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ЗатратыНЗП.Организация,
+	АналитикаВыпуска.Номенклатура КАК Продукция,
+	АналитикаВыпуска.Характеристика КАК ХарактеристикаПродукции,
+	ЗатратыНЗП.СтатьяКалькуляции,
+	ЗатратыНЗП.СтатьяРасходов КАК Затрата,
+	ЗНАЧЕНИЕ(Справочник.ХарактеристикиНоменклатуры.ПустаяСсылка) КАК ХарактеристикаЗатраты,
+	0 КАК КоличествоЗатрат,
+	ЗатратыНЗП.СтоимостьРегл КАК СтоимостьЗатрат,
+	НАЧАЛОПЕРИОДА(ЗатратыНЗП.Период, МЕСЯЦ) КАК Месяц
+ИЗ
+	РегистрНакопления.ПрочиеРасходыНезавершенногоПроизводства КАК ЗатратыНЗП
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК АналитикаВыпуска
+		ПО ЗатратыНЗП.АналитикаУчетаПродукции = АналитикаВыпуска.КлючАналитики
+		ЛЕВОЕ СОЕДИНЕНИЕ Константы КАК Константы
+		ПО (ИСТИНА)
+ГДЕ
+	ЗатратыНЗП.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И (ЗатратыНЗП.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			ИЛИ &amp;КонецПериода = ДАТАВРЕМЯ(1, 1, 1))</query>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Материальные_Версия22</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтоимостьЗатрат</dataPath>
+					<field>СтоимостьЗатрат</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Стоимость затрат</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаПродукции</dataPath>
+					<field>ХарактеристикаПродукции</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Характеристика продукции</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ХарактеристикаЗатраты</dataPath>
+					<field>ХарактеристикаЗатраты</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Характеристика затраты</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Продукция</dataPath>
+					<field>Продукция</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Продукция</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоЗатрат</dataPath>
+					<field>КоличествоЗатрат</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Количество затрат</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Затрата</dataPath>
+					<field>Затрата</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Затрата</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяКалькуляции</dataPath>
+					<field>СтатьяКалькуляции</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Месяц</dataPath>
+					<field>Месяц</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Месяц</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДД.Организация КАК Организация,
+	АналитикаВыпуска.Номенклатура КАК Продукция,
+	АналитикаВыпуска.Характеристика КАК ХарактеристикаПродукции,
+	ВЫБОР
+		КОГДА Аналитика.СтатьяКалькуляции &lt;&gt; ЗНАЧЕНИЕ(Справочник.СтатьиКалькуляции.ПустаяСсылка)
+			ТОГДА Аналитика.СтатьяКалькуляции
+		ИНАЧЕ ДД.СтатьяКалькуляции
+	КОНЕЦ КАК СтатьяКалькуляции,
+	Аналитика.Номенклатура КАК Затрата,
+	Аналитика.Характеристика КАК ХарактеристикаЗатраты,
+	ДД.Количество КАК КоличествоЗатрат,
+	ВЫБОР
+		КОГДА ДокументРасчета.Ссылка ЕСТЬ NULL
+			ТОГДА ДД.Количество * (Цены.СтоимостьРегл + Цены.ДопРасходыРегл + Цены.ТрудозатратыРегл + Цены.ПостатейныеРегл)
+		ИНАЧЕ ДД.СтоимостьРегл + ДД.ДопРасходыРегл + ДД.ТрудозатратыРегл + ДД.ПостатейныеРегл
+	КОНЕЦ КАК СтоимостьЗатрат,
+	НАЧАЛОПЕРИОДА(ДД.Период, МЕСЯЦ) КАК Месяц
+ИЗ
+	РегистрНакопления.СебестоимостьТоваров КАК ДД
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК Аналитика
+		ПО (Аналитика.КлючАналитики = ДД.АналитикаУчетаНоменклатуры)
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.АналитикаУчетаНоменклатуры КАК АналитикаВыпуска
+		ПО (АналитикаВыпуска.КлючАналитики = ДД.КорАналитикаУчетаНоменклатуры)
+		ЛЕВОЕ СОЕДИНЕНИЕ Константы КАК Константы
+		ПО (ИСТИНА)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СтоимостьТоваров КАК Цены
+		ПО (Цены.АналитикаУчетаНоменклатуры = ДД.АналитикаУчетаНоменклатуры)
+			И (Цены.Организация = ДД.Организация)
+			И (Цены.Период = НАЧАЛОПЕРИОДА(ДД.Период, МЕСЯЦ))
+			И (Цены.ВидЗапасов = ДД.ВидЗапасов
+				ИЛИ НЕ Константы.УчитыватьСебестоимостьТоваровПоВидамЗапасов)
+			И (ВЫБОР
+				КОГДА Цены.РазделУчета = ДД.РазделУчета
+					ТОГДА ИСТИНА
+				КОГДА ДД.Количество &lt; 0
+						И (ДД.РазделУчета = ЗНАЧЕНИЕ(Перечисление.РазделыУчетаСебестоимостиТоваров.ПроизводственныеЗатраты)
+								И Цены.РазделУчета = ЗНАЧЕНИЕ(Перечисление.РазделыУчетаСебестоимостиТоваров.ПустаяСсылка)
+							ИЛИ Цены.РазделУчета = ЗНАЧЕНИЕ(Перечисление.РазделыУчетаСебестоимостиТоваров.НезавершенноеПроизводство))
+					ТОГДА ИСТИНА
+				ИНАЧЕ ЛОЖЬ
+			КОНЕЦ)
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.РасчетСебестоимостиТоваров.Организации КАК ДокументРасчета
+		ПО (НАЧАЛОПЕРИОДА(ДокументРасчета.Ссылка.Дата, МЕСЯЦ) = НАЧАЛОПЕРИОДА(ДД.Период, МЕСЯЦ))
+			И (ДокументРасчета.Организация = ДД.Организация)
+			И (ДокументРасчета.Ссылка.Проведен)
+			И (НЕ ДокументРасчета.Ссылка.ПредварительныйРасчет)
+ГДЕ
+	(ДД.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+			ИЛИ &amp;КонецПериода = ДАТАВРЕМЯ(1, 1, 1))
+	И ДД.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Расход)
+	И ДД.Активность
+	И (ДД.Регистратор ССЫЛКА Документ.ВыпускПродукции
+			ИЛИ ДД.Регистратор ССЫЛКА Документ.ОтчетДавальцу
+			ИЛИ ТИПЗНАЧЕНИЯ(ДД.Регистратор) В (ТИП(Документ.ПроизводствоБезЗаказа), ТИП(Документ.ЭтапПроизводства2_2))
+				И ДД.ХозяйственнаяОперация В (ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВыпускПродукции), ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВыпускПродукцииНаСклад), ЗНАЧЕНИЕ(Перечисление.ХозяйственныеОперации.ВыпускПродукцииВПодразделение))
+			ИЛИ ДД.Регистратор ССЫЛКА Документ.ОтчетПереработчика
+				И ДД.РазделУчета = ЗНАЧЕНИЕ(Перечисление.РазделыУчетаСебестоимостиТоваров.ПроизводственныеЗатраты))
+	И Константы.ПартионныйУчетВерсии22
+	И ДД.Период &gt;= Константы.ДатаПереходаНаПартионныйУчетВерсии22</query>
+			</item>
+		</dataSet>
+		<totalField>
+			<dataPath>КоличествоЗатрат</dataPath>
+			<expression>Сумма(КоличествоЗатрат)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьЗатрат</dataPath>
+			<expression>Сумма(СтоимостьЗатрат)</expression>
+		</totalField>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">ThisMonth</d4p1:variant>
+			</value>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>НачалоПериода</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Начало периода</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>КонецПериода</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Конец периода</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>ТекущаяДата</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Текущая дата</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>ТекущаяДатаСеанса()</expression>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Данные</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Данные</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemAuto"/>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоЗатрат</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество затрат</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СтоимостьЗатрат</field>
+			<lwsTitle>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Стоимость затрат</v8:content>
+				</v8:item>
+			</lwsTitle>
+		</item>
+		<viewMode>Normal</viewMode>
+	</selection>
+	<filter>
+		<viewMode>Normal</viewMode>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">ThisMonth</v8:variant>
+			</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>НачалоПериода</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+				<v8:date>0001-01-01T00:00:00</v8:date>
+			</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>КонецПериода</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardBeginningDate">
+				<v8:variant xsi:type="v8:StandardBeginningDateVariant">Custom</v8:variant>
+				<v8:date>0001-01-01T00:00:00</v8:date>
+			</dcscor:value>
+		</dcscor:item>
+	</dataParameters>
+	<order>
+		<item xsi:type="OrderItemField">
+			<field>Продукция</field>
+			<orderType>Asc</orderType>
+		</item>
+		<item xsi:type="OrderItemField">
+			<field>ХарактеристикаПродукции</field>
+			<orderType>Asc</orderType>
+		</item>
+	</order>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Заголовок</dcscor:parameter>
+			<dcscor:value xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Себестоимость выпущенной продукции</v8:content>
+				</v8:item>
+			</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Месяц</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Организация</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Продукция</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>ХарактеристикаПродукции</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>СтатьяКалькуляции</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>Затрата</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+			<item xsi:type="GroupItemField">
+				<field>ХарактеристикаЗатраты</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<outputParameters>
+			<dcscor:item xsi:type="SettingsParameterValue">
+				<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+				<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+			</dcscor:item>
+		</outputParameters>
+	</item>
+	<itemsViewMode>Normal</itemsViewMode>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
