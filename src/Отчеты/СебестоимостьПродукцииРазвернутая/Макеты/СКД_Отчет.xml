@@ -608,6 +608,21 @@
 			<useRestriction>true</useRestriction>
 			<expression>&amp;Период.ДатаОкончания</expression>
 		</parameter>
+		<parameter>
+			<name>УчитыватьХарактеристики</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Разворачивать каждую характеристику отдельно</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:boolean</Type>
+			</valueType>
+			<value xsi:type="xs:boolean">false</value>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
 		<settingsVariant>
 			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Себестоимость продукции развернутая (доп)</name>
 			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -657,6 +672,12 @@
 				<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonth</v8:variant>
 			</dcscor:value>
 			<userSettingID>e0e6ed5c-d42b-49ab-8177-d2f918b238f7</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>УчитыватьХарактеристики</dcscor:parameter>
+			<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+			<viewMode>Normal</viewMode>
+			<userSettingID>ea73f27e-1b76-4a84-8c40-782af31b84fb</userSettingID>
 		</dcscor:item>
 	</dataParameters>
 	<conditionalAppearance>

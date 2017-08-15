@@ -64,6 +64,9 @@
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Подразделение</dataPath>
 				<field>Подразделение</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ПодразделенияОрганизаций</Type>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
@@ -187,11 +190,54 @@
 					</item>
 				</appearance>
 			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ФОТ2450</dataPath>
+				<field>ФОТ2450</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>ФОТ2450</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ФОТ1800</dataPath>
+				<field>ФОТ1800</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>ФОТ1800</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоСтавок1800</dataPath>
+				<field>КоличествоСтавок1800</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество ставок1800</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоСтавок2450</dataPath>
+				<field>КоличествоСтавок2450</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество ставок2450</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
 			<item xsi:type="DataSetQuery">
 				<name>ПланНаЕдиницу</name>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Подразделение</dataPath>
 					<field>Подразделение</field>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПодразделенияОрганизаций</Type>
+					</valueType>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
@@ -326,6 +372,9 @@
 							<d6p1:content>Подразделение</d6p1:content>
 						</d6p1:item>
 					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПодразделенияОрганизаций</Type>
+					</valueType>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ФизическоеЛицо</dataPath>
@@ -409,6 +458,9 @@
 							<d6p1:content>Подразделение</d6p1:content>
 						</d6p1:item>
 					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПодразделенияОрганизаций</Type>
+					</valueType>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>Сотрудник</dataPath>
@@ -428,17 +480,81 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ФОТ2450</dataPath>
+					<field>ФОТ2450</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>ФОТ2450</d6p1:content>
+						</d6p1:item>
+					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+						<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<Digits>15</Digits>
+							<FractionDigits>2</FractionDigits>
+							<AllowedSign>Any</AllowedSign>
+						</NumberQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ФОТ1800</dataPath>
+					<field>ФОТ1800</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>ФОТ1800</d6p1:content>
+						</d6p1:item>
+					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+						<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<Digits>15</Digits>
+							<FractionDigits>2</FractionDigits>
+							<AllowedSign>Any</AllowedSign>
+						</NumberQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоСтавок1800</dataPath>
+					<field>КоличествоСтавок1800</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Количество ставок1800</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КоличествоСтавок2450</dataPath>
+					<field>КоличествоСтавок2450</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Количество ставок2450</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	Выборка.Организация КАК Организация,
 	Выборка.Подразделение КАК Подразделение,
 	Выборка.ДолжностьПоШтатномуРасписанию КАК ДолжностьПоШтатномуРасписанию,
-	Выборка.Количество * (ВЫРАЗИТЬ(ШтатноеРасписаниеДополнительныеРеквизиты.Значение КАК ЧИСЛО(14, 2))) КАК План
+	Выборка.Количество * ВЫРАЗИТЬ(ШтатноеРасписаниеПлан.Значение КАК ЧИСЛО(14, 2)) КАК План,
+	ВЫРАЗИТЬ(ШтатноеРасписаниеСтавка1800.Значение КАК ЧИСЛО(14, 2)) КАК КоличествоСтавок1800,
+	ВЫРАЗИТЬ(ШтатноеРасписаниеПлан.Значение КАК ЧИСЛО(14, 2)) * ВЫРАЗИТЬ(ШтатноеРасписаниеСтавка1800.Значение КАК ЧИСЛО(14, 2)) КАК ФОТ1800,
+	ВЫРАЗИТЬ(ШтатноеРасписаниеСтавка2450.Значение КАК ЧИСЛО(14, 2)) КАК КоличествоСтавок2450,
+	ВЫРАЗИТЬ(ШтатноеРасписаниеПлан.Значение КАК ЧИСЛО(14, 2)) * ВЫРАЗИТЬ(ШтатноеРасписаниеСтавка2450.Значение КАК ЧИСЛО(14, 2)) КАК ФОТ2450
 {ВЫБРАТЬ
 	Организация.*,
 	Подразделение.*,
 	ДолжностьПоШтатномуРасписанию.*,
-	План}
+	План,
+	КоличествоСтавок1800,
+	ФОТ1800,
+	КоличествоСтавок2450,
+	ФОТ2450}
 ИЗ
 	(ВЫБРАТЬ
 		Начисления.Организация КАК Организация,
@@ -465,9 +581,15 @@
 		Начисления.Организация,
 		КадроваяИстория.ДолжностьПоШтатномуРасписанию.Подразделение,
 		КадроваяИстория.ДолжностьПоШтатномуРасписанию) КАК Выборка
-		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.ШтатноеРасписание.ДополнительныеРеквизиты КАК ШтатноеРасписаниеДополнительныеРеквизиты
-		ПО Выборка.ДолжностьПоШтатномуРасписанию = ШтатноеРасписаниеДополнительныеРеквизиты.Ссылка
-			И (ШтатноеРасписаниеДополнительныеРеквизиты.Свойство.Заголовок = "Плановая з/п")</query>
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.ШтатноеРасписание.ДополнительныеРеквизиты КАК ШтатноеРасписаниеПлан
+		ПО Выборка.ДолжностьПоШтатномуРасписанию = ШтатноеРасписаниеПлан.Ссылка
+			И (ШтатноеРасписаниеПлан.Свойство.Заголовок = "Плановая з/п")
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ШтатноеРасписание.ДополнительныеРеквизиты КАК ШтатноеРасписаниеСтавка1800
+		ПО Выборка.ДолжностьПоШтатномуРасписанию = ШтатноеРасписаниеСтавка1800.Ссылка
+			И (ШтатноеРасписаниеСтавка1800.Свойство.Заголовок = "План 1800/800 (Ставка)")
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ШтатноеРасписание.ДополнительныеРеквизиты КАК ШтатноеРасписаниеСтавка2450
+		ПО Выборка.ДолжностьПоШтатномуРасписанию = ШтатноеРасписаниеСтавка2450.Ссылка
+			И (ШтатноеРасписаниеСтавка2450.Свойство.Заголовок = "План 2450/1050 (Ставка)")</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 			<item xsi:type="DataSetQuery">
@@ -481,6 +603,9 @@
 							<d6p1:content>Подразделение</d6p1:content>
 						</d6p1:item>
 					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПодразделенияОрганизаций</Type>
+					</valueType>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
@@ -597,6 +722,9 @@
 							<d6p1:content>Подразделение</d6p1:content>
 						</d6p1:item>
 					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПодразделенияОрганизаций</Type>
+					</valueType>
 				</field>
 				<field xsi:type="DataSetFieldField">
 					<dataPath>ДолжностьПоШтатномуРасписанию</dataPath>
@@ -717,6 +845,22 @@
 			<dataPath>Депремирование</dataPath>
 			<expression>Сумма(Депремирование)</expression>
 		</totalField>
+		<totalField>
+			<dataPath>ФОТ1800</dataPath>
+			<expression>Сумма(ФОТ1800)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ФОТ2450</dataPath>
+			<expression>Сумма(ФОТ2450)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоСтавок1800</dataPath>
+			<expression>Сумма(КоличествоСтавок1800)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоСтавок2450</dataPath>
+			<expression>Сумма(КоличествоСтавок2450)</expression>
+		</totalField>
 		<parameter>
 			<name>Дата1</name>
 			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
@@ -798,7 +942,7 @@
 			<valueType>
 				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПоказателиРасчетаЗарплаты</Type>
 			</valueType>
-			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue"/>
+			<value xsi:nil="true"/>
 			<useRestriction>false</useRestriction>
 			<use>Always</use>
 		</parameter>
@@ -861,11 +1005,6 @@
 				<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonth</v8:variant>
 			</dcscor:value>
 			<userSettingID>34d70105-4a78-4b1f-ab53-a6d1b901b870</userSettingID>
-		</dcscor:item>
-		<dcscor:item xsi:type="SettingsParameterValue">
-			<dcscor:use>false</dcscor:use>
-			<dcscor:parameter>ПоказательСуммаПремии</dcscor:parameter>
-			<dcscor:value xsi:nil="true"/>
 		</dcscor:item>
 	</dataParameters>
 	<outputParameters>
