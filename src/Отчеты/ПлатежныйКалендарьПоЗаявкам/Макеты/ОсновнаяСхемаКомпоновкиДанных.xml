@@ -19,6 +19,10 @@
 					<orderType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Asc</orderType>
 					<autoOrder xmlns="http://v8.1c.ru/8.1/data-composition-system/common">false</autoOrder>
 				</orderExpression>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.БанковскиеСчетаОрганизаций</Type>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Кассы</Type>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>ДатаПлатежа</dataPath>
@@ -41,6 +45,12 @@
 			<field xsi:type="DataSetFieldField">
 				<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
 				<field>СтатьяДвиженияДенежныхСредств</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Статья ДДС</d5p1:content>
+					</d5p1:item>
+				</title>
 				<role>
 					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
 				</role>
@@ -75,6 +85,14 @@
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Сумма</dataPath>
 				<field>Сумма</field>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>2</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
 			</field>
 			<field xsi:type="DataSetFieldField">
 				<dataPath>Оплачена</dataPath>
@@ -165,6 +183,14 @@
 						<d5p1:content>Порядок банковскийсчет</d5p1:content>
 					</d5p1:item>
 				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Автор</dataPath>
+				<field>Автор</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЖелательнаяДатаПлатежа</dataPath>
+				<field>ЖелательнаяДатаПлатежа</field>
 			</field>
 			<item xsi:type="DataSetQuery">
 				<name>Списание</name>
@@ -260,6 +286,14 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Автор</dataPath>
+					<field>Автор</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЖелательнаяДатаПлатежа</dataPath>
+					<field>ЖелательнаяДатаПлатежа</field>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	2 КАК Порядок,
@@ -287,6 +321,8 @@
 	Док.Сумма КАК Сумма,
 	Док.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
 	Док.Партнер КАК Контрагент,
+	Док.Ссылка.Автор КАК Автор,
+	Док.Ссылка.ЖелательнаяДатаПлатежа КАК ЖелательнаяДатаПлатежа,
 	ВЫБОР
 		КОГДА ЕСТЬNULL(ДенежныеСредства.СуммаОстаток, 0) = 0
 				И Док.Ссылка.Проведен
@@ -307,6 +343,8 @@
 	Сумма,
 	СтатьяДвиженияДенежныхСредств.*,
 	Контрагент.*,
+	Автор.*,
+	ЖелательнаяДатаПлатежа,
 	Оплачена,
 	Вид}
 ИЗ
@@ -404,6 +442,16 @@
 						</d6p1:item>
 					</title>
 				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЖелательнаяДатаПлатежа</dataPath>
+					<field>ЖелательнаяДатаПлатежа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Желательная дата платежа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
 				<dataSource>ИсточникДанных1</dataSource>
 				<query>ВЫБРАТЬ
 	1 КАК Порядок,
@@ -418,7 +466,8 @@
 	КОНЕЦ КАК Сумма,
 	Рег.СуммаОстаток КАК СуммаРуб,
 	Рег.Счет КАК Счет,
-	БанковскиеСчетаОрганизаций.ВалютаДенежныхСредств КАК Валюта
+	БанковскиеСчетаОрганизаций.ВалютаДенежныхСредств КАК Валюта,
+	&amp;Дата1 КАК ЖелательнаяДатаПлатежа
 {ВЫБРАТЬ
 	Порядок,
 	Вид,
@@ -427,7 +476,8 @@
 	БанковскийСчет.*,
 	Сумма,
 	СуммаРуб,
-	Счет.*}
+	Счет.*,
+	ЖелательнаяДатаПлатежа}
 ИЗ
 	РегистрБухгалтерии.Хозрасчетный.Остатки(&amp;Дата1, Счет В ИЕРАРХИИ (&amp;Счет51, &amp;Счет52), &amp;ВидСубконтоБанковскийСчет, {(Организация).*, (Субконто1) КАК БанковскийСчет}) КАК Рег
 		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.БанковскиеСчетаОрганизаций КАК БанковскиеСчетаОрганизаций
@@ -436,6 +486,188 @@
 	Рег.СуммаОстаток &gt; 0
 {ГДЕ
 	("Остаток на начало") КАК Вид}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Перемещение</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Вид</dataPath>
+					<field>Вид</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Вид</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Порядок</dataPath>
+					<field>Порядок</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Порядок</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Документ</dataPath>
+					<field>Документ</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Документ</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>БанковскийСчет</dataPath>
+					<field>БанковскийСчет</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Подразделение</dataPath>
+					<field>Подразделение</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ДатаПлатежа</dataPath>
+					<field>ДатаПлатежа</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статус</dataPath>
+					<field>Статус</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяДвиженияДенежныхСредств</dataPath>
+					<field>СтатьяДвиженияДенежныхСредств</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Оплачена</dataPath>
+					<field>Оплачена</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Оплачена</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПорядокБанковскийсчет</dataPath>
+					<field>ПорядокБанковскийсчет</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Порядок банковскийсчет</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЖелательнаяДатаПлатежа</dataPath>
+					<field>ЖелательнаяДатаПлатежа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Желательная дата платежа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Автор</dataPath>
+					<field>Автор</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Автор</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Контрагент</dataPath>
+					<field>Контрагент</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Контрагент</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	3 КАК Порядок,
+	"Списание" КАК Вид,
+	Док.Ссылка КАК Документ,
+	Док.Организация КАК Организация,
+	Док.ДатаПлатежа КАК ДатаПлатежа,
+	Док.ДатаПлатежа КАК ЖелательнаяДатаПлатежа,
+	Док.Подразделение КАК Подразделение,
+	Док.БанковскийСчет КАК БанковскийСчет,
+	0 КАК ПорядокБанковскийсчет,
+	Док.Статус КАК Статус,
+	Док.СтатьяДвиженияДенежныхСредств КАК СтатьяДвиженияДенежныхСредств,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(ДенежныеСредства.СуммаОстаток, 0) = 0
+				И Док.Ссылка.Проведен
+				И Док.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаявокНаРасходованиеДенежныхСредств.КОплате)
+			ТОГДА ИСТИНА
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК Оплачена,
+	Док.СуммаДокумента КАК Сумма,
+	ЗНАЧЕНИЕ(Справочник.Пользователи.ПустаяСсылка) КАК Автор,
+	Док.БанковскийСчетПолучатель КАК Контрагент
+{ВЫБРАТЬ
+	Порядок,
+	Вид,
+	Документ.*,
+	Организация.*,
+	ДатаПлатежа,
+	БанковскийСчет.*,
+	ПорядокБанковскийсчет,
+	Подразделение.*,
+	Статус.*,
+	СтатьяДвиженияДенежныхСредств.*,
+	ЖелательнаяДатаПлатежа,
+	Оплачена,
+	Сумма,
+	Автор.*,
+	Контрагент.*}
+ИЗ
+	Документ.РаспоряжениеНаПеремещениеДенежныхСредств КАК Док
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.ДенежныеСредстваКВыплате.Остатки(, {(ЗаявкаНаРасходованиеДенежныхСредств).* КАК Документ}) КАК ДенежныеСредства
+		ПО (ДенежныеСредства.ЗаявкаНаРасходованиеДенежныхСредств = Док.Ссылка)
+ГДЕ
+	Док.Проведен
+	И Док.ДатаПлатежа МЕЖДУ &amp;Дата1 И &amp;Дата2
+{ГДЕ
+	("Списание") КАК Вид,
+	Док.Ссылка.* КАК Документ,
+	Док.Организация.*,
+	Док.ДатаПлатежа,
+	Док.БанковскийСчет.*,
+	Док.Подразделение.*,
+	Док.Статус.*,
+	Док.СтатьяДвиженияДенежныхСредств.*,
+	(ВЫБОР
+			КОГДА ЕСТЬNULL(ДенежныеСредства.СуммаОстаток, 0) = 0
+					И Док.Ссылка.Проведен
+					И Док.Ссылка.Статус = ЗНАЧЕНИЕ(Перечисление.СтатусыЗаявокНаРасходованиеДенежныхСредств.КОплате)
+				ТОГДА ИСТИНА
+			ИНАЧЕ ЛОЖЬ
+		КОНЕЦ) КАК Оплачена,
+	Док.БанковскийСчетПолучатель.* КАК Контрагент,
+	(ЗНАЧЕНИЕ(Справочник.Пользователи.ПустаяСсылка)).* КАК Автор}</query>
 				<autoFillFields>false</autoFillFields>
 			</item>
 		</dataSet>
