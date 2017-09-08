@@ -856,6 +856,7 @@
 			</valueType>
 			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
 			<useRestriction>false</useRestriction>
+			<use>Always</use>
 		</parameter>
 		<parameter>
 			<name>НачалоТекущегоДня</name>
@@ -1257,7 +1258,6 @@
 				<v8:valueType/>
 				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
 			</right>
-			<viewMode>Normal</viewMode>
 			<userSettingID>a2b034b5-7a55-41bd-9b6b-a6798860218f</userSettingID>
 		</item>
 	</filter>
