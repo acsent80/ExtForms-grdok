@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИнформационнаяБаза</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetQuery">
+			<name>СписокЛесосек</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Организация</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Ссылка</dataPath>
+				<field>Ссылка</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Лесосека (делянка)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Выдел</dataPath>
+				<field>Выдел</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Выдел</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВыделСпособРубки</dataPath>
+				<field>ВыделСпособРубки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Способ рубки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Кварталл</dataPath>
+				<field>Кварталл</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Квартал</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Лесничество</dataPath>
+				<field>Лесничество</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Лесничество</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Лесосека</dataPath>
+				<field>Лесосека</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Лесосека</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодРубки</dataPath>
+				<field>ПериодРубки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Период рубки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Порода</dataPath>
+				<field>Порода</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Порода</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СпособРубки</dataPath>
+				<field>СпособРубки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Способ рубки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статус</dataPath>
+				<field>Статус</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Статус лесосеки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Стоимость</dataPath>
+				<field>Стоимость</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>МДО, (руб.)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчЛесничество</dataPath>
+				<field>УчЛесничество</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Уч. лесничество</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоговорПодряда</dataPath>
+				<field>ДоговорПодряда</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Договор подряда</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументМДО</dataPath>
+				<field>ДокументМДО</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Документ МДО</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументРегистрацияЛесосеки</dataPath>
+				<field>ДокументРегистрацияЛесосеки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Документ РЛ</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПлановаяДатаНачалаРубки</dataPath>
+				<field>ПлановаяДатаНачалаРубки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Плановая дата начала рубки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПлановаяДатаОкончанияРубки</dataPath>
+				<field>ПлановаяДатаОкончанияРубки</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Плановая дата окончания рубки</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Подрядчик</dataPath>
+				<field>Подрядчик</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Подрядчик</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоЗаписей</dataPath>
+				<field>КоличествоЗаписей</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество записей, (шт.)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодДекларирования</dataPath>
+				<field>ПериодДекларирования</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Период декларирования</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Высота</dataPath>
+				<field>Высота</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Ср. высота, (м)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Диаметр</dataPath>
+				<field>Диаметр</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Ср. диаметр, (см)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗапасДревесинаДеловая</dataPath>
+				<field>ЗапасДревесинаДеловая</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Деловая древесина, (м3)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗапасДревесины</dataPath>
+				<field>ЗапасДревесины</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Запас древесины всего, (м3)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗапасОтходы</dataPath>
+				<field>ЗапасОтходы</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Отходы, (м3)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗапасТехнологическиеДрова</dataPath>
+				<field>ЗапасТехнологическиеДрова</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Тех. дрова, (м3)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗапасТехнологическоеСырье</dataPath>
+				<field>ЗапасТехнологическоеСырье</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Тех. сырье, (м3)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоПС</dataPath>
+				<field>КоличествоПС</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Породный состав, (м3)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПлощадьПС</dataPath>
+				<field>ПлощадьПС</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Породный состав, (Га)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьДревесинаДеловая</dataPath>
+				<field>СтоимостьДревесинаДеловая</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Древесина деловая, (руб.)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьОтходы</dataPath>
+				<field>СтоимостьОтходы</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Отходы, (руб.)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьТехнологическиеДрова</dataPath>
+				<field>СтоимостьТехнологическиеДрова</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Тех. дрова, (руб.)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтоимостьТехнологическоеСырье</dataPath>
+				<field>СтоимостьТехнологическоеСырье</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Тех. сырье, (руб.)</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<dataSource>ИнформационнаяБаза</dataSource>
+			<query>ВЫБРАТЬ
+	лфЛеснойФонд.Ссылка КАК Кварталл,
+	лфЛеснойФонд.Родитель КАК УчЛесничество,
+	лфЛеснойФонд.Родитель.Родитель КАК Лесничество,
+	лфЛеснойФонд.Ссылка КАК Ссылка
+ПОМЕСТИТЬ втЛесничество
+ИЗ
+	Справочник.лфЛеснойФонд КАК лфЛеснойФонд
+ГДЕ
+	лфЛеснойФонд.Родитель.Родитель &lt;&gt; ЗНАЧЕНИЕ(Справочник.лфЛеснойФонд.ПустаяСсылка)
+
+ИНДЕКСИРОВАТЬ ПО
+	Ссылка
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втЛесничество.Лесничество КАК Лесничество,
+	втЛесничество.УчЛесничество КАК УчЛесничество,
+	втЛесничество.Кварталл КАК Кварталл,
+	Лесосеки.Ссылка КАК Лесосека,
+	СтатусыЛесосек.Статус КАК Статус,
+	СведенияОЛесосеке.Контрагент КАК Подрядчик,
+	СведенияОЛесосеке.Организация КАК Организация,
+	ЕСТЬNULL(ПородныйСоставЛесосек.Выдел, МДО.Выдел) КАК Выдел,
+	ВЫБОР
+		КОГДА ПородныйСоставЛесосек.Выдел ЕСТЬ NULL 
+			ТОГДА МДО.Выдел.СпособРубки
+		ИНАЧЕ ПородныйСоставЛесосек.Выдел.СпособРубки
+	КОНЕЦ КАК СпособРубки,
+	ЕСТЬNULL(ПородныйСоставЛесосек.Порода, МДО.Порода) КАК Порода,
+	СУММА(ПородныйСоставЛесосек.Количество) КАК КоличествоПС,
+	СУММА(ПородныйСоставЛесосек.Площадь) КАК ПлощадьПС,
+	СведенияОЛесосеке.Регистратор КАК ДокументРегистрацияЛесосеки,
+	СведенияОЛесосеке.Регистратор.ПлановаяДатаНачалаРубки КАК ПлановаяДатаНачалаРубки,
+	СведенияОЛесосеке.Регистратор.ПлановаяДатаОкончанияРубки КАК ПлановаяДатаОкончанияРубки,
+	СведенияОЛесосеке.Регистратор.ДоговорКонтрагента КАК ДоговорПодряда,
+	МДО.Регистратор КАК ДокументМДО,
+	СУММА(1) КАК КоличествоЗаписей,
+	Лесосеки.ПериодРубки КАК ПериодРубки,
+	Лесосеки.ПериодРубки.ПериодДекларирования КАК ПериодДекларирования,
+	МДО.Высота КАК Высота,
+	МДО.Диаметр КАК Диаметр,
+	МДО.ЗапасДревесины КАК ЗапасДревесины,
+	МДО.Стоимость КАК Стоимость,
+	МДО.ЗапасДревесинаДеловая КАК ЗапасДревесинаДеловая,
+	МДО.СтоимостьДревесинаДеловая КАК СтоимостьДревесинаДеловая,
+	МДО.ЗапасТехнологическоеСырье КАК ЗапасТехнологическоеСырье,
+	МДО.СтоимостьТехнологическоеСырье КАК СтоимостьТехнологическоеСырье,
+	МДО.ЗапасТехнологическиеДрова КАК ЗапасТехнологическиеДрова,
+	МДО.СтоимостьТехнологическиеДрова КАК СтоимостьТехнологическиеДрова,
+	МДО.ЗапасОтходы КАК ЗапасОтходы,
+	МДО.СтоимостьОтходы КАК СтоимостьОтходы
+{ВЫБРАТЬ
+	Лесничество.*,
+	УчЛесничество.*,
+	Кварталл.*,
+	Лесосека.*,
+	Статус.*,
+	Подрядчик.*,
+	Организация.*,
+	Выдел.*,
+	СпособРубки.*,
+	Порода.*,
+	КоличествоПС,
+	ПлощадьПС,
+	ДокументРегистрацияЛесосеки.*,
+	ПлановаяДатаНачалаРубки,
+	ПлановаяДатаОкончанияРубки,
+	ДоговорПодряда.*,
+	ДокументМДО.*,
+	КоличествоЗаписей,
+	ПериодРубки.*,
+	ПериодДекларирования,
+	Высота,
+	Диаметр,
+	ЗапасДревесины,
+	Стоимость,
+	ЗапасДревесинаДеловая,
+	СтоимостьДревесинаДеловая,
+	ЗапасТехнологическоеСырье,
+	СтоимостьТехнологическоеСырье,
+	ЗапасТехнологическиеДрова,
+	СтоимостьТехнологическиеДрова,
+	ЗапасОтходы,
+	СтоимостьОтходы}
+ИЗ
+	РегистрСведений.лфСтатусыЛесосек.СрезПоследних(&amp;ДатаСреза, ) КАК СтатусыЛесосек
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.лфЛесосеки КАК Лесосеки
+			ЛЕВОЕ СОЕДИНЕНИЕ втЛесничество КАК втЛесничество
+			ПО (втЛесничество.Кварталл = Лесосеки.Владелец)
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.лфПородныйСоставЛесосек.СрезПоследних(&amp;ДатаСреза, ) КАК ПородныйСоставЛесосек
+				ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.лфМатериальноДенежнаяОценкаЛесосеки КАК МДО
+				ПО ПородныйСоставЛесосек.Лесосека = МДО.Лесосека
+					И ПородныйСоставЛесосек.Выдел = МДО.Выдел
+					И ПородныйСоставЛесосек.Порода = МДО.Порода
+			ПО Лесосеки.Ссылка = ПородныйСоставЛесосек.Лесосека
+			ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.лфСведенияОЛесосеке.СрезПоследних(&amp;ДатаСреза, ) КАК СведенияОЛесосеке
+			ПО Лесосеки.Ссылка = СведенияОЛесосеке.Лесосека
+		ПО СтатусыЛесосек.Лесосека = Лесосеки.Ссылка
+{ГДЕ
+	втЛесничество.Лесничество.*,
+	втЛесничество.УчЛесничество.*,
+	втЛесничество.Кварталл.*,
+	Лесосеки.Ссылка.*,
+	СтатусыЛесосек.Статус.*,
+	СведенияОЛесосеке.Контрагент.* КАК Подрядчик,
+	СведенияОЛесосеке.Организация.*,
+	ПородныйСоставЛесосек.Выдел.*,
+	ПородныйСоставЛесосек.Выдел.СпособРубки.*,
+	ПородныйСоставЛесосек.Порода.*,
+	Лесосеки.ПериодРубки.*,
+	СведенияОЛесосеке.Регистратор.* КАК ДокументРегистрацияЛесосеки,
+	СведенияОЛесосеке.Регистратор.ПлановаяДатаНачалаРубки КАК ПлановаяДатаНачалаРубки,
+	СведенияОЛесосеке.Регистратор.ПлановаяДатаОкончанияРубки КАК ПлановаяДатаОкончанияРубки,
+	СведенияОЛесосеке.Регистратор.ДоговорКонтрагента.* КАК ДоговорПодряда,
+	МДО.Регистратор.* КАК ДокументМДО}
+
+СГРУППИРОВАТЬ ПО
+	втЛесничество.Лесничество,
+	втЛесничество.УчЛесничество,
+	втЛесничество.Кварталл,
+	Лесосеки.Ссылка,
+	СтатусыЛесосек.Статус,
+	СведенияОЛесосеке.Контрагент,
+	СведенияОЛесосеке.Организация,
+	СведенияОЛесосеке.Регистратор,
+	СведенияОЛесосеке.Регистратор.ПлановаяДатаНачалаРубки,
+	СведенияОЛесосеке.Регистратор.ПлановаяДатаОкончанияРубки,
+	СведенияОЛесосеке.Регистратор.ДоговорКонтрагента,
+	МДО.Регистратор,
+	Лесосеки.ПериодРубки,
+	Лесосеки.ПериодРубки.ПериодДекларирования,
+	ЕСТЬNULL(ПородныйСоставЛесосек.Порода, МДО.Порода),
+	ЕСТЬNULL(ПородныйСоставЛесосек.Выдел, МДО.Выдел),
+	ВЫБОР
+		КОГДА ПородныйСоставЛесосек.Выдел ЕСТЬ NULL 
+			ТОГДА МДО.Выдел.СпособРубки
+		ИНАЧЕ ПородныйСоставЛесосек.Выдел.СпособРубки
+	КОНЕЦ,
+	МДО.Высота,
+	МДО.Диаметр,
+	МДО.ЗапасДревесины,
+	МДО.Стоимость,
+	МДО.ЗапасДревесинаДеловая,
+	МДО.СтоимостьДревесинаДеловая,
+	МДО.ЗапасТехнологическоеСырье,
+	МДО.СтоимостьТехнологическоеСырье,
+	МДО.ЗапасТехнологическиеДрова,
+	МДО.СтоимостьТехнологическиеДрова,
+	МДО.ЗапасОтходы,
+	МДО.СтоимостьОтходы</query>
+			<autoFillFields>false</autoFillFields>
+		</dataSet>
+		<totalField>
+			<dataPath>КоличествоЗаписей</dataPath>
+			<expression>Сумма(КоличествоЗаписей)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ЗапасДревесины</dataPath>
+			<expression>Сумма(ЗапасДревесины)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ЗапасДревесинаДеловая</dataPath>
+			<expression>Сумма(ЗапасДревесинаДеловая)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ЗапасТехнологическиеДрова</dataPath>
+			<expression>Сумма(ЗапасТехнологическиеДрова)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ЗапасТехнологическоеСырье</dataPath>
+			<expression>Сумма(ЗапасТехнологическоеСырье)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ЗапасОтходы</dataPath>
+			<expression>Сумма(ЗапасОтходы)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Стоимость</dataPath>
+			<expression>Сумма(Стоимость)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьДревесинаДеловая</dataPath>
+			<expression>Сумма(СтоимостьДревесинаДеловая)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьТехнологическиеДрова</dataPath>
+			<expression>Сумма(СтоимостьТехнологическиеДрова)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьТехнологическоеСырье</dataPath>
+			<expression>Сумма(СтоимостьТехнологическоеСырье)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>СтоимостьОтходы</dataPath>
+			<expression>Сумма(СтоимостьОтходы)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>ПлощадьПС</dataPath>
+			<expression>Сумма(ПлощадьПС)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>КоличествоПС</dataPath>
+			<expression>Сумма(КоличествоПС)</expression>
+		</totalField>
+		<parameter>
+			<name>ДатаСреза</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата среза</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>ТекущаяДата()</expression>
+			<availableAsField>false</availableAsField>
+			<use>Always</use>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Ведомость МДО</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Ведомость МДО (доп.)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Лесосека</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>УчЛесничество</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Кварталл</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Выдел</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СпособРубки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Порода</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПлановаяДатаНачалаРубки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПлановаяДатаОкончанияРубки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПериодРубки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПериодДекларирования</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ДокументМДО</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<use>false</use>
+			<field>ДокументРегистрацияЛесосеки</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоЗаписей</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ПлощадьПС</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>КоличествоПС</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЗапасДревесины</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Стоимость</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЗапасДревесинаДеловая</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СтоимостьДревесинаДеловая</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЗапасТехнологическиеДрова</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СтоимостьТехнологическиеДрова</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЗапасТехнологическоеСырье</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СтоимостьТехнологическоеСырье</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>ЗапасОтходы</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>СтоимостьОтходы</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Организация</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>e1b85163-e291-4f56-ad6b-1906f7bd9449</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ПериодРубки</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>dcbfdb9c-1242-4b6c-92b7-2aa3146d3384</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Подрядчик</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>e477c13c-6c3d-41af-ab80-c55a5356fd0f</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ДоговорПодряда</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>767781f7-477c-4de1-961d-48bc315b4840</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Лесничество</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>a5bfa2b9-4bf6-4931-99fa-0b2e1c45cd46</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">УчЛесничество</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>9db0b792-cfb9-4170-b77e-c657246c7392</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Кварталл</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>e62f3432-ad47-4477-8d1c-26fc832c6759</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Выдел</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>96bbacb1-c533-4465-8023-507dd4a43731</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Статус</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>e2ae8824-78f5-4046-a206-a1f579bb4896</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ВыделСпособРубки</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>fefba38e-4a42-47c3-aeca-3bc6f5346044</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Порода</left>
+			<comparisonType>Equal</comparisonType>
+			<viewMode>Normal</viewMode>
+			<userSettingID>a7ca8e02-5b91-4fa5-a56c-7f6e7a4c22bf</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ДатаСреза</dcscor:parameter>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+		</dcscor:item>
+	</dataParameters>
+	<outputParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+			<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">Output</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Заголовок</dcscor:parameter>
+			<dcscor:value xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Лесосечная ведомость</v8:content>
+				</v8:item>
+			</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">DontOutput</dcscor:value>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+			<dcscor:value xsi:type="DataCompositionTextOutputType">DontOutput</dcscor:value>
+		</dcscor:item>
+	</outputParameters>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Статус</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Лесничество</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<item xsi:type="StructureItemGroup">
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Подрядчик</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+					<item xsi:type="GroupItemField">
+						<field>ДоговорПодряда</field>
+						<groupType>Items</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item xsi:type="StructureItemGroup">
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
+			</item>
+		</item>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>

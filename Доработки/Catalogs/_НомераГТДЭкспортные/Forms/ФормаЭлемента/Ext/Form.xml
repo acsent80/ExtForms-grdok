@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.3">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<UseForFoldersAndItems>Items</UseForFoldersAndItems>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<ChildItems>
+		<InputField name="Владелец" id="4">
+			<DataPath>Объект.Owner</DataPath>
+			<ReadOnly>true</ReadOnly>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="ВладелецКонтекстноеМеню" id="5"/>
+			<ExtendedTooltip name="ВладелецРасширеннаяПодсказка" id="6"/>
+		</InputField>
+		<InputField name="Наименование" id="1">
+			<DataPath>Объект.Description</DataPath>
+			<EditMode>EnterOnInput</EditMode>
+			<ContextMenu name="НаименованиеКонтекстноеМеню" id="2"/>
+			<ExtendedTooltip name="НаименованиеРасширеннаяПодсказка" id="3"/>
+		</InputField>
+		<UsualGroup name="ГруппаДата" id="19">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа дата</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаДатаРасширеннаяПодсказка" id="20"/>
+			<ChildItems>
+				<InputField name="ДатаВыпуска" id="7">
+					<DataPath>Объект.ДатаВыпуска</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаВыпускаКонтекстноеМеню" id="8"/>
+					<ExtendedTooltip name="ДатаВыпускаРасширеннаяПодсказка" id="9"/>
+					<Events>
+						<Event name="OnChange">ДатаВыпускаПриИзменении</Event>
+					</Events>
+				</InputField>
+				<InputField name="КонечныйСрокСПД" id="10">
+					<DataPath>Объект.КонечныйСрокСПД</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="КонечныйСрокСПДКонтекстноеМеню" id="11"/>
+					<ExtendedTooltip name="КонечныйСрокСПДРасширеннаяПодсказка" id="12"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="ГруппаСПД" id="21">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа СПД</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа СПД</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="ГруппаСПДРасширеннаяПодсказка" id="22"/>
+			<ChildItems>
+				<InputField name="ПризнакСПД" id="13">
+					<DataPath>Объект.ПризнакСПД</DataPath>
+					<TitleLocation>Left</TitleLocation>
+					<TitleHeight>2</TitleHeight>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ПризнакСПДКонтекстноеМеню" id="14"/>
+					<ExtendedTooltip name="ПризнакСПДРасширеннаяПодсказка" id="15"/>
+				</InputField>
+				<InputField name="ДатаСдачиСПД" id="16">
+					<DataPath>Объект.ДатаСдачиСПД</DataPath>
+					<EditMode>EnterOnInput</EditMode>
+					<ContextMenu name="ДатаСдачиСПДКонтекстноеМеню" id="17"/>
+					<ExtendedTooltip name="ДатаСдачиСПДРасширеннаяПодсказка" id="18"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа1" id="23">
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа1РасширеннаяПодсказка" id="24"/>
+			<ChildItems>
+				<InputField name="ПризнакПоставки" id="25">
+					<DataPath>Объект.ПризнакПоставки</DataPath>
+					<ContextMenu name="ПризнакПоставкиКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="ПризнакПоставкиРасширеннаяПодсказка" id="27"/>
+				</InputField>
+				<InputField name="ДатаПоступленияВыручки" id="28">
+					<DataPath>Объект.ДатаПоступленияВыручки</DataPath>
+					<ContextMenu name="ДатаПоступленияВыручкиКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ДатаПоступленияВыручкиРасширеннаяПодсказка" id="30"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<UsualGroup name="Группа2" id="34">
+			<Group>Horizontal</Group>
+			<Representation>None</Representation>
+			<ShowTitle>false</ShowTitle>
+			<ExtendedTooltip name="Группа2РасширеннаяПодсказка" id="35"/>
+			<ChildItems>
+				<InputField name="ТаможенныйПост" id="36">
+					<DataPath>Объект.ТаможенныйПост</DataPath>
+					<ContextMenu name="ТаможенныйПостКонтекстноеМеню" id="37"/>
+					<ExtendedTooltip name="ТаможенныйПостРасширеннаяПодсказка" id="38"/>
+				</InputField>
+				<InputField name="ДатаВывоза" id="39">
+					<DataPath>Объект.ДатаВывоза</DataPath>
+					<ContextMenu name="ДатаВывозаКонтекстноеМеню" id="40"/>
+					<ExtendedTooltip name="ДатаВывозаРасширеннаяПодсказка" id="41"/>
+				</InputField>
+			</ChildItems>
+		</UsualGroup>
+		<InputField name="Комментарий" id="31">
+			<DataPath>Объект.Комментарий</DataPath>
+			<TitleLocation>Left</TitleLocation>
+			<AutoMaxWidth>false</AutoMaxWidth>
+			<ContextMenu name="КомментарийКонтекстноеМеню" id="32"/>
+			<ExtendedTooltip name="КомментарийРасширеннаяПодсказка" id="33"/>
+		</InputField>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="Объект" id="1">
+			<Type>
+				<v8:Type>cfg:CatalogObject._НомераГТДЭкспортные</v8:Type>
+			</Type>
+			<MainAttribute>true</MainAttribute>
+			<SavedData>true</SavedData>
+		</Attribute>
+	</Attributes>
+</Form>

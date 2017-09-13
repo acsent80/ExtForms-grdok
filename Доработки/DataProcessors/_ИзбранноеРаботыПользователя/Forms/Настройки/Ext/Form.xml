@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.3">
+	<WindowOpeningMode>LockOwnerWindow</WindowOpeningMode>
+	<VerticalScroll>useIfNecessary</VerticalScroll>
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1">
+		<ChildItems>
+			<Button name="ФормаСохранитьНастройки" id="7">
+				<Type>CommandBarButton</Type>
+				<DefaultButton>true</DefaultButton>
+				<CommandName>Form.Command.СохранитьНастройки</CommandName>
+				<ExtendedTooltip name="ФормаСохранитьНастройкиРасширеннаяПодсказка" id="34"/>
+			</Button>
+			<Button name="ФормаЗакрыть" id="9">
+				<Type>CommandBarButton</Type>
+				<Representation>Text</Representation>
+				<CommandName>Form.StandardCommand.Close</CommandName>
+				<Title>
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отменить</v8:content>
+					</v8:item>
+				</Title>
+				<ExtendedTooltip name="ФормаЗакрытьРасширеннаяПодсказка" id="35"/>
+			</Button>
+		</ChildItems>
+	</AutoCommandBar>
+	<Events>
+		<Event name="OnOpen">ПриОткрытии</Event>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+	</Events>
+	<ChildItems>
+		<Pages name="СтраницыНастроек" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы настроек</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страницы настроек</v8:content>
+				</v8:item>
+			</ToolTip>
+			<ExtendedTooltip name="СтраницыНастроекРасширеннаяПодсказка" id="36"/>
+			<ChildItems>
+				<Page name="СтраницаОбщие" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие настройки</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="СтраницаОбщиеРасширеннаяПодсказка" id="37"/>
+					<ChildItems>
+						<InputField name="СкрытьНовыеСсылкиИзИзбранного" id="5">
+							<DataPath>СкрытьНовыеСсылкиИзИзбранного</DataPath>
+							<TitleLocation>Top</TitleLocation>
+							<Width>50</Width>
+							<HorizontalStretch>false</HorizontalStretch>
+							<MultiLine>true</MultiLine>
+							<EditFormat>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>БЛ='Отображать в избранном до тех пор, пока для них не будет установлено "Скрывать в избранном"'; БИ='Скрывать в избранном до тех пор, пока для них не будет установлено "Показать в избранном"'</v8:content>
+								</v8:item>
+							</EditFormat>
+							<ContextMenu name="СкрытьНовыеСсылкиИзИзбранногоКонтекстноеМеню" id="6"/>
+							<ExtendedTooltip name="СкрытьНовыеСсылкиИзИзбранногоРасширеннаяПодсказка" id="38"/>
+						</InputField>
+					</ChildItems>
+				</Page>
+				<Page name="ОбщиеВнешниеОбъекты" id="10">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие внешние объекты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Общие внешние объекты</v8:content>
+						</v8:item>
+					</ToolTip>
+					<ExtendedTooltip name="ОбщиеВнешниеОбъектыРасширеннаяПодсказка" id="39"/>
+					<ChildItems>
+						<Table name="СпискиОбщихВнешнихОбъектов" id="16">
+							<Representation>List</Representation>
+							<TitleLocation>Top</TitleLocation>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Height>5</Height>
+							<Header>false</Header>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<VerticalStretch>false</VerticalStretch>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>СпискиОбщихВнешнихОбъектов</DataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<RowFilter xsi:nil="true"/>
+							<ContextMenu name="СпискиОбщихВнешнихОбъектовКонтекстноеМеню" id="17"/>
+							<AutoCommandBar name="СпискиОбщихВнешнихОбъектовКоманднаяПанель" id="18">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="СпискиОбщихВнешнихОбъектовКонтекстноеМенюСоздатьНовыйСписок" id="26">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Command.СоздатьНовыйСписок</CommandName>
+										<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовКонтекстноеМенюСоздатьНовыйСписокРасширеннаяПодсказка" id="40"/>
+									</Button>
+									<Button name="СпискиОбщихВнешнихОбъектовДобавить" id="27">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.СпискиОбщихВнешнихОбъектов.StandardCommand.Add</CommandName>
+										<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовДобавитьРасширеннаяПодсказка" id="41"/>
+									</Button>
+									<Button name="СпискиОбщихВнешнихОбъектовУдалить" id="28">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.СпискиОбщихВнешнихОбъектов.StandardCommand.Delete</CommandName>
+										<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовУдалитьРасширеннаяПодсказка" id="42"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовРасширеннаяПодсказка" id="43"/>
+							<SearchStringAddition name="СпискиОбщихВнешнихОбъектовСтрокаПоиска" id="44">
+								<AdditionSource>
+									<Item>СпискиОбщихВнешнихОбъектов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СпискиОбщихВнешнихОбъектовСтрокаПоискаКонтекстноеМеню" id="45"/>
+								<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовСтрокаПоискаРасширеннаяПодсказка" id="46"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СпискиОбщихВнешнихОбъектовСостояниеПросмотра" id="47">
+								<AdditionSource>
+									<Item>СпискиОбщихВнешнихОбъектов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СпискиОбщихВнешнихОбъектовСостояниеПросмотраКонтекстноеМеню" id="48"/>
+								<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовСостояниеПросмотраРасширеннаяПодсказка" id="49"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СпискиОбщихВнешнихОбъектовУправлениеПоиском" id="50">
+								<AdditionSource>
+									<Item>СпискиОбщихВнешнихОбъектов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СпискиОбщихВнешнихОбъектовУправлениеПоискомКонтекстноеМеню" id="51"/>
+								<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовУправлениеПоискомРасширеннаяПодсказка" id="52"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">СпискиОбщихВнешнихОбъектовПередНачаломДобавления</Event>
+								<Event name="BeforeRowChange">СпискиОбщихВнешнихОбъектовПередНачаломИзменения</Event>
+								<Event name="OnChange">СпискиОбщихВнешнихОбъектовПриИзменении</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СпискиОбщихВнешнихОбъектовПутьКСписку" id="19">
+									<DataPath>СпискиОбщихВнешнихОбъектов.ПутьКСписку</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СпискиОбщихВнешнихОбъектовПутьКСпискуКонтекстноеМеню" id="20"/>
+									<ExtendedTooltip name="СпискиОбщихВнешнихОбъектовПутьКСпискуРасширеннаяПодсказка" id="53"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+						<Table name="СписокВнешнихОбъектов" id="21">
+							<Representation>List</Representation>
+							<TitleLocation>Top</TitleLocation>
+							<ChangeRowOrder>false</ChangeRowOrder>
+							<Header>false</Header>
+							<HorizontalLines>false</HorizontalLines>
+							<VerticalLines>false</VerticalLines>
+							<AutoInsertNewRow>true</AutoInsertNewRow>
+							<EnableStartDrag>true</EnableStartDrag>
+							<EnableDrag>true</EnableDrag>
+							<DataPath>Items.СпискиОбщихВнешнихОбъектов.CurrentData.СписокВнешнихОбъектов</DataPath>
+							<RowPictureDataPath>Items.СпискиОбщихВнешнихОбъектов.CurrentData.СписокВнешнихОбъектов.Picture</RowPictureDataPath>
+							<CommandSet>
+								<ExcludedCommand>Copy</ExcludedCommand>
+								<ExcludedCommand>Pickup</ExcludedCommand>
+								<ExcludedCommand>Change</ExcludedCommand>
+							</CommandSet>
+							<SearchStringLocation>None</SearchStringLocation>
+							<ViewStatusLocation>None</ViewStatusLocation>
+							<SearchControlLocation>None</SearchControlLocation>
+							<ContextMenu name="СписокВнешнихОбъектовКонтекстноеМеню" id="22"/>
+							<AutoCommandBar name="СписокВнешнихОбъектовКоманднаяПанель" id="23">
+								<Autofill>false</Autofill>
+								<ChildItems>
+									<Button name="СписокВнешнихОбъектовДобавить" id="32">
+										<Type>CommandBarButton</Type>
+										<Representation>Picture</Representation>
+										<CommandName>Form.Item.СписокВнешнихОбъектов.StandardCommand.Add</CommandName>
+										<ExtendedTooltip name="СписокВнешнихОбъектовДобавитьРасширеннаяПодсказка" id="54"/>
+									</Button>
+									<Button name="СписокВнешнихОбъектовУдалить" id="33">
+										<Type>CommandBarButton</Type>
+										<CommandName>Form.Item.СписокВнешнихОбъектов.StandardCommand.Delete</CommandName>
+										<ExtendedTooltip name="СписокВнешнихОбъектовУдалитьРасширеннаяПодсказка" id="55"/>
+									</Button>
+								</ChildItems>
+							</AutoCommandBar>
+							<ExtendedTooltip name="СписокВнешнихОбъектовРасширеннаяПодсказка" id="56"/>
+							<SearchStringAddition name="СписокВнешнихОбъектовСтрокаПоиска" id="57">
+								<AdditionSource>
+									<Item>СписокВнешнихОбъектов</Item>
+									<Type>SearchStringRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВнешнихОбъектовСтрокаПоискаКонтекстноеМеню" id="58"/>
+								<ExtendedTooltip name="СписокВнешнихОбъектовСтрокаПоискаРасширеннаяПодсказка" id="59"/>
+							</SearchStringAddition>
+							<ViewStatusAddition name="СписокВнешнихОбъектовСостояниеПросмотра" id="60">
+								<AdditionSource>
+									<Item>СписокВнешнихОбъектов</Item>
+									<Type>ViewStatusRepresentation</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВнешнихОбъектовСостояниеПросмотраКонтекстноеМеню" id="61"/>
+								<ExtendedTooltip name="СписокВнешнихОбъектовСостояниеПросмотраРасширеннаяПодсказка" id="62"/>
+							</ViewStatusAddition>
+							<SearchControlAddition name="СписокВнешнихОбъектовУправлениеПоиском" id="63">
+								<AdditionSource>
+									<Item>СписокВнешнихОбъектов</Item>
+									<Type>SearchControl</Type>
+								</AdditionSource>
+								<ContextMenu name="СписокВнешнихОбъектовУправлениеПоискомКонтекстноеМеню" id="64"/>
+								<ExtendedTooltip name="СписокВнешнихОбъектовУправлениеПоискомРасширеннаяПодсказка" id="65"/>
+							</SearchControlAddition>
+							<Events>
+								<Event name="BeforeAddRow">СписокВнешнихОбъектовПередНачаломДобавления</Event>
+								<Event name="BeforeRowChange">СписокВнешнихОбъектовПередНачаломИзменения</Event>
+							</Events>
+							<ChildItems>
+								<InputField name="СписокВнешнихОбъектовЗначение" id="30">
+									<DataPath>Items.СпискиОбщихВнешнихОбъектов.CurrentData.СписокВнешнихОбъектов.Value</DataPath>
+									<EditMode>EnterOnInput</EditMode>
+									<ContextMenu name="СписокВнешнихОбъектовЗначениеКонтекстноеМеню" id="31"/>
+									<ExtendedTooltip name="СписокВнешнихОбъектовЗначениеРасширеннаяПодсказка" id="66"/>
+								</InputField>
+							</ChildItems>
+						</Table>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Attributes>
+		<Attribute name="СкрытьНовыеСсылкиИзИзбранного" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Что делать с новыми ссылками</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+		</Attribute>
+		<Attribute name="СпискиОбщихВнешнихОбъектов" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Списки общих внешних объектов</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:ValueTable</v8:Type>
+			</Type>
+			<SavedData>true</SavedData>
+			<Columns>
+				<Column name="СписокВнешнихОбъектов" id="1">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Список внешних объектов</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>v8:ValueListType</v8:Type>
+					</Type>
+				</Column>
+				<Column name="ПутьКСписку" id="2">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Путь к списку</v8:content>
+						</v8:item>
+					</Title>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>0</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+				</Column>
+				<AdditionalColumns table="СпискиОбщихВнешнихОбъектов.СписокВнешнихОбъектов">
+					<Column name="ПутьКФайлу" id="1">
+						<Title>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Путь к файлу</v8:content>
+							</v8:item>
+						</Title>
+						<Type>
+							<v8:Type>xs:string</v8:Type>
+							<v8:StringQualifiers>
+								<v8:Length>0</v8:Length>
+								<v8:AllowedLength>Variable</v8:AllowedLength>
+							</v8:StringQualifiers>
+						</Type>
+					</Column>
+				</AdditionalColumns>
+			</Columns>
+		</Attribute>
+		<Attribute name="ФильтрВнешнихОбъектов" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фильтр внешних объектов</v8:content>
+				</v8:item>
+			</Title>
+			<Type/>
+		</Attribute>
+	</Attributes>
+	<Commands>
+		<Command name="СохранитьНастройки" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сохранить настройки</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>СохранитьНастройки</Action>
+		</Command>
+		<Command name="Отменить" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить</v8:content>
+				</v8:item>
+			</ToolTip>
+		</Command>
+		<Command name="СоздатьНовыйСписок" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать новый список</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Создать новый список</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.DataCompositionNewTable</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>СоздатьНовыйСписок</Action>
+			<ModifiesSavedData>true</ModifiesSavedData>
+		</Command>
+	</Commands>
+</Form>
