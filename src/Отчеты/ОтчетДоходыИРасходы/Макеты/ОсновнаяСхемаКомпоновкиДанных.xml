@@ -1,0 +1,1275 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema">
+		<dataSource>
+			<name>ИсточникДанных1</name>
+			<dataSourceType>Local</dataSourceType>
+		</dataSource>
+		<dataSet xsi:type="DataSetUnion">
+			<name>Объединение</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статья</dataPath>
+				<field>Статья</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Статья</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Сумма</dataPath>
+				<field>Сумма</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Сумма</d5p1:content>
+					</d5p1:item>
+				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>2</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Организация</dataPath>
+				<field>Организация</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Организация</d5p1:content>
+					</d5p1:item>
+				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Организации</Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Раздел</dataPath>
+				<field>Раздел</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Раздел</d5p1:content>
+					</d5p1:item>
+				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+					<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Length>0</Length>
+						<AllowedLength>Variable</AllowedLength>
+					</StringQualifiers>
+				</valueType>
+				<availableValue>
+					<value xsi:type="xs:string">Доходы</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Доходы</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Доходы прочие</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Доходы прочие</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Расходы</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Расходы</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Себестоимость Латофлекс (BS)</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Себестоимость Латофлекс (BS)</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+				<availableValue>
+					<value xsi:type="xs:string">Себестоимость ФК (FW)</value>
+					<presentation xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Себестоимость ФК (FW)</d6p1:content>
+						</d6p1:item>
+					</presentation>
+				</availableValue>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Группа</dataPath>
+				<field>Группа</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Группа</d5p1:content>
+					</d5p1:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Регистратор</dataPath>
+				<field>Регистратор</field>
+				<role>
+					<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+					<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПериодМесяц</dataPath>
+				<field>ПериодМесяц</field>
+				<appearance>
+					<item xmlns="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xsi:type="dcsset:SettingsParameterValue">
+						<parameter>Формат</parameter>
+						<value xmlns:d7p1="http://v8.1c.ru/8.1/data/core" xsi:type="d7p1:LocalStringType">
+							<d7p1:item>
+								<d7p1:lang>ru</d7p1:lang>
+								<d7p1:content>ДФ='MMMM yy'</d7p1:content>
+							</d7p1:item>
+						</value>
+					</item>
+				</appearance>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СтатьяРасходов</dataPath>
+				<field>СтатьяРасходов</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Статья расходов</d5p1:content>
+					</d5p1:item>
+				</title>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Количество</dataPath>
+				<field>Количество</field>
+				<title xmlns:d5p1="http://v8.1c.ru/8.1/data/core" xsi:type="d5p1:LocalStringType">
+					<d5p1:item>
+						<d5p1:lang>ru</d5p1:lang>
+						<d5p1:content>Количество</d5p1:content>
+					</d5p1:item>
+				</title>
+				<valueType>
+					<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+					<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+						<Digits>15</Digits>
+						<FractionDigits>3</FractionDigits>
+						<AllowedSign>Any</AllowedSign>
+					</NumberQualifiers>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<role>
+					<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+				</role>
+			</field>
+			<item xsi:type="DataSetQuery">
+				<name>Выручка</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Раздел</dataPath>
+					<field>Раздел</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Раздел</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Организация</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Группа</dataPath>
+					<field>Группа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Группа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	"Доходы" КАК Раздел,
+	Рег.ПериодМесяц КАК ПериодМесяц,
+	Рег.АналитикаУчетаПоПартнерам.Организация КАК Организация,
+	НаправленияДеятельностиДополнительныеРеквизиты.Значение КАК Группа,
+	ВЫБОР
+		КОГДА НЕ НастройкаРаспределения1.СпособРаспределения ЕСТЬ NULL
+			ТОГДА НастройкаРаспределения1.СпособРаспределения
+		КОГДА НЕ НастройкаРаспределения2.СпособРаспределения ЕСТЬ NULL
+			ТОГДА НастройкаРаспределения2.СпособРаспределения
+		КОГДА НЕ НастройкаРаспределения3.СпособРаспределения ЕСТЬ NULL
+			ТОГДА НастройкаРаспределения3.СпособРаспределения
+		ИНАЧЕ ЗНАЧЕНИЕ(Справочник.НаправленияДеятельности.ПустаяСсылка)
+	КОНЕЦ КАК Статья,
+	Рег.СуммаВыручкиБезНДСОборот КАК Сумма,
+	Рег.Регистратор КАК Регистратор
+{ВЫБРАТЬ
+	Раздел,
+	ПериодМесяц,
+	Организация.*,
+	Группа.*,
+	Статья.*,
+	Сумма,
+	Регистратор.*}
+ИЗ
+	РегистрНакопления.ВыручкаИСебестоимостьПродаж.Обороты(&amp;Дата1, &amp;Дата2, Авто, {(АналитикаУчетаПоПартнерам.Организация).* КАК Организация}) КАК Рег
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НастройкаРаспределенияПоНаправлениямДеятельности.СрезПоследних(&amp;Дата2, ) КАК НастройкаРаспределения1
+		ПО Рег.АналитикаУчетаПоПартнерам.Организация = НастройкаРаспределения1.Организация
+			И Рег.АналитикаУчетаНоменклатуры.Номенклатура = НастройкаРаспределения1.Номенклатура
+			И Рег.АналитикаУчетаПоПартнерам.Партнер = НастройкаРаспределения1.Партнер
+			И (НастройкаРаспределения1.Используется)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НастройкаРаспределенияПоНаправлениямДеятельности.СрезПоследних(&amp;Дата2, ) КАК НастройкаРаспределения2
+		ПО Рег.АналитикаУчетаПоПартнерам.Организация = НастройкаРаспределения2.Организация
+			И Рег.АналитикаУчетаНоменклатуры.Номенклатура = НастройкаРаспределения2.Номенклатура
+			И (НастройкаРаспределения2.Партнер = ЗНАЧЕНИЕ(Справочник.Партнеры.ПустаяСсылка))
+			И (НастройкаРаспределения2.Используется)
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.НастройкаРаспределенияПоНаправлениямДеятельности.СрезПоследних(&amp;Дата2, ) КАК НастройкаРаспределения3
+		ПО Рег.АналитикаУчетаПоПартнерам.Организация = НастройкаРаспределения3.Организация
+			И (НастройкаРаспределения3.Номенклатура = ЗНАЧЕНИЕ(Справочник.Номенклатура.ПустаяСсылка))
+			И (НастройкаРаспределения3.Партнер = ЗНАЧЕНИЕ(Справочник.Партнеры.ПустаяСсылка))
+			И (НастройкаРаспределения3.Используется)
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.НаправленияДеятельности.ДополнительныеРеквизиты КАК НаправленияДеятельностиДополнительныеРеквизиты
+		ПО (ВЫБОР
+				КОГДА НЕ НастройкаРаспределения1.СпособРаспределения ЕСТЬ NULL
+					ТОГДА НастройкаРаспределения1.СпособРаспределения
+				КОГДА НЕ НастройкаРаспределения2.СпособРаспределения ЕСТЬ NULL
+					ТОГДА НастройкаРаспределения2.СпособРаспределения
+				КОГДА НЕ НастройкаРаспределения3.СпособРаспределения ЕСТЬ NULL
+					ТОГДА НастройкаРаспределения3.СпособРаспределения
+			КОНЕЦ = НаправленияДеятельностиДополнительныеРеквизиты.Ссылка)
+			И (НаправленияДеятельностиДополнительныеРеквизиты.Свойство.Заголовок = "Группировка для отчета Доходы и Расходы")
+{ГДЕ
+	("Доходы") КАК Раздел,
+	Рег.ПериодМесяц,
+	НаправленияДеятельностиДополнительныеРеквизиты.Значение КАК Группа,
+	(ВЫБОР
+			КОГДА НЕ НастройкаРаспределения1.СпособРаспределения ЕСТЬ NULL
+				ТОГДА НастройкаРаспределения1.СпособРаспределения
+			КОГДА НЕ НастройкаРаспределения2.СпособРаспределения ЕСТЬ NULL
+				ТОГДА НастройкаРаспределения2.СпособРаспределения
+			КОГДА НЕ НастройкаРаспределения3.СпособРаспределения ЕСТЬ NULL
+				ТОГДА НастройкаРаспределения3.СпособРаспределения
+			ИНАЧЕ ЗНАЧЕНИЕ(Справочник.НаправленияДеятельности.ПустаяСсылка)
+		КОНЕЦ).* КАК Статья}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Затраты</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Раздел</dataPath>
+					<field>Раздел</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Раздел</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Группа</dataPath>
+					<field>Группа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Группа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяРасходов</dataPath>
+					<field>СтатьяРасходов</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья расходов</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ХозрасчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
+	ХозрасчетныйОбороты.Организация КАК Организация,
+	"Расходы" КАК Раздел,
+	ВЫРАЗИТЬ(СтатьиРасходовДополнительныеРеквизиты.Значение КАК Справочник.ЗначенияСвойствОбъектов).Родитель КАК Группа,
+	ВЫБОР
+		КОГДА СтатьиРасходовДополнительныеРеквизиты.Значение ЕСТЬ NULL
+			ТОГДА ХозрасчетныйОбороты.Субконто1
+		ИНАЧЕ СтатьиРасходовДополнительныеРеквизиты.Значение
+	КОНЕЦ КАК Статья,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК СтатьяРасходов,
+	ХозрасчетныйОбороты.СуммаОборотДт КАК Сумма,
+	ХозрасчетныйОбороты.Регистратор КАК Регистратор
+{ВЫБРАТЬ
+	ПериодМесяц,
+	Организация.*,
+	Раздел,
+	Группа.*,
+	Статья.*,
+	Счет,
+	КорСчет,
+	СтатьяРасходов,
+	Сумма,
+	Регистратор.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (&amp;СчетаЗатрат) {(Счет)}, &amp;ВидыСубконтоСтатьиЗатрат, {(Организация).*}, НЕ КорСчет В ИЕРАРХИИ (&amp;КорСчетаЗатрат), ) КАК ХозрасчетныйОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ ПланВидовХарактеристик.СтатьиРасходов.ДополнительныеРеквизиты КАК СтатьиРасходовДополнительныеРеквизиты
+		ПО ХозрасчетныйОбороты.Субконто1 = СтатьиРасходовДополнительныеРеквизиты.Ссылка
+			И (СтатьиРасходовДополнительныеРеквизиты.Свойство.Заголовок = "Группировка для отчета Доходы и Расходы")
+ГДЕ
+	ХозрасчетныйОбороты.Субконто1 ССЫЛКА ПланВидовХарактеристик.СтатьиРасходов
+	И НЕ(ХозрасчетныйОбороты.Счет В ИЕРАРХИИ (&amp;Счет25)
+				И ХозрасчетныйОбороты.КорСчет В ИЕРАРХИИ (&amp;Счет10_01))
+{ГДЕ
+	ХозрасчетныйОбороты.ПериодМесяц,
+	(ВЫРАЗИТЬ(СтатьиРасходовДополнительныеРеквизиты.Значение КАК Справочник.ЗначенияСвойствОбъектов).Родитель).* КАК Группа,
+	(ВЫБОР
+			КОГДА СтатьиРасходовДополнительныеРеквизиты.Значение ЕСТЬ NULL
+				ТОГДА ХозрасчетныйОбороты.Субконто1
+			ИНАЧЕ СтатьиРасходовДополнительныеРеквизиты.Значение
+		КОНЕЦ).* КАК Статья,
+	("Расходы") КАК Раздел}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ПрочиеРасходы</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Раздел</dataPath>
+					<field>Раздел</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Раздел</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Группа</dataPath>
+					<field>Группа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Группа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяРасходов</dataPath>
+					<field>СтатьяРасходов</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья расходов</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ХозрасчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
+	ХозрасчетныйОбороты.Организация КАК Организация,
+	"Расходы" КАК Раздел,
+	ВЫРАЗИТЬ(СтатьиРасходовДополнительныеРеквизиты.Значение КАК Справочник.ЗначенияСвойствОбъектов).Родитель КАК Группа,
+	ВЫБОР
+		КОГДА СтатьиРасходовДополнительныеРеквизиты.Значение ЕСТЬ NULL
+			ТОГДА ХозрасчетныйОбороты.Субконто1
+		ИНАЧЕ СтатьиРасходовДополнительныеРеквизиты.Значение
+	КОНЕЦ КАК Статья,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК СтатьяРасходов,
+	ХозрасчетныйОбороты.СуммаОборотДт КАК Сумма,
+	ХозрасчетныйОбороты.Регистратор КАК Регистратор
+{ВЫБРАТЬ
+	ПериодМесяц,
+	Организация.*,
+	Раздел,
+	Группа.*,
+	Статья.*,
+	Счет,
+	КорСчет,
+	СтатьяРасходов,
+	Сумма,
+	Регистратор.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (&amp;СчетаПрочихРасходов) {(Счет)}, &amp;ВидыСубконтоПрочиеРасходыИДоходы, {(Организация).*}, НЕ КорСчет В ИЕРАРХИИ (&amp;КоррСчетаПрочихРасходов), ) КАК ХозрасчетныйОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ ПланВидовХарактеристик.СтатьиРасходов.ДополнительныеРеквизиты КАК СтатьиРасходовДополнительныеРеквизиты
+		ПО ХозрасчетныйОбороты.Субконто1 = СтатьиРасходовДополнительныеРеквизиты.Ссылка
+			И (СтатьиРасходовДополнительныеРеквизиты.Свойство.Заголовок = "Группировка для отчета Доходы и Расходы")
+{ГДЕ
+	ХозрасчетныйОбороты.ПериодМесяц,
+	(ВЫРАЗИТЬ(СтатьиРасходовДополнительныеРеквизиты.Значение КАК Справочник.ЗначенияСвойствОбъектов).Родитель).* КАК Группа,
+	(ВЫБОР
+			КОГДА СтатьиРасходовДополнительныеРеквизиты.Значение ЕСТЬ NULL
+				ТОГДА ХозрасчетныйОбороты.Субконто1
+			ИНАЧЕ СтатьиРасходовДополнительныеРеквизиты.Значение
+		КОНЕЦ).* КАК Статья,
+	("Расходы") КАК Раздел}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ПрочиеДоходы</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>СтатьяРасходов</dataPath>
+					<field>СтатьяРасходов</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья расходов</d6p1:content>
+						</d6p1:item>
+					</title>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+						<ignoreNullValues xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">2</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Additional</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Раздел</dataPath>
+					<field>Раздел</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Раздел</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Группа</dataPath>
+					<field>Группа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Группа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Регистратор</dataPath>
+					<field>Регистратор</field>
+					<role>
+						<periodNumber xmlns="http://v8.1c.ru/8.1/data-composition-system/common">1</periodNumber>
+						<periodType xmlns="http://v8.1c.ru/8.1/data-composition-system/common">Main</periodType>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dimension xmlns="http://v8.1c.ru/8.1/data-composition-system/common">true</dimension>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	ХозрасчетныйОбороты.ПериодМесяц КАК ПериодМесяц,
+	ХозрасчетныйОбороты.Организация КАК Организация,
+	"Доходы прочие" КАК Раздел,
+	ВЫРАЗИТЬ(СтатьиРасходовДополнительныеРеквизиты.Значение КАК Справочник.ЗначенияСвойствОбъектов).Родитель КАК Группа,
+	ВЫБОР
+		КОГДА СтатьиРасходовДополнительныеРеквизиты.Значение ЕСТЬ NULL
+			ТОГДА ХозрасчетныйОбороты.Субконто1
+		ИНАЧЕ СтатьиРасходовДополнительныеРеквизиты.Значение
+	КОНЕЦ КАК Статья,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК СтатьяРасходов,
+	ХозрасчетныйОбороты.СуммаОборотКт КАК Сумма,
+	ХозрасчетныйОбороты.Регистратор КАК Регистратор
+{ВЫБРАТЬ
+	ПериодМесяц,
+	Организация.*,
+	Раздел,
+	Группа.*,
+	Статья.*,
+	Счет,
+	КорСчет,
+	СтатьяРасходов,
+	Сумма,
+	Регистратор.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(&amp;Дата1, &amp;Дата2, Авто, Счет В ИЕРАРХИИ (&amp;СчетаПрочихДоходов) {(Счет)}, &amp;ВидыСубконтоПрочиеРасходыИДоходы, {(Организация).*}, НЕ КорСчет В ИЕРАРХИИ (&amp;КоррСчетаПрочихДоходов), ) КАК ХозрасчетныйОбороты
+		ЛЕВОЕ СОЕДИНЕНИЕ ПланВидовХарактеристик.СтатьиРасходов.ДополнительныеРеквизиты КАК СтатьиРасходовДополнительныеРеквизиты
+		ПО ХозрасчетныйОбороты.Субконто1 = СтатьиРасходовДополнительныеРеквизиты.Ссылка
+			И (СтатьиРасходовДополнительныеРеквизиты.Свойство.Заголовок = "Группировка для отчета Доходы и Расходы")
+{ГДЕ
+	ХозрасчетныйОбороты.ПериодМесяц,
+	(ВЫРАЗИТЬ(СтатьиРасходовДополнительныеРеквизиты.Значение КАК Справочник.ЗначенияСвойствОбъектов).Родитель).* КАК Группа,
+	(ВЫБОР
+			КОГДА СтатьиРасходовДополнительныеРеквизиты.Значение ЕСТЬ NULL
+				ТОГДА ХозрасчетныйОбороты.Субконто1
+			ИНАЧЕ СтатьиРасходовДополнительныеРеквизиты.Значение
+		КОНЕЦ).* КАК Статья,
+	("Доходы прочие") КАК Раздел}</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetObject">
+				<name>Себестоимость</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Раздел</dataPath>
+					<field>Раздел</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Раздел</d6p1:content>
+						</d6p1:item>
+					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:string</Type>
+						<StringQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<Length>0</Length>
+							<AllowedLength>Variable</AllowedLength>
+						</StringQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Организация</dataPath>
+					<field>Организация</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Организация</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПериодМесяц</dataPath>
+					<field>ПериодМесяц</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Период месяц</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Сумма</dataPath>
+					<field>Сумма</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Сумма</d6p1:content>
+						</d6p1:item>
+					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+						<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<Digits>15</Digits>
+							<FractionDigits>2</FractionDigits>
+							<AllowedSign>Any</AllowedSign>
+						</NumberQualifiers>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Статья</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Группа</dataPath>
+					<field>Группа</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Группа</d6p1:content>
+						</d6p1:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Количество</dataPath>
+					<field>Количество</field>
+					<title xmlns:d6p1="http://v8.1c.ru/8.1/data/core" xsi:type="d6p1:LocalStringType">
+						<d6p1:item>
+							<d6p1:lang>ru</d6p1:lang>
+							<d6p1:content>Количество</d6p1:content>
+						</d6p1:item>
+					</title>
+					<valueType>
+						<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:decimal</Type>
+						<NumberQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+							<Digits>15</Digits>
+							<FractionDigits>3</FractionDigits>
+							<AllowedSign>Any</AllowedSign>
+						</NumberQualifiers>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<objectName>Себестоимость</objectName>
+			</item>
+		</dataSet>
+		<totalField>
+			<dataPath>Сумма</dataPath>
+			<expression>Сумма(Сумма)</expression>
+		</totalField>
+		<totalField>
+			<dataPath>Количество</dataPath>
+			<expression>Сумма(Количество)</expression>
+			<group>Статья</group>
+		</totalField>
+		<parameter>
+			<name>Период</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Период</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">StandardPeriod</Type>
+			</valueType>
+			<value xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:StandardPeriod">
+				<d4p1:variant xsi:type="d4p1:StandardPeriodVariant">Custom</d4p1:variant>
+				<d4p1:startDate>0001-01-01T00:00:00</d4p1:startDate>
+				<d4p1:endDate>0001-01-01T00:00:00</d4p1:endDate>
+			</value>
+			<useRestriction>false</useRestriction>
+			<use>Always</use>
+		</parameter>
+		<parameter>
+			<name>Дата1</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата1</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаНачала</expression>
+		</parameter>
+		<parameter>
+			<name>Дата2</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата2</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>DateTime</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+			<expression>&amp;Период.ДатаОкончания</expression>
+		</parameter>
+		<parameter>
+			<name>СчетаЗатрат</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счета затрат</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ОсновноеПроизводство</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасходыНаПродажу</value>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
+		<parameter>
+			<name>КорСчетаЗатрат</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Кор счета затрат</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ОсновноеПроизводство</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасходыНаПродажу</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.Полуфабрикаты</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ГотоваяПродукция</value>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
+		<parameter>
+			<name>ВидыСубконтоСтатьиЗатрат</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Виды субконто статьи затрат</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfCharacteristicTypesRef.ВидыСубконтоХозрасчетные</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.СтатьиЗатрат</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>СчетаПрочихРасходов</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счета прочих расходов</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасходы</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>ВидыСубконтоПрочиеРасходыИДоходы</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Виды субконто прочие расходы и доходы</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfCharacteristicTypesRef.ВидыСубконтоХозрасчетные</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ПрочиеДоходыИРасходы</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>КоррСчетаПрочихРасходов</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Корр счета прочих расходов</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.Материалы</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.Полуфабрикаты</value>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДС</value>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
+		<parameter>
+			<name>СчетаПрочихДоходов</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счета прочих доходов</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеДоходы</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>КоррСчетаПрочихДоходов</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Корр счета прочих доходов</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиИЗаказчиками</value>
+			<useRestriction>true</useRestriction>
+			<valueListAllowed>true</valueListAllowed>
+		</parameter>
+		<parameter>
+			<name>ДатаПУ22</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Дата ПУ 22</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core">xs:dateTime</Type>
+				<DateQualifiers xmlns="http://v8.1c.ru/8.1/data/core">
+					<DateFractions>Date</DateFractions>
+				</DateQualifiers>
+			</valueType>
+			<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Счет10_01</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счет10 01</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.СырьеИМатериалы</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<parameter>
+			<name>Счет25</name>
+			<title xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Счет25</d4p1:content>
+				</d4p1:item>
+			</title>
+			<valueType>
+				<Type xmlns="http://v8.1c.ru/8.1/data/core" xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</Type>
+			</valueType>
+			<value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы</value>
+			<useRestriction>true</useRestriction>
+		</parameter>
+		<settingsVariant>
+			<name xmlns="http://v8.1c.ru/8.1/data-composition-system/settings">Доходы и расходы (доп)</name>
+			<presentation xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:d4p1="http://v8.1c.ru/8.1/data/core" xsi:type="d4p1:LocalStringType">
+				<d4p1:item>
+					<d4p1:lang>ru</d4p1:lang>
+					<d4p1:content>Доходы и расходы (доп)</d4p1:content>
+				</d4p1:item>
+			</presentation>
+		</settingsVariant>
+	</dataCompositionSchema>
+</SchemaFile>﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemField">
+			<field>Сумма</field>
+		</item>
+		<item xsi:type="SelectedItemField">
+			<field>Количество</field>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<left xsi:type="dcscor:Field">Организация</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>b9e771ef-1925-4d8e-95c6-5842b0ce48de</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Раздел</left>
+			<comparisonType>InList</comparisonType>
+			<right xsi:type="v8:ValueListType">
+				<v8:valueType/>
+				<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+			</right>
+			<viewMode>Normal</viewMode>
+			<userSettingID>3fb9f702-85d1-4a41-a0f8-4ff610e1631d</userSettingID>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="v8:StandardPeriod">
+				<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+				<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+				<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+			</dcscor:value>
+			<userSettingID>d413b7e5-d38d-4de7-87d7-022597370367</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>СчетаЗатрат</dcscor:parameter>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ВидыСубконтоСтатьиЗатрат</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>СчетаПрочихРасходов</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ВидыСубконтоПрочиеРасходыИДоходы</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>КоррСчетаПрочихРасходов</dcscor:parameter>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>СчетаПрочихДоходов</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>КоррСчетаПрочихДоходов</dcscor:parameter>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Счет10_01</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Счет25</dcscor:parameter>
+			<dcscor:value xsi:nil="true"/>
+		</dcscor:item>
+	</dataParameters>
+	<conditionalAppearance>
+		<item>
+			<selection>
+				<item>
+					<field>Группа</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">Группа</left>
+					<comparisonType>NotFilled</comparisonType>
+				</item>
+			</filter>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>Текст</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>&lt;Не выбрана группировка для отчета&gt;</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</item>
+	</conditionalAppearance>
+	<item xsi:type="StructureItemTable">
+		<column>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>ПериодМесяц</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</column>
+		<row>
+			<groupItems>
+				<item xsi:type="GroupItemField">
+					<field>Раздел</field>
+					<groupType>Items</groupType>
+					<periodAdditionType>None</periodAdditionType>
+					<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+					<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+				</item>
+			</groupItems>
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+			<outputParameters>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>РасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</outputParameters>
+			<item>
+				<groupItems>
+					<item xsi:type="GroupItemField">
+						<field>Группа</field>
+						<groupType>Hierarchy</groupType>
+						<periodAdditionType>None</periodAdditionType>
+						<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+						<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+					</item>
+				</groupItems>
+				<order>
+					<item xsi:type="OrderItemAuto"/>
+				</order>
+				<selection>
+					<item xsi:type="SelectedItemAuto"/>
+				</selection>
+				<item>
+					<groupItems>
+						<item xsi:type="GroupItemField">
+							<field>Статья</field>
+							<groupType>Items</groupType>
+							<periodAdditionType>None</periodAdditionType>
+							<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+							<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+						</item>
+					</groupItems>
+					<order>
+						<item xsi:type="OrderItemAuto"/>
+					</order>
+					<selection>
+						<item xsi:type="SelectedItemAuto"/>
+					</selection>
+				</item>
+			</item>
+		</row>
+	</item>
+</Settings>﻿<?xml version="1.0" encoding="UTF-8"?>
+<SchemaFile xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema"/>
+</SchemaFile>
